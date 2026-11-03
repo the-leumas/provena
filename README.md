@@ -1,5 +1,10 @@
 # Provena
 
+[![npm](https://img.shields.io/npm/v/@theleumas/provena?label=npm&color=cb3837)](https://www.npmjs.com/package/@theleumas/provena)
+[![CI](https://github.com/the-leumas/provena/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/the-leumas/provena/actions/workflows/ci.yml)
+[![license](https://img.shields.io/npm/l/@theleumas/provena)](LICENSE)
+[![node](https://img.shields.io/node/v/@theleumas/provena)](package.json)
+
 **Local hybrid retrieval with source-level provenance.**
 
 Provena is an embeddable TypeScript retrieval engine for text and code. It indexes documents supplied by an application, preserves source line references, and ranks passages using lexical search, vector similarity, or both. The index lives in memory; embeddings and persistence are optional.
@@ -7,6 +12,9 @@ Provena is an embeddable TypeScript retrieval engine for text and code. It index
 Provena is not a vector database, cloud search client, or LLM framework.
 
 > **Status:** Experimental — this is a pre-1.0 public beta. API and behavior may change between minor versions.
+
+**Docs:** [Integration guide](docs/integration.md) · [Public API](docs/api.md) · [Architecture](docs/architecture.md) · [CLI](cli/README.md) · [Examples](examples/README.md) · [All docs](docs/README.md)<br>
+**Project:** [npm](https://www.npmjs.com/package/@theleumas/provena) · [Changelog](CHANGELOG.md) · [Roadmap](ROADMAP.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
 
 ## Why Provena?
 
@@ -37,7 +45,7 @@ Provena is different: **you own the index, the embedder, and the storage**. The 
 npm install @theleumas/provena@beta
 ```
 
-This is a beta release; install it with the `beta` tag so the version stays explicit.
+This is a beta release; install it with the `beta` tag so the version stays explicit. Package page: [npmjs.com/package/@theleumas/provena](https://www.npmjs.com/package/@theleumas/provena).
 
 Build a tarball from source:
 
@@ -148,6 +156,10 @@ npx @theleumas/provena@beta --query "project overview"     # lexical, current di
 provena --source ./docs --mode lexical --query "retry"      # after npm i -g @theleumas/provena@beta
 provena --fixture --query retryJob                          # bundled sample documents
 ```
+
+![Terminal demo: lexical search ranks queue.ts first, semantic search ranks retry.ts first, and hybrid search shows both channel ranks](https://raw.githubusercontent.com/the-leumas/provena/main/docs/assets/demo.gif)
+
+The clip runs the bundled fixture. Its first semantic run downloads MiniLM once; that segment is compressed. [MP4 version](https://github.com/the-leumas/provena/blob/main/docs/assets/demo.mp4).
 
 `semantic`, `hybrid` and `--compare` need the optional `@huggingface/transformers@4.2.0`
 peer; the first run downloads MiniLM into a per-user cache (`~/.cache/provena/minilm`, override
@@ -271,6 +283,6 @@ See [Architecture](docs/architecture.md) and [API](docs/api.md) for complete sem
 
 ## Contributing and license
 
-Contributions welcome; start with [CONTRIBUTING.md](CONTRIBUTING.md). MIT licensed — see [LICENSE](LICENSE).
+Contributions welcome; start with [CONTRIBUTING.md](CONTRIBUTING.md). Security issues: see [SECURITY.md](SECURITY.md). MIT licensed — see [LICENSE](LICENSE).
 
 Copyright (c) 2026 Leumas
