@@ -1,7 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync, spawnSync } from 'node:child_process';
-import { mkdtemp, mkdir, readFile, writeFile, rm, symlink } from 'node:fs/promises';
+import { mkdtemp, mkdir, readFile, writeFile, rm, symlink, access } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -9,6 +10,7 @@ import { stripVTControlCharacters } from 'node:util';
 import { SemanticSearchEngine, defaultFileTypes, getSupportedExtensions } from '@theleumas/provena';
 import { FileSystemFolderSource } from '@theleumas/provena/filesystem';
 import { optionsFrom, runDemo, selectExcerpt, displayWidth, createProgress, cachedModelDirectory } from '../cli.mjs';
+import { invalidateCachedModel } from '../format.mjs';
 
 const script = fileURLToPath(new URL('../cli.mjs', import.meta.url));
 const normalize = text => text.replace(/\r\n?/g, '\n').replace(/^\uFEFF/, '');
@@ -60,6 +62,34 @@ test('demo: only a complete pinned model cache selects local loading', async t =
   await writeFile(join(directory, 'onnx/model.onnx'), 'model');
   assert.equal(await cachedModelDirectory(cache, 'model', 'revision'), directory);
   assert.equal(await cachedModelDirectory(cache, 'model', 'other-revision'), undefined);
+});
+
+test('demo: non-interactive progress announces a one-time runtime install once', () => {
+  let text = '';
+  const stream = { isTTY: false, write: chunk => { text += chunk; } };
+  const progress = createProgress({ width: 88, color: false, showcase: false }, stream);
+  progress.update({ phase: 'runtime-install' });
+  progress.update({ phase: 'runtime-install' });
+  assert.match(text, /Installing @huggingface\/transformers@4\.2\.0 \(one-time\)/);
+  assert.equal((text.match(/Installing/g) ?? []).length, 1);
+});
+
+test('demo: a pinned cache entry is rejected when its size or digest changes', async t => {
+  const cache = await mkdtemp(join(tmpdir(), 'provena-demo-cache-'));
+  t.after(() => rm(cache, { recursive: true, force: true }));
+  const directory = join(cache, 'model', 'revision');
+  await mkdir(join(directory, 'onnx'), { recursive: true });
+  for (const file of ['config.json', 'tokenizer.json', 'tokenizer_config.json']) await writeFile(join(directory, file), '{}');
+  await writeFile(join(directory, 'onnx/model.onnx'), 'model');
+  const digest = createHash('sha256').update('model').digest('hex');
+  const assets = new Map([['model@revision', { 'onnx/model.onnx': { bytes: 5, sha256: digest } }]]);
+  assert.equal(await cachedModelDirectory(cache, 'model', 'revision', assets), directory);
+  await writeFile(join(directory, 'onnx/model.onnx'), 'other');
+  assert.equal(await cachedModelDirectory(cache, 'model', 'revision', assets), undefined);
+  await writeFile(join(directory, 'onnx/model.onnx'), 'model!');
+  assert.equal(await cachedModelDirectory(cache, 'model', 'revision', assets), undefined);
+  await invalidateCachedModel(cache, 'model', 'revision');
+  await assert.rejects(access(directory));
 });
 
 test('demo: fixture ranking is exactly the public API ranking with verified source excerpts', async () => {

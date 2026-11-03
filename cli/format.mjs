@@ -1,5 +1,7 @@
 // Shared terminal presentation and verified excerpt selection.
-import { stat } from 'node:fs/promises';
+import { createReadStream } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { stat, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { defaultFileTypes } from '@theleumas/provena';
 
@@ -9,6 +11,16 @@ export const safe = text => String(text).replace(controls, ' ');
 export const normalize = text => text.replace(/\r\n?/g, '\n').replace(/^\uFEFF/, '');
 const escapeRegex = text => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const paint = (text, style, color) => color && style ? `\x1b[${style}m${text}\x1b[0m` : text;
+
+/** Preserve the full cause chain; wrappers such as the MiniLM loader keep the
+ * actionable failure (missing runtime, corrupt cache, ONNX error) in `cause`. */
+export function describeError(error) {
+  const messages = [];
+  for (let current = error; current instanceof Error; current = current.cause) {
+    if (current.message && !messages.includes(current.message)) messages.push(current.message);
+  }
+  return messages.length ? messages.join(' → caused by: ') : String(error);
+}
 
 // Common terminal cell widths, including combining characters and emoji clusters.
 function cells(text) {
@@ -164,7 +176,19 @@ export function renderDemo(options, report, entries) {
 
 // One animated stderr line; result output remains deterministic and independently usable.
 export function createProgress(options, stream = process.stderr) {
-  if (options.showcase || !stream.isTTY || process.env.TERM === 'dumb') return { update() {}, stop() {} };
+  if (options.showcase || process.env.TERM === 'dumb') return { update() {}, stop() {} };
+  if (!stream.isTTY) {
+    let announced = false;
+    return {
+      update(event) {
+        if (event.phase === 'runtime-install' && !announced) {
+          announced = true;
+          stream.write('Installing @huggingface/transformers@4.2.0 (one-time) ...\n');
+        }
+      },
+      stop() {},
+    };
+  }
   const frames = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];
   let state; let frame = 0; let timer; let lastDraw = -Infinity; let stopped = false;
   const began = performance.now();
@@ -185,7 +209,7 @@ export function createProgress(options, stream = process.stderr) {
     } else if (state.phase === 'verify') {
       message = `${compact ? 'Verify' : 'Checking sources'} ${state.completed}/${state.total}`;
     } else {
-      message = { 'index-load': 'Loading saved index', 'index-save': 'Saving index atomically', runtime: 'Preparing MiniLM', scan: 'Discovering supported documents', check: `Checking revisions ${state.completed}/${state.total}`, parse: `Parsing ${state.completed}/${state.total}`, chunk: `Chunking complete · ${state.completed} passages`, embed: state.total === undefined ? 'Embedding passages' : `Embedding ${state.completed}/${state.total} inputs`, search: 'Searching passages' }[state.phase];
+      message = { 'index-load': 'Loading saved index', 'index-save': 'Saving index atomically', runtime: 'Preparing MiniLM', 'runtime-install': 'Installing semantic runtime (one-time)', scan: 'Discovering supported documents', check: `Checking revisions ${state.completed}/${state.total}`, parse: `Parsing ${state.completed}/${state.total}`, chunk: `Chunking complete · ${state.completed} passages`, embed: state.total === undefined ? 'Embedding passages' : `Embedding ${state.completed}/${state.total} inputs`, search: 'Searching passages' }[state.phase];
     }
     if (!message) return;
     const line = `${frames[frame++ % frames.length]} ${message}${room >= 50 ? ` · ${((performance.now() - began) / 1000).toFixed(1)}s` : ''}`;
@@ -224,16 +248,49 @@ export function createProgress(options, stream = process.stderr) {
 
 // Use the pinned cache as a local model: Hub-name tokenizer discovery can make
 // metadata requests even when the revision-specific assets are already cached.
-export async function cachedModelDirectory(cacheDir, model, revision) {
+// The pinned revision is immutable, so its exact bytes can be verified. A
+// truncated or overwritten download otherwise fails deep inside ONNX parsing.
+const PINNED_MODEL_ASSETS = new Map([
+  ['Xenova/all-MiniLM-L6-v2@751bff37182d3f1213fa05d7196b954e230abad9', {
+    'config.json': { bytes: 650, sha256: '7135149f7cffa1a573466c6e4d8423ed73b62fd2332c575bf738a0d033f70df7' },
+    'tokenizer.json': { bytes: 711661, sha256: 'da0e79933b9ed51798a3ae27893d3c5fa4a201126cef75586296df9b4d2c62a0' },
+    'tokenizer_config.json': { bytes: 366, sha256: '9261e7d79b44c8195c1cada2b453e55b00aeb81e907a6664974b4d7776172ab3' },
+    'onnx/model.onnx': { bytes: 90387606, sha256: '759c3cd2b7fe7e93933ad23c4c9181b7396442a2ed746ec7c1d46192c469c46e' },
+  }],
+]);
+
+function fileDigest(path) {
+  return new Promise((resolve, reject) => {
+    const hash = createHash('sha256');
+    const stream = createReadStream(path);
+    stream.on('data', chunk => hash.update(chunk));
+    stream.on('end', () => resolve(hash.digest('hex')));
+    stream.on('error', reject);
+  });
+}
+
+export async function cachedModelDirectory(cacheDir, model, revision, assets = PINNED_MODEL_ASSETS) {
   const directory = join(cacheDir, model, revision);
+  const expected = assets.get(`${model}@${revision}`);
   for (const file of ['config.json', 'tokenizer.json', 'tokenizer_config.json', 'onnx/model.onnx']) {
+    const path = join(directory, file);
     try {
-      const info = await stat(join(directory, file));
+      const info = await stat(path);
       if (!info.isFile() || info.size === 0) return undefined;
+      const pinned = expected?.[file];
+      if (pinned) {
+        if (info.size !== pinned.bytes) return undefined;
+        if (pinned.sha256 && await fileDigest(path) !== pinned.sha256) return undefined;
+      }
     } catch (error) {
       if (error.code === 'ENOENT' || error.code === 'ENOTDIR') return undefined;
       throw error;
     }
   }
   return directory;
+}
+
+/** Remove one pinned revision so Transformers.js cannot reuse a damaged download. */
+export async function invalidateCachedModel(cacheDir, model, revision) {
+  await rm(join(cacheDir, model, revision), { recursive: true, force: true });
 }

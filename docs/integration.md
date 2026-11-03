@@ -95,6 +95,8 @@ The version describes all custom parser behavior. Increment it when that behavio
 
 Install `@huggingface/transformers@4.2.0` alongside the package only when using `/minilm`. Built tarball installs for core-only usage omit the optional peer. Git/source builds install development dependencies for compilation, including Transformers.js.
 
+The CLI is the exception: when the runtime is missing from its resolution scope (for example `npx` or a global install), it installs the pinned version into `~/.cache/provena/runtime` and passes the loaded namespace to `MiniLMEmbedder` through the `runtime` option. Library hosts still own installation, placement and disposal of the runtime.
+
 ```ts
 import { MiniLMEmbedder } from '@theleumas/provena/minilm';
 const embedder = new MiniLMEmbedder({
@@ -109,7 +111,7 @@ await engine.initialize();
 await embedder.dispose();
 ```
 
-No runtime/model load occurs on import or construction. The first nonempty call loads once; subsequent calls reuse the pipeline. The host controls the batch size and execution location. Empty document batches return no vectors without loading. Disposal is terminal; later calls reject. Concurrent calls serialize; cancellation is checked around expensive stages but does not interrupt native work already running.
+No runtime/model load occurs on import or construction. The first nonempty call loads once; subsequent calls reuse the pipeline. The host controls the batch size and execution location. Empty document batches return no vectors without loading. Disposal is terminal; later calls reject. Concurrent calls serialize; cancellation is checked around expensive stages but does not interrupt native work already running. Hosts that loaded Transformers.js from a non-standard location can pass the namespace as `runtime`; construction still performs no load.
 
 The default model is `Xenova/all-MiniLM-L6-v2` at `751bff37182d3f1213fa05d7196b954e230abad9`, using 384-dimensional normalized mean-pooled embeddings. Custom model IDs/paths require an explicit revision and compatible 384-dimensional output. Model/revision, dtype/device, runtime/adapter behavior, pooling/normalization and tokenizer policy participate in identity. Batch size, cache location and `localFilesOnly` do not. Mutable revisions such as `main` weaken reproducibility. The default tokenizer truncates beyond 512 tokens.
 

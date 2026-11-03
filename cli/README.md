@@ -26,12 +26,22 @@ Pick `lexical` (the default, with no model needed) for exact terms, names and id
 from the text.
 
 Semantic, hybrid and `--compare` use `Xenova/all-MiniLM-L6-v2` through the optional
-`@huggingface/transformers@4.2.0` peer. Install it yourself (`npm i @huggingface/transformers@4.2.0`).
-On first use the model is **downloaded and cached**; later runs reuse the cache.
+`@huggingface/transformers@4.2.0` runtime. If that package is not already resolvable, the CLI
+installs the pinned version once into `~/.cache/provena/runtime` (override with `--runtime-dir`
+or `$PROVENA_RUNTIME_DIR`) and reuses it. This is what makes the bare
+`npx @theleumas/provena@beta --mode semantic` command work without installing the peer into the
+npx temporary directory. `--no-install` or `$PROVENA_NO_INSTALL=1` disables automatic
+installation; install it yourself with `npm i @huggingface/transformers@4.2.0` in a project, or
+`npm i -g @huggingface/transformers@4.2.0` for a global CLI.
+
+On first semantic use the model is **downloaded and cached**; later runs verify the pinned
+bytes and reuse the cache.
 
 Cache location, first match wins: `--cache-dir DIR`, `$PROVENA_CACHE_DIR`, an existing
 `.cache/minilm` inside a checkout, otherwise `$XDG_CACHE_HOME` or `~/.cache` + `/provena/minilm`.
-`--model-dir DIR` points at staged model assets and disables remote loading (offline use).
+Cached assets for the pinned MiniLM revision are checked by size and SHA-256 before local
+loading; a damaged revision directory is removed and downloaded again. `--model-dir DIR` points
+at staged model assets and disables remote loading (offline use).
 
 ## Ollama backend
 
@@ -75,6 +85,7 @@ See the full [Known limitations](../README.md#known-limitations). A returned res
 
 ## Layout
 
-`cli.mjs` arguments and rendering · `runtime.mjs` engine and model setup · `index.mjs` saved indexes ·
+`cli.mjs` arguments and rendering · `runtime.mjs` engine and model setup · `transformers.mjs`
+managed Transformers.js runtime · `index.mjs` saved indexes ·
 `scrollback.mjs` / `prompt.mjs` interactive prompt · `format.mjs` text layout · `ollama.mjs` CLI-only
 Ollama backend · `fixtures/` sample documents · `tests/` (not published). Tests: `npm run test:search`.

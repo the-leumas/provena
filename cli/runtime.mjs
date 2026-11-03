@@ -5,7 +5,8 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { SemanticSearchEngine, ParserRegistry, createSearchSession, CHUNKER_VERSION, EMBEDDING_INPUT_VERSION } from '@theleumas/provena';
 import { FileSystemFolderSource } from '@theleumas/provena/filesystem';
-import { selectExcerpt, cachedModelDirectory, normalize } from './format.mjs';
+import { selectExcerpt, cachedModelDirectory, invalidateCachedModel, normalize } from './format.mjs';
+import { loadTransformers } from './transformers.mjs';
 import { indexStore } from './index.mjs';
 const project = fileURLToPath(new URL('..', import.meta.url));
 const digest = text => createHash('sha256').update(text).digest('hex');
@@ -43,14 +44,24 @@ export function createModelManager() {
         return resource;
       }
       const { MiniLMEmbedder, MINILM_DEFAULT_MODEL, MINILM_DEFAULT_REVISION } = await import('@theleumas/provena/minilm');
+      const { runtime } = await loadTransformers({
+        runtimeDir: options.runtimeDir,
+        install: options.installRuntime !== false,
+        notify: () => progress({ phase: 'runtime-install' }),
+      });
       const modelDir = options.modelDir ?? await cachedModelDirectory(options.cacheDir, MINILM_DEFAULT_MODEL, MINILM_DEFAULT_REVISION);
+      if (!options.modelDir && !modelDir) {
+        // A partial or corrupt revision directory must not be reused; the pinned
+        // model is immutable, so deleting it is always safe.
+        await invalidateCachedModel(options.cacheDir, MINILM_DEFAULT_MODEL, MINILM_DEFAULT_REVISION);
+      }
       if (modelDir) {
-        const { env } = await import('@huggingface/transformers');
+        const { env } = runtime;
         const previous = { allowLocalModels: env.allowLocalModels, allowRemoteModels: env.allowRemoteModels };
         restore = () => Object.assign(env, previous);
         env.allowLocalModels = true; env.allowRemoteModels = false;
       }
-      const embedder = new MiniLMEmbedder({ cacheDir: options.cacheDir, device: 'cpu', dtype: 'fp32',
+      const embedder = new MiniLMEmbedder({ cacheDir: options.cacheDir, device: 'cpu', dtype: 'fp32', runtime,
         ...(modelDir ? { model: modelDir, revision: MINILM_DEFAULT_REVISION, localFilesOnly: true } : {}),
         onProgress(event) { notify(event.status === 'ready' ? { phase: 'model-ready' } :
           { phase: 'model', file: event.file, percent: Number.isFinite(event.progress) ? Math.max(0, Math.min(100, event.progress)) : undefined }); },

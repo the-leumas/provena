@@ -138,6 +138,11 @@ test('search CLI: default source is cwd recursively, with a quiet source-selecti
   const withEnv = (env, args = []) => optionsFrom(args, { columns: 88, isTTY: false }, env);
   assert.equal(withEnv({ PROVENA_CACHE_DIR: '/x/models' }).cacheDir, '/x/models');
   assert.equal(withEnv({ PROVENA_CACHE_DIR: '/x/models' }, ['--cache-dir', '/y']).cacheDir, '/y');
+  assert.equal(withEnv({ PROVENA_RUNTIME_DIR: '/x/runtime' }).runtimeDir, '/x/runtime');
+  assert.equal(withEnv({}, ['--runtime-dir', '/y']).runtimeDir, '/y');
+  assert.equal(withEnv({}).installRuntime, true);
+  assert.equal(withEnv({}, ['--no-install']).installRuntime, false);
+  assert.equal(withEnv({ PROVENA_NO_INSTALL: '1' }).installRuntime, false);
   if (!(await import('node:fs')).existsSync(join(project, '.cache/minilm'))) assert.equal(withEnv({ XDG_CACHE_HOME: '/xdg' }).cacheDir, '/xdg/provena/minilm');
   assert.equal(options(['--fixture']).root, join(project, 'cli/fixtures/source'));
   assert.throws(() => options(['--source', '']), /requires a directory path/);

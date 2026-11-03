@@ -161,11 +161,15 @@ provena --fixture --query retryJob                          # bundled sample doc
 
 The clip runs the bundled fixture. Its first semantic run downloads MiniLM once; that segment is compressed. [MP4 version](https://github.com/the-leumas/provena/blob/main/docs/assets/demo.mp4).
 
-`semantic`, `hybrid` and `--compare` need the optional `@huggingface/transformers@4.2.0`
-peer; the first run downloads MiniLM into a per-user cache (`~/.cache/provena/minilm`, override
-with `--cache-dir` or `PROVENA_CACHE_DIR`). Index creation requires `--save-index`; an existing
-index in `cwd/.provena-indexes` is reused and refreshed on later runs (an unchanged index is not
-rewritten), and `--no-index` avoids both loading and writing saved indexes.
+`semantic`, `hybrid` and `--compare` use the optional `@huggingface/transformers@4.2.0`
+runtime. The library keeps it as an optional peer; the CLI installs the pinned version once
+into `~/.cache/provena/runtime` when it is missing (`--no-install` or
+`PROVENA_NO_INSTALL=1` opts out). The first semantic run downloads MiniLM into a per-user
+model cache (`~/.cache/provena/minilm`, override with `--cache-dir` or
+`PROVENA_CACHE_DIR`); later runs verify the pinned bytes and reuse them. Index creation
+requires `--save-index`; an existing index in `cwd/.provena-indexes` is reused and
+refreshed on later runs (an unchanged index is not rewritten), and `--no-index` avoids
+both loading and writing saved indexes.
 
 Ollama embeddings are a CLI-only option. provena does not export an Ollama adapter; hosts
 that want Ollama, or any other model, implement the Embedder interface themselves. The CLI

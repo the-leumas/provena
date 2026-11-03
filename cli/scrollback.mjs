@@ -1,7 +1,7 @@
 // A small repeat-query loop around the same runtime used by batch CLI runs.
 import { createRuntime } from './runtime.mjs';
 import { promptForQuery, validateQuery } from './prompt.mjs';
-import { createProgress, safe, wrap } from './format.mjs';
+import { createProgress, describeError, safe, wrap } from './format.mjs';
 
 export async function runInteractive(options, { render, input = process.stdin, output = process.stdout,
   status = process.stderr, prompt = promptForQuery, runtimeFactory = createRuntime } = {}) {
@@ -43,7 +43,7 @@ export async function runInteractive(options, { render, input = process.stdin, o
           await preparation();
         } catch (error) {
           if (controller.signal.aborted) return 130;
-          row(`Refresh failed: ${error.message}. The previous committed index is retained.`);
+          row(`Refresh failed: ${describeError(error)}. The previous committed index is retained.`);
         }
         continue;
       }
@@ -66,13 +66,13 @@ export async function runInteractive(options, { render, input = process.stdin, o
         if (!record.index) memoryHintShown = true;
       } catch (error) {
         if (controller.signal.aborted) return 130;
-        row(`Search failed: ${error.message}. Use /refresh to check source changes.`);
+        row(`Search failed: ${describeError(error)}. Use /refresh to check source changes.`);
       }
     }
     return 130;
   } catch (error) {
     if (controller.signal.aborted) return 130;
-    row(`Preparation failed: ${error.message}`); return 1;
+    row(`Preparation failed: ${describeError(error)}`); return 1;
   } finally {
     process.removeListener('SIGINT', interrupt); display?.stop(); await runtime?.dispose();
   }

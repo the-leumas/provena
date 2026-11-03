@@ -20,3 +20,4 @@ import '../cli/tests/index.test.mjs';
 import '../cli/tests/scrollback.test.mjs';
 import '../cli/tests/runtime.test.mjs';
 import '../cli/tests/ollama.test.mjs';
+import '../cli/tests/transformers.test.mjs';

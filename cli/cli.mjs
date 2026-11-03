@@ -6,8 +6,9 @@ import { existsSync } from 'node:fs';
 import { homedir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
-import { safe, wrap, renderDemo, createProgress, crop, displayWidth } from './format.mjs';
+import { safe, wrap, renderDemo, createProgress, crop, displayWidth, describeError } from './format.mjs';
 import { runSearch } from './runtime.mjs';
+import { defaultRuntimeDir } from './transformers.mjs';
 export { runSearch } from './runtime.mjs';
 export { selectExcerpt, displayWidth, createProgress, cachedModelDirectory } from './format.mjs';
 
@@ -39,6 +40,8 @@ export const help = `Usage: provena [options] (or node cli/cli.mjs [options])
   --no-index             Ignore saved indexes; run entirely in memory
   --cache-dir DIR        MiniLM cache (default: $PROVENA_CACHE_DIR, else ~/.cache/provena/minilm)
   --model-dir DIR        Staged MiniLM-L6-v2 assets; disable remote model loading
+  --runtime-dir DIR      Managed Transformers.js runtime (default: ~/.cache/provena/runtime)
+  --no-install           Never auto-install the semantic runtime
   --embedder NAME        Embedding backend: minilm (default) or ollama
   --ollama-model NAME    Ollama model name (required with --embedder ollama)
   --ollama-url URL       Ollama base URL (not specified, uses default: http://localhost:11434)
@@ -52,8 +55,10 @@ Choose --source PATH to search another directory. For a code retrieval demo:
   --source ${JSON.stringify(resolve(project, 'src'))} --query refreshSource
 Or use --fixture for the bundled job queue (${safe(resolve(project, 'cli/fixtures/source'))}).
 
-Semantic/hybrid use real MiniLM on CPU. First use may download model assets;
-complete cached assets are loaded directly from disk without remote requests.
+Semantic/hybrid use real MiniLM on CPU. The optional @huggingface/transformers
+runtime is installed once into the runtime cache when missing; set
+PROVENA_NO_INSTALL=1 or use --no-install to disable that. First use may download
+model assets; complete cached assets are verified and loaded from disk.
 Existing source-bound indexes in cwd/.provena-indexes are reused automatically.
 Paths are relative to the selected source; ranks are retrieval order, not confidence.
 All canonical supported file types are admitted; see docs/file-types.md.
@@ -65,7 +70,7 @@ export function optionsFrom(argv, terminal = process.stdout, env = process.env) 
   // parseArgs has no optional string values. Normalize this one option without
   // interpreting values belonging to other options as flags.
   const normalized = [];
-  const strings = new Set(['query', 'mode', 'source', 'limit', 'lines', 'width', 'color', 'cache-dir', 'model-dir', 'index-location', 'embedder', 'ollama-model', 'ollama-url']);
+  const strings = new Set(['query', 'mode', 'source', 'limit', 'lines', 'width', 'color', 'cache-dir', 'model-dir', 'runtime-dir', 'index-location', 'embedder', 'ollama-model', 'ollama-url']);
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i];
     if (arg === '--save-index') {
@@ -80,8 +85,8 @@ export function optionsFrom(argv, terminal = process.stdout, env = process.env) 
     query: { type: 'string' }, mode: { type: 'string' }, source: { type: 'string' },
     fixture: { type: 'boolean' }, limit: { type: 'string' }, lines: { type: 'string' },
     width: { type: 'string' }, color: { type: 'string' }, showcase: { type: 'boolean' },
-    'cache-dir': { type: 'string' }, 'model-dir': { type: 'string' }, help: { type: 'boolean' },
-    dev: { type: 'boolean' }, compare: { type: 'boolean' }, full: { type: 'boolean' },
+    'cache-dir': { type: 'string' }, 'model-dir': { type: 'string' }, 'runtime-dir': { type: 'string' }, help: { type: 'boolean' },
+    dev: { type: 'boolean' }, compare: { type: 'boolean' }, full: { type: 'boolean' }, 'no-install': { type: 'boolean' },
     'save-index': { type: 'string' }, 'index-location': { type: 'string' },
     'verify-content': { type: 'boolean' }, 'no-index': { type: 'boolean' },
     embedder: { type: 'string' }, 'ollama-model': { type: 'string' }, 'ollama-url': { type: 'string' },
@@ -124,6 +129,8 @@ export function optionsFrom(argv, terminal = process.stdout, env = process.env) 
     sourceDefaulted: v.source === undefined && !v.fixture,
     cacheDir: resolve(v['cache-dir'] ?? defaultCacheDir(env)),
     modelDir: v['model-dir'] !== undefined ? resolve(v['model-dir']) : undefined,
+    runtimeDir: resolve(v['runtime-dir'] ?? defaultRuntimeDir(env)),
+    installRuntime: !(v['no-install'] ?? false) && env.PROVENA_NO_INSTALL !== '1',
     dev: v.dev ?? false, compare: v.compare ?? false, full: v.full ?? false,
     sourceProvided: v.source !== undefined,
     saveIndexBase: v['save-index'] !== undefined ? resolve(v['save-index'] || process.cwd()) : undefined,
@@ -261,7 +268,7 @@ export async function main() {
     const message = showcase ? (!options ? 'Invalid demo options. Retry without --showcase or run --help.' : options.mode !== 'lexical' ?
       'Could not load the model, index the source, or verify results. Retry without --showcase for details.' :
       'Could not index the source or verify results. Retry without --showcase for details.') :
-      `Search failed: ${error.message}${error.cause ? ` (${error.cause.message})` : ''}`;
+      `Search failed: ${describeError(error)}`;
     process.stderr.write(wrap(message, width).join('\n') + '\n');
     process.exitCode = 1;
   } finally { process.removeListener('SIGINT', interrupt); }

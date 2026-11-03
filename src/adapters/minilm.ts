@@ -8,6 +8,9 @@ export interface MiniLMEmbedderOptions {
   /** Custom/local model must produce 384-dimensional sentence embeddings; supply its revision explicitly. */
   model?: string;
   revision?: string;
+  /** Preloaded Transformers.js namespace. The CLI uses this to load a managed runtime
+   * from outside the package's normal module resolution scope. */
+  runtime?: typeof import('@huggingface/transformers');
   batchSize?: number;
   /** Node default is cpu. Browser/worker hosts select wasm or supported webgpu explicitly. */
   device?: 'cpu' | 'wasm' | 'webgpu';
@@ -57,7 +60,7 @@ export class MiniLMEmbedder implements Embedder {
     this.check(options);
     if (!this.extractor) {
       try {
-        const runtime = await import('@huggingface/transformers');
+        const runtime = this.options.runtime ?? await import('@huggingface/transformers');
         this.check(options);
         if (runtime.env.version !== RUNTIME_VERSION) throw new Error(`Expected @huggingface/transformers ${RUNTIME_VERSION}, received ${runtime.env.version}`);
         const loading = {
@@ -83,7 +86,10 @@ export class MiniLMEmbedder implements Embedder {
         this.options.onProgress?.({ status: 'ready' });
       } catch (cause) {
         this.check(options);
-        throw new Error(`MiniLM model load failed (${this.model}@${this.revision}). Install @huggingface/transformers@${RUNTIME_VERSION} and check model/cache availability.`, { cause });
+        const cacheHint = this.options.cacheDir
+          ? ` If the cache is incomplete, remove ${this.options.cacheDir} and retry.`
+          : '';
+        throw new Error(`MiniLM model load failed (${this.model}@${this.revision}). Install @huggingface/transformers@${RUNTIME_VERSION} and check model/cache availability.${cacheHint}`, { cause });
       }
     }
     this.check(options); return this.extractor;

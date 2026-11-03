@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.1.0-beta.2 (2026-11-03)
+
+- Semantic and hybrid CLI modes now work from `npx`, global and project installs without
+  manually installing the optional peer. The CLI installs the pinned
+  `@huggingface/transformers@4.2.0` runtime once into `~/.cache/provena/runtime`;
+  `--no-install` or `PROVENA_NO_INSTALL=1` opts out.
+- Pinned MiniLM cache assets are verified by size and SHA-256 before local loading. A damaged
+  revision directory is removed and downloaded again instead of failing with an opaque ONNX
+  parse error.
+- Interactive preparation failures now include the full cause chain, so cache, runtime and
+  tokenizer failures are distinguishable.
+
 ## 0.1.0-beta.1 (2026-11-03)
 
 Initial public beta.
