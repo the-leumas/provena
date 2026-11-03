@@ -1,0 +1,3789 @@
+{
+  "version": 1,
+  "date": "2026-10-11T04:02:42.324Z",
+  "environment": {
+    "node": "v24.21.0",
+    "cpu": "Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz",
+    "logicalCpus": 8,
+    "totalMemoryBytes": 8177311744,
+    "freeMemoryBytesAtEnd": 3298861056
+  },
+  "method": "Sequential isolated children, same source generator and model per comparison, warm OS cache; nested stage times are inclusive. Model assets offline. Peak RSS cumulative per child; sampled memory/GC approximate. Instrumentation adds overhead. Native inference calls only for real runs.",
+  "corpora": [
+    {
+      "size": 16,
+      "kind": "api",
+      "bytes": 4975,
+      "shape": "small",
+      "markdown": 8,
+      "typescript": 8
+    },
+    {
+      "size": 16,
+      "kind": "cli",
+      "bytes": 4975,
+      "shape": "small",
+      "markdown": 8,
+      "typescript": 8
+    }
+  ],
+  "results": [
+    {
+      "kind": "api",
+      "size": 16,
+      "model": "{\"adapter\":\"minilm-v1\",\"runtime\":\"4.2.0\",\"model\":\".cache/minilm/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9\",\"revision\":\"751bff37182d3f1213fa05d7196b954e230abad9\",\"device\":\"cpu\",\"dtype\":\"fp32\",\"pooling\":\"mean\",\"normalize\":true,\"truncation\":\"pinned-tokenizer-default\"}",
+      "real": true,
+      "restart": false,
+      "phases": [
+        {
+          "label": "setup",
+          "counts": {
+            "gcMs": 2.6367630064487457,
+            "gcCount": 2
+          },
+          "stages": {},
+          "calls": {},
+          "maxEventLoopLagMs": 0,
+          "peak": {
+            "rss": 108896256,
+            "heapTotal": 22478848,
+            "heapUsed": 15126296,
+            "external": 2693492,
+            "arrayBuffers": 150703
+          },
+          "wallMs": 0.6388220000000047,
+          "cpu": {
+            "user": 852,
+            "system": 0
+          },
+          "cpuUtilizationPercent": 133.37048504904243,
+          "endMemory": {
+            "rss": 108896256,
+            "heapTotal": 22478848,
+            "heapUsed": 13944984,
+            "external": 2693492,
+            "arrayBuffers": 148663
+          },
+          "processPeakRssBytes": 108896256
+        },
+        {
+          "label": "cold",
+          "counts": {
+            "entries": 17,
+            "readBufferBytesAllocated": 4991,
+            "bytesRead": 4975,
+            "gcMs": 9.27750600874424,
+            "gcCount": 7,
+            "documentEmbeddingCalls": 1,
+            "freshEmbeddingInputs": 16,
+            "modelInitializationMs": 306.066754
+          },
+          "stages": {
+            "FileIndexStorage.load": 0.46938199999999597,
+            "reusableSnapshot": 0.2652119999999627,
+            "fs.realpath": 4.9533740000000535,
+            "fs.lstat": 9.75393100000025,
+            "fs.opendir": 0.48679199999992306,
+            "FileSystemFolderSource.list": 11.571348,
+            "fs.open": 1.1146959999998671,
+            "fs.fstat": 1.6390390000002526,
+            "fs.read": 3.153876999999852,
+            "fs.close": 0.7252150000001052,
+            "FileSystemFolderSource.read": 17.372186,
+            "parse": 1.8274939999999447,
+            "contentHash": 1.5754419999999527,
+            "chunkDocument": 2.327256000000091,
+            "nativeBatch": 238.47681,
+            "documentInferenceIncludingLoad": 545.255674,
+            "snapshotMatches": 0.15562799999997878,
+            "snapshotOf": 0.6290089999999964,
+            "snapshotStringify": 1.1862770000000182,
+            "FileIndexStorage.save": 5.837147000000073
+          },
+          "calls": {
+            "FileIndexStorage.load": 1,
+            "reusableSnapshot": 1,
+            "fs.realpath": 99,
+            "fs.lstat": 179,
+            "fs.opendir": 2,
+            "FileSystemFolderSource.list": 1,
+            "fs.open": 16,
+            "fs.fstat": 32,
+            "fs.read": 32,
+            "fs.close": 16,
+            "FileSystemFolderSource.read": 16,
+            "parse": 16,
+            "contentHash": 16,
+            "chunkDocument": 16,
+            "nativeBatch": 4,
+            "documentInferenceIncludingLoad": 1,
+            "snapshotMatches": 1,
+            "snapshotOf": 1,
+            "snapshotStringify": 1,
+            "FileIndexStorage.save": 1
+          },
+          "maxEventLoopLagMs": 227.361065,
+          "peak": {
+            "rss": 295436288,
+            "heapTotal": 38543360,
+            "heapUsed": 26812880,
+            "external": 36163019,
+            "arrayBuffers": 32123472
+          },
+          "result": {
+            "sourceId": "project",
+            "documents": 16,
+            "chunks": 16,
+            "unchangedChunks": 0,
+            "documentsRead": 16,
+            "documentsParsed": 16,
+            "documentsReused": 0,
+            "documentsDeleted": 0,
+            "persistence": "saved",
+            "embeddedTexts": 16,
+            "reusedVectors": 0
+          },
+          "wallMs": 589.028505,
+          "cpu": {
+            "user": 1442229,
+            "system": 137543
+          },
+          "cpuUtilizationPercent": 268.1995839912705,
+          "endMemory": {
+            "rss": 295436288,
+            "heapTotal": 38219776,
+            "heapUsed": 26049544,
+            "external": 36163019,
+            "arrayBuffers": 32123472
+          },
+          "processPeakRssBytes": 295436288
+        },
+        {
+          "label": "unchanged",
+          "counts": {
+            "entries": 17,
+            "gcMs": 0.4827919900417328,
+            "gcCount": 1
+          },
+          "stages": {
+            "fs.realpath": 2.639412000000334,
+            "fs.lstat": 3.569664999999759,
+            "fs.opendir": 0.3067520000000741,
+            "FileSystemFolderSource.list": 8.186598000000004,
+            "snapshotMatches": 0.6601679999999988
+          },
+          "calls": {
+            "fs.realpath": 35,
+            "fs.lstat": 67,
+            "fs.opendir": 2,
+            "FileSystemFolderSource.list": 1,
+            "snapshotMatches": 1
+          },
+          "maxEventLoopLagMs": 0,
+          "peak": {
+            "rss": 328335360,
+            "heapTotal": 38330368,
+            "heapUsed": 25657544,
+            "external": 68515436,
+            "arrayBuffers": 64475889
+          },
+          "result": {
+            "sourceId": "project",
+            "documents": 16,
+            "chunks": 16,
+            "unchangedChunks": 16,
+            "documentsRead": 0,
+            "documentsParsed": 0,
+            "documentsReused": 16,
+            "documentsDeleted": 0,
+            "persistence": "unchanged",
+            "embeddedTexts": 0,
+            "reusedVectors": 16
+          },
+          "wallMs": 9.708041999999978,
+          "cpu": {
+            "user": 42192,
+            "system": 11674
+          },
+          "cpuUtilizationPercent": 554.8595690047501,
+          "endMemory": {
+            "rss": 328335360,
+            "heapTotal": 38330368,
+            "heapUsed": 20932560,
+            "external": 68515436,
+            "arrayBuffers": 64475889
+          },
+          "processPeakRssBytes": 328335360
+        },
+        {
+          "label": "search-lexical-0",
+          "counts": {
+            "gcMs": 2.9430820047855377,
+            "gcCount": 2
+          },
+          "stages": {
+            "collectCandidates": 0.24840599999993174,
+            "rankLexical": 3.9531749999999874
+          },
+          "calls": {
+            "collectCandidates": 1,
+            "rankLexical": 1
+          },
+          "maxEventLoopLagMs": 0.6212080000000242,
+          "peak": {
+            "rss": 338165760,
+            "heapTotal": 38592512,
+            "heapUsed": 20934408,
+            "external": 78205838,
+            "arrayBuffers": 74166291
+          },
+          "result": {
+            "results": 3
+          },
+          "wallMs": 5.2339900000000625,
+          "cpu": {
+            "user": 35589,
+            "system": 0
+          },
+          "cpuUtilizationPercent": 679.9592662576653,
+          "endMemory": {
+            "rss": 338165760,
+            "heapTotal": 38592512,
+            "heapUsed": 19972256,
+            "external": 78205838,
+            "arrayBuffers": 74166291
+          },
+          "processPeakRssBytes": 338165760
+        },
+        {
+          "label": "search-lexical-1",
+          "counts": {
+            "gcMs": 2.7579230070114136,
+            "gcCount": 2
+          },
+          "stages": {
+            "collectCandidates": 0.034138999999981934,
+            "rankLexical": 0.6596289999999954
+          },
+          "calls": {
+            "collectCandidates": 1,
+            "rankLexical": 1
+          },
+          "maxEventLoopLagMs": 0.18310900000005859,
+          "peak": {
+            "rss": 346423296,
+            "heapTotal": 38592512,
+            "heapUsed": 19996328,
+            "external": 86463374,
+            "arrayBuffers": 82423827
+          },
+          "result": {
+            "results": 3
+          },
+          "wallMs": 0.7643389999999499,
+          "cpu": {
+            "user": 884,
+            "system": 0
+          },
+          "cpuUtilizationPercent": 115.65548794449295,
+          "endMemory": {
+            "rss": 346423296,
+            "heapTotal": 38592512,
+            "heapUsed": 19839144,
+            "external": 86463374,
+            "arrayBuffers": 82423827
+          },
+          "processPeakRssBytes": 346423296
+        },
+        {
+          "label": "search-lexical-2",
+          "counts": {},
+          "stages": {
+            "collectCandidates": 0.022967999999991662,
+            "rankLexical": 0.9543350000000146
+          },
+          "calls": {
+            "collectCandidates": 1,
+            "rankLexical": 1
+          },
+          "maxEventLoopLagMs": 0,
+          "peak": {
+            "rss": 363200512,
+            "heapTotal": 38592512,
+            "heapUsed": 20630216,
+            "external": 103437198,
+            "arrayBuffers": 99397651
+          },
+          "result": {
+            "results": 3
+          },
+          "wallMs": 1.0739810000000034,
+          "cpu": {
+            "user": 1195,
+            "system": 23
+          },
+          "cpuUtilizationPercent": 113.40982754815924,
+          "endMemory": {
+            "rss": 363200512,
+            "heapTotal": 38592512,
+            "heapUsed": 20631968,
+            "external": 103437198,
+            "arrayBuffers": 99397651
+          },
+          "processPeakRssBytes": 363200512
+        },
+        {
+          "label": "search-semantic-0",
+          "counts": {
+            "queryEmbeddingCalls": 1,
+            "gcMs": 3.0676040053367615,
+            "gcCount": 2
+          },
+          "stages": {
+            "collectCandidates": 0.015234999999961474,
+            "nativeBatch": 6.706008999999995,
+            "queryInferenceIncludingLoad": 6.8505440000000135,
+            "rankSemantic": 1.8488859999999931
+          },
+          "calls": {
+            "collectCandidates": 1,
+            "nativeBatch": 1,
+            "queryInferenceIncludingLoad": 1,
+            "rankSemantic": 1
+          },
+          "maxEventLoopLagMs": 2.643867,
+          "peak": {
+            "rss": 375390208,
+            "heapTotal": 38592512,
+            "heapUsed": 20633736,
+            "external": 115643982,
+            "arrayBuffers": 111604435
+          },
+          "result": {
+            "results": 3
+          },
+          "wallMs": 9.17494099999999,
+          "cpu": {
+            "user": 62392,
+            "system": 0
+          },
+          "cpuUtilizationPercent": 680.0261712854618,
+          "endMemory": {
+            "rss": 375390208,
+            "heapTotal": 38592512,
+            "heapUsed": 20116144,
+            "external": 115643982,
+            "arrayBuffers": 111604435
+          },
+          "processPeakRssBytes": 375390208
+        },
+        {
+          "label": "search-semantic-1",
+          "counts": {
+            "queryEmbeddingCalls": 1,
+            "gcMs": 3.6413669884204865,
+            "gcCount": 2
+          },
+          "stages": {
+            "collectCandidates": 0.019333000000074207,
+            "nativeBatch": 6.459720999999945,
+            "queryInferenceIncludingLoad": 6.524601999999959,
+            "rankSemantic": 1.2065109999999777
+          },
+          "calls": {
+            "collectCandidates": 1,
+            "nativeBatch": 1,
+            "queryInferenceIncludingLoad": 1,
+            "rankSemantic": 1
+          },
+          "maxEventLoopLagMs": 2.55944599999998,
+          "peak": {
+            "rss": 384958464,
+            "heapTotal": 38592512,
+            "heapUsed": 20140216,
+            "external": 124950094,
+            "arrayBuffers": 120910547
+          },
+          "result": {
+            "results": 3
+          },
+          "wallMs": 7.8356959999999845,
+          "cpu": {
+            "user": 58792,
+            "system": 0
+          },
+          "cpuUtilizationPercent": 750.3098639865574,
+          "endMemory": {
+            "rss": 384958464,
+            "heapTotal": 38592512,
+            "heapUsed": 20110120,
+            "external": 124950094,
+            "arrayBuffers": 120910547
+          },
+          "processPeakRssBytes": 384958464
+        },
+        {
+          "label": "search-semantic-2",
+          "counts": {
+            "queryEmbeddingCalls": 1,
+            "gcMs": 0.39751699566841125,
+            "gcCount": 1
+          },
+          "stages": {
+            "collectCandidates": 0.019251000000053864,
+            "nativeBatch": 5.586314000000016,
+            "queryInferenceIncludingLoad": 5.653474000000074,
+            "rankSemantic": 0.3215730000000576
+          },
+          "calls": {
+            "collectCandidates": 1,
+            "nativeBatch": 1,
+            "queryInferenceIncludingLoad": 1,
+            "rankSemantic": 1
+          },
+          "maxEventLoopLagMs": 0,
+          "peak": {
+            "rss": 395837440,
+            "heapTotal": 38592512,
+            "heapUsed": 21022920,
+            "external": 135977230,
+            "arrayBuffers": 131937683
+          },
+          "result": {
+            "results": 3
+          },
+          "wallMs": 6.065905000000043,
+          "cpu": {
+            "user": 24392,
+            "system": 43
+          },
+          "cpuUtilizationPercent": 402.8252997697759,
+          "endMemory": {
+            "rss": 395837440,
+            "heapTotal": 38592512,
+            "heapUsed": 21025480,
+            "external": 135977230,
+            "arrayBuffers": 131937683
+          },
+          "processPeakRssBytes": 395837440
+        },
+        {
+          "label": "search-hybrid-0",
+          "counts": {
+            "queryEmbeddingCalls": 1,
+            "gcMs": 3.356132999062538,
+            "gcCount": 1
+          },
+          "stages": {
+            "collectCandidates": 0.0196250000000191,
+            "rankLexical": 1.0332689999999047,
+            "nativeBatch": 5.618076999999971,
+            "queryInferenceIncludingLoad": 5.703311000000099,
+            "rankSemantic": 0.3367430000000695,
+            "fuseRrf": 0.302974999999833
+          },
+          "calls": {
+            "collectCandidates": 1,
+            "rankLexical": 1,
+            "nativeBatch": 1,
+            "queryInferenceIncludingLoad": 1,
+            "rankSemantic": 1,
+            "fuseRrf": 1
+          },
+          "maxEventLoopLagMs": 1.418489999999906,
+          "peak": {
+            "rss": 406978560,
+            "heapTotal": 39116800,
+            "heapUsed": 21028504,
+            "external": 146904654,
+            "arrayBuffers": 142865107
+          },
+          "result": {
+            "results": 3
+          },
+          "wallMs": 7.633699999999976,
+          "cpu": {
+            "user": 39218,
+            "system": 1254
+          },
+          "cpuUtilizationPercent": 530.1754064215272,
+          "endMemory": {
+            "rss": 406978560,
+            "heapTotal": 39116800,
+            "heapUsed": 18965120,
+            "external": 146904654,
+            "arrayBuffers": 142865107
+          },
+          "processPeakRssBytes": 406978560
+        },
+        {
+          "label": "search-hybrid-1",
+          "counts": {
+            "queryEmbeddingCalls": 1
+          },
+          "stages": {
+            "collectCandidates": 0.01937699999984943,
+            "rankLexical": 0.7936629999999241,
+            "nativeBatch": 5.0646180000001095,
+            "queryInferenceIncludingLoad": 5.1401670000000195,
+            "rankSemantic": 0.6615620000000035,
+            "fuseRrf": 0.04018799999994371
+          },
+          "calls": {
+            "collectCandidates": 1,
+            "rankLexical": 1,
+            "nativeBatch": 1,
+            "queryInferenceIncludingLoad": 1,
+            "rankSemantic": 1,
+            "fuseRrf": 1
+          },
+          "maxEventLoopLagMs": 0,
+          "peak": {
+            "rss": 421003264,
+            "heapTotal": 39116800,
+            "heapUsed": 20560224,
+            "external": 160946446,
+            "arrayBuffers": 156906899
+          },
+          "result": {
+            "results": 3
+          },
+          "wallMs": 6.769008999999869,
+          "cpu": {
+            "user": 29154,
+            "system": 0
+          },
+          "cpuUtilizationPercent": 430.6982011694853,
+          "endMemory": {
+            "rss": 421003264,
+            "heapTotal": 39116800,
+            "heapUsed": 20561976,
+            "external": 160946446,
+            "arrayBuffers": 156906899
+          },
+          "processPeakRssBytes": 421003264
+        },
+        {
+          "label": "search-hybrid-2",
+          "counts": {
+            "queryEmbeddingCalls": 1,
+            "gcMs": 4.061208993196487,
+            "gcCount": 2
+          },
+          "stages": {
+            "collectCandidates": 0.03805800000009185,
+            "rankLexical": 1.2299810000001798,
+            "nativeBatch": 11.258114999999862,
+            "queryInferenceIncludingLoad": 11.398410000000013,
+            "rankSemantic": 0.3938700000001063,
+            "fuseRrf": 0.0611309999999321
+          },
+          "calls": {
+            "collectCandidates": 1,
+            "rankLexical": 1,
+            "nativeBatch": 1,
+            "queryInferenceIncludingLoad": 1,
+            "rankSemantic": 1,
+            "fuseRrf": 1
+          },
+          "maxEventLoopLagMs": 3.5119810000001053,
+          "peak": {
+            "rss": 427556864,
+            "heapTotal": 39116800,
+            "heapUsed": 21481320,
+            "external": 167216116,
+            "arrayBuffers": 163181267
+          },
+          "result": {
+            "results": 3
+          },
+          "wallMs": 13.277280000000019,
+          "cpu": {
+            "user": 74644,
+            "system": 1178
+          },
+          "cpuUtilizationPercent": 571.0657604569602,
+          "endMemory": {
+            "rss": 427556864,
+            "heapTotal": 39116800,
+            "heapUsed": 18747656,
+            "external": 167216116,
+            "arrayBuffers": 163181267
+          },
+          "processPeakRssBytes": 427556864
+        },
+        {
+          "label": "one-change",
+          "counts": {
+            "entries": 17,
+            "readBufferBytesAllocated": 499,
+            "bytesRead": 498,
+            "documentEmbeddingCalls": 1,
+            "freshEmbeddingInputs": 1
+          },
+          "stages": {
+            "fs.realpath": 4.131643999999596,
+            "fs.lstat": 6.691590999999789,
+            "fs.opendir": 0.6108639999999923,
+            "FileSystemFolderSource.list": 13.502402999999958,
+            "fs.open": 0.09158300000012787,
+            "fs.fstat": 0.17686899999989691,
+            "fs.read": 0.1393399999999474,
+            "fs.close": 0.10278399999992871,
+            "FileSystemFolderSource.read": 1.6104860000000372,
+            "parse": 0.3048200000000634,
+            "contentHash": 0.14132100000006176,
+            "chunkDocument": 0.1752400000000307,
+            "nativeBatch": 15.018047000000024,
+            "documentInferenceIncludingLoad": 15.10655399999996,
+            "snapshotMatches": 0.10298599999987346,
+            "snapshotOf": 0.4964879999999994,
+            "snapshotStringify": 1.4325500000002194,
+            "FileIndexStorage.save": 5.522527999999966
+          },
+          "calls": {
+            "fs.realpath": 39,
+            "fs.lstat": 74,
+            "fs.opendir": 2,
+            "FileSystemFolderSource.list": 1,
+            "fs.open": 1,
+            "fs.fstat": 2,
+            "fs.read": 2,
+            "fs.close": 1,
+            "FileSystemFolderSource.read": 1,
+            "parse": 1,
+            "contentHash": 1,
+            "chunkDocument": 1,
+            "nativeBatch": 1,
+            "documentInferenceIncludingLoad": 1,
+            "snapshotMatches": 1,
+            "snapshotOf": 1,
+            "snapshotStringify": 1,
+            "FileIndexStorage.save": 1
+          },
+          "maxEventLoopLagMs": 14.467817999999852,
+          "peak": {
+            "rss": 445968384,
+            "heapTotal": 39268352,
+            "heapUsed": 21834120,
+            "external": 185568229,
+            "arrayBuffers": 181533380
+          },
+          "result": {
+            "sourceId": "project",
+            "documents": 16,
+            "chunks": 16,
+            "unchangedChunks": 15,
+            "documentsRead": 1,
+            "documentsParsed": 1,
+            "documentsReused": 15,
+            "documentsDeleted": 0,
+            "persistence": "saved",
+            "embeddedTexts": 1,
+            "reusedVectors": 15
+          },
+          "wallMs": 37.961676000000125,
+          "cpu": {
+            "user": 147385,
+            "system": 19051
+          },
+          "cpuUtilizationPercent": 438.43164353438834,
+          "endMemory": {
+            "rss": 445968384,
+            "heapTotal": 39268352,
+            "heapUsed": 21835872,
+            "external": 185568229,
+            "arrayBuffers": 181533380
+          },
+          "processPeakRssBytes": 445968384
+        },
+        {
+          "label": "five-change",
+          "counts": {
+            "entries": 17,
+            "readBufferBytesAllocated": 1500,
+            "bytesRead": 1495,
+            "documentEmbeddingCalls": 1,
+            "freshEmbeddingInputs": 5
+          },
+          "stages": {
+            "fs.realpath": 2.396515999999565,
+            "fs.lstat": 10.577860999998393,
+            "fs.opendir": 2.0309290000000146,
+            "FileSystemFolderSource.list": 14.947632999999996,
+            "fs.open": 0.21092600000019956,
+            "fs.fstat": 0.36960100000010243,
+            "fs.read": 0.38241999999991094,
+            "fs.close": 0.1234980000001542,
+            "FileSystemFolderSource.read": 3.686625000000049,
+            "parse": 0.30245899999977155,
+            "contentHash": 0.40636999999969703,
+            "chunkDocument": 0.4959129999999732,
+            "nativeBatch": 72.73013600000036,
+            "documentInferenceIncludingLoad": 72.94247700000005,
+            "snapshotMatches": 0.0728590000001077,
+            "snapshotOf": 0.5191409999999905,
+            "snapshotStringify": 1.2558529999998882,
+            "FileIndexStorage.save": 4.789251000000149
+          },
+          "calls": {
+            "fs.realpath": 55,
+            "fs.lstat": 102,
+            "fs.opendir": 2,
+            "FileSystemFolderSource.list": 1,
+            "fs.open": 5,
+            "fs.fstat": 10,
+            "fs.read": 10,
+            "fs.close": 5,
+            "FileSystemFolderSource.read": 5,
+            "parse": 5,
+            "contentHash": 5,
+            "chunkDocument": 5,
+            "nativeBatch": 2,
+            "documentInferenceIncludingLoad": 1,
+            "snapshotMatches": 1,
+            "snapshotOf": 1,
+            "snapshotStringify": 1,
+            "FileIndexStorage.save": 1
+          },
+          "maxEventLoopLagMs": 56.48538899999994,
+          "peak": {
+            "rss": 405856256,
+            "heapTotal": 39268352,
+            "heapUsed": 24348888,
+            "external": 185568229,
+            "arrayBuffers": 132167187
+          },
+          "result": {
+            "sourceId": "project",
+            "documents": 16,
+            "chunks": 16,
+            "unchangedChunks": 11,
+            "documentsRead": 5,
+            "documentsParsed": 5,
+            "documentsReused": 11,
+            "documentsDeleted": 0,
+            "persistence": "saved",
+            "embeddedTexts": 5,
+            "reusedVectors": 11
+          },
+          "wallMs": 102.121265,
+          "cpu": {
+            "user": 400502,
+            "system": 13823
+          },
+          "cpuUtilizationPercent": 405.7186326471769,
+          "endMemory": {
+            "rss": 300097536,
+            "heapTotal": 39268352,
+            "heapUsed": 24350720,
+            "external": 5010555,
+            "arrayBuffers": 975706
+          },
+          "processPeakRssBytes": 445968384
+        },
+        {
+          "label": "add",
+          "counts": {
+            "entries": 18,
+            "gcMs": 0.4391620010137558,
+            "gcCount": 1,
+            "readBufferBytesAllocated": 36,
+            "bytesRead": 35,
+            "documentEmbeddingCalls": 1,
+            "freshEmbeddingInputs": 1
+          },
+          "stages": {
+            "fs.realpath": 1.7770810000001802,
+            "fs.lstat": 2.8114370000002964,
+            "fs.opendir": 0.18627500000002328,
+            "FileSystemFolderSource.list": 5.685199000000011,
+            "fs.open": 0.03754499999990912,
+            "fs.fstat": 0.058845000000019354,
+            "fs.read": 0.08848100000022896,
+            "fs.close": 0.05457400000000234,
+            "FileSystemFolderSource.read": 0.6929630000001907,
+            "parse": 0.05367400000000089,
+            "contentHash": 0.016348999999991065,
+            "chunkDocument": 0.02984100000003309,
+            "nativeBatch": 6.059851999999864,
+            "documentInferenceIncludingLoad": 6.137012000000141,
+            "snapshotMatches": 0.07493999999996959,
+            "snapshotOf": 0.565663000000086,
+            "snapshotStringify": 1.4311749999999392,
+            "FileIndexStorage.save": 5.046737000000121
+          },
+          "calls": {
+            "fs.realpath": 41,
+            "fs.lstat": 75,
+            "fs.opendir": 2,
+            "FileSystemFolderSource.list": 1,
+            "fs.open": 1,
+            "fs.fstat": 2,
+            "fs.read": 2,
+            "fs.close": 1,
+            "FileSystemFolderSource.read": 1,
+            "parse": 1,
+            "contentHash": 1,
+            "chunkDocument": 1,
+            "nativeBatch": 1,
+            "documentInferenceIncludingLoad": 1,
+            "snapshotMatches": 1,
+            "snapshotOf": 1,
+            "snapshotStringify": 1,
+            "FileIndexStorage.save": 1
+          },
+          "maxEventLoopLagMs": 5.3178640000001,
+          "peak": {
+            "rss": 300097536,
+            "heapTotal": 39276544,
+            "heapUsed": 24416680,
+            "external": 5010555,
+            "arrayBuffers": 975706
+          },
+          "result": {
+            "sourceId": "project",
+            "documents": 17,
+            "chunks": 17,
+            "unchangedChunks": 16,
+            "documentsRead": 1,
+            "documentsParsed": 1,
+            "documentsReused": 16,
+            "documentsDeleted": 0,
+            "persistence": "saved",
+            "embeddedTexts": 1,
+            "reusedVectors": 16
+          },
+          "wallMs": 18.918548999999985,
+          "cpu": {
+            "user": 71412,
+            "system": 1847
+          },
+          "cpuUtilizationPercent": 387.2337143826414,
+          "endMemory": {
+            "rss": 300097536,
+            "heapTotal": 39276544,
+            "heapUsed": 19432416,
+            "external": 4401392,
+            "arrayBuffers": 366543
+          },
+          "processPeakRssBytes": 445968384
+        },
+        {
+          "label": "delete",
+          "counts": {
+            "entries": 17
+          },
+          "stages": {
+            "fs.realpath": 1.211776999999529,
+            "fs.lstat": 2.3570859999995264,
+            "fs.opendir": 0.21732799999995223,
+            "FileSystemFolderSource.list": 5.472115000000031,
+            "snapshotMatches": 0.09118600000010701,
+            "snapshotOf": 0.6870559999999841,
+            "snapshotStringify": 1.716666000000032,
+            "FileIndexStorage.save": 5.425564000000122
+          },
+          "calls": {
+            "fs.realpath": 35,
+            "fs.lstat": 67,
+            "fs.opendir": 2,
+            "FileSystemFolderSource.list": 1,
+            "snapshotMatches": 1,
+            "snapshotOf": 1,
+            "snapshotStringify": 1,
+            "FileIndexStorage.save": 1
+          },
+          "maxEventLoopLagMs": 0.38841099999990547,
+          "peak": {
+            "rss": 300228608,
+            "heapTotal": 39428096,
+            "heapUsed": 20788392,
+            "external": 4561716,
+            "arrayBuffers": 526867
+          },
+          "result": {
+            "sourceId": "project",
+            "documents": 16,
+            "chunks": 16,
+            "unchangedChunks": 16,
+            "documentsRead": 0,
+            "documentsParsed": 0,
+            "documentsReused": 16,
+            "documentsDeleted": 1,
+            "persistence": "saved",
+            "embeddedTexts": 0,
+            "reusedVectors": 16
+          },
+          "wallMs": 12.34913000000006,
+          "cpu": {
+            "user": 48829,
+            "system": 2077
+          },
+          "cpuUtilizationPercent": 412.2233712010462,
+          "endMemory": {
+            "rss": 300228608,
+            "heapTotal": 39428096,
+            "heapUsed": 20781632,
+            "external": 4561716,
+            "arrayBuffers": 526867
+          },
+          "processPeakRssBytes": 445968384
+        },
+        {
+          "label": "rename",
+          "counts": {
+            "entries": 17,
+            "readBufferBytesAllocated": 476,
+            "bytesRead": 475
+          },
+          "stages": {
+            "fs.realpath": 1.788219999999228,
+            "fs.lstat": 2.320274999998901,
+            "fs.opendir": 0.28428900000017165,
+            "FileSystemFolderSource.list": 5.6587869999998475,
+            "fs.open": 0.03693999999995867,
+            "fs.fstat": 0.06054199999971388,
+            "fs.read": 0.07412199999998847,
+            "fs.close": 0.03734999999983302,
+            "FileSystemFolderSource.read": 0.6092539999999644,
+            "parse": 0.05958499999997002,
+            "contentHash": 0.12141099999985272,
+            "chunkDocument": 0.1370839999999589,
+            "snapshotMatches": 0.05565000000001419,
+            "snapshotOf": 0.34624399999984234,
+            "snapshotStringify": 1.0460039999998116,
+            "FileIndexStorage.save": 4.496869999999944
+          },
+          "calls": {
+            "fs.realpath": 39,
+            "fs.lstat": 71,
+            "fs.opendir": 2,
+            "FileSystemFolderSource.list": 1,
+            "fs.open": 1,
+            "fs.fstat": 2,
+            "fs.read": 2,
+            "fs.close": 1,
+            "FileSystemFolderSource.read": 1,
+            "parse": 1,
+            "contentHash": 1,
+            "chunkDocument": 1,
+            "snapshotMatches": 1,
+            "snapshotOf": 1,
+            "snapshotStringify": 1,
+            "FileIndexStorage.save": 1
+          },
+          "maxEventLoopLagMs": 0,
+          "peak": {
+            "rss": 300359680,
+            "heapTotal": 39579648,
+            "heapUsed": 22224432,
+            "external": 4723831,
+            "arrayBuffers": 688982
+          },
+          "result": {
+            "sourceId": "project",
+            "documents": 16,
+            "chunks": 16,
+            "unchangedChunks": 15,
+            "documentsRead": 1,
+            "documentsParsed": 1,
+            "documentsReused": 15,
+            "documentsDeleted": 1,
+            "persistence": "saved",
+            "embeddedTexts": 0,
+            "reusedVectors": 16
+          },
+          "wallMs": 12.072788000000173,
+          "cpu": {
+            "user": 45781,
+            "system": 3154
+          },
+          "cpuUtilizationPercent": 405.3330514873557,
+          "endMemory": {
+            "rss": 300359680,
+            "heapTotal": 39579648,
+            "heapUsed": 22226168,
+            "external": 4723831,
+            "arrayBuffers": 688982
+          },
+          "processPeakRssBytes": 445968384
+        },
+        {
+          "label": "metadata-only",
+          "counts": {
+            "entries": 17,
+            "readBufferBytesAllocated": 146,
+            "bytesRead": 145
+          },
+          "stages": {
+            "fs.realpath": 1.579443999999512,
+            "fs.lstat": 2.5759279999990667,
+            "fs.opendir": 0.27941499999997177,
+            "FileSystemFolderSource.list": 5.045374999999922,
+            "fs.open": 0.17212500000005093,
+            "fs.fstat": 0.2109450000000379,
+            "fs.read": 0.18576099999995677,
+            "fs.close": 0.02062999999998283,
+            "FileSystemFolderSource.read": 1.3656099999998332,
+            "parse": 0.025171999999884065,
+            "contentHash": 0.030978000000004613,
+            "chunkDocument": 0.04617899999993824,
+            "snapshotMatches": 0.05381000000011227,
+            "snapshotOf": 0.42091400000003887,
+            "snapshotStringify": 1.1380060000001322,
+            "FileIndexStorage.save": 5.684104999999818
+          },
+          "calls": {
+            "fs.realpath": 39,
+            "fs.lstat": 73,
+            "fs.opendir": 2,
+            "FileSystemFolderSource.list": 1,
+            "fs.open": 1,
+            "fs.fstat": 2,
+            "fs.read": 2,
+            "fs.close": 1,
+            "FileSystemFolderSource.read": 1,
+            "parse": 1,
+            "contentHash": 1,
+            "chunkDocument": 1,
+            "snapshotMatches": 1,
+            "snapshotOf": 1,
+            "snapshotStringify": 1,
+            "FileIndexStorage.save": 1
+          },
+          "maxEventLoopLagMs": 0.10682299999984934,
+          "peak": {
+            "rss": 300490752,
+            "heapTotal": 39731200,
+            "heapUsed": 23618744,
+            "external": 4885718,
+            "arrayBuffers": 850869
+          },
+          "result": {
+            "sourceId": "project",
+            "documents": 16,
+            "chunks": 16,
+            "unchangedChunks": 16,
+            "documentsRead": 1,
+            "documentsParsed": 1,
+            "documentsReused": 15,
+            "documentsDeleted": 0,
+            "persistence": "saved",
+            "embeddedTexts": 0,
+            "reusedVectors": 16
+          },
+          "wallMs": 13.093301999999994,
+          "cpu": {
+            "user": 6035,
+            "system": 3019
+          },
+          "cpuUtilizationPercent": 69.14985998184419,
+          "endMemory": {
+            "rss": 300490752,
+            "heapTotal": 39731200,
+            "heapUsed": 23620480,
+            "external": 4885718,
+            "arrayBuffers": 850869
+          },
+          "processPeakRssBytes": 445968384
+        },
+        {
+          "label": "cancel-scan",
+          "counts": {
+            "entries": 2
+          },
+          "stages": {
+            "fs.realpath": 0.708817000000181,
+            "fs.lstat": 0.6260190000000421,
+            "fs.opendir": 0.9217580000001817,
+            "FileSystemFolderSource.list": 6.099754999999959
+          },
+          "calls": {
+            "fs.realpath": 3,
+            "fs.lstat": 3,
+            "fs.opendir": 2,
+            "FileSystemFolderSource.list": 1
+          },
+          "maxEventLoopLagMs": 0.4085360000001401,
+          "peak": {
+            "rss": 300490752,
+            "heapTotal": 39731200,
+            "heapUsed": 23725952,
+            "external": 4886150,
+            "arrayBuffers": 851301
+          },
+          "result": {
+            "error": "AbortError",
+            "abortDispatchMs": 4.531642999999804,
+            "responseAfterAbortMs": 3.2941319999999905
+          },
+          "wallMs": 8.152957000000015,
+          "cpu": {
+            "user": 6196,
+            "system": 2162
+          },
+          "cpuUtilizationPercent": 102.51495255034443,
+          "endMemory": {
+            "rss": 300490752,
+            "heapTotal": 39731200,
+            "heapUsed": 23727688,
+            "external": 4886150,
+            "arrayBuffers": 851301
+          },
+          "processPeakRssBytes": 445968384
+        }
+      ],
+      "cancellation": {
+        "label": "cancel-native",
+        "counts": {
+          "documentEmbeddingCalls": 1,
+          "freshEmbeddingInputs": 4,
+          "gcMs": 3.237769991159439,
+          "gcCount": 3
+        },
+        "stages": {
+          "nativeBatch": 292.38002100000017,
+          "documentInferenceIncludingLoad": 292.735641
+        },
+        "calls": {
+          "nativeBatch": 1,
+          "documentInferenceIncludingLoad": 1
+        },
+        "maxEventLoopLagMs": 283.8364200000001,
+        "peak": {
+          "rss": 333361152,
+          "heapTotal": 39731200,
+          "heapUsed": 23729416,
+          "external": 5996788,
+          "arrayBuffers": 1961939
+        },
+        "result": {
+          "inputs": 4,
+          "intendedAbortDelayMs": 5,
+          "error": null,
+          "settledBeforeAbort": true,
+          "settlementMs": 292.948615,
+          "abortDispatchMs": 293.10147499999994,
+          "responseAfterAbortMs": null
+        },
+        "wallMs": 293.76415799999995,
+        "cpu": {
+          "user": 1069881,
+          "system": 43961
+        },
+        "cpuUtilizationPercent": 379.16198067975336,
+        "endMemory": {
+          "rss": 333361152,
+          "heapTotal": 39116800,
+          "heapUsed": 19553808,
+          "external": 5996788,
+          "arrayBuffers": 1961939
+        },
+        "processPeakRssBytes": 445968384
+      },
+      "cancellationLong": {
+        "label": "cancel-native-two-batches",
+        "counts": {
+          "documentEmbeddingCalls": 1,
+          "freshEmbeddingInputs": 8,
+          "gcMs": 2.371652990579605,
+          "gcCount": 5
+        },
+        "stages": {
+          "nativeBatch": 426.4096930000003,
+          "documentInferenceIncludingLoad": 426.63304100000005
+        },
+        "calls": {
+          "nativeBatch": 2,
+          "documentInferenceIncludingLoad": 1
+        },
+        "maxEventLoopLagMs": 204.50918300000012,
+        "peak": {
+          "rss": 369930240,
+          "heapTotal": 39116800,
+          "heapUsed": 26013280,
+          "external": 9540724,
+          "arrayBuffers": 5505875
+        },
+        "result": {
+          "inputs": 8,
+          "intendedAbortDelayMs": 5,
+          "error": "AbortError",
+          "settledBeforeAbort": false,
+          "settlementMs": 426.67729899999995,
+          "abortDispatchMs": 214.3955410000001,
+          "responseAfterAbortMs": 212.28175799999985
+        },
+        "wallMs": 426.7399140000002,
+        "cpu": {
+          "user": 1696544,
+          "system": 21849
+        },
+        "cpuUtilizationPercent": 402.6792300473677,
+        "endMemory": {
+          "rss": 369930240,
+          "heapTotal": 39116800,
+          "heapUsed": 19288152,
+          "external": 9540724,
+          "arrayBuffers": 5505875
+        },
+        "processPeakRssBytes": 445968384
+      }
+    },
+    {
+      "kind": "api",
+      "size": 16,
+      "model": "{\"adapter\":\"minilm-v1\",\"runtime\":\"4.2.0\",\"model\":\".cache/minilm/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9\",\"revision\":\"751bff37182d3f1213fa05d7196b954e230abad9\",\"device\":\"cpu\",\"dtype\":\"fp32\",\"pooling\":\"mean\",\"normalize\":true,\"truncation\":\"pinned-tokenizer-default\"}",
+      "real": true,
+      "restart": true,
+      "phases": [
+        {
+          "label": "setup",
+          "counts": {
+            "gcMs": 2.6745900064706802,
+            "gcCount": 2
+          },
+          "stages": {},
+          "calls": {},
+          "maxEventLoopLagMs": 0.38373599999999897,
+          "peak": {
+            "rss": 109375488,
+            "heapTotal": 22478848,
+            "heapUsed": 15177448,
+            "external": 2693492,
+            "arrayBuffers": 150703
+          },
+          "wallMs": 0.6452429999999936,
+          "cpu": {
+            "user": 832,
+            "system": 0
+          },
+          "cpuUtilizationPercent": 128.94366928428644,
+          "endMemory": {
+            "rss": 109375488,
+            "heapTotal": 22478848,
+            "heapUsed": 13842616,
+            "external": 2693492,
+            "arrayBuffers": 148663
+          },
+          "processPeakRssBytes": 109375488
+        },
+        {
+          "label": "restart",
+          "counts": {
+            "entries": 17,
+            "gcMs": 4.066542997956276,
+            "gcCount": 1
+          },
+          "stages": {
+            "snapshotParse": 0.6115669999999795,
+            "FileIndexStorage.load": 1.9490940000000023,
+            "contentHash": 1.4311470000000668,
+            "reusableSnapshot": 3.190232999999978,
+            "fs.realpath": 6.67403400000012,
+            "fs.lstat": 4.834586000000172,
+            "fs.opendir": 0.4702740000000176,
+            "FileSystemFolderSource.list": 16.544824000000006,
+            "snapshotMatches": 0.7139499999999543
+          },
+          "calls": {
+            "snapshotParse": 1,
+            "FileIndexStorage.load": 1,
+            "contentHash": 16,
+            "reusableSnapshot": 1,
+            "fs.realpath": 35,
+            "fs.lstat": 66,
+            "fs.opendir": 2,
+            "FileSystemFolderSource.list": 1,
+            "snapshotMatches": 1
+          },
+          "maxEventLoopLagMs": 1.7198740000000043,
+          "peak": {
+            "rss": 114356224,
+            "heapTotal": 23527424,
+            "heapUsed": 16294384,
+            "external": 2880988,
+            "arrayBuffers": 329575
+          },
+          "result": {
+            "sourceId": "project",
+            "documents": 16,
+            "chunks": 16,
+            "unchangedChunks": 16,
+            "documentsRead": 0,
+            "documentsParsed": 0,
+            "documentsReused": 16,
+            "documentsDeleted": 0,
+            "persistence": "unchanged",
+            "embeddedTexts": 0,
+            "reusedVectors": 16
+          },
+          "wallMs": 24.77260000000001,
+          "cpu": {
+            "user": 22573,
+            "system": 2804
+          },
+          "cpuUtilizationPercent": 102.43979235122671,
+          "endMemory": {
+            "rss": 114356224,
+            "heapTotal": 23527424,
+            "heapUsed": 15028912,
+            "external": 2716444,
+            "arrayBuffers": 173671
+          },
+          "processPeakRssBytes": 114356224
+        },
+        {
+          "label": "unchanged",
+          "counts": {
+            "entries": 17
+          },
+          "stages": {
+            "fs.realpath": 1.8603379999998992,
+            "fs.lstat": 2.9709889999999746,
+            "fs.opendir": 0.4327069999999935,
+            "FileSystemFolderSource.list": 6.896889999999985,
+            "snapshotMatches": 0.29908100000000104
+          },
+          "calls": {
+            "fs.realpath": 35,
+            "fs.lstat": 66,
+            "fs.opendir": 2,
+            "FileSystemFolderSource.list": 1,
+            "snapshotMatches": 1
+          },
+          "maxEventLoopLagMs": 0.40709800000001906,
+          "peak": {
+            "rss": 114487296,
+            "heapTotal": 23527424,
+            "heapUsed": 15450048,
+            "external": 2725948,
+            "arrayBuffers": 183175
+          },
+          "result": {
+            "sourceId": "project",
+            "documents": 16,
+            "chunks": 16,
+            "unchangedChunks": 16,
+            "documentsRead": 0,
+            "documentsParsed": 0,
+            "documentsReused": 16,
+            "documentsDeleted": 0,
+            "persistence": "unchanged",
+            "embeddedTexts": 0,
+            "reusedVectors": 16
+          },
+          "wallMs": 8.030237,
+          "cpu": {
+            "user": 6185,
+            "system": 2666
+          },
+          "cpuUtilizationPercent": 110.22090630699941,
+          "endMemory": {
+            "rss": 114487296,
+            "heapTotal": 23527424,
+            "heapUsed": 15451800,
+            "external": 2725948,
+            "arrayBuffers": 183175
+          },
+          "processPeakRssBytes": 114487296
+        },
+        {
+          "label": "search-lexical-0",
+          "counts": {},
+          "stages": {
+            "collectCandidates": 0.29303799999996727,
+            "rankLexical": 3.7833459999999945
+          },
+          "calls": {
+            "collectCandidates": 1,
+            "rankLexical": 1
+          },
+          "maxEventLoopLagMs": 0.09361300000000483,
+          "peak": {
+            "rss": 114487296,
+            "heapTotal": 23527424,
+            "heapUsed": 15892552,
+            "external": 2725948,
+            "arrayBuffers": 183175
+          },
+          "result": {
+            "results": 3
+          },
+          "wallMs": 4.710706999999957,
+          "cpu": {
+            "user": 5707,
+            "system": 0
+          },
+          "cpuUtilizationPercent": 121.14954294546557,
+          "endMemory": {
+            "rss": 114487296,
+            "heapTotal": 23527424,
+            "heapUsed": 15894416,
+            "external": 2725948,
+            "arrayBuffers": 183175
+          },
+          "processPeakRssBytes": 114487296
+        },
+        {
+          "label": "search-lexical-1",
+          "counts": {},
+          "stages": {
+            "collectCandidates": 0.03133700000000772,
+            "rankLexical": 0.9717509999999834
+          },
+          "calls": {
+            "collectCandidates": 1,
+            "rankLexical": 1
+          },
+          "maxEventLoopLagMs": 0.729547000000025,
+          "peak": {
+            "rss": 114487296,
+            "heapTotal": 23527424,
+            "heapUsed": 16244896,
+            "external": 2725948,
+            "arrayBuffers": 183175
+          },
+          "result": {
+            "results": 3
+          },
+          "wallMs": 1.100276000000008,
+          "cpu": {
+            "user": 1345,
+            "system": 0
+          },
+          "cpuUtilizationPercent": 122.24205562967748,
+          "endMemory": {
+            "rss": 114487296,
+            "heapTotal": 23527424,
+            "heapUsed": 16246824,
+            "external": 2725948,
+            "arrayBuffers": 183175
+          },
+          "processPeakRssBytes": 114487296
+        },
+        {
+          "label": "search-lexical-2",
+          "counts": {},
+          "stages": {
+            "collectCandidates": 0.021408000000008087,
+            "rankLexical": 0.9731720000000337
+          },
+          "calls": {
+            "collectCandidates": 1,
+            "rankLexical": 1
+          },
+          "maxEventLoopLagMs": 0.6112250000000472,
+          "peak": {
+            "rss": 114487296,
+            "heapTotal": 23527424,
+            "heapUsed": 16593280,
+            "external": 2725948,
+            "arrayBuffers": 183175
+          },
+          "result": {
+            "results": 3
+          },
+          "wallMs": 1.112749000000008,
+          "cpu": {
+            "user": 1115,
+            "system": 18
+          },
+          "cpuUtilizationPercent": 101.81990727468566,
+          "endMemory": {
+            "rss": 114487296,
+            "heapTotal": 23527424,
+            "heapUsed": 16595032,
+            "external": 2725948,
+            "arrayBuffers": 183175
+          },
+          "processPeakRssBytes": 114487296
+        },
+        {
+          "label": "search-semantic-0",
+          "counts": {
+            "queryEmbeddingCalls": 1,
+            "gcMs": 8.023071989417076,
+            "gcCount": 3,
+            "modelInitializationMs": 364.190251
+          },
+          "stages": {
+            "collectCandidates": 0.028650999999968008,
+            "nativeBatch": 12.935141000000044,
+            "queryInferenceIncludingLoad": 377.297797,
+            "rankSemantic": 1.2635469999999032
+          },
+          "calls": {
+            "collectCandidates": 1,
+            "nativeBatch": 1,
+            "queryInferenceIncludingLoad": 1,
+            "rankSemantic": 1
+          },
+          "maxEventLoopLagMs": 239.073309,
+          "peak": {
+            "rss": 272392192,
+            "heapTotal": 59785216,
+            "heapUsed": 27469872,
+            "external": 24465936,
+            "arrayBuffers": 20428437
+          },
+          "result": {
+            "results": 3
+          },
+          "wallMs": 379.0464089999999,
+          "cpu": {
+            "user": 556112,
+            "system": 100597
+          },
+          "cpuUtilizationPercent": 173.25292745353514,
+          "endMemory": {
+            "rss": 272392192,
+            "heapTotal": 59785216,
+            "heapUsed": 27471624,
+            "external": 24465936,
+            "arrayBuffers": 20428437
+          },
+          "processPeakRssBytes": 296136704
+        },
+        {
+          "label": "search-semantic-1",
+          "counts": {
+            "queryEmbeddingCalls": 1
+          },
+          "stages": {
+            "collectCandidates": 0.018586000000027525,
+            "nativeBatch": 5.5110579999999345,
+            "queryInferenceIncludingLoad": 5.587498000000096,
+            "rankSemantic": 0.4717040000000452
+          },
+          "calls": {
+            "collectCandidates": 1,
+            "nativeBatch": 1,
+            "queryInferenceIncludingLoad": 1,
+            "rankSemantic": 1
+          },
+          "maxEventLoopLagMs": 0,
+          "peak": {
+            "rss": 286941184,
+            "heapTotal": 60309504,
+            "heapUsed": 29759056,
+            "external": 39556304,
+            "arrayBuffers": 35518805
+          },
+          "result": {
+            "results": 3
+          },
+          "wallMs": 6.142116999999985,
+          "cpu": {
+            "user": 25268,
+            "system": 0
+          },
+          "cpuUtilizationPercent": 411.38910248697744,
+          "endMemory": {
+            "rss": 286941184,
+            "heapTotal": 60309504,
+            "heapUsed": 29760864,
+            "external": 39556304,
+            "arrayBuffers": 35518805
+          },
+          "processPeakRssBytes": 296136704
+        },
+        {
+          "label": "search-semantic-2",
+          "counts": {
+            "queryEmbeddingCalls": 1
+          },
+          "stages": {
+            "collectCandidates": 0.021149000000036722,
+            "nativeBatch": 5.7418199999999615,
+            "queryInferenceIncludingLoad": 5.873866000000021,
+            "rankSemantic": 0.47510399999998754
+          },
+          "calls": {
+            "collectCandidates": 1,
+            "nativeBatch": 1,
+            "queryInferenceIncludingLoad": 1,
+            "rankSemantic": 1
+          },
+          "maxEventLoopLagMs": 0,
+          "peak": {
+            "rss": 305553408,
+            "heapTotal": 60571648,
+            "heapUsed": 30373856,
+            "external": 57333648,
+            "arrayBuffers": 53296149
+          },
+          "result": {
+            "results": 3
+          },
+          "wallMs": 6.450876999999991,
+          "cpu": {
+            "user": 28170,
+            "system": 1068
+          },
+          "cpuUtilizationPercent": 453.2406989003207,
+          "endMemory": {
+            "rss": 305553408,
+            "heapTotal": 60571648,
+            "heapUsed": 30376416,
+            "external": 57333648,
+            "arrayBuffers": 53296149
+          },
+          "processPeakRssBytes": 305553408
+        },
+        {
+          "label": "search-hybrid-0",
+          "counts": {
+            "queryEmbeddingCalls": 1,
+            "gcMs": 0.4063889980316162,
+            "gcCount": 1
+          },
+          "stages": {
+            "collectCandidates": 0.026466000000027634,
+            "rankLexical": 1.0211229999999887,
+            "nativeBatch": 5.222896999999989,
+            "queryInferenceIncludingLoad": 5.363008000000036,
+            "rankSemantic": 0.5375440000000253,
+            "fuseRrf": 0.2981039999999666
+          },
+          "calls": {
+            "collectCandidates": 1,
+            "rankLexical": 1,
+            "nativeBatch": 1,
+            "queryInferenceIncludingLoad": 1,
+            "rankSemantic": 1,
+            "fuseRrf": 1
+          },
+          "maxEventLoopLagMs": 0,
+          "peak": {
+            "rss": 322461696,
+            "heapTotal": 60571648,
+            "heapUsed": 31702192,
+            "external": 73079376,
+            "arrayBuffers": 69041877
+          },
+          "result": {
+            "results": 3
+          },
+          "wallMs": 7.475009,
+          "cpu": {
+            "user": 28528,
+            "system": 1125
+          },
+          "cpuUtilizationPercent": 396.6951745476159,
+          "endMemory": {
+            "rss": 322461696,
+            "heapTotal": 60571648,
+            "heapUsed": 31704072,
+            "external": 73079376,
+            "arrayBuffers": 69041877
+          },
+          "processPeakRssBytes": 322461696
+        },
+        {
+          "label": "search-hybrid-1",
+          "counts": {
+            "queryEmbeddingCalls": 1,
+            "gcMs": 3.1879979968070984,
+            "gcCount": 1
+          },
+          "stages": {
+            "collectCandidates": 0.029204000000049746,
+            "rankLexical": 1.507816000000048,
+            "nativeBatch": 6.187532000000033,
+            "queryInferenceIncludingLoad": 6.272273000000041,
+            "rankSemantic": 0.7746510000000626,
+            "fuseRrf": 0.038878000000067914
+          },
+          "calls": {
+            "collectCandidates": 1,
+            "rankLexical": 1,
+            "nativeBatch": 1,
+            "queryInferenceIncludingLoad": 1,
+            "rankSemantic": 1,
+            "fuseRrf": 1
+          },
+          "maxEventLoopLagMs": 2.3470160000000533,
+          "peak": {
+            "rss": 333062144,
+            "heapTotal": 60571648,
+            "heapUsed": 31705872,
+            "external": 85233230,
+            "arrayBuffers": 81195731
+          },
+          "result": {
+            "results": 3
+          },
+          "wallMs": 8.72836499999994,
+          "cpu": {
+            "user": 60878,
+            "system": 1565
+          },
+          "cpuUtilizationPercent": 715.4031711551984,
+          "endMemory": {
+            "rss": 333062144,
+            "heapTotal": 55894016,
+            "heapUsed": 20102592,
+            "external": 85233230,
+            "arrayBuffers": 81195731
+          },
+          "processPeakRssBytes": 333062144
+        },
+        {
+          "label": "search-hybrid-2",
+          "counts": {
+            "queryEmbeddingCalls": 1
+          },
+          "stages": {
+            "collectCandidates": 0.024044000000003507,
+            "rankLexical": 0.91246000000001,
+            "nativeBatch": 4.429408999999964,
+            "queryInferenceIncludingLoad": 4.483646000000022,
+            "rankSemantic": 0.2005020000000286,
+            "fuseRrf": 0.02362700000003315
+          },
+          "calls": {
+            "collectCandidates": 1,
+            "rankLexical": 1,
+            "nativeBatch": 1,
+            "queryInferenceIncludingLoad": 1,
+            "rankSemantic": 1,
+            "fuseRrf": 1
+          },
+          "maxEventLoopLagMs": 0,
+          "peak": {
+            "rss": 351019008,
+            "heapTotal": 55894016,
+            "heapUsed": 21473440,
+            "external": 103141646,
+            "arrayBuffers": 99104147
+          },
+          "result": {
+            "results": 3
+          },
+          "wallMs": 5.734459000000015,
+          "cpu": {
+            "user": 20892,
+            "system": 171
+          },
+          "cpuUtilizationPercent": 367.3057911827418,
+          "endMemory": {
+            "rss": 351019008,
+            "heapTotal": 55894016,
+            "heapUsed": 21475192,
+            "external": 103141646,
+            "arrayBuffers": 99104147
+          },
+          "processPeakRssBytes": 351019008
+        }
+      ]
+    },
+    {
+      "kind": "cli",
+      "size": 16,
+      "model": "{\"adapter\":\"minilm-v1\",\"runtime\":\"4.2.0\",\"model\":\".cache/minilm/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9\",\"revision\":\"751bff37182d3f1213fa05d7196b954e230abad9\",\"device\":\"cpu\",\"dtype\":\"fp32\",\"pooling\":\"mean\",\"normalize\":true,\"truncation\":\"pinned-tokenizer-default\"}",
+      "real": true,
+      "restart": false,
+      "phases": [
+        {
+          "label": "setup",
+          "counts": {
+            "gcMs": 2.8884269893169403,
+            "gcCount": 2
+          },
+          "stages": {},
+          "calls": {},
+          "maxEventLoopLagMs": 0,
+          "peak": {
+            "rss": 109326336,
+            "heapTotal": 22478848,
+            "heapUsed": 15125280,
+            "external": 2693436,
+            "arrayBuffers": 150703
+          },
+          "wallMs": 6.521742999999958,
+          "cpu": {
+            "user": 6670,
+            "system": 4053
+          },
+          "cpuUtilizationPercent": 164.41923577792116,
+          "endMemory": {
+            "rss": 109326336,
+            "heapTotal": 22478848,
+            "heapUsed": 13966120,
+            "external": 2691580,
+            "arrayBuffers": 148807
+          },
+          "processPeakRssBytes": 109326336
+        },
+        {
+          "label": "cold",
+          "counts": {
+            "progressEvents": 43,
+            "entries": 17,
+            "readBufferBytesAllocated": 4991,
+            "bytesRead": 4975,
+            "gcMs": 9.110022991895676,
+            "gcCount": 7,
+            "documentEmbeddingCalls": 4,
+            "freshEmbeddingInputs": 16,
+            "modelInitializationMs": 303.480995
+          },
+          "stages": {
+            "FileIndexStorage.load": 0.40719500000000153,
+            "reusableSnapshot": 0.24619500000000016,
+            "fs.realpath": 7.714706999999976,
+            "fs.lstat": 10.787406999999519,
+            "fs.opendir": 0.5330779999999891,
+            "FileSystemFolderSource.list": 12.025005000000021,
+            "fs.open": 1.3766509999999244,
+            "fs.fstat": 2.0928069999998797,
+            "fs.read": 2.1620190000000434,
+            "fs.close": 1.087665999999956,
+            "FileSystemFolderSource.read": 21.500648000000126,
+            "parse": 1.8230230000000915,
+            "contentHash": 1.6946990000000142,
+            "chunkDocument": 2.487961999999982,
+            "nativeBatch": 182.60980700000005,
+            "documentInferenceIncludingLoad": 487.198033,
+            "snapshotMatches": 0.17480000000000473,
+            "snapshotOf": 0.7427900000000136,
+            "snapshotStringify": 1.4807140000000345,
+            "FileIndexStorage.save": 6.638963999999987
+          },
+          "calls": {
+            "FileIndexStorage.load": 1,
+            "reusableSnapshot": 1,
+            "fs.realpath": 99,
+            "fs.lstat": 179,
+            "fs.opendir": 2,
+            "FileSystemFolderSource.list": 1,
+            "fs.open": 16,
+            "fs.fstat": 32,
+            "fs.read": 32,
+            "fs.close": 16,
+            "FileSystemFolderSource.read": 16,
+            "parse": 16,
+            "contentHash": 16,
+            "chunkDocument": 16,
+            "nativeBatch": 4,
+            "documentInferenceIncludingLoad": 4,
+            "snapshotMatches": 1,
+            "snapshotOf": 1,
+            "snapshotStringify": 1,
+            "FileIndexStorage.save": 1
+          },
+          "maxEventLoopLagMs": 226.33020799999997,
+          "peak": {
+            "rss": 291037184,
+            "heapTotal": 38805504,
+            "heapUsed": 27081272,
+            "external": 28426733,
+            "arrayBuffers": 24387186
+          },
+          "result": {
+            "sourceId": "project",
+            "documents": 16,
+            "chunks": 16,
+            "unchangedChunks": 0,
+            "documentsRead": 16,
+            "documentsParsed": 16,
+            "documentsReused": 0,
+            "documentsDeleted": 0,
+            "persistence": "saved",
+            "embeddedTexts": 16,
+            "reusedVectors": 0
+          },
+          "wallMs": 541.068984,
+          "cpu": {
+            "user": 1239127,
+            "system": 121017
+          },
+          "cpuUtilizationPercent": 251.3808849187334,
+          "endMemory": {
+            "rss": 291037184,
+            "heapTotal": 38223872,
+            "heapUsed": 25545376,
+            "external": 28426733,
+            "arrayBuffers": 24387186
+          },
+          "processPeakRssBytes": 292229120
+        },
+        {
+          "label": "unchanged",
+          "counts": {
+            "progressEvents": 20,
+            "entries": 17,
+            "gcMs": 0.43925799429416656,
+            "gcCount": 1
+          },
+          "stages": {
+            "fs.realpath": 4.297499999999559,
+            "fs.lstat": 5.066628999999807,
+            "fs.opendir": 0.37155600000005506,
+            "FileSystemFolderSource.list": 12.033271000000013,
+            "snapshotMatches": 0.6393329999999651
+          },
+          "calls": {
+            "fs.realpath": 35,
+            "fs.lstat": 67,
+            "fs.opendir": 2,
+            "FileSystemFolderSource.list": 1,
+            "snapshotMatches": 1
+          },
+          "maxEventLoopLagMs": 0,
+          "peak": {
+            "rss": 319086592,
+            "heapTotal": 38748160,
+            "heapUsed": 26320272,
+            "external": 56126828,
+            "arrayBuffers": 52087281
+          },
+          "result": {
+            "sourceId": "project",
+            "documents": 16,
+            "chunks": 16,
+            "unchangedChunks": 16,
+            "documentsRead": 0,
+            "documentsParsed": 0,
+            "documentsReused": 16,
+            "documentsDeleted": 0,
+            "persistence": "unchanged",
+            "embeddedTexts": 0,
+            "reusedVectors": 16
+          },
+          "wallMs": 13.840434999999957,
+          "cpu": {
+            "user": 64746,
+            "system": 10997
+          },
+          "cpuUtilizationPercent": 547.2588108683017,
+          "endMemory": {
+            "rss": 319086592,
+            "heapTotal": 38592512,
+            "heapUsed": 20821112,
+            "external": 56126828,
+            "arrayBuffers": 52087281
+          },
+          "processPeakRssBytes": 319086592
+        },
+        {
+          "label": "search-lexical-0",
+          "counts": {
+            "progressEvents": 5,
+            "readBufferBytesAllocated": 1428,
+            "bytesRead": 1425,
+            "gcMs": 0.5377680063247681,
+            "gcCount": 1
+          },
+          "stages": {
+            "collectCandidates": 0.26381900000001224,
+            "rankLexical": 3.8038219999999683,
+            "fs.realpath": 0.6884189999999535,
+            "fs.lstat": 1.2470140000000356,
+            "fs.open": 0.20084899999983463,
+            "fs.fstat": 0.38218799999992825,
+            "fs.read": 0.3113819999999805,
+            "fs.close": 0.20838000000003376,
+            "FileSystemFolderSource.read": 3.554879999999912
+          },
+          "calls": {
+            "collectCandidates": 1,
+            "rankLexical": 1,
+            "fs.realpath": 12,
+            "fs.lstat": 21,
+            "fs.open": 3,
+            "fs.fstat": 6,
+            "fs.read": 6,
+            "fs.close": 3,
+            "FileSystemFolderSource.read": 3
+          },
+          "maxEventLoopLagMs": 0.09293499999989763,
+          "peak": {
+            "rss": 336912384,
+            "heapTotal": 38592512,
+            "heapUsed": 22101760,
+            "external": 73564720,
+            "arrayBuffers": 69525173
+          },
+          "result": {
+            "results": 3,
+            "retrievalMs": 4.744499000000019,
+            "verificationMs": 5.575808999999936
+          },
+          "wallMs": 10.811390999999958,
+          "cpu": {
+            "user": 43910,
+            "system": 6876
+          },
+          "cpuUtilizationPercent": 469.74528994465373,
+          "endMemory": {
+            "rss": 336912384,
+            "heapTotal": 38592512,
+            "heapUsed": 22103512,
+            "external": 73564720,
+            "arrayBuffers": 69525173
+          },
+          "processPeakRssBytes": 336912384
+        },
+        {
+          "label": "search-lexical-1",
+          "counts": {
+            "progressEvents": 5,
+            "gcMs": 3.024842008948326,
+            "gcCount": 1,
+            "readBufferBytesAllocated": 1428,
+            "bytesRead": 1425
+          },
+          "stages": {
+            "fs.realpath": 1.2700369999998884,
+            "fs.lstat": 5.370613000000276,
+            "fs.open": 0.25895199999990837,
+            "fs.fstat": 0.44932700000003933,
+            "fs.read": 0.4839469999999437,
+            "fs.close": 0.2109530000000177,
+            "FileSystemFolderSource.read": 8.613674999999944
+          },
+          "calls": {
+            "fs.realpath": 12,
+            "fs.lstat": 21,
+            "fs.open": 3,
+            "fs.fstat": 6,
+            "fs.read": 6,
+            "fs.close": 3,
+            "FileSystemFolderSource.read": 3
+          },
+          "maxEventLoopLagMs": 0,
+          "peak": {
+            "rss": 359325696,
+            "heapTotal": 39116800,
+            "heapUsed": 22105200,
+            "external": 96102482,
+            "arrayBuffers": 92062935
+          },
+          "result": {
+            "results": 3,
+            "retrievalMs": 0.09270600000002105,
+            "verificationMs": 9.28153199999997
+          },
+          "wallMs": 9.448214000000007,
+          "cpu": {
+            "user": 21607,
+            "system": 4884
+          },
+          "cpuUtilizationPercent": 280.38103285975507,
+          "endMemory": {
+            "rss": 359325696,
+            "heapTotal": 39116800,
+            "heapUsed": 20765776,
+            "external": 96102482,
+            "arrayBuffers": 92062935
+          },
+          "processPeakRssBytes": 359325696
+        },
+        {
+          "label": "search-lexical-2",
+          "counts": {
+            "progressEvents": 5,
+            "gcMs": 3.3768659979104996,
+            "gcCount": 2,
+            "readBufferBytesAllocated": 1428,
+            "bytesRead": 1425
+          },
+          "stages": {
+            "fs.realpath": 2.5726089999998294,
+            "fs.lstat": 2.1924780000001647,
+            "fs.open": 0.4523149999999987,
+            "fs.fstat": 0.7015260000002854,
+            "fs.read": 0.6170230000002448,
+            "fs.close": 0.2864079999999376,
+            "FileSystemFolderSource.read": 7.35874600000011
+          },
+          "calls": {
+            "fs.realpath": 12,
+            "fs.lstat": 21,
+            "fs.open": 3,
+            "fs.fstat": 6,
+            "fs.read": 6,
+            "fs.close": 3,
+            "FileSystemFolderSource.read": 3
+          },
+          "maxEventLoopLagMs": 1.8288589999999658,
+          "peak": {
+            "rss": 375971840,
+            "heapTotal": 39116800,
+            "heapUsed": 20767464,
+            "external": 112617554,
+            "arrayBuffers": 108578007
+          },
+          "result": {
+            "results": 3,
+            "retrievalMs": 0.07512700000006589,
+            "verificationMs": 8.17405400000007
+          },
+          "wallMs": 8.297440999999935,
+          "cpu": {
+            "user": 33777,
+            "system": 8729
+          },
+          "cpuUtilizationPercent": 512.278424155114,
+          "endMemory": {
+            "rss": 375971840,
+            "heapTotal": 39116800,
+            "heapUsed": 20453632,
+            "external": 112617554,
+            "arrayBuffers": 108578007
+          },
+          "processPeakRssBytes": 375971840
+        },
+        {
+          "label": "search-semantic-0",
+          "counts": {
+            "progressEvents": 5,
+            "queryEmbeddingCalls": 1,
+            "readBufferBytesAllocated": 441,
+            "bytesRead": 438
+          },
+          "stages": {
+            "collectCandidates": 0.035990999999967244,
+            "nativeBatch": 5.55653899999993,
+            "queryInferenceIncludingLoad": 5.688558000000057,
+            "rankSemantic": 1.308877000000166,
+            "fs.realpath": 0.7688459999999395,
+            "fs.lstat": 1.1125629999999092,
+            "fs.open": 0.1770970000000034,
+            "fs.fstat": 0.3091500000002725,
+            "fs.read": 0.37855000000035943,
+            "fs.close": 0.20731999999998152,
+            "FileSystemFolderSource.read": 3.3983919999998307
+          },
+          "calls": {
+            "collectCandidates": 1,
+            "nativeBatch": 1,
+            "queryInferenceIncludingLoad": 1,
+            "rankSemantic": 1,
+            "fs.realpath": 12,
+            "fs.lstat": 21,
+            "fs.open": 3,
+            "fs.fstat": 6,
+            "fs.read": 6,
+            "fs.close": 3,
+            "FileSystemFolderSource.read": 3
+          },
+          "maxEventLoopLagMs": 0.03622999999993226,
+          "peak": {
+            "rss": 399302656,
+            "heapTotal": 39116800,
+            "heapUsed": 22575312,
+            "external": 135838715,
+            "arrayBuffers": 131799168
+          },
+          "result": {
+            "results": 3,
+            "retrievalMs": 7.629501000000118,
+            "verificationMs": 3.624029999999948
+          },
+          "wallMs": 11.330897999999934,
+          "cpu": {
+            "user": 43289,
+            "system": 3160
+          },
+          "cpuUtilizationPercent": 409.9322048437844,
+          "endMemory": {
+            "rss": 399302656,
+            "heapTotal": 39116800,
+            "heapUsed": 22578944,
+            "external": 135838715,
+            "arrayBuffers": 131799168
+          },
+          "processPeakRssBytes": 399302656
+        },
+        {
+          "label": "search-semantic-1",
+          "counts": {
+            "progressEvents": 5,
+            "gcMs": 3.163192003965378,
+            "gcCount": 2,
+            "readBufferBytesAllocated": 441,
+            "bytesRead": 438
+          },
+          "stages": {
+            "fs.realpath": 2.0239940000001297,
+            "fs.lstat": 9.35362699999996,
+            "fs.open": 0.29468100000008235,
+            "fs.fstat": 0.7416160000000218,
+            "fs.read": 0.7564219999999295,
+            "fs.close": 0.3565120000002935,
+            "FileSystemFolderSource.read": 14.074084999999968
+          },
+          "calls": {
+            "fs.realpath": 12,
+            "fs.lstat": 21,
+            "fs.open": 3,
+            "fs.fstat": 6,
+            "fs.read": 6,
+            "fs.close": 3,
+            "FileSystemFolderSource.read": 3
+          },
+          "maxEventLoopLagMs": 2.378236999999899,
+          "peak": {
+            "rss": 423288832,
+            "heapTotal": 39378944,
+            "heapUsed": 22580632,
+            "external": 159736951,
+            "arrayBuffers": 155697404
+          },
+          "result": {
+            "results": 3,
+            "retrievalMs": 0.07324699999981021,
+            "verificationMs": 14.377746000000116
+          },
+          "wallMs": 14.554571000000124,
+          "cpu": {
+            "user": 87103,
+            "system": 6961
+          },
+          "cpuUtilizationPercent": 646.2849368765263,
+          "endMemory": {
+            "rss": 423288832,
+            "heapTotal": 39378944,
+            "heapUsed": 20903304,
+            "external": 159736951,
+            "arrayBuffers": 155697404
+          },
+          "processPeakRssBytes": 423288832
+        },
+        {
+          "label": "search-semantic-2",
+          "counts": {
+            "progressEvents": 5,
+            "readBufferBytesAllocated": 441,
+            "bytesRead": 438
+          },
+          "stages": {
+            "fs.realpath": 0.6199779999999464,
+            "fs.lstat": 1.0614590000004682,
+            "fs.open": 0.17849100000034923,
+            "fs.fstat": 0.2913570000000618,
+            "fs.read": 0.29530099999965387,
+            "fs.close": 0.18047300000012,
+            "FileSystemFolderSource.read": 2.9859270000004017
+          },
+          "calls": {
+            "fs.realpath": 12,
+            "fs.lstat": 21,
+            "fs.open": 3,
+            "fs.fstat": 6,
+            "fs.read": 6,
+            "fs.close": 3,
+            "FileSystemFolderSource.read": 3
+          },
+          "maxEventLoopLagMs": 0,
+          "peak": {
+            "rss": 445046784,
+            "heapTotal": 39378944,
+            "heapUsed": 21694104,
+            "external": 181695840,
+            "arrayBuffers": 177656293
+          },
+          "result": {
+            "results": 3,
+            "retrievalMs": 0.08988499999986743,
+            "verificationMs": 3.1226890000000367
+          },
+          "wallMs": 3.288185999999996,
+          "cpu": {
+            "user": 13096,
+            "system": 3175
+          },
+          "cpuUtilizationPercent": 494.8321049964941,
+          "endMemory": {
+            "rss": 445046784,
+            "heapTotal": 39378944,
+            "heapUsed": 21696664,
+            "external": 181695840,
+            "arrayBuffers": 177656293
+          },
+          "processPeakRssBytes": 445046784
+        },
+        {
+          "label": "search-hybrid-0",
+          "counts": {
+            "progressEvents": 5,
+            "queryEmbeddingCalls": 1,
+            "gcMs": 2.757201001048088,
+            "gcCount": 2,
+            "readBufferBytesAllocated": 768,
+            "bytesRead": 765
+          },
+          "stages": {
+            "collectCandidates": 0.018497000000024855,
+            "rankLexical": 1.6132789999999204,
+            "nativeBatch": 7.4691589999999906,
+            "queryInferenceIncludingLoad": 7.585366999999906,
+            "rankSemantic": 0.828993999999966,
+            "fuseRrf": 0.36835199999995893,
+            "fs.realpath": 1.1341019999999844,
+            "fs.lstat": 5.388786999999866,
+            "fs.open": 0.21269099999994978,
+            "fs.fstat": 0.45691900000019814,
+            "fs.read": 0.4348929999998745,
+            "fs.close": 0.14652099999989332,
+            "FileSystemFolderSource.read": 8.35882800000013
+          },
+          "calls": {
+            "collectCandidates": 1,
+            "rankLexical": 1,
+            "nativeBatch": 1,
+            "queryInferenceIncludingLoad": 1,
+            "rankSemantic": 1,
+            "fuseRrf": 1,
+            "fs.realpath": 12,
+            "fs.lstat": 21,
+            "fs.open": 3,
+            "fs.fstat": 6,
+            "fs.read": 6,
+            "fs.close": 3,
+            "FileSystemFolderSource.read": 3
+          },
+          "maxEventLoopLagMs": 1.0173439999998664,
+          "peak": {
+            "rss": 448454656,
+            "heapTotal": 39378944,
+            "heapUsed": 23234720,
+            "external": 185274794,
+            "arrayBuffers": 181235247
+          },
+          "result": {
+            "results": 3,
+            "retrievalMs": 10.839441999999963,
+            "verificationMs": 9.108314999999948
+          },
+          "wallMs": 19.992868000000044,
+          "cpu": {
+            "user": 120134,
+            "system": 4752
+          },
+          "cpuUtilizationPercent": 624.6527511710663,
+          "endMemory": {
+            "rss": 448454656,
+            "heapTotal": 39378944,
+            "heapUsed": 20729232,
+            "external": 185274794,
+            "arrayBuffers": 181235247
+          },
+          "processPeakRssBytes": 448454656
+        },
+        {
+          "label": "search-hybrid-1",
+          "counts": {
+            "progressEvents": 5,
+            "readBufferBytesAllocated": 768,
+            "bytesRead": 765
+          },
+          "stages": {
+            "fs.realpath": 0.587641000000076,
+            "fs.lstat": 0.7962939999997616,
+            "fs.open": 0.11333799999988514,
+            "fs.fstat": 0.23087299999997413,
+            "fs.read": 0.17507000000000517,
+            "fs.close": 0.1611159999999927,
+            "FileSystemFolderSource.read": 2.470878999999968
+          },
+          "calls": {
+            "fs.realpath": 12,
+            "fs.lstat": 21,
+            "fs.open": 3,
+            "fs.fstat": 6,
+            "fs.read": 6,
+            "fs.close": 3,
+            "FileSystemFolderSource.read": 3
+          },
+          "maxEventLoopLagMs": 0,
+          "peak": {
+            "rss": 448454656,
+            "heapTotal": 39378944,
+            "heapUsed": 21028144,
+            "external": 185279450,
+            "arrayBuffers": 181239903
+          },
+          "result": {
+            "results": 3,
+            "retrievalMs": 0.08729499999981272,
+            "verificationMs": 2.8737170000001697
+          },
+          "wallMs": 2.9941929999999957,
+          "cpu": {
+            "user": 11992,
+            "system": 845
+          },
+          "cpuUtilizationPercent": 428.7298781341089,
+          "endMemory": {
+            "rss": 448454656,
+            "heapTotal": 39378944,
+            "heapUsed": 21029896,
+            "external": 185279450,
+            "arrayBuffers": 181239903
+          },
+          "processPeakRssBytes": 448454656
+        },
+        {
+          "label": "search-hybrid-2",
+          "counts": {
+            "progressEvents": 5,
+            "readBufferBytesAllocated": 768,
+            "bytesRead": 765
+          },
+          "stages": {
+            "fs.realpath": 0.6060829999998987,
+            "fs.lstat": 0.7883109999997941,
+            "fs.open": 0.1310209999996914,
+            "fs.fstat": 0.21076900000002752,
+            "fs.read": 0.18581600000038634,
+            "fs.close": 0.07866800000010699,
+            "FileSystemFolderSource.read": 2.314296000000013
+          },
+          "calls": {
+            "fs.realpath": 12,
+            "fs.lstat": 21,
+            "fs.open": 3,
+            "fs.fstat": 6,
+            "fs.read": 6,
+            "fs.close": 3,
+            "FileSystemFolderSource.read": 3
+          },
+          "maxEventLoopLagMs": 0,
+          "peak": {
+            "rss": 448585728,
+            "heapTotal": 39378944,
+            "heapUsed": 21344648,
+            "external": 185284106,
+            "arrayBuffers": 181244559
+          },
+          "result": {
+            "results": 3,
+            "retrievalMs": 0.06588100000021768,
+            "verificationMs": 2.624769000000015
+          },
+          "wallMs": 2.7173139999999876,
+          "cpu": {
+            "user": 11989,
+            "system": 0
+          },
+          "cpuUtilizationPercent": 441.20775147811605,
+          "endMemory": {
+            "rss": 448585728,
+            "heapTotal": 39378944,
+            "heapUsed": 21346400,
+            "external": 185284106,
+            "arrayBuffers": 181244559
+          },
+          "processPeakRssBytes": 448585728
+        },
+        {
+          "label": "one-change",
+          "counts": {
+            "progressEvents": 24,
+            "entries": 17,
+            "readBufferBytesAllocated": 499,
+            "bytesRead": 498,
+            "documentEmbeddingCalls": 1,
+            "freshEmbeddingInputs": 1
+          },
+          "stages": {
+            "fs.realpath": 1.3012469999996483,
+            "fs.lstat": 1.994924999998375,
+            "fs.opendir": 0.30282099999999446,
+            "FileSystemFolderSource.list": 4.506766999999854,
+            "fs.open": 0.03395799999998417,
+            "fs.fstat": 0.05970999999999549,
+            "fs.read": 0.05497800000011921,
+            "fs.close": 0.019442000000026383,
+            "FileSystemFolderSource.read": 0.5755850000000464,
+            "parse": 0.2556410000001961,
+            "contentHash": 0.07668600000010883,
+            "chunkDocument": 0.10206700000003366,
+            "nativeBatch": 13.075884000000087,
+            "documentInferenceIncludingLoad": 13.140667000000121,
+            "snapshotMatches": 0.05216100000006918,
+            "snapshotOf": 0.43534199999999146,
+            "snapshotStringify": 1.6171699999999873,
+            "FileIndexStorage.save": 5.37714700000015
+          },
+          "calls": {
+            "fs.realpath": 39,
+            "fs.lstat": 74,
+            "fs.opendir": 2,
+            "FileSystemFolderSource.list": 1,
+            "fs.open": 1,
+            "fs.fstat": 2,
+            "fs.read": 2,
+            "fs.close": 1,
+            "FileSystemFolderSource.read": 1,
+            "parse": 1,
+            "contentHash": 1,
+            "chunkDocument": 1,
+            "nativeBatch": 1,
+            "documentInferenceIncludingLoad": 1,
+            "snapshotMatches": 1,
+            "snapshotOf": 1,
+            "snapshotStringify": 1,
+            "FileIndexStorage.save": 1
+          },
+          "maxEventLoopLagMs": 10.027848999999833,
+          "peak": {
+            "rss": 449241088,
+            "heapTotal": 39534592,
+            "heapUsed": 24060688,
+            "external": 185590002,
+            "arrayBuffers": 181550455
+          },
+          "result": {
+            "sourceId": "project",
+            "documents": 16,
+            "chunks": 16,
+            "unchangedChunks": 15,
+            "documentsRead": 1,
+            "documentsParsed": 1,
+            "documentsReused": 15,
+            "documentsDeleted": 0,
+            "persistence": "saved",
+            "embeddedTexts": 1,
+            "reusedVectors": 15
+          },
+          "wallMs": 25.54162999999994,
+          "cpu": {
+            "user": 94686,
+            "system": 1091
+          },
+          "cpuUtilizationPercent": 374.9838988349617,
+          "endMemory": {
+            "rss": 449241088,
+            "heapTotal": 39534592,
+            "heapUsed": 24062440,
+            "external": 185590002,
+            "arrayBuffers": 181550455
+          },
+          "processPeakRssBytes": 449241088
+        },
+        {
+          "label": "five-change",
+          "counts": {
+            "progressEvents": 29,
+            "entries": 17,
+            "readBufferBytesAllocated": 1500,
+            "bytesRead": 1495,
+            "documentEmbeddingCalls": 2,
+            "freshEmbeddingInputs": 5,
+            "gcMs": 0.4802370071411133,
+            "gcCount": 1
+          },
+          "stages": {
+            "fs.realpath": 2.0491910000002918,
+            "fs.lstat": 3.0927660000002106,
+            "fs.opendir": 0.22660999999993692,
+            "FileSystemFolderSource.list": 5.0255050000000665,
+            "fs.open": 0.20315600000003542,
+            "fs.fstat": 0.41616199999953096,
+            "fs.read": 0.3364749999996093,
+            "fs.close": 0.12924899999984518,
+            "FileSystemFolderSource.read": 3.3710979999993924,
+            "parse": 0.21153900000012982,
+            "contentHash": 0.38641500000017004,
+            "chunkDocument": 0.47815300000002026,
+            "nativeBatch": 55.73253900000009,
+            "documentInferenceIncludingLoad": 55.949399000000085,
+            "snapshotMatches": 0.05394499999988511,
+            "snapshotOf": 0.4431080000001657,
+            "snapshotStringify": 1.2623070000001917,
+            "FileIndexStorage.save": 4.815346999999974
+          },
+          "calls": {
+            "fs.realpath": 55,
+            "fs.lstat": 102,
+            "fs.opendir": 2,
+            "FileSystemFolderSource.list": 1,
+            "fs.open": 5,
+            "fs.fstat": 10,
+            "fs.read": 10,
+            "fs.close": 5,
+            "FileSystemFolderSource.read": 5,
+            "parse": 5,
+            "contentHash": 5,
+            "chunkDocument": 5,
+            "nativeBatch": 2,
+            "documentInferenceIncludingLoad": 2,
+            "snapshotMatches": 1,
+            "snapshotOf": 1,
+            "snapshotStringify": 1,
+            "FileIndexStorage.save": 1
+          },
+          "maxEventLoopLagMs": 39.04106100000013,
+          "peak": {
+            "rss": 451862528,
+            "heapTotal": 39534592,
+            "heapUsed": 25239752,
+            "external": 185793360,
+            "arrayBuffers": 181753813
+          },
+          "result": {
+            "sourceId": "project",
+            "documents": 16,
+            "chunks": 16,
+            "unchangedChunks": 11,
+            "documentsRead": 5,
+            "documentsParsed": 5,
+            "documentsReused": 11,
+            "documentsDeleted": 0,
+            "persistence": "saved",
+            "embeddedTexts": 5,
+            "reusedVectors": 11
+          },
+          "wallMs": 71.911249,
+          "cpu": {
+            "user": 289317,
+            "system": 5797
+          },
+          "cpuUtilizationPercent": 410.38641951553365,
+          "endMemory": {
+            "rss": 451862528,
+            "heapTotal": 39534592,
+            "heapUsed": 22260064,
+            "external": 185793360,
+            "arrayBuffers": 181753813
+          },
+          "processPeakRssBytes": 451862528
+        },
+        {
+          "label": "add",
+          "counts": {
+            "progressEvents": 25,
+            "entries": 18,
+            "readBufferBytesAllocated": 36,
+            "bytesRead": 35,
+            "documentEmbeddingCalls": 1,
+            "freshEmbeddingInputs": 1
+          },
+          "stages": {
+            "fs.realpath": 1.5382190000002538,
+            "fs.lstat": 2.465208999999959,
+            "fs.opendir": 0.22038300000008348,
+            "FileSystemFolderSource.list": 5.435895999999957,
+            "fs.open": 0.04399199999988923,
+            "fs.fstat": 0.0886249999998654,
+            "fs.read": 0.07471699999996417,
+            "fs.close": 0.03129699999999502,
+            "FileSystemFolderSource.read": 0.6784509999999955,
+            "parse": 0.04376499999989392,
+            "contentHash": 0.018470999999863125,
+            "chunkDocument": 0.03155700000002071,
+            "nativeBatch": 5.3860389999999825,
+            "documentInferenceIncludingLoad": 5.439094999999952,
+            "snapshotMatches": 0.051290000000108193,
+            "snapshotOf": 0.37845999999990454,
+            "snapshotStringify": 1.3272210000000086,
+            "FileIndexStorage.save": 4.790464000000156
+          },
+          "calls": {
+            "fs.realpath": 41,
+            "fs.lstat": 75,
+            "fs.opendir": 2,
+            "FileSystemFolderSource.list": 1,
+            "fs.open": 1,
+            "fs.fstat": 2,
+            "fs.read": 2,
+            "fs.close": 1,
+            "FileSystemFolderSource.read": 1,
+            "parse": 1,
+            "contentHash": 1,
+            "chunkDocument": 1,
+            "nativeBatch": 1,
+            "documentInferenceIncludingLoad": 1,
+            "snapshotMatches": 1,
+            "snapshotOf": 1,
+            "snapshotStringify": 1,
+            "FileIndexStorage.save": 1
+          },
+          "maxEventLoopLagMs": 2.988258000000087,
+          "peak": {
+            "rss": 452255744,
+            "heapTotal": 39698432,
+            "heapUsed": 24080192,
+            "external": 185989013,
+            "arrayBuffers": 181949466
+          },
+          "result": {
+            "sourceId": "project",
+            "documents": 17,
+            "chunks": 17,
+            "unchangedChunks": 16,
+            "documentsRead": 1,
+            "documentsParsed": 1,
+            "documentsReused": 16,
+            "documentsDeleted": 0,
+            "persistence": "saved",
+            "embeddedTexts": 1,
+            "reusedVectors": 16
+          },
+          "wallMs": 17.916221000000178,
+          "cpu": {
+            "user": 66493,
+            "system": 4029
+          },
+          "cpuUtilizationPercent": 393.6209538830722,
+          "endMemory": {
+            "rss": 452255744,
+            "heapTotal": 39698432,
+            "heapUsed": 24081944,
+            "external": 185989013,
+            "arrayBuffers": 181949466
+          },
+          "processPeakRssBytes": 452255744
+        },
+        {
+          "label": "delete",
+          "counts": {
+            "progressEvents": 21,
+            "entries": 17
+          },
+          "stages": {
+            "fs.realpath": 1.2270510000009835,
+            "fs.lstat": 1.8983090000010634,
+            "fs.opendir": 0.1679309999999532,
+            "FileSystemFolderSource.list": 4.632450999999946,
+            "snapshotMatches": 0.08574499999986074,
+            "snapshotOf": 0.5253340000001572,
+            "snapshotStringify": 1.2858479999999872,
+            "FileIndexStorage.save": 4.618635999999924
+          },
+          "calls": {
+            "fs.realpath": 35,
+            "fs.lstat": 67,
+            "fs.opendir": 2,
+            "FileSystemFolderSource.list": 1,
+            "snapshotMatches": 1,
+            "snapshotOf": 1,
+            "snapshotStringify": 1,
+            "FileIndexStorage.save": 1
+          },
+          "maxEventLoopLagMs": 0.05163000000015927,
+          "peak": {
+            "rss": 452386816,
+            "heapTotal": 39854080,
+            "heapUsed": 25458256,
+            "external": 186152443,
+            "arrayBuffers": 182112896
+          },
+          "result": {
+            "sourceId": "project",
+            "documents": 16,
+            "chunks": 16,
+            "unchangedChunks": 16,
+            "documentsRead": 0,
+            "documentsParsed": 0,
+            "documentsReused": 16,
+            "documentsDeleted": 1,
+            "persistence": "saved",
+            "embeddedTexts": 0,
+            "reusedVectors": 16
+          },
+          "wallMs": 10.679442999999992,
+          "cpu": {
+            "user": 41011,
+            "system": 1091
+          },
+          "cpuUtilizationPercent": 394.2340438541601,
+          "endMemory": {
+            "rss": 452386816,
+            "heapTotal": 39854080,
+            "heapUsed": 25460008,
+            "external": 186152443,
+            "arrayBuffers": 182112896
+          },
+          "processPeakRssBytes": 452386816
+        },
+        {
+          "label": "rename",
+          "counts": {
+            "progressEvents": 22,
+            "entries": 17,
+            "readBufferBytesAllocated": 476,
+            "bytesRead": 475
+          },
+          "stages": {
+            "fs.realpath": 1.3666539999999259,
+            "fs.lstat": 2.068461000000525,
+            "fs.opendir": 0.17832399999997506,
+            "FileSystemFolderSource.list": 4.721247000000176,
+            "fs.open": 0.039774999999963256,
+            "fs.fstat": 0.07329600000002756,
+            "fs.read": 0.06570899999996982,
+            "fs.close": 0.021709999999984575,
+            "FileSystemFolderSource.read": 0.577007999999978,
+            "parse": 0.054094999999961146,
+            "contentHash": 0.1344219999998586,
+            "chunkDocument": 0.1507890000000316,
+            "snapshotMatches": 0.0920690000000377,
+            "snapshotOf": 0.43019200000003366,
+            "snapshotStringify": 1.3908289999999397,
+            "FileIndexStorage.save": 5.08466199999998
+          },
+          "calls": {
+            "fs.realpath": 39,
+            "fs.lstat": 71,
+            "fs.opendir": 2,
+            "FileSystemFolderSource.list": 1,
+            "fs.open": 1,
+            "fs.fstat": 2,
+            "fs.read": 2,
+            "fs.close": 1,
+            "FileSystemFolderSource.read": 1,
+            "parse": 1,
+            "contentHash": 1,
+            "chunkDocument": 1,
+            "snapshotMatches": 1,
+            "snapshotOf": 1,
+            "snapshotStringify": 1,
+            "FileIndexStorage.save": 1
+          },
+          "maxEventLoopLagMs": 0.7981480000000829,
+          "peak": {
+            "rss": 452648960,
+            "heapTotal": 40009728,
+            "heapUsed": 26962280,
+            "external": 186317661,
+            "arrayBuffers": 182278114
+          },
+          "result": {
+            "sourceId": "project",
+            "documents": 16,
+            "chunks": 16,
+            "unchangedChunks": 15,
+            "documentsRead": 1,
+            "documentsParsed": 1,
+            "documentsReused": 15,
+            "documentsDeleted": 1,
+            "persistence": "saved",
+            "embeddedTexts": 0,
+            "reusedVectors": 16
+          },
+          "wallMs": 12.064429000000018,
+          "cpu": {
+            "user": 44027,
+            "system": 2211
+          },
+          "cpuUtilizationPercent": 383.2589175998295,
+          "endMemory": {
+            "rss": 452648960,
+            "heapTotal": 40009728,
+            "heapUsed": 26964032,
+            "external": 186317661,
+            "arrayBuffers": 182278114
+          },
+          "processPeakRssBytes": 452648960
+        },
+        {
+          "label": "metadata-only",
+          "counts": {
+            "progressEvents": 22,
+            "entries": 17,
+            "readBufferBytesAllocated": 146,
+            "bytesRead": 145,
+            "gcMs": 0.5497599989175797,
+            "gcCount": 1
+          },
+          "stages": {
+            "fs.realpath": 2.2013509999994767,
+            "fs.lstat": 3.75208000000066,
+            "fs.opendir": 0.28570399999989604,
+            "FileSystemFolderSource.list": 7.301691999999775,
+            "fs.open": 0.08393799999998919,
+            "fs.fstat": 0.07209600000010141,
+            "fs.read": 0.14433099999996557,
+            "fs.close": 0.022020999999995183,
+            "FileSystemFolderSource.read": 0.9727619999998751,
+            "parse": 0.02097700000012992,
+            "contentHash": 0.03135300000008101,
+            "chunkDocument": 0.04565900000011425,
+            "snapshotMatches": 0.049612000000024636,
+            "snapshotOf": 0.42970199999990655,
+            "snapshotStringify": 1.163679000000002,
+            "FileIndexStorage.save": 5.057023000000072
+          },
+          "calls": {
+            "fs.realpath": 39,
+            "fs.lstat": 73,
+            "fs.opendir": 2,
+            "FileSystemFolderSource.list": 1,
+            "fs.open": 1,
+            "fs.fstat": 2,
+            "fs.read": 2,
+            "fs.close": 1,
+            "FileSystemFolderSource.read": 1,
+            "parse": 1,
+            "contentHash": 1,
+            "chunkDocument": 1,
+            "snapshotMatches": 1,
+            "snapshotOf": 1,
+            "snapshotStringify": 1,
+            "FileIndexStorage.save": 1
+          },
+          "maxEventLoopLagMs": 0.51997799999981,
+          "peak": {
+            "rss": 452648960,
+            "heapTotal": 40009728,
+            "heapUsed": 26970616,
+            "external": 186328896,
+            "arrayBuffers": 182278258
+          },
+          "result": {
+            "sourceId": "project",
+            "documents": 16,
+            "chunks": 16,
+            "unchangedChunks": 16,
+            "documentsRead": 1,
+            "documentsParsed": 1,
+            "documentsReused": 15,
+            "documentsDeleted": 0,
+            "persistence": "saved",
+            "embeddedTexts": 0,
+            "reusedVectors": 16
+          },
+          "wallMs": 15.476850999999897,
+          "cpu": {
+            "user": 9993,
+            "system": 2666
+          },
+          "cpuUtilizationPercent": 81.79312445406423,
+          "endMemory": {
+            "rss": 452186112,
+            "heapTotal": 39534592,
+            "heapUsed": 21189720,
+            "external": 185188149,
+            "arrayBuffers": 181148602
+          },
+          "processPeakRssBytes": 452648960
+        },
+        {
+          "label": "cancel-scan",
+          "counts": {
+            "progressEvents": 1,
+            "entries": 13
+          },
+          "stages": {
+            "fs.realpath": 1.5487439999999424,
+            "fs.lstat": 2.4340939999997317,
+            "fs.opendir": 0.2594329999999445,
+            "FileSystemFolderSource.list": 5.332900999999993
+          },
+          "calls": {
+            "fs.realpath": 25,
+            "fs.lstat": 47,
+            "fs.opendir": 2,
+            "FileSystemFolderSource.list": 1
+          },
+          "maxEventLoopLagMs": 1.3737919999998667,
+          "peak": {
+            "rss": 452186112,
+            "heapTotal": 39534592,
+            "heapUsed": 21609064,
+            "external": 185194917,
+            "arrayBuffers": 181155370
+          },
+          "result": {
+            "error": "AbortError",
+            "abortDispatchMs": 4.86529100000007,
+            "responseAfterAbortMs": 0.8493599999999333
+          },
+          "wallMs": 5.848644000000149,
+          "cpu": {
+            "user": 2353,
+            "system": 2853
+          },
+          "cpuUtilizationPercent": 89.01208553640582,
+          "endMemory": {
+            "rss": 452186112,
+            "heapTotal": 39534592,
+            "heapUsed": 21610816,
+            "external": 185194917,
+            "arrayBuffers": 181155370
+          },
+          "processPeakRssBytes": 452648960
+        }
+      ],
+      "cancellation": {
+        "label": "cancel-native",
+        "counts": {
+          "documentEmbeddingCalls": 1,
+          "freshEmbeddingInputs": 4,
+          "gcMs": 1.039355993270874,
+          "gcCount": 2
+        },
+        "stages": {
+          "nativeBatch": 351.0613269999999,
+          "documentInferenceIncludingLoad": 351.301927
+        },
+        "calls": {
+          "nativeBatch": 1,
+          "documentInferenceIncludingLoad": 1
+        },
+        "maxEventLoopLagMs": 342.3911189999999,
+        "peak": {
+          "rss": 484941824,
+          "heapTotal": 39534592,
+          "heapUsed": 25360760,
+          "external": 186797146,
+          "arrayBuffers": 182757599
+        },
+        "result": {
+          "inputs": 4,
+          "intendedAbortDelayMs": 5,
+          "error": null,
+          "settledBeforeAbort": true,
+          "settlementMs": 351.5644689999999,
+          "abortDispatchMs": 351.6548419999999,
+          "responseAfterAbortMs": null
+        },
+        "wallMs": 352.31753100000014,
+        "cpu": {
+          "user": 1333844,
+          "system": 41303
+        },
+        "cpuUtilizationPercent": 390.31466759455674,
+        "endMemory": {
+          "rss": 484941824,
+          "heapTotal": 39378944,
+          "heapUsed": 25362512,
+          "external": 186797146,
+          "arrayBuffers": 182757599
+        },
+        "processPeakRssBytes": 484954112
+      },
+      "cancellationLong": {
+        "label": "cancel-native-two-batches",
+        "counts": {
+          "documentEmbeddingCalls": 1,
+          "freshEmbeddingInputs": 8,
+          "gcMs": 2.776743993163109,
+          "gcCount": 5
+        },
+        "stages": {
+          "nativeBatch": 644.0782739999997,
+          "documentInferenceIncludingLoad": 644.332803
+        },
+        "calls": {
+          "nativeBatch": 2,
+          "documentInferenceIncludingLoad": 1
+        },
+        "maxEventLoopLagMs": 335.6792579999999,
+        "peak": {
+          "rss": 526884864,
+          "heapTotal": 39378944,
+          "heapUsed": 25503816,
+          "external": 190341082,
+          "arrayBuffers": 186301535
+        },
+        "result": {
+          "inputs": 8,
+          "intendedAbortDelayMs": 5,
+          "error": "AbortError",
+          "settledBeforeAbort": false,
+          "settlementMs": 644.4064940000001,
+          "abortDispatchMs": 345.49436200000014,
+          "responseAfterAbortMs": 298.91213199999993
+        },
+        "wallMs": 644.5055240000002,
+        "cpu": {
+          "user": 2567616,
+          "system": 23248
+        },
+        "cpuUtilizationPercent": 401.9925203930447,
+        "endMemory": {
+          "rss": 526884864,
+          "heapTotal": 39378944,
+          "heapUsed": 25505568,
+          "external": 190341082,
+          "arrayBuffers": 186301535
+        },
+        "processPeakRssBytes": 526884864
+      }
+    },
+    {
+      "kind": "cli",
+      "size": 16,
+      "model": "{\"adapter\":\"minilm-v1\",\"runtime\":\"4.2.0\",\"model\":\".cache/minilm/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9\",\"revision\":\"751bff37182d3f1213fa05d7196b954e230abad9\",\"device\":\"cpu\",\"dtype\":\"fp32\",\"pooling\":\"mean\",\"normalize\":true,\"truncation\":\"pinned-tokenizer-default\"}",
+      "real": true,
+      "restart": true,
+      "phases": [
+        {
+          "label": "setup",
+          "counts": {
+            "gcMs": 2.5368440002202988,
+            "gcCount": 2
+          },
+          "stages": {},
+          "calls": {},
+          "maxEventLoopLagMs": 0.5280689999999595,
+          "peak": {
+            "rss": 114827264,
+            "heapTotal": 22478848,
+            "heapUsed": 15126336,
+            "external": 2693436,
+            "arrayBuffers": 150703
+          },
+          "wallMs": 5.854579999999999,
+          "cpu": {
+            "user": 9690,
+            "system": 131
+          },
+          "cpuUtilizationPercent": 167.74901017664806,
+          "endMemory": {
+            "rss": 114827264,
+            "heapTotal": 22478848,
+            "heapUsed": 13942448,
+            "external": 2691580,
+            "arrayBuffers": 148807
+          },
+          "processPeakRssBytes": 114827264
+        },
+        {
+          "label": "restart",
+          "counts": {
+            "progressEvents": 21,
+            "entries": 17,
+            "gcMs": 1.591148003935814,
+            "gcCount": 1
+          },
+          "stages": {
+            "snapshotParse": 1.048720000000003,
+            "FileIndexStorage.load": 3.1768769999999904,
+            "contentHash": 2.011867999999936,
+            "reusableSnapshot": 4.271515999999963,
+            "fs.realpath": 3.9376609999998777,
+            "fs.lstat": 4.062960000000203,
+            "fs.opendir": 0.6325449999999933,
+            "FileSystemFolderSource.list": 13.492013000000043,
+            "snapshotMatches": 0.6735299999999711
+          },
+          "calls": {
+            "snapshotParse": 1,
+            "FileIndexStorage.load": 1,
+            "contentHash": 16,
+            "reusableSnapshot": 1,
+            "fs.realpath": 35,
+            "fs.lstat": 66,
+            "fs.opendir": 2,
+            "FileSystemFolderSource.list": 1,
+            "snapshotMatches": 1
+          },
+          "maxEventLoopLagMs": 0.9952819999999747,
+          "peak": {
+            "rss": 119939072,
+            "heapTotal": 24051712,
+            "heapUsed": 15622096,
+            "external": 2882939,
+            "arrayBuffers": 332390
+          },
+          "result": {
+            "sourceId": "project",
+            "documents": 16,
+            "chunks": 16,
+            "unchangedChunks": 16,
+            "documentsRead": 0,
+            "documentsParsed": 0,
+            "documentsReused": 16,
+            "documentsDeleted": 0,
+            "persistence": "unchanged",
+            "embeddedTexts": 0,
+            "reusedVectors": 16
+          },
+          "wallMs": 26.335644000000002,
+          "cpu": {
+            "user": 26297,
+            "system": 5668
+          },
+          "cpuUtilizationPercent": 121.37542563986663,
+          "endMemory": {
+            "rss": 119939072,
+            "heapTotal": 24051712,
+            "heapUsed": 14884592,
+            "external": 2717740,
+            "arrayBuffers": 174967
+          },
+          "processPeakRssBytes": 119939072
+        },
+        {
+          "label": "unchanged",
+          "counts": {
+            "progressEvents": 20,
+            "entries": 17
+          },
+          "stages": {
+            "fs.realpath": 1.3720000000001278,
+            "fs.lstat": 2.367161000000408,
+            "fs.opendir": 0.32504900000003545,
+            "FileSystemFolderSource.list": 5.5434249999999565,
+            "snapshotMatches": 0.28359599999998863
+          },
+          "calls": {
+            "fs.realpath": 35,
+            "fs.lstat": 66,
+            "fs.opendir": 2,
+            "FileSystemFolderSource.list": 1,
+            "snapshotMatches": 1
+          },
+          "maxEventLoopLagMs": 0,
+          "peak": {
+            "rss": 119939072,
+            "heapTotal": 24051712,
+            "heapUsed": 15793488,
+            "external": 2727244,
+            "arrayBuffers": 184471
+          },
+          "result": {
+            "sourceId": "project",
+            "documents": 16,
+            "chunks": 16,
+            "unchangedChunks": 16,
+            "documentsRead": 0,
+            "documentsParsed": 0,
+            "documentsReused": 16,
+            "documentsDeleted": 0,
+            "persistence": "unchanged",
+            "embeddedTexts": 0,
+            "reusedVectors": 16
+          },
+          "wallMs": 6.725164000000007,
+          "cpu": {
+            "user": 5128,
+            "system": 2447
+          },
+          "cpuUtilizationPercent": 112.63665837740155,
+          "endMemory": {
+            "rss": 119939072,
+            "heapTotal": 24051712,
+            "heapUsed": 15795240,
+            "external": 2727244,
+            "arrayBuffers": 184471
+          },
+          "processPeakRssBytes": 119939072
+        },
+        {
+          "label": "search-lexical-0",
+          "counts": {
+            "progressEvents": 5,
+            "readBufferBytesAllocated": 1495,
+            "bytesRead": 1492
+          },
+          "stages": {
+            "collectCandidates": 1.2878969999999867,
+            "rankLexical": 12.372297000000003,
+            "fs.realpath": 1.2912809999999695,
+            "fs.lstat": 2.183167000000253,
+            "fs.open": 0.4983490000000188,
+            "fs.fstat": 0.9340079999999489,
+            "fs.read": 0.8790429999999674,
+            "fs.close": 0.21787299999994048,
+            "FileSystemFolderSource.read": 7.52219800000006
+          },
+          "calls": {
+            "collectCandidates": 1,
+            "rankLexical": 1,
+            "fs.realpath": 12,
+            "fs.lstat": 21,
+            "fs.open": 3,
+            "fs.fstat": 6,
+            "fs.read": 6,
+            "fs.close": 3,
+            "FileSystemFolderSource.read": 3
+          },
+          "maxEventLoopLagMs": 8.41610099999997,
+          "peak": {
+            "rss": 120070144,
+            "heapTotal": 24051712,
+            "heapUsed": 16644992,
+            "external": 2732627,
+            "arrayBuffers": 189854
+          },
+          "result": {
+            "results": 3,
+            "retrievalMs": 16.170166999999992,
+            "verificationMs": 10.051409999999976
+          },
+          "wallMs": 27.890353000000005,
+          "cpu": {
+            "user": 30099,
+            "system": 1211
+          },
+          "cpuUtilizationPercent": 112.2610387900074,
+          "endMemory": {
+            "rss": 120070144,
+            "heapTotal": 24051712,
+            "heapUsed": 16646856,
+            "external": 2732627,
+            "arrayBuffers": 189854
+          },
+          "processPeakRssBytes": 120070144
+        },
+        {
+          "label": "search-lexical-1",
+          "counts": {
+            "progressEvents": 5,
+            "readBufferBytesAllocated": 1495,
+            "bytesRead": 1492
+          },
+          "stages": {
+            "fs.realpath": 2.790266000000031,
+            "fs.lstat": 4.541490000000067,
+            "fs.open": 0.9921870000000013,
+            "fs.fstat": 1.3132859999999482,
+            "fs.read": 1.3860809999999901,
+            "fs.close": 0.5905890000000227,
+            "FileSystemFolderSource.read": 13.51123899999999
+          },
+          "calls": {
+            "fs.realpath": 12,
+            "fs.lstat": 21,
+            "fs.open": 3,
+            "fs.fstat": 6,
+            "fs.read": 6,
+            "fs.close": 3,
+            "FileSystemFolderSource.read": 3
+          },
+          "maxEventLoopLagMs": 0.6481560000000286,
+          "peak": {
+            "rss": 120332288,
+            "heapTotal": 24051712,
+            "heapUsed": 17014864,
+            "external": 2738010,
+            "arrayBuffers": 195237
+          },
+          "result": {
+            "results": 3,
+            "retrievalMs": 0.19315199999999777,
+            "verificationMs": 15.36153900000005
+          },
+          "wallMs": 15.64873300000005,
+          "cpu": {
+            "user": 11799,
+            "system": 6825
+          },
+          "cpuUtilizationPercent": 119.01282998438238,
+          "endMemory": {
+            "rss": 120332288,
+            "heapTotal": 24051712,
+            "heapUsed": 17016792,
+            "external": 2738010,
+            "arrayBuffers": 195237
+          },
+          "processPeakRssBytes": 120332288
+        },
+        {
+          "label": "search-lexical-2",
+          "counts": {
+            "progressEvents": 5,
+            "readBufferBytesAllocated": 1495,
+            "bytesRead": 1492
+          },
+          "stages": {
+            "fs.realpath": 2.733715000000018,
+            "fs.lstat": 5.228096999999877,
+            "fs.open": 0.9330459999999903,
+            "fs.fstat": 1.6820339999998737,
+            "fs.read": 1.155683999999951,
+            "fs.close": 0.5958059999999819,
+            "FileSystemFolderSource.read": 14.302177000000029
+          },
+          "calls": {
+            "fs.realpath": 12,
+            "fs.lstat": 21,
+            "fs.open": 3,
+            "fs.fstat": 6,
+            "fs.read": 6,
+            "fs.close": 3,
+            "FileSystemFolderSource.read": 3
+          },
+          "maxEventLoopLagMs": 0.7418439999999578,
+          "peak": {
+            "rss": 120332288,
+            "heapTotal": 24051712,
+            "heapUsed": 17399496,
+            "external": 2743393,
+            "arrayBuffers": 200620
+          },
+          "result": {
+            "results": 3,
+            "retrievalMs": 0.2732770000000073,
+            "verificationMs": 16.45706100000001
+          },
+          "wallMs": 16.829639000000043,
+          "cpu": {
+            "user": 14219,
+            "system": 3467
+          },
+          "cpuUtilizationPercent": 105.08840979892649,
+          "endMemory": {
+            "rss": 120332288,
+            "heapTotal": 24051712,
+            "heapUsed": 17401248,
+            "external": 2743393,
+            "arrayBuffers": 200620
+          },
+          "processPeakRssBytes": 120332288
+        },
+        {
+          "label": "search-semantic-0",
+          "counts": {
+            "progressEvents": 5,
+            "queryEmbeddingCalls": 1,
+            "gcMs": 9.331286996603012,
+            "gcCount": 4,
+            "modelInitializationMs": 383.25648,
+            "readBufferBytesAllocated": 504,
+            "bytesRead": 501
+          },
+          "stages": {
+            "collectCandidates": 0.06982299999998531,
+            "nativeBatch": 14.607833000000028,
+            "queryInferenceIncludingLoad": 398.03749200000004,
+            "rankSemantic": 1.479449000000045,
+            "fs.realpath": 1.4893469999998388,
+            "fs.lstat": 2.66770100000042,
+            "fs.open": 0.39334200000007513,
+            "fs.fstat": 0.7967449999997598,
+            "fs.read": 0.7146929999998974,
+            "fs.close": 0.42983800000001793,
+            "FileSystemFolderSource.read": 7.1924790000000485
+          },
+          "calls": {
+            "collectCandidates": 1,
+            "nativeBatch": 1,
+            "queryInferenceIncludingLoad": 1,
+            "rankSemantic": 1,
+            "fs.realpath": 12,
+            "fs.lstat": 21,
+            "fs.open": 3,
+            "fs.fstat": 6,
+            "fs.read": 6,
+            "fs.close": 3,
+            "FileSystemFolderSource.read": 3
+          },
+          "maxEventLoopLagMs": 242.63940300000002,
+          "peak": {
+            "rss": 276643840,
+            "heapTotal": 43532288,
+            "heapUsed": 27269856,
+            "external": 30106424,
+            "arrayBuffers": 26068925
+          },
+          "result": {
+            "results": 3,
+            "retrievalMs": 400.416087,
+            "verificationMs": 7.480072999999948
+          },
+          "wallMs": 408.01776699999994,
+          "cpu": {
+            "user": 617614,
+            "system": 106652
+          },
+          "cpuUtilizationPercent": 177.50844658683704,
+          "endMemory": {
+            "rss": 276643840,
+            "heapTotal": 43532288,
+            "heapUsed": 27273800,
+            "external": 30106424,
+            "arrayBuffers": 26068925
+          },
+          "processPeakRssBytes": 293441536
+        },
+        {
+          "label": "search-semantic-1",
+          "counts": {
+            "progressEvents": 5,
+            "readBufferBytesAllocated": 504,
+            "bytesRead": 501
+          },
+          "stages": {
+            "fs.realpath": 1.3809250000001612,
+            "fs.lstat": 2.535772999999722,
+            "fs.open": 0.35162100000002283,
+            "fs.fstat": 0.8918570000000727,
+            "fs.read": 0.5617359999998826,
+            "fs.close": 0.47497099999998227,
+            "FileSystemFolderSource.read": 6.888258999999948
+          },
+          "calls": {
+            "fs.realpath": 12,
+            "fs.lstat": 21,
+            "fs.open": 3,
+            "fs.fstat": 6,
+            "fs.read": 6,
+            "fs.close": 3,
+            "FileSystemFolderSource.read": 3
+          },
+          "maxEventLoopLagMs": 0,
+          "peak": {
+            "rss": 298926080,
+            "heapTotal": 43532288,
+            "heapUsed": 28265664,
+            "external": 51213408,
+            "arrayBuffers": 47175909
+          },
+          "result": {
+            "results": 3,
+            "retrievalMs": 0.07726400000001377,
+            "verificationMs": 7.142239000000018
+          },
+          "wallMs": 7.3115060000000085,
+          "cpu": {
+            "user": 32346,
+            "system": 3779
+          },
+          "cpuUtilizationPercent": 494.0842556923287,
+          "endMemory": {
+            "rss": 298926080,
+            "heapTotal": 43532288,
+            "heapUsed": 28168616,
+            "external": 51213408,
+            "arrayBuffers": 47175909
+          },
+          "processPeakRssBytes": 298926080
+        },
+        {
+          "label": "search-semantic-2",
+          "counts": {
+            "progressEvents": 5,
+            "readBufferBytesAllocated": 504,
+            "bytesRead": 501,
+            "gcMs": 0.4378979951143265,
+            "gcCount": 1
+          },
+          "stages": {
+            "fs.realpath": 0.6611169999999902,
+            "fs.lstat": 1.3360589999998638,
+            "fs.open": 0.19109599999990223,
+            "fs.fstat": 0.3015740000000733,
+            "fs.read": 0.34967200000005505,
+            "fs.close": 0.22722399999997833,
+            "FileSystemFolderSource.read": 3.5866760000000113
+          },
+          "calls": {
+            "fs.realpath": 12,
+            "fs.lstat": 21,
+            "fs.open": 3,
+            "fs.fstat": 6,
+            "fs.read": 6,
+            "fs.close": 3,
+            "FileSystemFolderSource.read": 3
+          },
+          "maxEventLoopLagMs": 0,
+          "peak": {
+            "rss": 321732608,
+            "heapTotal": 43532288,
+            "heapUsed": 28981464,
+            "external": 73172360,
+            "arrayBuffers": 69134861
+          },
+          "result": {
+            "results": 3,
+            "retrievalMs": 0.0806360000000268,
+            "verificationMs": 3.7743470000000343
+          },
+          "wallMs": 3.90291000000002,
+          "cpu": {
+            "user": 15482,
+            "system": 5928
+          },
+          "cpuUtilizationPercent": 548.565045056122,
+          "endMemory": {
+            "rss": 321732608,
+            "heapTotal": 43532288,
+            "heapUsed": 28984024,
+            "external": 73172360,
+            "arrayBuffers": 69134861
+          },
+          "processPeakRssBytes": 321732608
+        },
+        {
+          "label": "search-hybrid-0",
+          "counts": {
+            "progressEvents": 5,
+            "queryEmbeddingCalls": 1,
+            "gcMs": 4.234092012047768,
+            "gcCount": 1,
+            "readBufferBytesAllocated": 835,
+            "bytesRead": 832
+          },
+          "stages": {
+            "collectCandidates": 0.03842599999995855,
+            "rankLexical": 2.3266140000000632,
+            "nativeBatch": 7.226658999999927,
+            "queryInferenceIncludingLoad": 7.350879000000077,
+            "rankSemantic": 0.7878039999999373,
+            "fuseRrf": 0.3018700000000081,
+            "fs.realpath": 0.8549219999996467,
+            "fs.lstat": 6.419327000000294,
+            "fs.open": 0.24549400000012156,
+            "fs.fstat": 0.3511340000001155,
+            "fs.read": 0.29474599999991824,
+            "fs.close": 0.20917999999994663,
+            "FileSystemFolderSource.read": 8.89003200000002
+          },
+          "calls": {
+            "collectCandidates": 1,
+            "rankLexical": 1,
+            "nativeBatch": 1,
+            "queryInferenceIncludingLoad": 1,
+            "rankSemantic": 1,
+            "fuseRrf": 1,
+            "fs.realpath": 12,
+            "fs.lstat": 21,
+            "fs.open": 3,
+            "fs.fstat": 6,
+            "fs.read": 6,
+            "fs.close": 3,
+            "FileSystemFolderSource.read": 3
+          },
+          "maxEventLoopLagMs": 1.3008590000000595,
+          "peak": {
+            "rss": 341852160,
+            "heapTotal": 56156160,
+            "heapUsed": 30300640,
+            "external": 94609601,
+            "arrayBuffers": 90572102
+          },
+          "result": {
+            "results": 3,
+            "retrievalMs": 11.175355999999965,
+            "verificationMs": 9.640542000000096
+          },
+          "wallMs": 20.886240000000043,
+          "cpu": {
+            "user": 122288,
+            "system": 6710
+          },
+          "cpuUtilizationPercent": 617.6219367392107,
+          "endMemory": {
+            "rss": 341852160,
+            "heapTotal": 56156160,
+            "heapUsed": 20844568,
+            "external": 94609601,
+            "arrayBuffers": 90572102
+          },
+          "processPeakRssBytes": 341852160
+        },
+        {
+          "label": "search-hybrid-1",
+          "counts": {
+            "progressEvents": 5,
+            "gcMs": 3.333656996488571,
+            "gcCount": 2,
+            "readBufferBytesAllocated": 835,
+            "bytesRead": 832
+          },
+          "stages": {
+            "fs.realpath": 5.3083800000000565,
+            "fs.lstat": 7.2837870000001885,
+            "fs.open": 0.3088920000000144,
+            "fs.fstat": 1.2831580000000713,
+            "fs.read": 0.5950900000000274,
+            "fs.close": 0.32145999999988817,
+            "FileSystemFolderSource.read": 15.61553200000003
+          },
+          "calls": {
+            "fs.realpath": 12,
+            "fs.lstat": 21,
+            "fs.open": 3,
+            "fs.fstat": 6,
+            "fs.read": 6,
+            "fs.close": 3,
+            "FileSystemFolderSource.read": 3
+          },
+          "maxEventLoopLagMs": 2.085770000000025,
+          "peak": {
+            "rss": 363872256,
+            "heapTotal": 56156160,
+            "heapUsed": 20846368,
+            "external": 116547073,
+            "arrayBuffers": 112509574
+          },
+          "result": {
+            "results": 3,
+            "retrievalMs": 0.07679100000007111,
+            "verificationMs": 16.164326999999957
+          },
+          "wallMs": 16.297228999999902,
+          "cpu": {
+            "user": 95823,
+            "system": 2677
+          },
+          "cpuUtilizationPercent": 604.3972260560405,
+          "endMemory": {
+            "rss": 363872256,
+            "heapTotal": 55894016,
+            "heapUsed": 20709032,
+            "external": 116547073,
+            "arrayBuffers": 112509574
+          },
+          "processPeakRssBytes": 363872256
+        },
+        {
+          "label": "search-hybrid-2",
+          "counts": {
+            "progressEvents": 5,
+            "gcMs": 3.1258549839258194,
+            "gcCount": 2,
+            "readBufferBytesAllocated": 835,
+            "bytesRead": 832
+          },
+          "stages": {
+            "fs.realpath": 2.571091999999908,
+            "fs.lstat": 11.008537000000274,
+            "fs.open": 0.3572460000000319,
+            "fs.fstat": 0.39638700000000426,
+            "fs.read": 0.5185189999999693,
+            "fs.close": 0.22023200000000998,
+            "FileSystemFolderSource.read": 15.645042999999873
+          },
+          "calls": {
+            "fs.realpath": 12,
+            "fs.lstat": 21,
+            "fs.open": 3,
+            "fs.fstat": 6,
+            "fs.read": 6,
+            "fs.close": 3,
+            "FileSystemFolderSource.read": 3
+          },
+          "maxEventLoopLagMs": 0.6629740000000766,
+          "peak": {
+            "rss": 385761280,
+            "heapTotal": 55894016,
+            "heapUsed": 20788232,
+            "external": 138108417,
+            "arrayBuffers": 134070918
+          },
+          "result": {
+            "results": 3,
+            "retrievalMs": 0.08006999999997788,
+            "verificationMs": 16.201547000000005
+          },
+          "wallMs": 16.341821000000095,
+          "cpu": {
+            "user": 85146,
+            "system": 6490
+          },
+          "cpuUtilizationPercent": 560.745341660513,
+          "endMemory": {
+            "rss": 385761280,
+            "heapTotal": 55894016,
+            "heapUsed": 20789984,
+            "external": 138108417,
+            "arrayBuffers": 134070918
+          },
+          "processPeakRssBytes": 385761280
+        }
+      ]
+    }
+  ]
+}

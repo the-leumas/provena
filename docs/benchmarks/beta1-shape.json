@@ -1,0 +1,579 @@
+{
+  "environment": {
+    "node": "v24.21.0",
+    "cpu": "Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz",
+    "logicalCpus": 8,
+    "totalMemoryBytes": 8177311744,
+    "modelDir": ".cache/minilm/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9",
+    "revision": "751bff37182d3f1213fa05d7196b954e230abad9",
+    "device": "cpu",
+    "dtype": "fp32",
+    "batchSize": 4,
+    "query": "refreshSource",
+    "chunking": {
+      "targetChars": 1600,
+      "overlapLines": 2
+    },
+    "network": "disabled; fetch throws"
+  },
+  "corpora": {
+    "md8": {
+      "files": 8,
+      "bytes": 111302,
+      "manifest": [
+        {
+          "path": "docs/README.md",
+          "bytes": 1527
+        },
+        {
+          "path": "docs/alpha5-hardening.md",
+          "bytes": 14565
+        },
+        {
+          "path": "docs/alpha6-answerability.md",
+          "bytes": 4115
+        },
+        {
+          "path": "docs/alpha6-c-validation.md",
+          "bytes": 4223
+        },
+        {
+          "path": "docs/alpha6-evidence-traces.md",
+          "bytes": 23042
+        },
+        {
+          "path": "docs/api.md",
+          "bytes": 7472
+        },
+        {
+          "path": "docs/architecture.md",
+          "bytes": 19275
+        },
+        {
+          "path": "docs/evaluation.md",
+          "bytes": 37083
+        }
+      ]
+    },
+    "md12": {
+      "files": 12,
+      "bytes": 156642,
+      "manifest": [
+        {
+          "path": "docs/README.md",
+          "bytes": 1527
+        },
+        {
+          "path": "docs/alpha5-hardening.md",
+          "bytes": 14565
+        },
+        {
+          "path": "docs/alpha6-answerability.md",
+          "bytes": 4115
+        },
+        {
+          "path": "docs/alpha6-c-validation.md",
+          "bytes": 4223
+        },
+        {
+          "path": "docs/alpha6-evidence-traces.md",
+          "bytes": 23042
+        },
+        {
+          "path": "docs/api.md",
+          "bytes": 7472
+        },
+        {
+          "path": "docs/architecture.md",
+          "bytes": 19275
+        },
+        {
+          "path": "docs/evaluation.md",
+          "bytes": 37083
+        },
+        {
+          "path": "docs/file-types.md",
+          "bytes": 2085
+        },
+        {
+          "path": "docs/integration.md",
+          "bytes": 19005
+        },
+        {
+          "path": "docs/next-slice.md",
+          "bytes": 364
+        },
+        {
+          "path": "docs/terminal-demo.md",
+          "bytes": 23886
+        }
+      ]
+    },
+    "mixed24": {
+      "files": 20,
+      "bytes": 193354,
+      "manifest": [
+        {
+          "path": "docs/README.md",
+          "bytes": 1527
+        },
+        {
+          "path": "docs/alpha5-hardening.md",
+          "bytes": 14565
+        },
+        {
+          "path": "docs/alpha6-answerability.md",
+          "bytes": 4115
+        },
+        {
+          "path": "docs/alpha6-c-validation.md",
+          "bytes": 4223
+        },
+        {
+          "path": "docs/alpha6-evidence-traces.md",
+          "bytes": 23042
+        },
+        {
+          "path": "docs/api.md",
+          "bytes": 7472
+        },
+        {
+          "path": "docs/architecture.md",
+          "bytes": 19275
+        },
+        {
+          "path": "docs/evaluation.md",
+          "bytes": 37083
+        },
+        {
+          "path": "docs/file-types.md",
+          "bytes": 2085
+        },
+        {
+          "path": "docs/integration.md",
+          "bytes": 19005
+        },
+        {
+          "path": "docs/next-slice.md",
+          "bytes": 364
+        },
+        {
+          "path": "docs/terminal-demo.md",
+          "bytes": 23886
+        },
+        {
+          "path": "src/catalog.ts",
+          "bytes": 1800
+        },
+        {
+          "path": "src/chunking.ts",
+          "bytes": 2509
+        },
+        {
+          "path": "src/contracts.ts",
+          "bytes": 4835
+        },
+        {
+          "path": "src/embedding-input.ts",
+          "bytes": 741
+        },
+        {
+          "path": "src/engine.ts",
+          "bytes": 12734
+        },
+        {
+          "path": "src/index-state.ts",
+          "bytes": 6264
+        },
+        {
+          "path": "src/index.ts",
+          "bytes": 853
+        },
+        {
+          "path": "src/retrieval.ts",
+          "bytes": 6976
+        }
+      ]
+    },
+    "onefile": {
+      "files": 1,
+      "bytes": 18987
+    },
+    "manyfiles": {
+      "files": 16,
+      "bytes": 18972
+    }
+  },
+  "results": [
+    {
+      "kind": "api",
+      "corpus": "onefile",
+      "totalMs": 1907.1029620000002,
+      "report": {
+        "sourceId": "project",
+        "documents": 1,
+        "chunks": 16,
+        "unchangedChunks": 0,
+        "embeddedTexts": 16,
+        "reusedVectors": 0
+      },
+      "indexingMs": 1468.2243620000002,
+      "embeddingMs": 1444.1958220000001,
+      "initialization": {
+        "modelLoadMs": 519.319342
+      },
+      "calls": 1,
+      "inputChars": 18972,
+      "runs": [
+        {
+          "repeat": 0,
+          "mode": "lexical",
+          "searchMs": 6.393037000000049,
+          "queryEmbeddingMs": 0,
+          "results": 3
+        },
+        {
+          "repeat": 0,
+          "mode": "semantic",
+          "searchMs": 18.471461999999974,
+          "queryEmbeddingMs": 14.785865000000058,
+          "results": 3
+        },
+        {
+          "repeat": 0,
+          "mode": "hybrid",
+          "searchMs": 11.165324999999939,
+          "queryEmbeddingMs": 7.71778200000017,
+          "results": 3
+        },
+        {
+          "repeat": 1,
+          "mode": "lexical",
+          "searchMs": 0.3489129999998113,
+          "queryEmbeddingMs": 0,
+          "results": 3
+        },
+        {
+          "repeat": 1,
+          "mode": "semantic",
+          "searchMs": 12.833676999999852,
+          "queryEmbeddingMs": 10.901769000000058,
+          "results": 3
+        },
+        {
+          "repeat": 1,
+          "mode": "hybrid",
+          "searchMs": 12.95047999999997,
+          "queryEmbeddingMs": 11.374694999999974,
+          "results": 3
+        },
+        {
+          "repeat": 2,
+          "mode": "lexical",
+          "searchMs": 0.4829059999999572,
+          "queryEmbeddingMs": 0,
+          "results": 3
+        },
+        {
+          "repeat": 2,
+          "mode": "semantic",
+          "searchMs": 13.460898000000043,
+          "queryEmbeddingMs": 12.449219999999968,
+          "results": 3
+        },
+        {
+          "repeat": 2,
+          "mode": "hybrid",
+          "searchMs": 27.524810000000116,
+          "queryEmbeddingMs": 25.961459000000104,
+          "results": 3
+        },
+        {
+          "repeat": 3,
+          "mode": "lexical",
+          "searchMs": 0.5358719999999266,
+          "queryEmbeddingMs": 0,
+          "results": 3
+        },
+        {
+          "repeat": 3,
+          "mode": "semantic",
+          "searchMs": 12.922052000000122,
+          "queryEmbeddingMs": 11.829606999999896,
+          "results": 3
+        },
+        {
+          "repeat": 3,
+          "mode": "hybrid",
+          "searchMs": 12.559873000000152,
+          "queryEmbeddingMs": 11.025955000000067,
+          "results": 3
+        }
+      ],
+      "cachedSearchMs": 0.39785200000005716,
+      "unchanged": {
+        "report": {
+          "sourceId": "project",
+          "documents": 1,
+          "chunks": 16,
+          "unchangedChunks": 16,
+          "embeddedTexts": 0,
+          "reusedVectors": 16
+        },
+        "ms": 39.55554499999994,
+        "embeddingMs": 0
+      },
+      "snapshotBytes": 0,
+      "stages": {
+        "index:reusableSnapshot": 0.5967089999999757,
+        "index:scanAdmission": 5.348143999999991,
+        "index:read": 2.6684789999999907,
+        "index:parse": 1.7002709999999865,
+        "index:chunkDocument": 9.065247,
+        "index:dedup": 0.2272029999999745,
+        "index:embedChunks": 1445.5144799999998,
+        "search:collectCandidates": 0.807837999999947,
+        "search:rankLexical": 6.081577000000152,
+        "search:toSearchResults": 1.258540000000039,
+        "search:rankSemantic": 9.984050999999226,
+        "search:fuseRrf": 0.9591549999997824,
+        "refresh:scanAdmission": 8.510508999999956,
+        "refresh:read": 8.82047300000022,
+        "refresh:parse": 0.6717510000003131,
+        "refresh:chunkDocument": 17.09924000000001,
+        "refresh:dedup": 0.04083900000023277,
+        "refresh:embedChunks": 0.6385180000002038
+      },
+      "memory": {
+        "sampledPeak": {
+          "rss": 311230464,
+          "heapTotal": 39534592,
+          "heapUsed": 28815712,
+          "external": 22529237,
+          "arrayBuffers": 15999463
+        },
+        "phasePeaks": {
+          "index": {
+            "rss": 308887552,
+            "heapTotal": 39010304,
+            "heapUsed": 27566456,
+            "external": 10893397,
+            "arrayBuffers": 4363623
+          },
+          "search": {
+            "rss": 311230464,
+            "heapTotal": 39534592,
+            "heapUsed": 28815712,
+            "external": 12152173,
+            "arrayBuffers": 5622399
+          },
+          "refresh": {
+            "rss": 311230464,
+            "heapTotal": 39534592,
+            "heapUsed": 28803088,
+            "external": 22529237,
+            "arrayBuffers": 15999463
+          }
+        },
+        "end": {
+          "rss": 228823040,
+          "heapTotal": 39534592,
+          "heapUsed": 21527880,
+          "external": 22529237,
+          "arrayBuffers": 15999463
+        },
+        "peakRssBytes": 311230464
+      },
+      "gc": {
+        "ms": 20.734004013240337,
+        "count": 14
+      },
+      "maxEventLoopLagMs": 383.309854
+    },
+    {
+      "kind": "api",
+      "corpus": "manyfiles",
+      "totalMs": 2929.160805,
+      "report": {
+        "sourceId": "project",
+        "documents": 16,
+        "chunks": 16,
+        "unchangedChunks": 0,
+        "embeddedTexts": 16,
+        "reusedVectors": 0
+      },
+      "indexingMs": 2351.394587,
+      "embeddingMs": 2265.5054,
+      "initialization": {
+        "modelLoadMs": 708.702433
+      },
+      "calls": 1,
+      "inputChars": 18972,
+      "runs": [
+        {
+          "repeat": 0,
+          "mode": "lexical",
+          "searchMs": 6.0184619999999995,
+          "queryEmbeddingMs": 0,
+          "results": 3
+        },
+        {
+          "repeat": 0,
+          "mode": "semantic",
+          "searchMs": 19.517526999999973,
+          "queryEmbeddingMs": 14.121915000000172,
+          "results": 3
+        },
+        {
+          "repeat": 0,
+          "mode": "hybrid",
+          "searchMs": 11.585207999999966,
+          "queryEmbeddingMs": 9.065547000000151,
+          "results": 3
+        },
+        {
+          "repeat": 1,
+          "mode": "lexical",
+          "searchMs": 0.3368299999997362,
+          "queryEmbeddingMs": 0,
+          "results": 3
+        },
+        {
+          "repeat": 1,
+          "mode": "semantic",
+          "searchMs": 8.11427300000014,
+          "queryEmbeddingMs": 6.8523910000003525,
+          "results": 3
+        },
+        {
+          "repeat": 1,
+          "mode": "hybrid",
+          "searchMs": 8.383543999999802,
+          "queryEmbeddingMs": 7.4338950000001205,
+          "results": 3
+        },
+        {
+          "repeat": 2,
+          "mode": "lexical",
+          "searchMs": 0.28333199999997305,
+          "queryEmbeddingMs": 0,
+          "results": 3
+        },
+        {
+          "repeat": 2,
+          "mode": "semantic",
+          "searchMs": 7.8017180000001645,
+          "queryEmbeddingMs": 7.129318000000239,
+          "results": 3
+        },
+        {
+          "repeat": 2,
+          "mode": "hybrid",
+          "searchMs": 8.40405600000031,
+          "queryEmbeddingMs": 7.2209100000000035,
+          "results": 3
+        },
+        {
+          "repeat": 3,
+          "mode": "lexical",
+          "searchMs": 0.4199429999998756,
+          "queryEmbeddingMs": 0,
+          "results": 3
+        },
+        {
+          "repeat": 3,
+          "mode": "semantic",
+          "searchMs": 7.740613999999823,
+          "queryEmbeddingMs": 7.0858509999998205,
+          "results": 3
+        },
+        {
+          "repeat": 3,
+          "mode": "hybrid",
+          "searchMs": 8.508127999999942,
+          "queryEmbeddingMs": 7.845116999999846,
+          "results": 3
+        }
+      ],
+      "cachedSearchMs": 0.1611800000000585,
+      "unchanged": {
+        "report": {
+          "sourceId": "project",
+          "documents": 16,
+          "chunks": 16,
+          "unchangedChunks": 16,
+          "embeddedTexts": 0,
+          "reusedVectors": 16
+        },
+        "ms": 158.64288699999997,
+        "embeddingMs": 0
+      },
+      "snapshotBytes": 0,
+      "stages": {
+        "index:reusableSnapshot": 0.3639500000000453,
+        "index:scanAdmission": 19.77091299999995,
+        "index:read": 41.67921099999978,
+        "index:parse": 3.7280650000002424,
+        "index:chunkDocument": 10.461496000000125,
+        "index:dedup": 0.3733420000000933,
+        "index:embedChunks": 2267.405666,
+        "search:collectCandidates": 1.1111009999995076,
+        "search:rankLexical": 4.609788000000208,
+        "search:toSearchResults": 0.9774539999993976,
+        "search:rankSemantic": 8.740932000000157,
+        "search:fuseRrf": 0.7019209999998566,
+        "refresh:scanAdmission": 17.02395499999966,
+        "refresh:read": 123.66951599999857,
+        "refresh:parse": 1.703235000001314,
+        "refresh:chunkDocument": 10.12041599999975,
+        "refresh:dedup": 0.04638500000010026,
+        "refresh:embedChunks": 0.19690600000012637
+      },
+      "memory": {
+        "sampledPeak": {
+          "rss": 333971456,
+          "heapTotal": 35504128,
+          "heapUsed": 25074368,
+          "external": 69294547,
+          "arrayBuffers": 62764773
+        },
+        "phasePeaks": {
+          "index": {
+            "rss": 300318720,
+            "heapTotal": 35504128,
+            "heapUsed": 25074368,
+            "external": 30486168,
+            "arrayBuffers": 23241423
+          },
+          "search": {
+            "rss": 300580864,
+            "heapTotal": 35504128,
+            "heapUsed": 24516552,
+            "external": 13980015,
+            "arrayBuffers": 7450241
+          },
+          "refresh": {
+            "rss": 333971456,
+            "heapTotal": 35504128,
+            "heapUsed": 24230464,
+            "external": 69294547,
+            "arrayBuffers": 62764773
+          }
+        },
+        "end": {
+          "rss": 253427712,
+          "heapTotal": 35028992,
+          "heapUsed": 17467512,
+          "external": 69294547,
+          "arrayBuffers": 62764773
+        },
+        "peakRssBytes": 333971456
+      },
+      "gc": {
+        "ms": 51.759311988949776,
+        "count": 24
+      },
+      "maxEventLoopLagMs": 558.9953409999999
+    }
+  ]
+}

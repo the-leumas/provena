@@ -1,0 +1,554 @@
+{
+  "date": "2026-10-11T05:11:10.829Z",
+  "files": 10000,
+  "runtime": "v24.21.0",
+  "method": "Identical synthetic Markdown/TypeScript source, 384-dimensional deterministic vectors, limit 3. No native inference. JSON-backed memory storage includes parse/stringify but no disk I/O. Fresh engine for restart, distinct queries bypass result cache. RSS sampled at phase completion; maxRSS is process cumulative.",
+  "rows": [
+    {
+      "label": "cold-synthetic-index",
+      "wallMs": 7594.3903549999995,
+      "cpu": {
+        "user": 7631718,
+        "system": 994099
+      },
+      "cpuPercent": 113.58142782746121,
+      "maxEventLoopLagMs": 7585.207913,
+      "counters": {
+        "lists": 1,
+        "reads": 10000,
+        "documentInputs": 10000,
+        "queryInputs": 0,
+        "loads": 1,
+        "saves": 1
+      },
+      "memory": {
+        "rss": 391536640,
+        "heapTotal": 293765120,
+        "heapUsed": 203007432,
+        "external": 17890738,
+        "arrayBuffers": 15503631
+      },
+      "maxRSSKiB": 612204
+    },
+    {
+      "label": "restart-with-refresh",
+      "wallMs": 4845.0005790000005,
+      "cpu": {
+        "user": 7038722,
+        "system": 544563
+      },
+      "cpuPercent": 156.51773155340211,
+      "maxEventLoopLagMs": 4847.49962,
+      "counters": {
+        "lists": 1,
+        "reads": 0,
+        "documentInputs": 0,
+        "queryInputs": 0,
+        "loads": 1,
+        "saves": 0
+      },
+      "memory": {
+        "rss": 580128768,
+        "heapTotal": 445345792,
+        "heapUsed": 268340480,
+        "external": 17890778,
+        "arrayBuffers": 15503631
+      },
+      "maxRSSKiB": 612204
+    },
+    {
+      "label": "unchanged-refresh-0",
+      "wallMs": 847.6529520000004,
+      "cpu": {
+        "user": 919553,
+        "system": 40446
+      },
+      "cpuPercent": 113.25377888850903,
+      "maxEventLoopLagMs": 838.0858910000006,
+      "counters": {
+        "lists": 1,
+        "reads": 0,
+        "documentInputs": 0,
+        "queryInputs": 0,
+        "loads": 0,
+        "saves": 0
+      },
+      "memory": {
+        "rss": 585367552,
+        "heapTotal": 448950272,
+        "heapUsed": 323290352,
+        "external": 17890778,
+        "arrayBuffers": 15503631
+      },
+      "maxRSSKiB": 612204
+    },
+    {
+      "label": "unchanged-refresh-1",
+      "wallMs": 841.4973460000001,
+      "cpu": {
+        "user": 869530,
+        "system": 40903
+      },
+      "cpuPercent": 108.1920227470331,
+      "maxEventLoopLagMs": 831.8624440000003,
+      "counters": {
+        "lists": 1,
+        "reads": 0,
+        "documentInputs": 0,
+        "queryInputs": 0,
+        "loads": 0,
+        "saves": 0
+      },
+      "memory": {
+        "rss": 591671296,
+        "heapTotal": 452886528,
+        "heapUsed": 310640296,
+        "external": 17890778,
+        "arrayBuffers": 15503631
+      },
+      "maxRSSKiB": 612204
+    },
+    {
+      "label": "unchanged-refresh-2",
+      "wallMs": 760.1863510000003,
+      "cpu": {
+        "user": 772906,
+        "system": 43918
+      },
+      "cpuPercent": 107.45049538517691,
+      "maxEventLoopLagMs": 750.587587,
+      "counters": {
+        "lists": 1,
+        "reads": 0,
+        "documentInputs": 0,
+        "queryInputs": 0,
+        "loads": 0,
+        "saves": 0
+      },
+      "memory": {
+        "rss": 597504000,
+        "heapTotal": 455958528,
+        "heapUsed": 294467576,
+        "external": 17890778,
+        "arrayBuffers": 15503631
+      },
+      "maxRSSKiB": 612204
+    },
+    {
+      "label": "lexical-0",
+      "wallMs": 680.1912300000004,
+      "cpu": {
+        "user": 936915,
+        "system": 9989
+      },
+      "cpuPercent": 139.21143911249774,
+      "maxEventLoopLagMs": 670.4578849999998,
+      "counters": {
+        "lists": 0,
+        "reads": 0,
+        "documentInputs": 0,
+        "queryInputs": 0,
+        "loads": 0,
+        "saves": 0
+      },
+      "memory": {
+        "rss": 599584768,
+        "heapTotal": 455958528,
+        "heapUsed": 329952944,
+        "external": 17890778,
+        "arrayBuffers": 15503631
+      },
+      "maxRSSKiB": 612204
+    },
+    {
+      "label": "lexical-1",
+      "wallMs": 611.595365000001,
+      "cpu": {
+        "user": 882032,
+        "system": 1357
+      },
+      "cpuPercent": 144.44010706327026,
+      "maxEventLoopLagMs": 623.2327269999987,
+      "counters": {
+        "lists": 0,
+        "reads": 0,
+        "documentInputs": 0,
+        "queryInputs": 0,
+        "loads": 0,
+        "saves": 0
+      },
+      "memory": {
+        "rss": 599846912,
+        "heapTotal": 455958528,
+        "heapUsed": 326660704,
+        "external": 17890778,
+        "arrayBuffers": 15503631
+      },
+      "maxRSSKiB": 612204
+    },
+    {
+      "label": "lexical-2",
+      "wallMs": 595.156712,
+      "cpu": {
+        "user": 739872,
+        "system": 11596
+      },
+      "cpuPercent": 126.26388728352275,
+      "maxEventLoopLagMs": 585.4223070000007,
+      "counters": {
+        "lists": 0,
+        "reads": 0,
+        "documentInputs": 0,
+        "queryInputs": 0,
+        "loads": 0,
+        "saves": 0
+      },
+      "memory": {
+        "rss": 602730496,
+        "heapTotal": 474046464,
+        "heapUsed": 364026544,
+        "external": 17890778,
+        "arrayBuffers": 15503631
+      },
+      "maxRSSKiB": 612204
+    },
+    {
+      "label": "lexical-3",
+      "wallMs": 603.5451840000023,
+      "cpu": {
+        "user": 738984,
+        "system": 37020
+      },
+      "cpuPercent": 128.5743007436535,
+      "maxEventLoopLagMs": 593.7735700000012,
+      "counters": {
+        "lists": 0,
+        "reads": 0,
+        "documentInputs": 0,
+        "queryInputs": 0,
+        "loads": 0,
+        "saves": 0
+      },
+      "memory": {
+        "rss": 622129152,
+        "heapTotal": 493182976,
+        "heapUsed": 401703496,
+        "external": 17890778,
+        "arrayBuffers": 15503631
+      },
+      "maxRSSKiB": 612204
+    },
+    {
+      "label": "semantic-0",
+      "wallMs": 190.15891900000133,
+      "cpu": {
+        "user": 286065,
+        "system": 17212
+      },
+      "cpuPercent": 159.48607701119602,
+      "maxEventLoopLagMs": 180.3488870000001,
+      "counters": {
+        "lists": 0,
+        "reads": 0,
+        "documentInputs": 0,
+        "queryInputs": 1,
+        "loads": 0,
+        "saves": 0
+      },
+      "memory": {
+        "rss": 633008128,
+        "heapTotal": 504193024,
+        "heapUsed": 422058384,
+        "external": 17892314,
+        "arrayBuffers": 15505167
+      },
+      "maxRSSKiB": 618172
+    },
+    {
+      "label": "semantic-1",
+      "wallMs": 195.3236880000004,
+      "cpu": {
+        "user": 269955,
+        "system": 21084
+      },
+      "cpuPercent": 149.00343270192573,
+      "maxEventLoopLagMs": 187.16355600000315,
+      "counters": {
+        "lists": 0,
+        "reads": 0,
+        "documentInputs": 0,
+        "queryInputs": 1,
+        "loads": 0,
+        "saves": 0
+      },
+      "memory": {
+        "rss": 638382080,
+        "heapTotal": 509698048,
+        "heapUsed": 373978160,
+        "external": 17893850,
+        "arrayBuffers": 15505167
+      },
+      "maxRSSKiB": 623420
+    },
+    {
+      "label": "semantic-2",
+      "wallMs": 162.80044999999882,
+      "cpu": {
+        "user": 162469,
+        "system": 1879
+      },
+      "cpuPercent": 100.95058091055718,
+      "maxEventLoopLagMs": 154.88981000000058,
+      "counters": {
+        "lists": 0,
+        "reads": 0,
+        "documentInputs": 0,
+        "queryInputs": 1,
+        "loads": 0,
+        "saves": 0
+      },
+      "memory": {
+        "rss": 639430656,
+        "heapTotal": 510484480,
+        "heapUsed": 375025216,
+        "external": 17893850,
+        "arrayBuffers": 15505167
+      },
+      "maxRSSKiB": 624444
+    },
+    {
+      "label": "semantic-3",
+      "wallMs": 159.25244300000122,
+      "cpu": {
+        "user": 156167,
+        "system": 3022
+      },
+      "cpuPercent": 99.96016199261621,
+      "maxEventLoopLagMs": 150.9678300000014,
+      "counters": {
+        "lists": 0,
+        "reads": 0,
+        "documentInputs": 0,
+        "queryInputs": 1,
+        "loads": 0,
+        "saves": 0
+      },
+      "memory": {
+        "rss": 640479232,
+        "heapTotal": 511008768,
+        "heapUsed": 376033480,
+        "external": 17893850,
+        "arrayBuffers": 15505167
+      },
+      "maxRSSKiB": 625468
+    },
+    {
+      "label": "hybrid-0",
+      "wallMs": 776.4863039999982,
+      "cpu": {
+        "user": 935766,
+        "system": 59911
+      },
+      "cpuPercent": 128.22853344236222,
+      "maxEventLoopLagMs": 766.7468389999995,
+      "counters": {
+        "lists": 0,
+        "reads": 0,
+        "documentInputs": 0,
+        "queryInputs": 1,
+        "loads": 0,
+        "saves": 0
+      },
+      "memory": {
+        "rss": 664596480,
+        "heapTotal": 535298048,
+        "heapUsed": 418119456,
+        "external": 17893850,
+        "arrayBuffers": 15506703
+      },
+      "maxRSSKiB": 649020
+    },
+    {
+      "label": "hybrid-1",
+      "wallMs": 800.2735009999997,
+      "cpu": {
+        "user": 1054321,
+        "system": 54820
+      },
+      "cpuPercent": 138.5952425781996,
+      "maxEventLoopLagMs": 790.4792070000003,
+      "counters": {
+        "lists": 0,
+        "reads": 0,
+        "documentInputs": 0,
+        "queryInputs": 1,
+        "loads": 0,
+        "saves": 0
+      },
+      "memory": {
+        "rss": 687128576,
+        "heapTotal": 557518848,
+        "heapUsed": 463063080,
+        "external": 17895386,
+        "arrayBuffers": 15508239
+      },
+      "maxRSSKiB": 671024
+    },
+    {
+      "label": "hybrid-2",
+      "wallMs": 800.0032060000012,
+      "cpu": {
+        "user": 933062,
+        "system": 58021
+      },
+      "cpuPercent": 123.8848785313491,
+      "maxEventLoopLagMs": 803.3911570000018,
+      "counters": {
+        "lists": 0,
+        "reads": 0,
+        "documentInputs": 0,
+        "queryInputs": 1,
+        "loads": 0,
+        "saves": 0
+      },
+      "memory": {
+        "rss": 713990144,
+        "heapTotal": 584609792,
+        "heapUsed": 449758464,
+        "external": 17896922,
+        "arrayBuffers": 15509775
+      },
+      "maxRSSKiB": 697844
+    },
+    {
+      "label": "hybrid-3",
+      "wallMs": 784.9662410000019,
+      "cpu": {
+        "user": 923395,
+        "system": 62290
+      },
+      "cpuPercent": 125.57036831855265,
+      "maxEventLoopLagMs": 775.1566999999995,
+      "counters": {
+        "lists": 0,
+        "reads": 0,
+        "documentInputs": 0,
+        "queryInputs": 1,
+        "loads": 0,
+        "saves": 0
+      },
+      "memory": {
+        "rss": 738631680,
+        "heapTotal": 609161216,
+        "heapUsed": 494301856,
+        "external": 17898458,
+        "arrayBuffers": 15511311
+      },
+      "maxRSSKiB": 721320
+    },
+    {
+      "label": "cli-record-0",
+      "wallMs": 44.152429000001575,
+      "cpu": {
+        "user": 63102,
+        "system": 7853
+      },
+      "cpuPercent": 160.70463529876798,
+      "maxEventLoopLagMs": 15.377124999999069,
+      "counters": {
+        "lists": 0,
+        "reads": 0,
+        "documentInputs": 0,
+        "queryInputs": 0,
+        "loads": 0,
+        "saves": 0
+      },
+      "memory": {
+        "rss": 756117504,
+        "heapTotal": 626262016,
+        "heapUsed": 493474328,
+        "external": 17902063,
+        "arrayBuffers": 15514916
+      },
+      "maxRSSKiB": 738396
+    },
+    {
+      "label": "cli-record-1",
+      "wallMs": 23.631799999999203,
+      "cpu": {
+        "user": 24788,
+        "system": 1202
+      },
+      "cpuPercent": 109.97892670046664,
+      "maxEventLoopLagMs": 13.829052999997657,
+      "counters": {
+        "lists": 0,
+        "reads": 0,
+        "documentInputs": 0,
+        "queryInputs": 0,
+        "loads": 0,
+        "saves": 0
+      },
+      "memory": {
+        "rss": 756903936,
+        "heapTotal": 627052544,
+        "heapUsed": 495279768,
+        "external": 17905668,
+        "arrayBuffers": 15518521
+      },
+      "maxRSSKiB": 739164
+    },
+    {
+      "label": "cli-record-2",
+      "wallMs": 22.13530200000241,
+      "cpu": {
+        "user": 22403,
+        "system": 1874
+      },
+      "cpuPercent": 109.67548579186928,
+      "maxEventLoopLagMs": 12.327311000000918,
+      "counters": {
+        "lists": 0,
+        "reads": 0,
+        "documentInputs": 0,
+        "queryInputs": 0,
+        "loads": 0,
+        "saves": 0
+      },
+      "memory": {
+        "rss": 757690368,
+        "heapTotal": 627843072,
+        "heapUsed": 496986352,
+        "external": 17909273,
+        "arrayBuffers": 15522126
+      },
+      "maxRSSKiB": 739932
+    },
+    {
+      "label": "cli-record-3",
+      "wallMs": 22.293248000001768,
+      "cpu": {
+        "user": 20244,
+        "system": 2013
+      },
+      "cpuPercent": 99.83740368383394,
+      "maxEventLoopLagMs": 12.432338999999047,
+      "counters": {
+        "lists": 0,
+        "reads": 0,
+        "documentInputs": 0,
+        "queryInputs": 0,
+        "loads": 0,
+        "saves": 0
+      },
+      "memory": {
+        "rss": 758476800,
+        "heapTotal": 628633600,
+        "heapUsed": 498816592,
+        "external": 17912878,
+        "arrayBuffers": 15525731
+      },
+      "maxRSSKiB": 740700
+    }
+  ]
+}

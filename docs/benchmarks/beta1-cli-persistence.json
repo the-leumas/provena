@@ -1,0 +1,403 @@
+{
+  "environment": {
+    "node": "v24.21.0",
+    "cpu": "Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz",
+    "logicalCpus": 8,
+    "totalMemoryBytes": 8177311744,
+    "modelDir": ".cache/minilm/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9",
+    "revision": "751bff37182d3f1213fa05d7196b954e230abad9",
+    "device": "cpu",
+    "dtype": "fp32",
+    "batchSize": 4,
+    "query": "refreshSource",
+    "chunking": {
+      "targetChars": 1600,
+      "overlapLines": 2
+    },
+    "network": "disabled; fetch throws"
+  },
+  "corpora": {
+    "md8": {
+      "files": 8,
+      "bytes": 111302,
+      "manifest": [
+        {
+          "path": "docs/README.md",
+          "bytes": 1527
+        },
+        {
+          "path": "docs/alpha5-hardening.md",
+          "bytes": 14565
+        },
+        {
+          "path": "docs/alpha6-answerability.md",
+          "bytes": 4115
+        },
+        {
+          "path": "docs/alpha6-c-validation.md",
+          "bytes": 4223
+        },
+        {
+          "path": "docs/alpha6-evidence-traces.md",
+          "bytes": 23042
+        },
+        {
+          "path": "docs/api.md",
+          "bytes": 7472
+        },
+        {
+          "path": "docs/architecture.md",
+          "bytes": 19275
+        },
+        {
+          "path": "docs/evaluation.md",
+          "bytes": 37083
+        }
+      ]
+    },
+    "md12": {
+      "files": 12,
+      "bytes": 156642,
+      "manifest": [
+        {
+          "path": "docs/README.md",
+          "bytes": 1527
+        },
+        {
+          "path": "docs/alpha5-hardening.md",
+          "bytes": 14565
+        },
+        {
+          "path": "docs/alpha6-answerability.md",
+          "bytes": 4115
+        },
+        {
+          "path": "docs/alpha6-c-validation.md",
+          "bytes": 4223
+        },
+        {
+          "path": "docs/alpha6-evidence-traces.md",
+          "bytes": 23042
+        },
+        {
+          "path": "docs/api.md",
+          "bytes": 7472
+        },
+        {
+          "path": "docs/architecture.md",
+          "bytes": 19275
+        },
+        {
+          "path": "docs/evaluation.md",
+          "bytes": 37083
+        },
+        {
+          "path": "docs/file-types.md",
+          "bytes": 2085
+        },
+        {
+          "path": "docs/integration.md",
+          "bytes": 19005
+        },
+        {
+          "path": "docs/next-slice.md",
+          "bytes": 364
+        },
+        {
+          "path": "docs/terminal-demo.md",
+          "bytes": 23886
+        }
+      ]
+    },
+    "mixed24": {
+      "files": 20,
+      "bytes": 193354,
+      "manifest": [
+        {
+          "path": "docs/README.md",
+          "bytes": 1527
+        },
+        {
+          "path": "docs/alpha5-hardening.md",
+          "bytes": 14565
+        },
+        {
+          "path": "docs/alpha6-answerability.md",
+          "bytes": 4115
+        },
+        {
+          "path": "docs/alpha6-c-validation.md",
+          "bytes": 4223
+        },
+        {
+          "path": "docs/alpha6-evidence-traces.md",
+          "bytes": 23042
+        },
+        {
+          "path": "docs/api.md",
+          "bytes": 7472
+        },
+        {
+          "path": "docs/architecture.md",
+          "bytes": 19275
+        },
+        {
+          "path": "docs/evaluation.md",
+          "bytes": 37083
+        },
+        {
+          "path": "docs/file-types.md",
+          "bytes": 2085
+        },
+        {
+          "path": "docs/integration.md",
+          "bytes": 19005
+        },
+        {
+          "path": "docs/next-slice.md",
+          "bytes": 364
+        },
+        {
+          "path": "docs/terminal-demo.md",
+          "bytes": 23886
+        },
+        {
+          "path": "src/catalog.ts",
+          "bytes": 1800
+        },
+        {
+          "path": "src/chunking.ts",
+          "bytes": 2509
+        },
+        {
+          "path": "src/contracts.ts",
+          "bytes": 4835
+        },
+        {
+          "path": "src/embedding-input.ts",
+          "bytes": 741
+        },
+        {
+          "path": "src/engine.ts",
+          "bytes": 12734
+        },
+        {
+          "path": "src/index-state.ts",
+          "bytes": 6264
+        },
+        {
+          "path": "src/index.ts",
+          "bytes": 853
+        },
+        {
+          "path": "src/retrieval.ts",
+          "bytes": 6976
+        }
+      ]
+    },
+    "onefile": {
+      "files": 1,
+      "bytes": 18987
+    },
+    "manyfiles": {
+      "files": 16,
+      "bytes": 18972
+    }
+  },
+  "results": [
+    {
+      "kind": "demo-disk",
+      "corpus": "md8",
+      "totalMs": 22545.402064,
+      "report": {
+        "sourceId": "project",
+        "documents": 8,
+        "chunks": 115,
+        "unchangedChunks": 0,
+        "embeddedTexts": 115,
+        "reusedVectors": 0
+      },
+      "timings": {
+        "scanAdmissionMs": 12.685293999999999,
+        "readMs": 28.47490099999993,
+        "parsingMs": 7.432941000000142,
+        "chunkingMs": null,
+        "embeddingMs": 21746.122891000003,
+        "modelLoadMs": 646.841256,
+        "indexLoadMs": 1.978954999999928,
+        "indexSaveMs": 81.89306199999919,
+        "indexingMs": 21943.649384,
+        "verificationMs": 127.75818899999649,
+        "totalMs": 22472.045456
+      },
+      "index": {
+        "path": "/tmp/provena-beta1-audit-E6ybcL/cli/.provena-indexes/md8-01faeea57eb9/index.json",
+        "sourceRoot": "/tmp/provena-beta1-audit-E6ybcL/md8",
+        "state": "new",
+        "rebuildReasons": [],
+        "saved": true
+      },
+      "runs": [
+        {
+          "mode": "lexical",
+          "searchMs": 6.625422000000981,
+          "queryEmbeddingMs": 0,
+          "verificationMs": 13.057676999997057
+        },
+        {
+          "mode": "semantic",
+          "searchMs": 47.23801600000297,
+          "queryEmbeddingMs": 23.476943000001484,
+          "verificationMs": 85.155487
+        },
+        {
+          "mode": "hybrid",
+          "searchMs": 17.664310000000114,
+          "queryEmbeddingMs": 12.291016999999556,
+          "verificationMs": 29.54502499999944
+        }
+      ],
+      "renderMs": 47.492691999999806,
+      "stages": {
+        "index:reusableSnapshot": 0.3152150000000802,
+        "index:chunkDocument": 36.55227100000002,
+        "index:dedup": 1.2584530000000314,
+        "index:embedChunks": 21750.92056,
+        "index:snapshotOf": 12.34178299999985,
+        "index:collectCandidates": 0.810207000002265,
+        "index:rankLexical": 6.28911700000026,
+        "index:toSearchResults": 0.61850599999525,
+        "index:rankSemantic": 20.281803000001673,
+        "index:fuseRrf": 0.5998660000004747
+      },
+      "memory": {
+        "sampledPeak": {
+          "rss": 522924032,
+          "heapTotal": 38817792,
+          "heapUsed": 26451632,
+          "external": 59548282,
+          "arrayBuffers": 53021158
+        },
+        "phasePeaks": {
+          "index": {
+            "rss": 522924032,
+            "heapTotal": 38817792,
+            "heapUsed": 26451632,
+            "external": 59548282,
+            "arrayBuffers": 53021158
+          }
+        },
+        "end": {
+          "rss": 261963776,
+          "heapTotal": 35815424,
+          "heapUsed": 16663032,
+          "external": 59548282,
+          "arrayBuffers": 53021158
+        },
+        "peakRssBytes": 523579392
+      },
+      "gc": {
+        "ms": 164.25571604818106,
+        "count": 98
+      },
+      "maxEventLoopLagMs": 1260.9946
+    },
+    {
+      "kind": "demo-disk",
+      "corpus": "md8",
+      "totalMs": 1582.871365,
+      "report": {
+        "sourceId": "project",
+        "documents": 8,
+        "chunks": 115,
+        "unchangedChunks": 115,
+        "embeddedTexts": 0,
+        "reusedVectors": 115
+      },
+      "timings": {
+        "scanAdmissionMs": 16.616679999999974,
+        "readMs": 27.083847000000105,
+        "parsingMs": 6.149745000000166,
+        "chunkingMs": null,
+        "embeddingMs": 0,
+        "modelLoadMs": 604.0725340000001,
+        "indexLoadMs": 18.49329799999998,
+        "indexSaveMs": 78.65590999999995,
+        "indexingMs": 230.07562500000006,
+        "verificationMs": 83.742748,
+        "totalMs": 1473.3258839999999
+      },
+      "index": {
+        "path": "/tmp/provena-beta1-audit-E6ybcL/cli/.provena-indexes/md8-01faeea57eb9/index.json",
+        "sourceRoot": "/tmp/provena-beta1-audit-E6ybcL/md8",
+        "state": "loaded",
+        "rebuildReasons": [],
+        "saved": true
+      },
+      "runs": [
+        {
+          "mode": "lexical",
+          "searchMs": 7.54000700000006,
+          "queryEmbeddingMs": 0,
+          "verificationMs": 4.053168999999912
+        },
+        {
+          "mode": "semantic",
+          "searchMs": 651.8022599999999,
+          "queryEmbeddingMs": 636.8579090000001,
+          "verificationMs": 50.151985000000195
+        },
+        {
+          "mode": "hybrid",
+          "searchMs": 28.02874500000007,
+          "queryEmbeddingMs": 19.234386000000086,
+          "verificationMs": 29.5375939999999
+        }
+      ],
+      "renderMs": 85.3287929999999,
+      "stages": {
+        "index:reusableSnapshot": 41.074107000000026,
+        "index:chunkDocument": 10.21821900000009,
+        "index:dedup": 0.5875819999999976,
+        "index:embedChunks": 1.0458869999999933,
+        "index:snapshotOf": 14.724378999999999,
+        "index:collectCandidates": 0.9023880000000872,
+        "index:rankLexical": 6.891293000000019,
+        "index:toSearchResults": 0.5321539999998777,
+        "index:rankSemantic": 19.685197000000016,
+        "index:fuseRrf": 0.5636339999998654
+      },
+      "memory": {
+        "sampledPeak": {
+          "rss": 287772672,
+          "heapTotal": 56971264,
+          "heapUsed": 32191440,
+          "external": 23837833,
+          "arrayBuffers": 17256451
+        },
+        "phasePeaks": {
+          "index": {
+            "rss": 287772672,
+            "heapTotal": 56971264,
+            "heapUsed": 32191440,
+            "external": 23837833,
+            "arrayBuffers": 17256451
+          }
+        },
+        "end": {
+          "rss": 246415360,
+          "heapTotal": 52207616,
+          "heapUsed": 13413728,
+          "external": 23788273,
+          "arrayBuffers": 17256451
+        },
+        "peakRssBytes": 297431040
+      },
+      "gc": {
+        "ms": 59.40725899487734,
+        "count": 14
+      },
+      "maxEventLoopLagMs": 450.977104
+    }
+  ]
+}

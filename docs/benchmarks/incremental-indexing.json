@@ -1,0 +1,68 @@
+{
+  "node": "v24.21.0",
+  "model": "pinned MiniLM, offline CPU fp32, batches of four",
+  "documents": 24,
+  "scope": "disposable temporary source; refresh only, no query inference",
+  "stages": [
+    {
+      "stage": "cold",
+      "elapsedMs": 1446.82,
+      "sourceId": "project",
+      "documents": 24,
+      "chunks": 24,
+      "unchangedChunks": 0,
+      "documentsRead": 24,
+      "documentsParsed": 24,
+      "documentsReused": 0,
+      "documentsDeleted": 0,
+      "persistence": "saved",
+      "embeddedTexts": 24,
+      "reusedVectors": 0
+    },
+    {
+      "stage": "warm-restart",
+      "elapsedMs": 102.02,
+      "sourceId": "project",
+      "documents": 24,
+      "chunks": 24,
+      "unchangedChunks": 24,
+      "documentsRead": 0,
+      "documentsParsed": 0,
+      "documentsReused": 24,
+      "documentsDeleted": 0,
+      "persistence": "unchanged",
+      "embeddedTexts": 0,
+      "reusedVectors": 24
+    },
+    {
+      "stage": "one-file-edit",
+      "elapsedMs": 630.04,
+      "sourceId": "project",
+      "documents": 24,
+      "chunks": 24,
+      "unchangedChunks": 23,
+      "documentsRead": 1,
+      "documentsParsed": 1,
+      "documentsReused": 23,
+      "documentsDeleted": 0,
+      "persistence": "saved",
+      "embeddedTexts": 1,
+      "reusedVectors": 23
+    },
+    {
+      "stage": "verify-all",
+      "elapsedMs": 380.68,
+      "sourceId": "project",
+      "documents": 24,
+      "chunks": 24,
+      "unchangedChunks": 24,
+      "documentsRead": 24,
+      "documentsParsed": 24,
+      "documentsReused": 0,
+      "documentsDeleted": 0,
+      "persistence": "unchanged",
+      "embeddedTexts": 0,
+      "reusedVectors": 24
+    }
+  ]
+}

@@ -1,0 +1,469 @@
+{
+  "date": "2026-10-11T03:57:56.498Z",
+  "candidates": 10000,
+  "method": "Same candidate object references; alternating order; complete rank equality checked for camel/acronym/snake/plural/CJK/Unicode queries. No model inference.",
+  "rows": [
+    {
+      "query": "retryJob topic42",
+      "repeat": 0,
+      "kind": "current",
+      "wallMs": 601.845094,
+      "cpu": {
+        "user": 694107,
+        "system": 33238
+      },
+      "heapUsed": 77044432
+    },
+    {
+      "query": "retryJob topic42",
+      "repeat": 0,
+      "kind": "guarded",
+      "wallMs": 262.206277,
+      "cpu": {
+        "user": 359640,
+        "system": 42695
+      },
+      "heapUsed": 81904768
+    },
+    {
+      "query": "retryJob topic42",
+      "repeat": 1,
+      "kind": "guarded",
+      "wallMs": 225.36737799999992,
+      "cpu": {
+        "user": 351173,
+        "system": 20097
+      },
+      "heapUsed": 90018856
+    },
+    {
+      "query": "retryJob topic42",
+      "repeat": 1,
+      "kind": "current",
+      "wallMs": 604.895657,
+      "cpu": {
+        "user": 756970,
+        "system": 1035
+      },
+      "heapUsed": 83976264
+    },
+    {
+      "query": "retryJob topic42",
+      "repeat": 2,
+      "kind": "current",
+      "wallMs": 727.0361849999999,
+      "cpu": {
+        "user": 846734,
+        "system": 7195
+      },
+      "heapUsed": 132041088
+    },
+    {
+      "query": "retryJob topic42",
+      "repeat": 2,
+      "kind": "guarded",
+      "wallMs": 229.87581500000033,
+      "cpu": {
+        "user": 297954,
+        "system": 26989
+      },
+      "heapUsed": 133380608
+    },
+    {
+      "query": "XMLParser sessions",
+      "repeat": 0,
+      "kind": "current",
+      "wallMs": 581.6862220000003,
+      "cpu": {
+        "user": 663884,
+        "system": 27119
+      },
+      "heapUsed": 187986744
+    },
+    {
+      "query": "XMLParser sessions",
+      "repeat": 0,
+      "kind": "guarded",
+      "wallMs": 211.5106740000001,
+      "cpu": {
+        "user": 300606,
+        "system": 19929
+      },
+      "heapUsed": 189268208
+    },
+    {
+      "query": "XMLParser sessions",
+      "repeat": 1,
+      "kind": "guarded",
+      "wallMs": 213.0791220000001,
+      "cpu": {
+        "user": 296593,
+        "system": 19721
+      },
+      "heapUsed": 199146816
+    },
+    {
+      "query": "XMLParser sessions",
+      "repeat": 1,
+      "kind": "current",
+      "wallMs": 542.1648099999993,
+      "cpu": {
+        "user": 626537,
+        "system": 19091
+      },
+      "heapUsed": 252677408
+    },
+    {
+      "query": "XMLParser sessions",
+      "repeat": 2,
+      "kind": "current",
+      "wallMs": 581.0195239999994,
+      "cpu": {
+        "user": 745810,
+        "system": 4015
+      },
+      "heapUsed": 97921464
+    },
+    {
+      "query": "XMLParser sessions",
+      "repeat": 2,
+      "kind": "guarded",
+      "wallMs": 205.88222700000006,
+      "cpu": {
+        "user": 313618,
+        "system": 950
+      },
+      "heapUsed": 100902744
+    },
+    {
+      "query": "snake_case",
+      "repeat": 0,
+      "kind": "current",
+      "wallMs": 567.5345189999998,
+      "cpu": {
+        "user": 702237,
+        "system": 6
+      },
+      "heapUsed": 96052688
+    },
+    {
+      "query": "snake_case",
+      "repeat": 0,
+      "kind": "guarded",
+      "wallMs": 205.43562900000052,
+      "cpu": {
+        "user": 285373,
+        "system": 0
+      },
+      "heapUsed": 151072376
+    },
+    {
+      "query": "snake_case",
+      "repeat": 1,
+      "kind": "guarded",
+      "wallMs": 213.0373609999997,
+      "cpu": {
+        "user": 324150,
+        "system": 941
+      },
+      "heapUsed": 157763888
+    },
+    {
+      "query": "snake_case",
+      "repeat": 1,
+      "kind": "current",
+      "wallMs": 586.4136740000004,
+      "cpu": {
+        "user": 718816,
+        "system": 149
+      },
+      "heapUsed": 78059576
+    },
+    {
+      "query": "snake_case",
+      "repeat": 2,
+      "kind": "current",
+      "wallMs": 604.927737,
+      "cpu": {
+        "user": 711849,
+        "system": 1035
+      },
+      "heapUsed": 123112704
+    },
+    {
+      "query": "snake_case",
+      "repeat": 2,
+      "kind": "guarded",
+      "wallMs": 222.26389199999994,
+      "cpu": {
+        "user": 340873,
+        "system": 29
+      },
+      "heapUsed": 120740576
+    },
+    {
+      "query": "证据",
+      "repeat": 0,
+      "kind": "current",
+      "wallMs": 530.1755300000004,
+      "cpu": {
+        "user": 641988,
+        "system": 928
+      },
+      "heapUsed": 168437168
+    },
+    {
+      "query": "证据",
+      "repeat": 0,
+      "kind": "guarded",
+      "wallMs": 198.7985690000005,
+      "cpu": {
+        "user": 305145,
+        "system": 2034
+      },
+      "heapUsed": 162146568
+    },
+    {
+      "query": "证据",
+      "repeat": 1,
+      "kind": "guarded",
+      "wallMs": 190.91579099999944,
+      "cpu": {
+        "user": 269666,
+        "system": 0
+      },
+      "heapUsed": 214249016
+    },
+    {
+      "query": "证据",
+      "repeat": 1,
+      "kind": "current",
+      "wallMs": 544.5830229999992,
+      "cpu": {
+        "user": 681741,
+        "system": 1919
+      },
+      "heapUsed": 209314656
+    },
+    {
+      "query": "证据",
+      "repeat": 2,
+      "kind": "current",
+      "wallMs": 549.6207350000004,
+      "cpu": {
+        "user": 667935,
+        "system": 102
+      },
+      "heapUsed": 67636144
+    },
+    {
+      "query": "证据",
+      "repeat": 2,
+      "kind": "guarded",
+      "wallMs": 183.86493300000075,
+      "cpu": {
+        "user": 270417,
+        "system": 894
+      },
+      "heapUsed": 113065152
+    },
+    {
+      "query": "HTTP2Response",
+      "repeat": 0,
+      "kind": "current",
+      "wallMs": 541.8507059999993,
+      "cpu": {
+        "user": 666317,
+        "system": 1037
+      },
+      "heapUsed": 115337456
+    },
+    {
+      "query": "HTTP2Response",
+      "repeat": 0,
+      "kind": "guarded",
+      "wallMs": 190.71681100000023,
+      "cpu": {
+        "user": 252498,
+        "system": 0
+      },
+      "heapUsed": 167154840
+    },
+    {
+      "query": "HTTP2Response",
+      "repeat": 1,
+      "kind": "guarded",
+      "wallMs": 193.33540699999867,
+      "cpu": {
+        "user": 293855,
+        "system": 0
+      },
+      "heapUsed": 177022552
+    },
+    {
+      "query": "HTTP2Response",
+      "repeat": 1,
+      "kind": "current",
+      "wallMs": 522.1538249999994,
+      "cpu": {
+        "user": 640296,
+        "system": 0
+      },
+      "heapUsed": 174592136
+    },
+    {
+      "query": "HTTP2Response",
+      "repeat": 2,
+      "kind": "current",
+      "wallMs": 513.2881140000009,
+      "cpu": {
+        "user": 622687,
+        "system": 0
+      },
+      "heapUsed": 64562712
+    },
+    {
+      "query": "HTTP2Response",
+      "repeat": 2,
+      "kind": "guarded",
+      "wallMs": 190.63003500000013,
+      "cpu": {
+        "user": 278058,
+        "system": 1914
+      },
+      "heapUsed": 116978152
+    },
+    {
+      "query": "ABC",
+      "repeat": 0,
+      "kind": "current",
+      "wallMs": 491.4290369999999,
+      "cpu": {
+        "user": 616116,
+        "system": 29
+      },
+      "heapUsed": 111285560
+    },
+    {
+      "query": "ABC",
+      "repeat": 0,
+      "kind": "guarded",
+      "wallMs": 177.37336900000082,
+      "cpu": {
+        "user": 239182,
+        "system": 6
+      },
+      "heapUsed": 157299056
+    },
+    {
+      "query": "ABC",
+      "repeat": 1,
+      "kind": "guarded",
+      "wallMs": 184.27923199999896,
+      "cpu": {
+        "user": 286308,
+        "system": 1063
+      },
+      "heapUsed": 161894104
+    },
+    {
+      "query": "ABC",
+      "repeat": 1,
+      "kind": "current",
+      "wallMs": 471.19644100000005,
+      "cpu": {
+        "user": 563367,
+        "system": 0
+      },
+      "heapUsed": 209143200
+    },
+    {
+      "query": "ABC",
+      "repeat": 2,
+      "kind": "current",
+      "wallMs": 466.0101219999997,
+      "cpu": {
+        "user": 554715,
+        "system": 27
+      },
+      "heapUsed": 248835120
+    },
+    {
+      "query": "ABC",
+      "repeat": 2,
+      "kind": "guarded",
+      "wallMs": 204.58492899999874,
+      "cpu": {
+        "user": 315729,
+        "system": 13
+      },
+      "heapUsed": 64075712
+    },
+    {
+      "query": "İstanbul",
+      "repeat": 0,
+      "kind": "current",
+      "wallMs": 477.0044799999996,
+      "cpu": {
+        "user": 584784,
+        "system": 1982
+      },
+      "heapUsed": 104347496
+    },
+    {
+      "query": "İstanbul",
+      "repeat": 0,
+      "kind": "guarded",
+      "wallMs": 182.64796600000045,
+      "cpu": {
+        "user": 269407,
+        "system": 1007
+      },
+      "heapUsed": 99611144
+    },
+    {
+      "query": "İstanbul",
+      "repeat": 1,
+      "kind": "guarded",
+      "wallMs": 178.50574000000051,
+      "cpu": {
+        "user": 245340,
+        "system": 54
+      },
+      "heapUsed": 151781968
+    },
+    {
+      "query": "İstanbul",
+      "repeat": 1,
+      "kind": "current",
+      "wallMs": 480.6128410000001,
+      "cpu": {
+        "user": 597810,
+        "system": 1962
+      },
+      "heapUsed": 144506456
+    },
+    {
+      "query": "İstanbul",
+      "repeat": 2,
+      "kind": "current",
+      "wallMs": 471.3579719999998,
+      "cpu": {
+        "user": 559060,
+        "system": 955
+      },
+      "heapUsed": 184458784
+    },
+    {
+      "query": "İstanbul",
+      "repeat": 2,
+      "kind": "guarded",
+      "wallMs": 175.1331229999996,
+      "cpu": {
+        "user": 237719,
+        "system": 0
+      },
+      "heapUsed": 230753672
+    }
+  ]
+}

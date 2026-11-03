@@ -1,0 +1,78 @@
+{
+  "documents": {
+    "architecture.md": "# Retrieval architecture\nSource adapters parse documents into chunks. A catalog stores structural metadata for search.",
+    "auth.ts": "export function validateSession(cookie: string) {\n  // Validate session cookies before handling incoming requests.\n  return cookie.length > 0;\n}",
+    "queue.md": "# Job execution\nQueued jobs retry after failure and preserve their schedule.",
+    "storage.md": "# Persistent index\nSave chunk vectors with model identity and dimensions. Reuse unchanged chunks after restart.",
+    "garden.md": "# Garden\nWater tomatoes in the morning and protect plants from frost.",
+    "deployment.yaml": "service: api\nreplicas: 2\nhealthcheck: /ready",
+    "links.md": "# Related notes\nSee [[architecture.md]] for retrieval design and [[storage.md]] for index persistence.",
+    "notes.txt": "Authentication authorizes the person making a request."
+  },
+  "queries": [
+    {
+      "query": "architecture.md",
+      "relevant": [
+        "architecture.md"
+      ]
+    },
+    {
+      "query": "validateSession",
+      "relevant": [
+        "auth.ts"
+      ]
+    },
+    {
+      "query": "model dimensions",
+      "relevant": [
+        "storage.md"
+      ]
+    },
+    {
+      "query": "retrieval",
+      "relevant": [
+        "architecture.md",
+        "links.md"
+      ]
+    },
+    {
+      "query": "healthcheck",
+      "relevant": [
+        "deployment.yaml"
+      ]
+    },
+    {
+      "query": "who is allowed through the gateway",
+      "relevant": [
+        "auth.ts",
+        "notes.txt"
+      ]
+    }
+  ],
+  "additionalQueries": [
+    {
+      "query": "How can completed preprocessing survive an application relaunch?",
+      "relevant": [
+        "storage.md"
+      ]
+    },
+    {
+      "query": "What happens to an unsuccessful scheduled task?",
+      "relevant": [
+        "queue.md"
+      ]
+    },
+    {
+      "query": "Keeping vegetables safe during freezing nights",
+      "relevant": [
+        "garden.md"
+      ]
+    },
+    {
+      "query": "validateSession checks incoming cookies",
+      "relevant": [
+        "auth.ts"
+      ]
+    }
+  ]
+}

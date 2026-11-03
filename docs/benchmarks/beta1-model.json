@@ -1,0 +1,83 @@
+{
+  "node": "v24.21.0",
+  "modelDir": ".cache/minilm/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9",
+  "tokenLengths": [
+    9,
+    512,
+    9,
+    512,
+    9,
+    512,
+    9,
+    512
+  ],
+  "rows": [
+    {
+      "batchSize": 1,
+      "order": "interleaved",
+      "loadAndWarmQueryMs": 444.11708899999996,
+      "inferenceMs": 1025.2246730000002,
+      "inputsPerSecond": 7.803167647722031,
+      "maxDifference": 0,
+      "heapUsed": 26303104,
+      "rss": 311083008
+    },
+    {
+      "batchSize": 1,
+      "order": "grouped",
+      "loadAndWarmQueryMs": 444.11708899999996,
+      "inferenceMs": 999.1433769999999,
+      "inputsPerSecond": 8.006858859456765,
+      "maxDifference": 0,
+      "heapUsed": 24114736,
+      "rss": 311738368
+    },
+    {
+      "batchSize": 4,
+      "order": "interleaved",
+      "loadAndWarmQueryMs": 361.37723099999994,
+      "inferenceMs": 1613.2399690000002,
+      "inputsPerSecond": 4.958964663489564,
+      "maxDifference": 0,
+      "heapUsed": 34231384,
+      "rss": 500895744
+    },
+    {
+      "batchSize": 4,
+      "order": "grouped",
+      "loadAndWarmQueryMs": 361.37723099999994,
+      "inferenceMs": 789.7773550000002,
+      "inputsPerSecond": 10.12943704874901,
+      "maxDifference": 0,
+      "heapUsed": 31050544,
+      "rss": 504303616
+    },
+    {
+      "cancellation": "AbortError",
+      "elapsedMs": 804.1761840000008,
+      "dispatchMs": 12.968688000000839,
+      "afterAbortMs": 791.220284
+    },
+    {
+      "batchSize": 8,
+      "order": "interleaved",
+      "loadAndWarmQueryMs": 351.60935900000004,
+      "inferenceMs": 1601.8373259999998,
+      "inputsPerSecond": 4.9942649419820055,
+      "maxDifference": 0,
+      "heapUsed": 44390456,
+      "rss": 563478528
+    },
+    {
+      "batchSize": 8,
+      "order": "grouped",
+      "loadAndWarmQueryMs": 351.60935900000004,
+      "inferenceMs": 1837.2817839999989,
+      "inputsPerSecond": 4.354258595316267,
+      "maxDifference": 0,
+      "heapUsed": 45007944,
+      "rss": 799277056
+    }
+  ],
+  "note": "8 controlled inputs, one measurement per configuration/order, models disposed between batch sizes; process RSS includes allocator retention from previous models. This is a tuning probe, not a default-change recommendation."
+}

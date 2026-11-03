@@ -1,0 +1,284 @@
+{
+  "admission": [
+    {
+      "encountered": 101,
+      "admitted": 1,
+      "scanAdmissionMs": 54.20553700000002
+    },
+    {
+      "encountered": 1001,
+      "admitted": 1,
+      "scanAdmissionMs": 520.744017
+    }
+  ],
+  "fileShape": [
+    {
+      "shape": "one-line",
+      "bytes": 1048576,
+      "parseMs": 5.1575370000000476,
+      "chunkMs": 193.7780130000001,
+      "chunks": 1,
+      "maxChunkChars": 1048576
+    },
+    {
+      "shape": "many-lines",
+      "bytes": 1064000,
+      "parseMs": 4.585650999999871,
+      "chunkMs": 244.2765669999999,
+      "chunks": 737,
+      "maxChunkChars": 1595
+    }
+  ],
+  "scale": [
+    {
+      "schema": 1,
+      "date": "2026-10-10T22:28:57.625Z",
+      "environment": {
+        "node": "v24.21.0",
+        "cpu": "Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz",
+        "platform": "linux",
+        "arch": "x64",
+        "totalMemoryBytes": 8177311744
+      },
+      "candidateCount": 1000,
+      "dimensions": 384,
+      "indexingMs": 227.90061799999998,
+      "modes": {
+        "lexical": {
+          "totalMs": {
+            "count": 5,
+            "min": 3.8977630000000545,
+            "p25": 4.635347000000024,
+            "median": 4.7061559999999645,
+            "p75": 4.830030000000079,
+            "max": 9.133797999999956
+          },
+          "lexicalComponentMs": {
+            "count": 5,
+            "min": 3.5847649999999476,
+            "p25": 3.8296649999999772,
+            "median": 4.919171000000006,
+            "p75": 5.340072999999961,
+            "max": 8.713000999999963
+          },
+          "cosineComponentMs": {
+            "count": 5,
+            "min": 0,
+            "p25": 0,
+            "median": 0,
+            "p75": 0,
+            "max": 0
+          },
+          "fusionComponentMs": {
+            "count": 5,
+            "min": 0,
+            "p25": 0,
+            "median": 0,
+            "p75": 0,
+            "max": 0
+          }
+        },
+        "semantic": {
+          "totalMs": {
+            "count": 5,
+            "min": 13.327607000000057,
+            "p25": 16.32877600000006,
+            "median": 16.993335000000002,
+            "p75": 18.076643999999987,
+            "max": 19.78627800000004
+          },
+          "lexicalComponentMs": {
+            "count": 5,
+            "min": 0,
+            "p25": 0,
+            "median": 0,
+            "p75": 0,
+            "max": 0
+          },
+          "cosineComponentMs": {
+            "count": 5,
+            "min": 11.014549999999986,
+            "p25": 11.514342000000056,
+            "median": 16.93969100000004,
+            "p75": 22.62854500000003,
+            "max": 25.487438999999995
+          },
+          "fusionComponentMs": {
+            "count": 5,
+            "min": 0,
+            "p25": 0,
+            "median": 0,
+            "p75": 0,
+            "max": 0
+          }
+        },
+        "hybrid": {
+          "totalMs": {
+            "count": 5,
+            "min": 11.46899099999996,
+            "p25": 11.48197899999991,
+            "median": 16.604313000000047,
+            "p75": 17.25737099999992,
+            "max": 25.052819999999997
+          },
+          "lexicalComponentMs": {
+            "count": 5,
+            "min": 2.207347999999911,
+            "p25": 3.489235000000008,
+            "median": 3.5653729999999086,
+            "p75": 3.706711000000041,
+            "max": 4.321377999999868
+          },
+          "cosineComponentMs": {
+            "count": 5,
+            "min": 6.822303000000147,
+            "p25": 8.312449999999899,
+            "median": 11.121205999999916,
+            "p75": 11.25372799999991,
+            "max": 14.561798999999837
+          },
+          "fusionComponentMs": {
+            "count": 5,
+            "min": 0.9994420000000446,
+            "p25": 1.1548330000000533,
+            "median": 1.6892089999998916,
+            "p75": 2.0859310000000733,
+            "max": 2.593296999999893
+          }
+        }
+      },
+      "memory": {
+        "rssGrowthBytes": 20770816,
+        "heapGrowthBytes": 2499944,
+        "arrayBufferGrowthBytes": 3071964,
+        "processPeakRssBytes": 88739840
+      },
+      "note": "Isolated process per size; 2 warmups plus 5 measured runs. Public engine total includes filtering/ranking/result construction; components are independent reruns. Memory includes engine plus component fixture and two vector copies, not core-only allocation or a memory guarantee. Synthetic vectors, no model inference."
+    },
+    {
+      "schema": 1,
+      "date": "2026-10-10T22:29:04.986Z",
+      "environment": {
+        "node": "v24.21.0",
+        "cpu": "Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz",
+        "platform": "linux",
+        "arch": "x64",
+        "totalMemoryBytes": 8177311744
+      },
+      "candidateCount": 10000,
+      "dimensions": 384,
+      "indexingMs": 1234.308243,
+      "modes": {
+        "lexical": {
+          "totalMs": {
+            "count": 5,
+            "min": 30.442195999999967,
+            "p25": 31.616950000000088,
+            "median": 37.12033999999994,
+            "p75": 40.363061000000016,
+            "max": 51.30583000000024
+          },
+          "lexicalComponentMs": {
+            "count": 5,
+            "min": 28.81196799999998,
+            "p25": 30.96152099999972,
+            "median": 31.704575000000204,
+            "p75": 35.53549000000021,
+            "max": 35.70418000000018
+          },
+          "cosineComponentMs": {
+            "count": 5,
+            "min": 0,
+            "p25": 0,
+            "median": 0,
+            "p75": 0,
+            "max": 0
+          },
+          "fusionComponentMs": {
+            "count": 5,
+            "min": 0,
+            "p25": 0,
+            "median": 0,
+            "p75": 0,
+            "max": 0
+          }
+        },
+        "semantic": {
+          "totalMs": {
+            "count": 5,
+            "min": 96.23781999999983,
+            "p25": 111.9609889999997,
+            "median": 116.47185799999988,
+            "p75": 119.38732899999968,
+            "max": 169.1406179999999
+          },
+          "lexicalComponentMs": {
+            "count": 5,
+            "min": 0,
+            "p25": 0,
+            "median": 0,
+            "p75": 0,
+            "max": 0
+          },
+          "cosineComponentMs": {
+            "count": 5,
+            "min": 73.42626700000028,
+            "p25": 88.79996800000026,
+            "median": 108.35446600000023,
+            "p75": 147.58904399999983,
+            "max": 153.44515699999965
+          },
+          "fusionComponentMs": {
+            "count": 5,
+            "min": 0,
+            "p25": 0,
+            "median": 0,
+            "p75": 0,
+            "max": 0
+          }
+        },
+        "hybrid": {
+          "totalMs": {
+            "count": 5,
+            "min": 173.3689119999999,
+            "p25": 201.43121500000052,
+            "median": 214.53248200000053,
+            "p75": 224.92451099999926,
+            "max": 302.32056099999954
+          },
+          "lexicalComponentMs": {
+            "count": 5,
+            "min": 22.25499199999922,
+            "p25": 30.647062000000005,
+            "median": 47.10131799999999,
+            "p75": 48.34187900000052,
+            "max": 51.05087800000001
+          },
+          "cosineComponentMs": {
+            "count": 5,
+            "min": 69.82819000000018,
+            "p25": 103.99650199999996,
+            "median": 111.39405199999965,
+            "p75": 124.94873300000017,
+            "max": 131.7969210000001
+          },
+          "fusionComponentMs": {
+            "count": 5,
+            "min": 24.80550200000016,
+            "p25": 35.992355000000316,
+            "median": 38.916071999999986,
+            "p75": 42.388148,
+            "max": 43.62459000000035
+          }
+        }
+      },
+      "memory": {
+        "rssGrowthBytes": 117587968,
+        "heapGrowthBytes": 22868392,
+        "arrayBufferGrowthBytes": 30720000,
+        "processPeakRssBytes": 300781568
+      },
+      "note": "Isolated process per size; 2 warmups plus 5 measured runs. Public engine total includes filtering/ranking/result construction; components are independent reruns. Memory includes engine plus component fixture and two vector copies, not core-only allocation or a memory guarantee. Synthetic vectors, no model inference."
+    }
+  ]
+}

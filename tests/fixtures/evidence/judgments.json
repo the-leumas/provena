@@ -1,0 +1,851 @@
+{
+  "schema": 1,
+  "status": "Alpha.6 development judgments; NOT independent/held-out validation",
+  "alpha5FixtureSha256": "91a89bd9970fb0fb5025aac40720c213bb81acea95a8ebe27d82c9efe1e4ff52",
+  "unit": "exact chunk identified by documentId:startLine and checked against manifest text",
+  "grades": {
+    "0": "irrelevant (omitted chunk IDs)",
+    "1": "contextual/partial, not individually sufficient for declared requirement",
+    "2": "individually sufficient for declared requirement"
+  },
+  "sufficientSets": "OR of sets; every chunk within one set is required. A multi-chunk set can be sufficient when every member is grade 1. Empty sets never imply sufficiency. Underspecified tasks have no truth judgment.",
+  "queries": [
+    {
+      "id": "exact-symbol-1",
+      "requirement": "Locate the definition/owner of SessionStore message durability.",
+      "answerability": "supported",
+      "grades": {
+        "session.md:1": 2,
+        "session.md:5": 1,
+        "session-expiry.md:1": 1
+      },
+      "sufficientSets": [
+        [
+          "session.md:1"
+        ]
+      ],
+      "rationale": "Durability paragraph names owner and behavior; verification and expiry only refer to part of its role.",
+      "query": "SessionStore",
+      "class": "exact-symbol"
+    },
+    {
+      "id": "exact-symbol-2",
+      "requirement": "Locate the normalizeAppend implementation.",
+      "answerability": "supported",
+      "grades": {
+        "normalize.ts:1": 2
+      },
+      "sufficientSets": [
+        [
+          "normalize.ts:1"
+        ]
+      ],
+      "rationale": "Complete named function is in this chunk.",
+      "query": "normalizeAppend",
+      "class": "exact-symbol"
+    },
+    {
+      "id": "exact-symbol-3",
+      "requirement": "Locate OAuthCallback implementation or its flow contract.",
+      "answerability": "supported",
+      "grades": {
+        "callback.ts:1": 2,
+        "oauth.md:1": 2,
+        "oauth.md:5": 1
+      },
+      "sufficientSets": [
+        [
+          "callback.ts:1"
+        ],
+        [
+          "oauth.md:1"
+        ]
+      ],
+      "rationale": "Function and first section each satisfy this locator task; redirect registration lacks the callback implementation/flow.",
+      "query": "OAuthCallback",
+      "class": "exact-symbol"
+    },
+    {
+      "id": "exact-symbol-4",
+      "requirement": "Locate the POST /api/users endpoint contract.",
+      "answerability": "supported",
+      "grades": {
+        "users-api.md:1": 2
+      },
+      "sufficientSets": [
+        [
+          "users-api.md:1"
+        ]
+      ],
+      "rationale": "Method/path, requirements and response are explicit.",
+      "query": "POST /api/users",
+      "class": "exact-symbol"
+    },
+    {
+      "id": "exact-symbol-5",
+      "requirement": "Locate an Idempotency-Key usage or semantics example.",
+      "answerability": "supported",
+      "grades": {
+        "idempotency.md:1": 2,
+        "payments.json:1": 2
+      },
+      "sufficientSets": [
+        [
+          "idempotency.md:1"
+        ],
+        [
+          "payments.json:1"
+        ]
+      ],
+      "rationale": "For the locator task either a literal header example or semantics suffices; this does not make the example sufficient for retry guarantees.",
+      "query": "Idempotency-Key",
+      "class": "exact-symbol"
+    },
+    {
+      "id": "terminology-1",
+      "requirement": "Explain expand-and-contract rollout.",
+      "answerability": "supported",
+      "grades": {
+        "migrations.md:1": 2,
+        "migrations.md:5": 1,
+        "deploy.md:1": 1
+      },
+      "sufficientSets": [
+        [
+          "migrations.md:1"
+        ]
+      ],
+      "rationale": "Ordered rollout is in the first section; checkpointed backfill alone omits staged schema changes.",
+      "query": "expand-and-contract",
+      "class": "terminology"
+    },
+    {
+      "id": "terminology-2",
+      "requirement": "Explain read-your-writes routing.",
+      "answerability": "supported",
+      "grades": {
+        "replication.md:1": 2
+      },
+      "sufficientSets": [
+        [
+          "replication.md:1"
+        ]
+      ],
+      "rationale": "Primary routing/replica position alternatives explicit.",
+      "query": "read-your-writes",
+      "class": "terminology"
+    },
+    {
+      "id": "terminology-3",
+      "requirement": "Explain dead-letter queue purpose and transition.",
+      "answerability": "supported",
+      "grades": {
+        "queue.md:1": 2,
+        "queue.md:5": 1,
+        "queue-config.yaml:1": 1
+      },
+      "sufficientSets": [
+        [
+          "queue.md:1"
+        ]
+      ],
+      "rationale": "Retry paragraph states transition after five attempts. Inspection and config alone lack the full explanation.",
+      "query": "dead-letter queue",
+      "class": "terminology"
+    },
+    {
+      "id": "terminology-4",
+      "requirement": "Explain point-in-time restoration.",
+      "answerability": "supported",
+      "grades": {
+        "backup.md:1": 2,
+        "backup.md:5": 1
+      },
+      "sufficientSets": [
+        [
+          "backup.md:1"
+        ]
+      ],
+      "rationale": "Snapshot/log replay procedure explicit; drill checklist alone omits the recovery mechanism.",
+      "query": "point-in-time restoration",
+      "class": "terminology"
+    },
+    {
+      "id": "terminology-5",
+      "requirement": "Locate/explain the tamper-evident log.",
+      "answerability": "supported",
+      "grades": {
+        "audit.md:1": 2
+      },
+      "sufficientSets": [
+        [
+          "audit.md:1"
+        ]
+      ],
+      "rationale": "Event fields, access and purpose explicit.",
+      "query": "tamper-evident log",
+      "class": "terminology"
+    },
+    {
+      "id": "conceptual-1",
+      "requirement": "Explain how prior chats are restored at application startup.",
+      "answerability": "supported",
+      "grades": {
+        "session.md:1": 2,
+        "session.md:5": 1,
+        "session-expiry.md:1": 1,
+        "cookies.md:1": 1
+      },
+      "sufficientSets": [
+        [
+          "session.md:1"
+        ]
+      ],
+      "rationale": "Journal replay answers; post-replay verification presupposes that mechanism and does not explain it fully.",
+      "query": "How are earlier chats brought back when the application starts again?",
+      "class": "conceptual"
+    },
+    {
+      "id": "conceptual-2",
+      "requirement": "Explain preventing duplicate payment effects after a dropped connection.",
+      "answerability": "supported",
+      "grades": {
+        "idempotency.md:1": 2,
+        "payments.json:1": 1,
+        "transactions.md:1": 1,
+        "webhooks.md:1": 1
+      },
+      "sufficientSets": [
+        [
+          "idempotency.md:1"
+        ]
+      ],
+      "rationale": "Stored response keyed to request makes retry safe; literal payment JSON has no server-side guarantee.",
+      "query": "How do we avoid charging someone twice when their connection drops?",
+      "class": "conceptual"
+    },
+    {
+      "id": "conceptual-3",
+      "requirement": "Explain whether a paused former worker can overwrite a replacement.",
+      "answerability": "supported",
+      "grades": {
+        "leases.md:1": 2,
+        "lease.sql:1": 1
+      },
+      "sufficientSets": [
+        [
+          "leases.md:1"
+        ]
+      ],
+      "rationale": "Prose requires downstream fencing. SQL grants a lease but explicitly warns that downstream comparison is separate.",
+      "query": "Can a paused old worker overwrite what its replacement has done?",
+      "class": "conceptual"
+    },
+    {
+      "id": "conceptual-4",
+      "requirement": "Explain stale reads immediately after a write on another database server.",
+      "answerability": "supported",
+      "grades": {
+        "replication.md:1": 2,
+        "http-cache.md:1": 1
+      },
+      "sufficientSets": [
+        [
+          "replication.md:1"
+        ]
+      ],
+      "rationale": "Async replica replay explains the stated symptom; response cache concerns another layer.",
+      "query": "Why might something I just saved still look old on another database server?",
+      "class": "conceptual"
+    },
+    {
+      "id": "conceptual-5",
+      "requirement": "Explain reliable notification after committing a domain change.",
+      "answerability": "supported",
+      "grades": {
+        "outbox.md:1": 2,
+        "transactions.md:1": 1,
+        "webhooks.md:1": 1
+      },
+      "sufficientSets": [
+        [
+          "outbox.md:1"
+        ]
+      ],
+      "rationale": "Atomic domain/event record and publisher explain crash behavior; transaction note only names the outbox.",
+      "query": "How can we make sure a notification is not lost after saving a change?",
+      "class": "conceptual"
+    },
+    {
+      "id": "mixed-1",
+      "requirement": "Explain restoration of acknowledged messages after a crash.",
+      "answerability": "supported",
+      "grades": {
+        "session.md:1": 2,
+        "session.md:5": 1
+      },
+      "sufficientSets": [
+        [
+          "session.md:1"
+        ]
+      ],
+      "rationale": "Journal before acknowledgement and replay explicit; verification alone assumes earlier mechanism.",
+      "query": "SessionStore restore acknowledged messages after a crash",
+      "class": "mixed"
+    },
+    {
+      "id": "mixed-2",
+      "requirement": "Explain OAuthCallback rejection of a response from the wrong browser flow.",
+      "answerability": "supported",
+      "grades": {
+        "oauth.md:1": 2,
+        "callback.ts:1": 2,
+        "oauth.md:5": 1,
+        "csrf.md:1": 1
+      },
+      "sufficientSets": [
+        [
+          "oauth.md:1"
+        ],
+        [
+          "callback.ts:1"
+        ]
+      ],
+      "rationale": "Both callback checks directly compare state to nonce. Redirect registration alone cannot answer flow correlation.",
+      "query": "OAuthCallback reject a login response from the wrong browser flow",
+      "class": "mixed"
+    },
+    {
+      "id": "mixed-3",
+      "requirement": "State what happens when an Idempotency-Key is reused with a different payment body.",
+      "answerability": "supported",
+      "grades": {
+        "idempotency.md:1": 2,
+        "payments.json:1": 1
+      },
+      "sufficientSets": [
+        [
+          "idempotency.md:1"
+        ]
+      ],
+      "rationale": "Different digest fails is explicit; JSON supplies no conflict behavior.",
+      "query": "Idempotency-Key same identifier but different payment body",
+      "class": "mixed"
+    },
+    {
+      "id": "mixed-4",
+      "requirement": "Explain 429 retry timing guidance.",
+      "answerability": "supported",
+      "grades": {
+        "rate-limit.md:1": 2
+      },
+      "sufficientSets": [
+        [
+          "rate-limit.md:1"
+        ]
+      ],
+      "rationale": "Retry-After is explicit; no numeric delay is requested.",
+      "query": "429 response tell the client when it can try again",
+      "class": "mixed"
+    },
+    {
+      "id": "mixed-5",
+      "requirement": "Explain ETag conditional transfer avoidance.",
+      "answerability": "supported",
+      "grades": {
+        "http-cache.md:1": 2
+      },
+      "sufficientSets": [
+        [
+          "http-cache.md:1"
+        ]
+      ],
+      "rationale": "Matching validator avoids unchanged body transfer.",
+      "query": "ETag stop transferring a body when it has not changed",
+      "class": "mixed"
+    },
+    {
+      "id": "ambiguous-1",
+      "requirement": "Session state has no stated identity/durability intent.",
+      "answerability": "underspecified",
+      "grades": {
+        "session.md:1": 1,
+        "session.md:5": 1,
+        "session-expiry.md:1": 1,
+        "cookies.md:1": 1
+      },
+      "sufficientSets": [],
+      "rationale": "Contextual alternatives are known, but no single sufficiency claim is assigned without a task interpretation. Not counted as unanswerable.",
+      "query": "session state",
+      "class": "ambiguous"
+    },
+    {
+      "id": "ambiguous-2",
+      "requirement": "Cache invalidation does not identify a cache or task.",
+      "answerability": "underspecified",
+      "grades": {
+        "search-cache.md:1": 1,
+        "http-cache.md:1": 1,
+        "model-cache.md:1": 1
+      },
+      "sufficientSets": [],
+      "rationale": "Contextual alternatives are known, but no single sufficiency claim is assigned without a task interpretation. Not counted as unanswerable.",
+      "query": "cache invalidation",
+      "class": "ambiguous"
+    },
+    {
+      "id": "ambiguous-3",
+      "requirement": "Recovery does not identify the failed resource.",
+      "answerability": "underspecified",
+      "grades": {
+        "backup.md:1": 1,
+        "backup.md:5": 1,
+        "passwords.md:1": 1,
+        "session.md:1": 1,
+        "session.md:5": 1,
+        "deadlocks.md:1": 1
+      },
+      "sufficientSets": [],
+      "rationale": "Contextual alternatives are known, but no single sufficiency claim is assigned without a task interpretation. Not counted as unanswerable.",
+      "query": "recovery",
+      "class": "ambiguous"
+    },
+    {
+      "id": "ambiguous-4",
+      "requirement": "Ownership does not identify worker lease, project role or operational responsibility.",
+      "answerability": "underspecified",
+      "grades": {
+        "leases.md:1": 1,
+        "permissions.md:1": 1,
+        "alerts.md:1": 1
+      },
+      "sufficientSets": [],
+      "rationale": "Contextual alternatives are known, but no single sufficiency claim is assigned without a task interpretation. Not counted as unanswerable.",
+      "query": "ownership",
+      "class": "ambiguous"
+    },
+    {
+      "id": "ambiguous-5",
+      "requirement": "Release safety does not specify deployment, schema or process concern.",
+      "answerability": "underspecified",
+      "grades": {
+        "deploy.md:1": 1,
+        "migrations.md:1": 1,
+        "migrations.md:5": 1,
+        "roadmap.md:1": 1
+      },
+      "sufficientSets": [],
+      "rationale": "Contextual alternatives are known, but no single sufficiency claim is assigned without a task interpretation. Not counted as unanswerable.",
+      "query": "release safety",
+      "class": "ambiguous"
+    },
+    {
+      "id": "noisy-1",
+      "requirement": "State where jobs go when retry attempts are exhausted.",
+      "answerability": "supported",
+      "grades": {
+        "queue.md:1": 2,
+        "queue-config.yaml:1": 2,
+        "queue.md:5": 1
+      },
+      "sufficientSets": [
+        [
+          "queue.md:1"
+        ],
+        [
+          "queue-config.yaml:1"
+        ]
+      ],
+      "rationale": "Prose states dead-letter transition; configured attempts and destination jointly answer this narrow where-question. Inspection paragraph does not state the transition condition.",
+      "query": "hey I think the jobs keep failing um where do they go after all the attempts are used up",
+      "class": "noisy"
+    },
+    {
+      "id": "noisy-2",
+      "requirement": "Identify what to inspect for idle-CPU database connection waits.",
+      "answerability": "supported",
+      "grades": {
+        "db-pool.md:1": 2,
+        "latency.md:1": 1,
+        "latency.md:5": 1,
+        "pool.toml:1": 1
+      },
+      "sufficientSets": [
+        [
+          "db-pool.md:1"
+        ]
+      ],
+      "rationale": "Transaction age/release paths directly diagnose the symptom; generic timing/config are contextual.",
+      "query": "the db has hardly any cpu but users are waiting forever for a connection what should I inspect",
+      "class": "noisy"
+    },
+    {
+      "id": "noisy-3",
+      "requirement": "Explain why login does not authorize another team project.",
+      "answerability": "supported",
+      "grades": {
+        "permissions.md:1": 2,
+        "oauth.md:1": 1,
+        "cookies.md:1": 1
+      },
+      "sufficientSets": [
+        [
+          "permissions.md:1"
+        ]
+      ],
+      "rationale": "Resource membership versus authenticated identity explicit.",
+      "query": "please explain why logging in doesnt let me open another teams project",
+      "class": "noisy"
+    },
+    {
+      "id": "noisy-4",
+      "requirement": "Explain how a webhook receiver handles duplicate delivery.",
+      "answerability": "supported",
+      "grades": {
+        "webhooks.md:1": 2,
+        "idempotency.md:1": 1,
+        "outbox.md:1": 1
+      },
+      "sufficientSets": [
+        [
+          "webhooks.md:1"
+        ]
+      ],
+      "rationale": "Receiver deduplicates event IDs; payment server keys/outbox production are related mechanisms.",
+      "query": "we sent the same hook twice by accident how is the receiver supposed to handle that",
+      "class": "noisy"
+    },
+    {
+      "id": "noisy-5",
+      "requirement": "Explain allowing active requests to finish at shutdown.",
+      "answerability": "supported",
+      "grades": {
+        "shutdown.md:1": 2,
+        "health.md:1": 1,
+        "deployment.yaml:1": 1
+      },
+      "sufficientSets": [
+        [
+          "shutdown.md:1"
+        ]
+      ],
+      "rationale": "Bounded drain ordering explicit. Readiness and configured drain time alone do not give the full shutdown behavior.",
+      "query": "the app is stopping can we let the requests already running finish first please",
+      "class": "noisy"
+    },
+    {
+      "id": "negative-1",
+      "requirement": "What is the boiling point of liquid neon?",
+      "answerability": "unsupported",
+      "grades": {},
+      "sufficientSets": [],
+      "rationale": "Reviewed handbook has no sufficient or topical evidence for this request; empty grades is a development judgment, not inferred from low similarity.",
+      "query": "What is the boiling point of liquid neon?",
+      "class": "negative"
+    },
+    {
+      "id": "negative-2",
+      "requirement": "Give the recipe for sourdough pancakes",
+      "answerability": "unsupported",
+      "grades": {},
+      "sufficientSets": [],
+      "rationale": "Reviewed handbook has no sufficient or topical evidence for this request; empty grades is a development judgment, not inferred from low similarity.",
+      "query": "Give the recipe for sourdough pancakes",
+      "class": "negative"
+    },
+    {
+      "id": "negative-3",
+      "requirement": "Who won the lunar sailing championship in 2088?",
+      "answerability": "unsupported",
+      "grades": {},
+      "sufficientSets": [],
+      "rationale": "Reviewed handbook has no sufficient or topical evidence for this request; empty grades is a development judgment, not inferred from low similarity.",
+      "query": "Who won the lunar sailing championship in 2088?",
+      "class": "negative"
+    },
+    {
+      "id": "negative-4",
+      "requirement": "Translate a medieval treaty written in Akkadian",
+      "answerability": "unsupported",
+      "grades": {},
+      "sufficientSets": [],
+      "rationale": "Reviewed handbook has no sufficient or topical evidence for this request; empty grades is a development judgment, not inferred from low similarity.",
+      "query": "Translate a medieval treaty written in Akkadian",
+      "class": "negative"
+    },
+    {
+      "id": "negative-5",
+      "requirement": "What is the recommended violin string tension?",
+      "answerability": "unsupported",
+      "grades": {},
+      "sufficientSets": [],
+      "rationale": "Reviewed handbook has no sufficient or topical evidence for this request; empty grades is a development judgment, not inferred from low similarity.",
+      "query": "What is the recommended violin string tension?",
+      "class": "negative"
+    },
+    {
+      "id": "near-miss-1",
+      "requirement": "Supply the specific requested value/secret/measurement, not a general procedure.",
+      "answerability": "unsupported",
+      "grades": {
+        "budget.md:1": 1
+      },
+      "sufficientSets": [],
+      "rationale": "These chunks concern the topic but no requested salary, GPU price, production secret, dated drill duration or Singapore p99 is recorded. A procedural instruction to measure is not a measurement.",
+      "query": "What is the company salary band for a senior database engineer?",
+      "class": "near-miss"
+    },
+    {
+      "id": "near-miss-2",
+      "requirement": "Supply the specific requested value/secret/measurement, not a general procedure.",
+      "answerability": "unsupported",
+      "grades": {
+        "quantization.md:1": 1,
+        "batching.md:1": 1,
+        "model-cache.md:1": 1
+      },
+      "sufficientSets": [],
+      "rationale": "These chunks concern the topic but no requested salary, GPU price, production secret, dated drill duration or Singapore p99 is recorded. A procedural instruction to measure is not a measurement.",
+      "query": "Which exact GPU has the lowest price for this embedding model?",
+      "class": "near-miss"
+    },
+    {
+      "id": "near-miss-3",
+      "requirement": "Supply the specific requested value/secret/measurement, not a general procedure.",
+      "answerability": "unsupported",
+      "grades": {
+        "oauth.md:1": 1,
+        "oauth.md:5": 1,
+        "api-keys.md:1": 1
+      },
+      "sufficientSets": [],
+      "rationale": "These chunks concern the topic but no requested salary, GPU price, production secret, dated drill duration or Singapore p99 is recorded. A procedural instruction to measure is not a measurement.",
+      "query": "What is the OAuth provider client secret for production?",
+      "class": "near-miss"
+    },
+    {
+      "id": "near-miss-4",
+      "requirement": "Supply the specific requested value/secret/measurement, not a general procedure.",
+      "answerability": "unsupported",
+      "grades": {
+        "backup.md:1": 1,
+        "backup.md:5": 1
+      },
+      "sufficientSets": [],
+      "rationale": "These chunks concern the topic but no requested salary, GPU price, production secret, dated drill duration or Singapore p99 is recorded. A procedural instruction to measure is not a measurement.",
+      "query": "What was the measured restore time in last Tuesdays backup drill?",
+      "class": "near-miss"
+    },
+    {
+      "id": "near-miss-5",
+      "requirement": "Supply the specific requested value/secret/measurement, not a general procedure.",
+      "answerability": "unsupported",
+      "grades": {
+        "latency.md:1": 1,
+        "latency.md:5": 1,
+        "rate-limit.md:1": 1,
+        "payments.json:1": 1
+      },
+      "sufficientSets": [],
+      "rationale": "These chunks concern the topic but no requested salary, GPU price, production secret, dated drill duration or Singapore p99 is recorded. A procedural instruction to measure is not a measurement.",
+      "query": "How many milliseconds does the p99 payment endpoint take in Singapore?",
+      "class": "near-miss"
+    },
+    {
+      "id": "multi-relevant-1",
+      "requirement": "Explain duplicate-effect protection for each of payments, webhooks and jobs.",
+      "answerability": "supported",
+      "grades": {
+        "idempotency.md:1": 1,
+        "webhooks.md:1": 1,
+        "queue.md:1": 1,
+        "queue.md:5": 1,
+        "outbox.md:1": 1
+      },
+      "sufficientSets": [
+        [
+          "idempotency.md:1",
+          "webhooks.md:1",
+          "queue.md:1"
+        ],
+        [
+          "idempotency.md:1",
+          "webhooks.md:1",
+          "queue.md:5"
+        ]
+      ],
+      "rationale": "No individual chunk covers all three domains. Either job section supplies idempotent replay, with payment and webhook mechanisms also required; outbox is additional context.",
+      "query": "How do retries avoid duplicate effects across payments, webhooks and queued jobs?",
+      "class": "multi-relevant"
+    },
+    {
+      "id": "multi-relevant-2",
+      "requirement": "Cover schema compatibility sequence and monitored deployment, including restoration preparation.",
+      "answerability": "supported",
+      "grades": {
+        "migrations.md:1": 1,
+        "migrations.md:5": 1,
+        "deploy.md:1": 1,
+        "backup.md:1": 1,
+        "backup.md:5": 1
+      },
+      "sufficientSets": [
+        [
+          "migrations.md:1",
+          "deploy.md:1",
+          "backup.md:1"
+        ]
+      ],
+      "rationale": "Development interpretation requires compatibility, monitored rollout and restoration preparation. Broad task scope is subjective; C must challenge whether backup is required or merely helpful.",
+      "query": "What should happen before and during a safe database schema rollout?",
+      "class": "multi-relevant"
+    },
+    {
+      "id": "multi-relevant-3",
+      "requirement": "Cover strict offline asset provisioning and failure diagnosis.",
+      "answerability": "supported",
+      "grades": {
+        "model-cache.md:1": 1,
+        "network.md:1": 1,
+        "workers.md:1": 1
+      },
+      "sufficientSets": [
+        [
+          "model-cache.md:1",
+          "network.md:1"
+        ]
+      ],
+      "rationale": "Asset provisioning/remote disabling and diagnosis of missing assets/network stages are complementary; worker topology is optional context.",
+      "query": "How should a strictly disconnected host provision and troubleshoot local model inference?",
+      "class": "multi-relevant"
+    },
+    {
+      "id": "multi-relevant-4",
+      "requirement": "Distinguish login identity, project authorization and request-forgery checks.",
+      "answerability": "supported",
+      "grades": {
+        "oauth.md:1": 1,
+        "callback.ts:1": 1,
+        "permissions.md:1": 1,
+        "csrf.md:1": 1,
+        "cookies.md:1": 1
+      },
+      "sufficientSets": [
+        [
+          "oauth.md:1",
+          "permissions.md:1",
+          "csrf.md:1"
+        ]
+      ],
+      "rationale": "Three distinct boundary explanations jointly support the comparison; cookie or callback implementation alone omits one or more boundaries.",
+      "query": "What separates login identity, resource permissions and request forgery checks?",
+      "class": "multi-relevant"
+    },
+    {
+      "id": "multi-relevant-5",
+      "requirement": "Explain compatible persisted retrieval through edits/renames and safe publication.",
+      "answerability": "supported",
+      "grades": {
+        "snapshot.md:1": 1,
+        "rename.md:1": 1,
+        "atomic-save.md:1": 1
+      },
+      "sufficientSets": [
+        [
+          "snapshot.md:1",
+          "rename.md:1",
+          "atomic-save.md:1"
+        ]
+      ],
+      "rationale": "Compatibility/reconciliation, provenance-sensitive reuse, and atomic publication jointly cover the requested lifecycle. Requiring publication is an explicit development interpretation for C review.",
+      "query": "How can persisted retrieval state survive edits and renames without mixing incompatible vectors?",
+      "class": "multi-relevant"
+    },
+    {
+      "id": "code-config-1",
+      "requirement": "Locate pool maximum and acquisition timeout values.",
+      "answerability": "supported",
+      "grades": {
+        "pool.toml:1": 2,
+        "db-pool.md:1": 1
+      },
+      "sufficientSets": [
+        [
+          "pool.toml:1"
+        ]
+      ],
+      "rationale": "Config gives numeric values, prose only general pool diagnosis.",
+      "query": "maximum = 12 acquire_timeout_ms",
+      "class": "code-config"
+    },
+    {
+      "id": "code-config-2",
+      "requirement": "Locate visibility timeout and dead-letter destination configuration.",
+      "answerability": "supported",
+      "grades": {
+        "queue-config.yaml:1": 2,
+        "queue.md:1": 1,
+        "queue.md:5": 1
+      },
+      "sufficientSets": [
+        [
+          "queue-config.yaml:1"
+        ]
+      ],
+      "rationale": "Config contains requested keys; prose omits visibility value.",
+      "query": "visibility_timeout_seconds dead_letter_queue",
+      "class": "code-config"
+    },
+    {
+      "id": "code-config-3",
+      "requirement": "Show the SQL lease claim conditional on expiry and incrementing fence.",
+      "answerability": "supported",
+      "grades": {
+        "lease.sql:1": 2,
+        "leases.md:1": 1
+      },
+      "sufficientSets": [
+        [
+          "lease.sql:1"
+        ]
+      ],
+      "rationale": "SQL directly answers this narrow implementation request, unlike the broader paused-worker correctness question.",
+      "query": "SQL increment fence only when task lease has expired",
+      "class": "code-config"
+    },
+    {
+      "id": "code-config-4",
+      "requirement": "Show code joining existing text and addition with one newline.",
+      "answerability": "supported",
+      "grades": {
+        "normalize.ts:1": 2
+      },
+      "sufficientSets": [
+        [
+          "normalize.ts:1"
+        ]
+      ],
+      "rationale": "Entire function is present; no inference from a document title required.",
+      "query": "Code that joins existing text and an addition with one newline",
+      "class": "code-config"
+    },
+    {
+      "id": "code-config-5",
+      "requirement": "Locate readiness/liveness paths and drain duration.",
+      "answerability": "supported",
+      "grades": {
+        "deployment.yaml:1": 2,
+        "health.md:1": 1,
+        "shutdown.md:1": 1
+      },
+      "sufficientSets": [
+        [
+          "deployment.yaml:1"
+        ]
+      ],
+      "rationale": "Only literal config gives all requested values.",
+      "query": "readiness_path liveness_path drain_seconds",
+      "class": "code-config"
+    }
+  ]
+}

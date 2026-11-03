@@ -1,0 +1,478 @@
+{
+  "version": 1,
+  "judgmentUnit": "document",
+  "grades": {
+    "0": "irrelevant or absent",
+    "1": "supporting context",
+    "2": "directly relevant"
+  },
+  "queries": [
+    {
+      "id": "exact-symbol-1",
+      "class": "exact-symbol",
+      "query": "SessionStore",
+      "relevance": {
+        "session.md": 2,
+        "session-expiry.md": 1
+      },
+      "rationale": "Primary durability owner; expiry note explicitly distinguishes it."
+    },
+    {
+      "id": "exact-symbol-2",
+      "class": "exact-symbol",
+      "query": "normalizeAppend",
+      "relevance": {
+        "normalize.ts": 2
+      },
+      "rationale": "Exact exported function."
+    },
+    {
+      "id": "exact-symbol-3",
+      "class": "exact-symbol",
+      "query": "OAuthCallback",
+      "relevance": {
+        "callback.ts": 2,
+        "oauth.md": 2
+      },
+      "rationale": "Implementation and callback contract."
+    },
+    {
+      "id": "exact-symbol-4",
+      "class": "exact-symbol",
+      "query": "POST /api/users",
+      "relevance": {
+        "users-api.md": 2
+      },
+      "rationale": "Exact endpoint contract."
+    },
+    {
+      "id": "exact-symbol-5",
+      "class": "exact-symbol",
+      "query": "Idempotency-Key",
+      "relevance": {
+        "idempotency.md": 2,
+        "payments.json": 2
+      },
+      "rationale": "Header semantics and literal request example."
+    },
+    {
+      "id": "terminology-1",
+      "class": "terminology",
+      "query": "expand-and-contract",
+      "relevance": {
+        "migrations.md": 2
+      },
+      "rationale": "The documented terminology names the requested mechanism."
+    },
+    {
+      "id": "terminology-2",
+      "class": "terminology",
+      "query": "read-your-writes",
+      "relevance": {
+        "replication.md": 2
+      },
+      "rationale": "The documented terminology names the requested mechanism."
+    },
+    {
+      "id": "terminology-3",
+      "class": "terminology",
+      "query": "dead-letter queue",
+      "relevance": {
+        "queue.md": 2,
+        "queue-config.yaml": 1
+      },
+      "rationale": "The documented terminology names the requested mechanism."
+    },
+    {
+      "id": "terminology-4",
+      "class": "terminology",
+      "query": "point-in-time restoration",
+      "relevance": {
+        "backup.md": 2
+      },
+      "rationale": "The documented terminology names the requested mechanism."
+    },
+    {
+      "id": "terminology-5",
+      "class": "terminology",
+      "query": "tamper-evident log",
+      "relevance": {
+        "audit.md": 2
+      },
+      "rationale": "The documented terminology names the requested mechanism."
+    },
+    {
+      "id": "conceptual-1",
+      "class": "conceptual",
+      "query": "How are earlier chats brought back when the application starts again?",
+      "relevance": {
+        "session.md": 2
+      },
+      "rationale": "Paraphrase of the documented behavior; topic neighbors are insufficient."
+    },
+    {
+      "id": "conceptual-2",
+      "class": "conceptual",
+      "query": "How do we avoid charging someone twice when their connection drops?",
+      "relevance": {
+        "idempotency.md": 2,
+        "payments.json": 1
+      },
+      "rationale": "Paraphrase of the documented behavior; topic neighbors are insufficient."
+    },
+    {
+      "id": "conceptual-3",
+      "class": "conceptual",
+      "query": "Can a paused old worker overwrite what its replacement has done?",
+      "relevance": {
+        "leases.md": 2,
+        "lease.sql": 2
+      },
+      "rationale": "Paraphrase of the documented behavior; topic neighbors are insufficient."
+    },
+    {
+      "id": "conceptual-4",
+      "class": "conceptual",
+      "query": "Why might something I just saved still look old on another database server?",
+      "relevance": {
+        "replication.md": 2
+      },
+      "rationale": "Paraphrase of the documented behavior; topic neighbors are insufficient."
+    },
+    {
+      "id": "conceptual-5",
+      "class": "conceptual",
+      "query": "How can we make sure a notification is not lost after saving a change?",
+      "relevance": {
+        "outbox.md": 2
+      },
+      "rationale": "Paraphrase of the documented behavior; topic neighbors are insufficient."
+    },
+    {
+      "id": "mixed-1",
+      "class": "mixed",
+      "query": "SessionStore restore acknowledged messages after a crash",
+      "relevance": {
+        "session.md": 2
+      },
+      "rationale": "A concrete identifier combined with behavioral intent."
+    },
+    {
+      "id": "mixed-2",
+      "class": "mixed",
+      "query": "OAuthCallback reject a login response from the wrong browser flow",
+      "relevance": {
+        "oauth.md": 2,
+        "callback.ts": 2
+      },
+      "rationale": "A concrete identifier combined with behavioral intent."
+    },
+    {
+      "id": "mixed-3",
+      "class": "mixed",
+      "query": "Idempotency-Key same identifier but different payment body",
+      "relevance": {
+        "idempotency.md": 2
+      },
+      "rationale": "A concrete identifier combined with behavioral intent."
+    },
+    {
+      "id": "mixed-4",
+      "class": "mixed",
+      "query": "429 response tell the client when it can try again",
+      "relevance": {
+        "rate-limit.md": 2
+      },
+      "rationale": "A concrete identifier combined with behavioral intent."
+    },
+    {
+      "id": "mixed-5",
+      "class": "mixed",
+      "query": "ETag stop transferring a body when it has not changed",
+      "relevance": {
+        "http-cache.md": 2
+      },
+      "rationale": "A concrete identifier combined with behavioral intent."
+    },
+    {
+      "id": "ambiguous-1",
+      "class": "ambiguous",
+      "query": "session state",
+      "relevance": {
+        "session.md": 2,
+        "session-expiry.md": 2,
+        "cookies.md": 1
+      },
+      "rationale": "Broad wording deliberately admits multiple interpretations with graded context."
+    },
+    {
+      "id": "ambiguous-2",
+      "class": "ambiguous",
+      "query": "cache invalidation",
+      "relevance": {
+        "search-cache.md": 2,
+        "http-cache.md": 2,
+        "model-cache.md": 1
+      },
+      "rationale": "Broad wording deliberately admits multiple interpretations with graded context."
+    },
+    {
+      "id": "ambiguous-3",
+      "class": "ambiguous",
+      "query": "recovery",
+      "relevance": {
+        "backup.md": 2,
+        "passwords.md": 2,
+        "session.md": 2,
+        "deadlocks.md": 1
+      },
+      "rationale": "Broad wording deliberately admits multiple interpretations with graded context."
+    },
+    {
+      "id": "ambiguous-4",
+      "class": "ambiguous",
+      "query": "ownership",
+      "relevance": {
+        "leases.md": 2,
+        "permissions.md": 2,
+        "alerts.md": 1
+      },
+      "rationale": "Broad wording deliberately admits multiple interpretations with graded context."
+    },
+    {
+      "id": "ambiguous-5",
+      "class": "ambiguous",
+      "query": "release safety",
+      "relevance": {
+        "deploy.md": 2,
+        "migrations.md": 2,
+        "roadmap.md": 1
+      },
+      "rationale": "Broad wording deliberately admits multiple interpretations with graded context."
+    },
+    {
+      "id": "noisy-1",
+      "class": "noisy",
+      "query": "hey I think the jobs keep failing um where do they go after all the attempts are used up",
+      "relevance": {
+        "queue.md": 2,
+        "queue-config.yaml": 1
+      },
+      "rationale": "Natural wording with extra terms, but a specific supported behavior."
+    },
+    {
+      "id": "noisy-2",
+      "class": "noisy",
+      "query": "the db has hardly any cpu but users are waiting forever for a connection what should I inspect",
+      "relevance": {
+        "db-pool.md": 2,
+        "latency.md": 1
+      },
+      "rationale": "Natural wording with extra terms, but a specific supported behavior."
+    },
+    {
+      "id": "noisy-3",
+      "class": "noisy",
+      "query": "please explain why logging in doesnt let me open another teams project",
+      "relevance": {
+        "permissions.md": 2
+      },
+      "rationale": "Natural wording with extra terms, but a specific supported behavior."
+    },
+    {
+      "id": "noisy-4",
+      "class": "noisy",
+      "query": "we sent the same hook twice by accident how is the receiver supposed to handle that",
+      "relevance": {
+        "webhooks.md": 2,
+        "idempotency.md": 1
+      },
+      "rationale": "Natural wording with extra terms, but a specific supported behavior."
+    },
+    {
+      "id": "noisy-5",
+      "class": "noisy",
+      "query": "the app is stopping can we let the requests already running finish first please",
+      "relevance": {
+        "shutdown.md": 2,
+        "health.md": 1
+      },
+      "rationale": "Natural wording with extra terms, but a specific supported behavior."
+    },
+    {
+      "id": "negative-1",
+      "class": "negative",
+      "query": "What is the boiling point of liquid neon?",
+      "relevance": {},
+      "rationale": "The fictional engineering handbook contains no answer or relevant document."
+    },
+    {
+      "id": "negative-2",
+      "class": "negative",
+      "query": "Give the recipe for sourdough pancakes",
+      "relevance": {},
+      "rationale": "The fictional engineering handbook contains no answer or relevant document."
+    },
+    {
+      "id": "negative-3",
+      "class": "negative",
+      "query": "Who won the lunar sailing championship in 2088?",
+      "relevance": {},
+      "rationale": "The fictional engineering handbook contains no answer or relevant document."
+    },
+    {
+      "id": "negative-4",
+      "class": "negative",
+      "query": "Translate a medieval treaty written in Akkadian",
+      "relevance": {},
+      "rationale": "The fictional engineering handbook contains no answer or relevant document."
+    },
+    {
+      "id": "negative-5",
+      "class": "negative",
+      "query": "What is the recommended violin string tension?",
+      "relevance": {},
+      "rationale": "The fictional engineering handbook contains no answer or relevant document."
+    },
+    {
+      "id": "near-miss-1",
+      "class": "near-miss",
+      "query": "What is the company salary band for a senior database engineer?",
+      "relevance": {},
+      "rationale": "Related topic exists, but this requested secret, price, private fact or measured value is absent."
+    },
+    {
+      "id": "near-miss-2",
+      "class": "near-miss",
+      "query": "Which exact GPU has the lowest price for this embedding model?",
+      "relevance": {},
+      "rationale": "Related topic exists, but this requested secret, price, private fact or measured value is absent."
+    },
+    {
+      "id": "near-miss-3",
+      "class": "near-miss",
+      "query": "What is the OAuth provider client secret for production?",
+      "relevance": {},
+      "rationale": "Related topic exists, but this requested secret, price, private fact or measured value is absent."
+    },
+    {
+      "id": "near-miss-4",
+      "class": "near-miss",
+      "query": "What was the measured restore time in last Tuesdays backup drill?",
+      "relevance": {},
+      "rationale": "Related topic exists, but this requested secret, price, private fact or measured value is absent."
+    },
+    {
+      "id": "near-miss-5",
+      "class": "near-miss",
+      "query": "How many milliseconds does the p99 payment endpoint take in Singapore?",
+      "relevance": {},
+      "rationale": "Related topic exists, but this requested secret, price, private fact or measured value is absent."
+    },
+    {
+      "id": "multi-relevant-1",
+      "class": "multi-relevant",
+      "query": "How do retries avoid duplicate effects across payments, webhooks and queued jobs?",
+      "relevance": {
+        "idempotency.md": 2,
+        "webhooks.md": 2,
+        "queue.md": 2,
+        "outbox.md": 1
+      },
+      "rationale": "Several distinct mechanisms jointly answer the request."
+    },
+    {
+      "id": "multi-relevant-2",
+      "class": "multi-relevant",
+      "query": "What should happen before and during a safe database schema rollout?",
+      "relevance": {
+        "migrations.md": 2,
+        "deploy.md": 2,
+        "backup.md": 1
+      },
+      "rationale": "Several distinct mechanisms jointly answer the request."
+    },
+    {
+      "id": "multi-relevant-3",
+      "class": "multi-relevant",
+      "query": "How should a strictly disconnected host provision and troubleshoot local model inference?",
+      "relevance": {
+        "model-cache.md": 2,
+        "network.md": 2,
+        "workers.md": 1
+      },
+      "rationale": "Several distinct mechanisms jointly answer the request."
+    },
+    {
+      "id": "multi-relevant-4",
+      "class": "multi-relevant",
+      "query": "What separates login identity, resource permissions and request forgery checks?",
+      "relevance": {
+        "oauth.md": 2,
+        "permissions.md": 2,
+        "csrf.md": 2,
+        "cookies.md": 1
+      },
+      "rationale": "Several distinct mechanisms jointly answer the request."
+    },
+    {
+      "id": "multi-relevant-5",
+      "class": "multi-relevant",
+      "query": "How can persisted retrieval state survive edits and renames without mixing incompatible vectors?",
+      "relevance": {
+        "snapshot.md": 2,
+        "rename.md": 2,
+        "atomic-save.md": 2
+      },
+      "rationale": "Several distinct mechanisms jointly answer the request."
+    },
+    {
+      "id": "code-config-1",
+      "class": "code-config",
+      "query": "maximum = 12 acquire_timeout_ms",
+      "relevance": {
+        "pool.toml": 2
+      },
+      "rationale": "Literal configuration or executable evidence is required, with supporting prose graded lower."
+    },
+    {
+      "id": "code-config-2",
+      "class": "code-config",
+      "query": "visibility_timeout_seconds dead_letter_queue",
+      "relevance": {
+        "queue-config.yaml": 2
+      },
+      "rationale": "Literal configuration or executable evidence is required, with supporting prose graded lower."
+    },
+    {
+      "id": "code-config-3",
+      "class": "code-config",
+      "query": "SQL increment fence only when task lease has expired",
+      "relevance": {
+        "lease.sql": 2,
+        "leases.md": 1
+      },
+      "rationale": "Literal configuration or executable evidence is required, with supporting prose graded lower."
+    },
+    {
+      "id": "code-config-4",
+      "class": "code-config",
+      "query": "Code that joins existing text and an addition with one newline",
+      "relevance": {
+        "normalize.ts": 2
+      },
+      "rationale": "Literal configuration or executable evidence is required, with supporting prose graded lower."
+    },
+    {
+      "id": "code-config-5",
+      "class": "code-config",
+      "query": "readiness_path liveness_path drain_seconds",
+      "relevance": {
+        "deployment.yaml": 2,
+        "health.md": 1,
+        "shutdown.md": 1
+      },
+      "rationale": "Literal configuration or executable evidence is required, with supporting prose graded lower."
+    }
+  ]
+}

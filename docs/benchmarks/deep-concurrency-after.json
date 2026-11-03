@@ -1,0 +1,522 @@
+{
+  "date": "2026-10-11T04:00:48.652Z",
+  "note": "Warm local OS cache; repeated scan/read order alternates. Experimental branch scanner preserves checkedPath checks. Worker results include full catalog and chunk transfer; startup separated. RSS high-water mark is cumulative, not per-configuration allocation.",
+  "timings": [
+    {
+      "label": "scan-1-0",
+      "wallMs": 196.112082,
+      "cpu": {
+        "user": 157574,
+        "system": 71628
+      },
+      "cpuPercent": 116.8729624725518,
+      "maxEventLoopLagMs": 0.524236999999971,
+      "sampledRssBytes": 74027008,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "read-1-0",
+      "wallMs": 424.67237,
+      "cpu": {
+        "user": 310711,
+        "system": 179420
+      },
+      "cpuPercent": 115.41391308316102,
+      "maxEventLoopLagMs": 0.29507600000010825,
+      "sampledRssBytes": 75546624,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "scan-4-0",
+      "wallMs": 96.65928099999996,
+      "cpu": {
+        "user": 110739,
+        "system": 59000
+      },
+      "cpuPercent": 175.6054858301709,
+      "maxEventLoopLagMs": 0.1137389999998959,
+      "sampledRssBytes": 76201984,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "read-4-0",
+      "wallMs": 235.17892899999993,
+      "cpu": {
+        "user": 296413,
+        "system": 123919
+      },
+      "cpuPercent": 178.7285968973862,
+      "maxEventLoopLagMs": 0.362337000000025,
+      "sampledRssBytes": 83423232,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "scan-8-0",
+      "wallMs": 115.23770300000001,
+      "cpu": {
+        "user": 144762,
+        "system": 39516
+      },
+      "cpuPercent": 159.9112054498344,
+      "maxEventLoopLagMs": 0.9036759999999049,
+      "sampledRssBytes": 85913600,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "read-8-0",
+      "wallMs": 169.34538599999996,
+      "cpu": {
+        "user": 223476,
+        "system": 115680
+      },
+      "cpuPercent": 200.27472139099206,
+      "maxEventLoopLagMs": 0.5527109999998174,
+      "sampledRssBytes": 84017152,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "scan-8-1",
+      "wallMs": 95.41155800000001,
+      "cpu": {
+        "user": 111131,
+        "system": 55346
+      },
+      "cpuPercent": 174.48305371976,
+      "maxEventLoopLagMs": 0.803476000000046,
+      "sampledRssBytes": 84410368,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "read-8-1",
+      "wallMs": 141.99316399999998,
+      "cpu": {
+        "user": 189050,
+        "system": 125899
+      },
+      "cpuPercent": 221.80574833870173,
+      "maxEventLoopLagMs": 0.8498010000000704,
+      "sampledRssBytes": 85458944,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "scan-4-1",
+      "wallMs": 78.31996600000002,
+      "cpu": {
+        "user": 80992,
+        "system": 60507
+      },
+      "cpuPercent": 180.66785166888346,
+      "maxEventLoopLagMs": 1.067805000000135,
+      "sampledRssBytes": 85590016,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "read-4-1",
+      "wallMs": 204.2240509999997,
+      "cpu": {
+        "user": 235082,
+        "system": 143123
+      },
+      "cpuPercent": 185.1912143295995,
+      "maxEventLoopLagMs": 0.8372089999998025,
+      "sampledRssBytes": 86245376,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "scan-1-1",
+      "wallMs": 197.55765199999996,
+      "cpu": {
+        "user": 148884,
+        "system": 60207
+      },
+      "cpuPercent": 105.83796571949541,
+      "maxEventLoopLagMs": 0.5200589999999465,
+      "sampledRssBytes": 86638592,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "read-1-1",
+      "wallMs": 456.66767600000003,
+      "cpu": {
+        "user": 309633,
+        "system": 224542
+      },
+      "cpuPercent": 116.97236920267595,
+      "maxEventLoopLagMs": 0.3164489999999205,
+      "sampledRssBytes": 98951168,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "scan-1-2",
+      "wallMs": 419.266607,
+      "cpu": {
+        "user": 244224,
+        "system": 123846
+      },
+      "cpuPercent": 87.7890091542635,
+      "maxEventLoopLagMs": 2.06832200000008,
+      "sampledRssBytes": 101179392,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "read-1-2",
+      "wallMs": 555.4755569999998,
+      "cpu": {
+        "user": 394925,
+        "system": 221784
+      },
+      "cpuPercent": 111.02360711076263,
+      "maxEventLoopLagMs": 1.0583890000002611,
+      "sampledRssBytes": 101179392,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "scan-4-2",
+      "wallMs": 146.35384999999997,
+      "cpu": {
+        "user": 157534,
+        "system": 70013
+      },
+      "cpuPercent": 155.4772901430335,
+      "maxEventLoopLagMs": 0.9864640000005238,
+      "sampledRssBytes": 101441536,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "read-4-2",
+      "wallMs": 258.4817060000005,
+      "cpu": {
+        "user": 308513,
+        "system": 137966
+      },
+      "cpuPercent": 172.73137310537527,
+      "maxEventLoopLagMs": 0.9420700000000579,
+      "sampledRssBytes": 101441536,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "scan-8-2",
+      "wallMs": 137.65642000000025,
+      "cpu": {
+        "user": 175590,
+        "system": 66456
+      },
+      "cpuPercent": 175.8334264395366,
+      "maxEventLoopLagMs": 0.4822869999998147,
+      "sampledRssBytes": 101834752,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "read-8-2",
+      "wallMs": 318.4258199999995,
+      "cpu": {
+        "user": 348055,
+        "system": 188962
+      },
+      "cpuPercent": 168.64744196937323,
+      "maxEventLoopLagMs": 0.6258070000003499,
+      "sampledRssBytes": 101777408,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "small-main-0",
+      "wallMs": 56.11923999999999,
+      "cpu": {
+        "user": 71070,
+        "system": 2825
+      },
+      "cpuPercent": 131.67498348160098,
+      "maxEventLoopLagMs": 46.22356300000047,
+      "sampledRssBytes": 108855296,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "small-main-1",
+      "wallMs": 41.33325700000023,
+      "cpu": {
+        "user": 53448,
+        "system": 663
+      },
+      "cpuPercent": 130.91395144592573,
+      "maxEventLoopLagMs": 31.394588000000113,
+      "sampledRssBytes": 110428160,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "small-workers-1-startup",
+      "wallMs": 75.51725199999964,
+      "cpu": {
+        "user": 80147,
+        "system": 7685
+      },
+      "cpuPercent": 116.30719825451331,
+      "maxEventLoopLagMs": 0.7262529999998151,
+      "sampledRssBytes": 125992960,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "small-workers-1-0",
+      "wallMs": 134.83631199999945,
+      "cpu": {
+        "user": 153470,
+        "system": 12554
+      },
+      "cpuPercent": 123.13003636587203,
+      "maxEventLoopLagMs": 0.4240799999997762,
+      "sampledRssBytes": 127827968,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "small-workers-1-1",
+      "wallMs": 128.54242299999987,
+      "cpu": {
+        "user": 137976,
+        "system": 19738
+      },
+      "cpuPercent": 122.69412410251529,
+      "maxEventLoopLagMs": 0.23557800000071438,
+      "sampledRssBytes": 129138688,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "small-workers-2-startup",
+      "wallMs": 91.44002900000032,
+      "cpu": {
+        "user": 191932,
+        "system": 13373
+      },
+      "cpuPercent": 224.52420700785132,
+      "maxEventLoopLagMs": 0.9298650000000634,
+      "sampledRssBytes": 141148160,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "small-workers-2-0",
+      "wallMs": 83.46078699999998,
+      "cpu": {
+        "user": 184547,
+        "system": 21451
+      },
+      "cpuPercent": 246.82010247519,
+      "maxEventLoopLagMs": 0.7663970000003246,
+      "sampledRssBytes": 144818176,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "small-workers-2-1",
+      "wallMs": 73.37796500000059,
+      "cpu": {
+        "user": 144762,
+        "system": 17607
+      },
+      "cpuPercent": 221.2776001623903,
+      "maxEventLoopLagMs": 0.9136650000000373,
+      "sampledRssBytes": 144945152,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "small-workers-4-startup",
+      "wallMs": 144.31546199999957,
+      "cpu": {
+        "user": 555063,
+        "system": 40006
+      },
+      "cpuPercent": 412.3390465257297,
+      "maxEventLoopLagMs": 1.9569940000001225,
+      "sampledRssBytes": 171180032,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "small-workers-4-0",
+      "wallMs": 67.90356900000006,
+      "cpu": {
+        "user": 295345,
+        "system": 18944
+      },
+      "cpuPercent": 462.8460692544743,
+      "maxEventLoopLagMs": 0.27464899999995396,
+      "sampledRssBytes": 178638848,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "small-workers-4-1",
+      "wallMs": 39.95269499999995,
+      "cpu": {
+        "user": 146509,
+        "system": 17751
+      },
+      "cpuPercent": 411.13621997214506,
+      "maxEventLoopLagMs": 0.4112169999998514,
+      "sampledRssBytes": 178769920,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "large-main-0",
+      "wallMs": 320.81467299999986,
+      "cpu": {
+        "user": 382738,
+        "system": 18885
+      },
+      "cpuPercent": 125.18847602709249,
+      "maxEventLoopLagMs": 310.88205800000014,
+      "sampledRssBytes": 164167680,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "large-main-1",
+      "wallMs": 266.51766000000043,
+      "cpu": {
+        "user": 299979,
+        "system": 0
+      },
+      "cpuPercent": 112.55501793014373,
+      "maxEventLoopLagMs": 257.46177500000067,
+      "sampledRssBytes": 165376000,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "large-workers-1-startup",
+      "wallMs": 80.38113599999997,
+      "cpu": {
+        "user": 84539,
+        "system": 10663
+      },
+      "cpuPercent": 118.43823655341228,
+      "maxEventLoopLagMs": 0.3858329999993657,
+      "sampledRssBytes": 178704384,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "large-workers-1-0",
+      "wallMs": 341.6353650000001,
+      "cpu": {
+        "user": 408177,
+        "system": 30958
+      },
+      "cpuPercent": 128.53909313516178,
+      "maxEventLoopLagMs": 0.7824780000000828,
+      "sampledRssBytes": 220352512,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "large-workers-1-1",
+      "wallMs": 207.61518799999976,
+      "cpu": {
+        "user": 210300,
+        "system": 1260
+      },
+      "cpuPercent": 101.90005945037134,
+      "maxEventLoopLagMs": 0.5340519999999742,
+      "sampledRssBytes": 222986240,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "large-workers-2-startup",
+      "wallMs": 61.88445899999988,
+      "cpu": {
+        "user": 133685,
+        "system": 2721
+      },
+      "cpuPercent": 220.4204451395467,
+      "maxEventLoopLagMs": 0.7612300000000687,
+      "sampledRssBytes": 218906624,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "large-workers-2-0",
+      "wallMs": 162.45846700000038,
+      "cpu": {
+        "user": 363881,
+        "system": 32935
+      },
+      "cpuPercent": 244.256890593458,
+      "maxEventLoopLagMs": 0.9608409999991636,
+      "sampledRssBytes": 256761856,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "large-workers-2-1",
+      "wallMs": 140.91540499999974,
+      "cpu": {
+        "user": 347663,
+        "system": 16168
+      },
+      "cpuPercent": 258.19107570247604,
+      "maxEventLoopLagMs": 4.162105000000338,
+      "sampledRssBytes": 274980864,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "large-workers-4-startup",
+      "wallMs": 88.93736899999931,
+      "cpu": {
+        "user": 338682,
+        "system": 7344
+      },
+      "cpuPercent": 389.06705234332117,
+      "maxEventLoopLagMs": 0.5746910000007119,
+      "sampledRssBytes": 274206720,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "large-workers-4-0",
+      "wallMs": 136.19706600000063,
+      "cpu": {
+        "user": 608416,
+        "system": 15696
+      },
+      "cpuPercent": 458.2418831254391,
+      "maxEventLoopLagMs": 1.4150820000004387,
+      "sampledRssBytes": 295489536,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "large-workers-4-1",
+      "wallMs": 99.95150100000046,
+      "cpu": {
+        "user": 393085,
+        "system": 21400
+      },
+      "cpuPercent": 414.6861186206679,
+      "maxEventLoopLagMs": 2.4258869999994204,
+      "sampledRssBytes": 308453376,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "unsupported-10000-0",
+      "wallMs": 72.63675599999988,
+      "cpu": {
+        "user": 77142,
+        "system": 7053
+      },
+      "cpuPercent": 115.9123901403308,
+      "maxEventLoopLagMs": 0.39624499999990803,
+      "sampledRssBytes": 324603904,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "unsupported-10000-1",
+      "wallMs": 87.42619399999967,
+      "cpu": {
+        "user": 77100,
+        "system": 6663
+      },
+      "cpuPercent": 95.80995828321237,
+      "maxEventLoopLagMs": 0.32224200000018755,
+      "sampledRssBytes": 324603904,
+      "processPeakRssBytes": 611299328
+    },
+    {
+      "label": "unsupported-10000-2",
+      "wallMs": 49.32754399999976,
+      "cpu": {
+        "user": 41177,
+        "system": 6125
+      },
+      "cpuPercent": 95.89368568603422,
+      "maxEventLoopLagMs": 0.7338829999989684,
+      "sampledRssBytes": 324734976,
+      "processPeakRssBytes": 611299328
+    }
+  ]
+}

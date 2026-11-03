@@ -1,0 +1,14 @@
+node_modules/
+dist/
+coverage/
+*.tgz
+.env
+.env.*
+!.env.example
+.npmrc
+local/
+.cache/
+models/
+indexes/
+.provena-indexes/
+benchmark-output/

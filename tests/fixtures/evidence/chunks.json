@@ -1,0 +1,1147 @@
+[
+  {
+    "key": "session.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"session.md\\\"]\",\"907c71f5e75fc721\",0]",
+      "sourceId": "handbook",
+      "documentId": "session.md",
+      "uri": "memory://handbook/session.md",
+      "path": "session.md",
+      "heading": "Session durability",
+      "language": "markdown",
+      "text": "# Session durability\n\nSessionStore serializes conversation messages to a journal before acknowledging an update. At startup the service replays committed entries to rebuild the conversation timeline. An interrupted write leaves the last acknowledged messages available. Transient typing indicators are deliberately excluded from serialized state. The journal belongs to one account and is not shared with the browser response cache.\n",
+      "contentHash": "907c71f5e75fc721",
+      "startLine": 1,
+      "endLine": 4
+    }
+  },
+  {
+    "key": "session.md:5",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"session.md\\\"]\",\"dac35bf7b012f9c7\",0]",
+      "sourceId": "handbook",
+      "documentId": "session.md",
+      "uri": "memory://handbook/session.md",
+      "path": "session.md",
+      "heading": "Recovery verification",
+      "language": "markdown",
+      "text": "## Recovery verification\n\nAfter replay, compare the last committed message sequence with the recorded acknowledgement. A corrupt journal stops startup rather than presenting an invented conversation. A diagnostic export can inspect sequence gaps without exposing message bodies.",
+      "contentHash": "dac35bf7b012f9c7",
+      "startLine": 5,
+      "endLine": 7
+    }
+  },
+  {
+    "key": "session-expiry.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"session-expiry.md\\\"]\",\"c34c5cba61dcceff\",0]",
+      "sourceId": "handbook",
+      "documentId": "session-expiry.md",
+      "uri": "memory://handbook/session-expiry.md",
+      "path": "session-expiry.md",
+      "heading": "Session expiry",
+      "language": "markdown",
+      "text": "# Session expiry\n\nAuthentication sessions expire after thirty minutes of inactivity in this fictional service. A successful authenticated request extends the idle deadline. Expiry removes the login grant; it does not erase saved conversation messages. Operators can revoke all sessions for an account after a credential leak. SessionStore handles message durability separately from authentication grants.",
+      "contentHash": "c34c5cba61dcceff",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "cookies.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"cookies.md\\\"]\",\"b47c4ed5c336897d\",0]",
+      "sourceId": "handbook",
+      "documentId": "cookies.md",
+      "uri": "memory://handbook/cookies.md",
+      "path": "cookies.md",
+      "heading": "Browser cookie policy",
+      "language": "markdown",
+      "text": "# Browser cookie policy\n\nThe login cookie uses HttpOnly, Secure and SameSite=Lax attributes. Scripts cannot inspect its opaque session identifier. The server checks the session grant on each protected request rather than trusting a client flag. Clearing a cookie logs out this browser, while a server-side revocation invalidates other devices too. Cookie policy does not restore conversation history.",
+      "contentHash": "b47c4ed5c336897d",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "oauth.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"oauth.md\\\"]\",\"70512646c4fe6362\",0]",
+      "sourceId": "handbook",
+      "documentId": "oauth.md",
+      "uri": "memory://handbook/oauth.md",
+      "path": "oauth.md",
+      "heading": "OAuth callback",
+      "language": "markdown",
+      "text": "# OAuth callback\n\nOAuthCallback verifies the returned state against a short-lived nonce stored before redirecting to the identity provider. A mismatch rejects the login attempt. The handler exchanges the authorization code once and deletes the nonce after success. Callback URLs must match the registered redirect URI. This flow establishes identity; permission checks happen later at the resource boundary.\n",
+      "contentHash": "70512646c4fe6362",
+      "startLine": 1,
+      "endLine": 4
+    }
+  },
+  {
+    "key": "oauth.md:5",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"oauth.md\\\"]\",\"0ba6f0ec14ef7f3c\",0]",
+      "sourceId": "handbook",
+      "documentId": "oauth.md",
+      "uri": "memory://handbook/oauth.md",
+      "path": "oauth.md",
+      "heading": "Redirect registration",
+      "language": "markdown",
+      "text": "## Redirect registration\n\nRegister a precise callback URI for each deployment environment. Wildcard redirect destinations are not allowed in this fictional service. Changing the host or path requires updating the provider registration before deployment.",
+      "contentHash": "0ba6f0ec14ef7f3c",
+      "startLine": 5,
+      "endLine": 7
+    }
+  },
+  {
+    "key": "passwords.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"passwords.md\\\"]\",\"aedb4b8b87478a52\",0]",
+      "sourceId": "handbook",
+      "documentId": "passwords.md",
+      "uri": "memory://handbook/passwords.md",
+      "path": "passwords.md",
+      "heading": "Password recovery",
+      "language": "markdown",
+      "text": "# Password recovery\n\nA password recovery request sends a single-use reset link to the verified mailbox. Store only a digest of the token and expire it after fifteen minutes. Completing recovery rotates the password hash and revokes outstanding login grants. Respond uniformly for unknown addresses to avoid account enumeration. Recovery is distinct from rotating an application API key.",
+      "contentHash": "aedb4b8b87478a52",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "permissions.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"permissions.md\\\"]\",\"fc9e7d1c6f399961\",0]",
+      "sourceId": "handbook",
+      "documentId": "permissions.md",
+      "uri": "memory://handbook/permissions.md",
+      "path": "permissions.md",
+      "heading": "Project authorization",
+      "language": "markdown",
+      "text": "# Project authorization\n\nProject membership grants reader, editor or owner roles. Every document request verifies both the authenticated account and the project membership. A valid login alone does not permit access to another team workspace. The policy evaluator rejects unknown roles by default. Audit events record the resource identifier and decision without copying protected document contents.",
+      "contentHash": "fc9e7d1c6f399961",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "api-keys.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"api-keys.md\\\"]\",\"18765b42a411d18a\",0]",
+      "sourceId": "handbook",
+      "documentId": "api-keys.md",
+      "uri": "memory://handbook/api-keys.md",
+      "path": "api-keys.md",
+      "heading": "API key rotation",
+      "language": "markdown",
+      "text": "# API key rotation\n\nAutomation clients authenticate using scoped API keys. Rotation creates a replacement credential, moves clients to it, and revokes the old key after a short overlap. Keep only key digests in storage and display the secret once. Key scopes limit actions independently of a user login session. Emergency rotation can skip the overlap when compromise is suspected.",
+      "contentHash": "18765b42a411d18a",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "csrf.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"csrf.md\\\"]\",\"c6022ce03fc895ee\",0]",
+      "sourceId": "handbook",
+      "documentId": "csrf.md",
+      "uri": "memory://handbook/csrf.md",
+      "path": "csrf.md",
+      "heading": "Request forgery protection",
+      "language": "markdown",
+      "text": "# Request forgery protection\n\nState-changing browser requests require a CSRF token tied to the current login grant. The handler also checks the request origin against an allowlist. A cookie being present is insufficient because another page may cause the browser to send it. Public read-only endpoints do not accept mutations through GET. OAuth state checks protect a different redirect boundary.",
+      "contentHash": "c6022ce03fc895ee",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "rate-limit.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"rate-limit.md\\\"]\",\"65fe3117c77e4177\",0]",
+      "sourceId": "handbook",
+      "documentId": "rate-limit.md",
+      "uri": "memory://handbook/rate-limit.md",
+      "path": "rate-limit.md",
+      "heading": "Rate limiting",
+      "language": "markdown",
+      "text": "# Rate limiting\n\nThe API gateway counts requests in a rolling interval by tenant and credential. Exhausting the quota produces status 429 with Retry-After rather than consuming worker capacity. Short bursts are allowed within a bounded token bucket. Authentication failures have a separate tighter budget. Rate limits protect availability; they do not decide whether a caller owns a requested resource.",
+      "contentHash": "65fe3117c77e4177",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "audit.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"audit.md\\\"]\",\"343f24e8fa8ef87f\",0]",
+      "sourceId": "handbook",
+      "documentId": "audit.md",
+      "uri": "memory://handbook/audit.md",
+      "path": "audit.md",
+      "heading": "Audit trail",
+      "language": "markdown",
+      "text": "# Audit trail\n\nSecurity events append actor, action, resource and timestamp to a tamper-evident log. Access to the audit trail requires an operations role. Sensitive tokens and raw request bodies are never included. Investigators can correlate a key revocation with later denied requests. This trail is evidence of actions, not the transactional journal used to recover conversation messages.",
+      "contentHash": "343f24e8fa8ef87f",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "transactions.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"transactions.md\\\"]\",\"2325ba87442a1d66\",0]",
+      "sourceId": "handbook",
+      "documentId": "transactions.md",
+      "uri": "memory://handbook/transactions.md",
+      "path": "transactions.md",
+      "heading": "Database transactions",
+      "language": "markdown",
+      "text": "# Database transactions\n\nA transfer updates both account balances within one database transaction. Either both writes commit or neither becomes visible. Retrying a transaction after a serialization conflict must rerun the entire unit of work. External email delivery stays outside that transaction and is scheduled through an outbox. Commit success is the boundary for acknowledging a durable balance change.",
+      "contentHash": "2325ba87442a1d66",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "outbox.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"outbox.md\\\"]\",\"f1b35dbedd0009b6\",0]",
+      "sourceId": "handbook",
+      "documentId": "outbox.md",
+      "uri": "memory://handbook/outbox.md",
+      "path": "outbox.md",
+      "heading": "Transactional outbox",
+      "language": "markdown",
+      "text": "# Transactional outbox\n\nThe service records a domain change and an outgoing event in the same transaction. A separate publisher delivers outbox entries and marks successful delivery. A crash between delivery and marking can produce a duplicate, so consumers deduplicate event IDs. This avoids losing a notification when the database commits but the message broker is temporarily unavailable.",
+      "contentHash": "f1b35dbedd0009b6",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "idempotency.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"idempotency.md\\\"]\",\"bef19a66677a3e13\",0]",
+      "sourceId": "handbook",
+      "documentId": "idempotency.md",
+      "uri": "memory://handbook/idempotency.md",
+      "path": "idempotency.md",
+      "heading": "Idempotent requests",
+      "language": "markdown",
+      "text": "# Idempotent requests\n\nClients attach an Idempotency-Key when creating a payment. The server stores the normalized request digest and completed response with that key. A retry with the same payload receives the stored response instead of creating a second payment. Reusing the key with a different payload fails. Keys expire only after the advertised retry window has elapsed.",
+      "contentHash": "bef19a66677a3e13",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "replication.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"replication.md\\\"]\",\"bbcaca4931d17c6c\",0]",
+      "sourceId": "handbook",
+      "documentId": "replication.md",
+      "uri": "memory://handbook/replication.md",
+      "path": "replication.md",
+      "heading": "Replica lag",
+      "language": "markdown",
+      "text": "# Replica lag\n\nRead replicas apply committed changes asynchronously. A user reading immediately after a write can therefore observe older data. Route read-your-writes requests to the primary or wait for a replica position token. Replica lag is monitored independently from database connection counts. Adding replicas increases read capacity but does not make every replica immediately current.",
+      "contentHash": "bbcaca4931d17c6c",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "backup.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"backup.md\\\"]\",\"d22646ea3ba42f08\",0]",
+      "sourceId": "handbook",
+      "documentId": "backup.md",
+      "uri": "memory://handbook/backup.md",
+      "path": "backup.md",
+      "heading": "Backup restoration",
+      "language": "markdown",
+      "text": "# Backup restoration\n\nNightly snapshots and archived transaction logs support point-in-time restoration. Restore into an isolated database, replay logs up to the chosen timestamp, and validate row counts before switching traffic. A completed backup job is not proof that restoration works; operators run periodic recovery drills. Backups recover deleted data, whereas replicas can faithfully copy the deletion.\n",
+      "contentHash": "d22646ea3ba42f08",
+      "startLine": 1,
+      "endLine": 4
+    }
+  },
+  {
+    "key": "backup.md:5",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"backup.md\\\"]\",\"e882d76f2292939a\",0]",
+      "sourceId": "handbook",
+      "documentId": "backup.md",
+      "uri": "memory://handbook/backup.md",
+      "path": "backup.md",
+      "heading": "Recovery drill report",
+      "language": "markdown",
+      "text": "## Recovery drill report\n\nA quarterly drill restores the latest snapshot into a temporary database and compares checksums for selected tables. Record elapsed restoration time and the final replay position. The result informs the recovery objective instead of assuming the backup timestamp is enough.",
+      "contentHash": "e882d76f2292939a",
+      "startLine": 5,
+      "endLine": 7
+    }
+  },
+  {
+    "key": "migrations.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"migrations.md\\\"]\",\"12a096fa2f712974\",0]",
+      "sourceId": "handbook",
+      "documentId": "migrations.md",
+      "uri": "memory://handbook/migrations.md",
+      "path": "migrations.md",
+      "heading": "Schema migration rollout",
+      "language": "markdown",
+      "text": "# Schema migration rollout\n\nUse an expand-and-contract rollout when changing a populated table. Add a nullable column first, deploy code that writes both representations, backfill historical rows, then switch readers. Remove the old column only after earlier application versions are retired. Holding an exclusive lock for a long backfill can disrupt traffic even when the schema change itself is small.\n",
+      "contentHash": "12a096fa2f712974",
+      "startLine": 1,
+      "endLine": 4
+    }
+  },
+  {
+    "key": "migrations.md:5",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"migrations.md\\\"]\",\"2b0f8ef1a189942d\",0]",
+      "sourceId": "handbook",
+      "documentId": "migrations.md",
+      "uri": "memory://handbook/migrations.md",
+      "path": "migrations.md",
+      "heading": "Backfill progress",
+      "language": "markdown",
+      "text": "## Backfill progress\n\nBackfills process bounded key ranges and checkpoint the last completed range. They yield between batches to reduce lock pressure. Restarting the job resumes from that checkpoint, while live writes continue populating the new representation.",
+      "contentHash": "2b0f8ef1a189942d",
+      "startLine": 5,
+      "endLine": 7
+    }
+  },
+  {
+    "key": "db-pool.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"db-pool.md\\\"]\",\"6b8e80c8be9147d1\",0]",
+      "sourceId": "handbook",
+      "documentId": "db-pool.md",
+      "uri": "memory://handbook/db-pool.md",
+      "path": "db-pool.md",
+      "heading": "Connection pool pressure",
+      "language": "markdown",
+      "text": "# Connection pool pressure\n\nA connection pool bounds simultaneous database sessions. Requests wait for an available connection until a configured acquisition deadline. Leaked transactions keep connections checked out and can exhaust the pool even when CPU is idle. Inspect transaction age and release paths before raising the limit. More connections can increase contention rather than improve throughput.",
+      "contentHash": "6b8e80c8be9147d1",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "indexes.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"indexes.md\\\"]\",\"e32face5f9f57748\",0]",
+      "sourceId": "handbook",
+      "documentId": "indexes.md",
+      "uri": "memory://handbook/indexes.md",
+      "path": "indexes.md",
+      "heading": "Composite index ordering",
+      "language": "markdown",
+      "text": "# Composite index ordering\n\nA composite index on tenant_id and created_at supports tenant-scoped chronological queries. Query predicates that omit the leading tenant column may not benefit in the same way. Check the execution plan and actual row counts before adding another index. Every extra index consumes disk space and increases write maintenance. Index names are identifiers, not evidence of selectivity.",
+      "contentHash": "e32face5f9f57748",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "deadlocks.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"deadlocks.md\\\"]\",\"e61ce26fa5a32235\",0]",
+      "sourceId": "handbook",
+      "documentId": "deadlocks.md",
+      "uri": "memory://handbook/deadlocks.md",
+      "path": "deadlocks.md",
+      "heading": "Deadlock recovery",
+      "language": "markdown",
+      "text": "# Deadlock recovery\n\nTwo transactions can each hold a lock the other needs. The database aborts one participant so the other can proceed. Retry the aborted unit with bounded backoff, and acquire related resources in a consistent order to reduce recurrence. A deadlock differs from a long-running query that merely holds a lock while making progress.",
+      "contentHash": "e61ce26fa5a32235",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "retention.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"retention.md\\\"]\",\"3494424d420cd771\",0]",
+      "sourceId": "handbook",
+      "documentId": "retention.md",
+      "uri": "memory://handbook/retention.md",
+      "path": "retention.md",
+      "heading": "Data retention",
+      "language": "markdown",
+      "text": "# Data retention\n\nEvent payloads are retained for ninety days in the fictional analytics service. A scheduled purge removes expired partitions after legal holds have been checked. Aggregate counts may outlive raw events. Product deletion requests use a separate verified workflow. The retention policy is about removal deadlines, not the recovery-point objective of database backups.",
+      "contentHash": "3494424d420cd771",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "queue.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"queue.md\\\"]\",\"e325fa2b93493cc5\",0]",
+      "sourceId": "handbook",
+      "documentId": "queue.md",
+      "uri": "memory://handbook/queue.md",
+      "path": "queue.md",
+      "heading": "Job retry policy",
+      "language": "markdown",
+      "text": "# Job retry policy\n\nFailed jobs return to the queue with exponential backoff and jitter. After five attempts the worker moves the job to a dead-letter queue for inspection. Permanent validation failures skip retries. A worker acknowledges a job only after durable side effects complete. Replaying a failed job requires idempotent handlers because the earlier attempt may have partly succeeded.\n",
+      "contentHash": "e325fa2b93493cc5",
+      "startLine": 1,
+      "endLine": 4
+    }
+  },
+  {
+    "key": "queue.md:5",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"queue.md\\\"]\",\"1e9f2ce088b447e4\",0]",
+      "sourceId": "handbook",
+      "documentId": "queue.md",
+      "uri": "memory://handbook/queue.md",
+      "path": "queue.md",
+      "heading": "Dead-letter inspection",
+      "language": "markdown",
+      "text": "## Dead-letter inspection\n\nOperators inspect the last failure category and attempt history before replaying a dead-letter item. Correct invalid input first. Replay preserves the original event identity so idempotency still protects against duplicate side effects.",
+      "contentHash": "1e9f2ce088b447e4",
+      "startLine": 5,
+      "endLine": 7
+    }
+  },
+  {
+    "key": "leases.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"leases.md\\\"]\",\"9d6ed63f180a4f05\",0]",
+      "sourceId": "handbook",
+      "documentId": "leases.md",
+      "uri": "memory://handbook/leases.md",
+      "path": "leases.md",
+      "heading": "Worker lease ownership",
+      "language": "markdown",
+      "text": "# Worker lease ownership\n\nA worker claims a task using a lease with a monotonically increasing fencing token. If renewal stops, another worker may take over. Downstream writes reject older fencing tokens so a paused former owner cannot overwrite newer work. Heartbeats indicate liveness but do not by themselves guarantee exclusive ownership. Lease duration balances failover delay against renewal overhead.",
+      "contentHash": "9d6ed63f180a4f05",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "shutdown.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"shutdown.md\\\"]\",\"54ce94e081db5592\",0]",
+      "sourceId": "handbook",
+      "documentId": "shutdown.md",
+      "uri": "memory://handbook/shutdown.md",
+      "path": "shutdown.md",
+      "heading": "Graceful shutdown",
+      "language": "markdown",
+      "text": "# Graceful shutdown\n\nOn termination the process stops accepting new requests, removes itself from readiness, and waits for active work within a bounded drain window. Unfinished queue jobs are released for another worker rather than acknowledged. Database pools close only after handlers finish. Forced termination after the deadline remains possible, so job handlers still need safe retry behavior.",
+      "contentHash": "54ce94e081db5592",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "deploy.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"deploy.md\\\"]\",\"b09ce096083d9576\",0]",
+      "sourceId": "handbook",
+      "documentId": "deploy.md",
+      "uri": "memory://handbook/deploy.md",
+      "path": "deploy.md",
+      "heading": "Canary deployment",
+      "language": "markdown",
+      "text": "# Canary deployment\n\nA new version receives a small portion of production traffic before broad rollout. Compare error rate and latency against the previous version using the same request mix. Pause or roll back when guardrails are exceeded. A canary reduces exposure but does not replace schema compatibility checks. Background workers also require a controlled version transition.",
+      "contentHash": "b09ce096083d9576",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "incident.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"incident.md\\\"]\",\"324add844c0a22c0\",0]",
+      "sourceId": "handbook",
+      "documentId": "incident.md",
+      "uri": "memory://handbook/incident.md",
+      "path": "incident.md",
+      "heading": "Incident coordination",
+      "language": "markdown",
+      "text": "# Incident coordination\n\nThe incident commander maintains a timeline, delegates investigation and records user impact. One communications lead posts updates at regular intervals. Engineers preserve diagnostic evidence before changing the failing system. After recovery, the team writes corrective actions with owners. The incident channel is for coordination; credentials and private customer payloads must not be pasted into it.",
+      "contentHash": "324add844c0a22c0",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "latency.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"latency.md\\\"]\",\"cce7e50efda49a60\",0]",
+      "sourceId": "handbook",
+      "documentId": "latency.md",
+      "uri": "memory://handbook/latency.md",
+      "path": "latency.md",
+      "heading": "Latency investigation",
+      "language": "markdown",
+      "text": "# Latency investigation\n\nStart with latency percentiles and split time among queue wait, handler execution and dependencies. A low average can hide a slow tail. Trace a representative slow request rather than increasing timeouts blindly. Compare traffic shape and cache hit rates across the affected period. Database pool waiting and model inference are separate stages with different remedies.\n",
+      "contentHash": "cce7e50efda49a60",
+      "startLine": 1,
+      "endLine": 4
+    }
+  },
+  {
+    "key": "latency.md:5",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"latency.md\\\"]\",\"77765b476113b8de\",0]",
+      "sourceId": "handbook",
+      "documentId": "latency.md",
+      "uri": "memory://handbook/latency.md",
+      "path": "latency.md",
+      "heading": "Queue wait versus execution",
+      "language": "markdown",
+      "text": "## Queue wait versus execution\n\nA request can wait for a worker before its handler starts. Measure this waiting period separately from handler duration. Raising worker concurrency can help only when dependencies and CPU have spare capacity.",
+      "contentHash": "77765b476113b8de",
+      "startLine": 5,
+      "endLine": 7
+    }
+  },
+  {
+    "key": "health.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"health.md\\\"]\",\"2be04365e4cb9631\",0]",
+      "sourceId": "handbook",
+      "documentId": "health.md",
+      "uri": "memory://handbook/health.md",
+      "path": "health.md",
+      "heading": "Readiness and liveness",
+      "language": "markdown",
+      "text": "# Readiness and liveness\n\nThe readiness endpoint reports whether a process should receive traffic. During startup it stays false until required dependencies are initialized. Liveness only indicates whether the process is stuck and should be restarted. Making liveness depend on a temporary database outage can cause a restart storm. Draining instances become unready while active handlers finish.",
+      "contentHash": "2be04365e4cb9631",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "logs.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"logs.md\\\"]\",\"3bee9152a5d922bb\",0]",
+      "sourceId": "handbook",
+      "documentId": "logs.md",
+      "uri": "memory://handbook/logs.md",
+      "path": "logs.md",
+      "heading": "Structured logging",
+      "language": "markdown",
+      "text": "# Structured logging\n\nEach log record carries severity, event name and request correlation ID. Stable field names let operators join logs with traces without parsing prose. Redact authentication headers and reset links at the boundary. Sampling successful requests can reduce volume, but errors need enough context for diagnosis. Logs are not a substitute for durable application state.",
+      "contentHash": "3bee9152a5d922bb",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "alerts.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"alerts.md\\\"]\",\"2ef42207c254118f\",0]",
+      "sourceId": "handbook",
+      "documentId": "alerts.md",
+      "uri": "memory://handbook/alerts.md",
+      "path": "alerts.md",
+      "heading": "Alert ownership",
+      "language": "markdown",
+      "text": "# Alert ownership\n\nAn actionable alert includes the affected service, severity, recent symptom and a runbook link. Page a human for sustained user-visible failure rather than every transient retry. Route notifications through the current on-call schedule and test the route periodically. Silence rules expire automatically. Alert delivery confirms notification, not resolution of the underlying incident.",
+      "contentHash": "2ef42207c254118f",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "circuit.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"circuit.md\\\"]\",\"5914af03e989f882\",0]",
+      "sourceId": "handbook",
+      "documentId": "circuit.md",
+      "uri": "memory://handbook/circuit.md",
+      "path": "circuit.md",
+      "heading": "Circuit breaker",
+      "language": "markdown",
+      "text": "# Circuit breaker\n\nA client stops calling a repeatedly failing dependency for a cooling interval. A limited probe then checks whether service has recovered. The breaker prevents failure amplification and preserves local capacity. It does not retry a non-idempotent request automatically. A healthy network connection does not prove the remote operation succeeded or that its response is current.",
+      "contentHash": "5914af03e989f882",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "embeddings.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"embeddings.md\\\"]\",\"827edce3793fd298\",0]",
+      "sourceId": "handbook",
+      "documentId": "embeddings.md",
+      "uri": "memory://handbook/embeddings.md",
+      "path": "embeddings.md",
+      "heading": "Sentence embeddings",
+      "language": "markdown",
+      "text": "# Sentence embeddings\n\nAn embedding model maps text to a fixed-width numeric vector. Nearby directions can indicate related meaning even when wording differs. Document and query vectors must use the same model configuration. These vectors are retrieval coordinates, not explanations or truth judgments. A model may place related but non-answering text near a question about an unsupported detail.",
+      "contentHash": "827edce3793fd298",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "cosine.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"cosine.md\\\"]\",\"431950bbc183cff3\",0]",
+      "sourceId": "handbook",
+      "documentId": "cosine.md",
+      "uri": "memory://handbook/cosine.md",
+      "path": "cosine.md",
+      "heading": "Cosine similarity",
+      "language": "markdown",
+      "text": "# Cosine similarity\n\nCosine compares vector direction by dividing the dot product by both lengths. Scaling a vector by a positive constant does not change that comparison. Zero vectors have no direction and cannot produce a valid cosine. A large similarity value is not a calibrated probability that the document answers a question. Model and corpus determine the score distribution.",
+      "contentHash": "431950bbc183cff3",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "fusion.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"fusion.md\\\"]\",\"2830bbf65004546d\",0]",
+      "sourceId": "handbook",
+      "documentId": "fusion.md",
+      "uri": "memory://handbook/fusion.md",
+      "path": "fusion.md",
+      "heading": "Reciprocal rank fusion",
+      "language": "markdown",
+      "text": "# Reciprocal rank fusion\n\nReciprocal rank fusion combines channel positions rather than incompatible raw scores. A candidate receives one contribution for each channel where it appears. Strong agreement can lift a document, while noisy lexical matches can also displace a useful semantic-only candidate. Full channel rankings make a different baseline from truncating each channel before fusion. Result ranks are ordinal positions.",
+      "contentHash": "2830bbf65004546d",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "evaluation.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"evaluation.md\\\"]\",\"7eb2b590cf469caf\",0]",
+      "sourceId": "handbook",
+      "documentId": "evaluation.md",
+      "uri": "memory://handbook/evaluation.md",
+      "path": "evaluation.md",
+      "heading": "Retrieval evaluation",
+      "language": "markdown",
+      "text": "# Retrieval evaluation\n\nPrecision counts the relevant evidence among returned positions, while recall measures coverage of known relevant evidence. Reciprocal rank emphasizes the earliest relevant result. Graded judgments support discounted cumulative gain. Keep no-answer queries separate so undefined recall does not look like successful retrieval. Freeze judgments before tuning and include plausible distractors from overlapping topics.\n",
+      "contentHash": "7eb2b590cf469caf",
+      "startLine": 1,
+      "endLine": 4
+    }
+  },
+  {
+    "key": "evaluation.md:5",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"evaluation.md\\\"]\",\"d862dcd7b716b1db\",0]",
+      "sourceId": "handbook",
+      "documentId": "evaluation.md",
+      "uri": "memory://handbook/evaluation.md",
+      "path": "evaluation.md",
+      "heading": "Judgment maintenance",
+      "language": "markdown",
+      "text": "## Judgment maintenance\n\nReview relevance labels when document facts change. Do not label a passage relevant merely because a model ranked it highly. Record ambiguous alternatives explicitly and keep unsupported questions in the evaluation set.",
+      "contentHash": "d862dcd7b716b1db",
+      "startLine": 5,
+      "endLine": 7
+    }
+  },
+  {
+    "key": "quantization.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"quantization.md\\\"]\",\"a5f217933b493f6a\",0]",
+      "sourceId": "handbook",
+      "documentId": "quantization.md",
+      "uri": "memory://handbook/quantization.md",
+      "path": "quantization.md",
+      "heading": "Model quantization",
+      "language": "markdown",
+      "text": "# Model quantization\n\nQuantization stores model weights with fewer bits to reduce memory and transfer size. Different numeric formats can change output vectors and require a different embedding identity. Evaluate quality and latency for the intended device instead of assuming a smaller model file is always faster. Weight precision is separate from the number of dimensions in the output embedding.",
+      "contentHash": "a5f217933b493f6a",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "batching.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"batching.md\\\"]\",\"87f979ad419a573a\",0]",
+      "sourceId": "handbook",
+      "documentId": "batching.md",
+      "uri": "memory://handbook/batching.md",
+      "path": "batching.md",
+      "heading": "Inference batching",
+      "language": "markdown",
+      "text": "# Inference batching\n\nA model adapter groups inputs into modest batches according to device memory and runtime constraints. Padding can make one very long input increase the cost of the entire batch. Reuse the loaded model across batches and release resources when all callers finish. Batch size is an execution setting; it should not intentionally alter the semantic space.",
+      "contentHash": "87f979ad419a573a",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "model-cache.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"model-cache.md\\\"]\",\"9b47aae173faa899\",0]",
+      "sourceId": "handbook",
+      "documentId": "model-cache.md",
+      "uri": "memory://handbook/model-cache.md",
+      "path": "model-cache.md",
+      "heading": "Model asset cache",
+      "language": "markdown",
+      "text": "# Model asset cache\n\nA local cache avoids repeatedly transferring model weights. Cache presence alone does not prove every runtime metadata lookup will remain offline. A strict deployment provisions immutable assets and disables remote resolution in host configuration. Missing required files should fail visibly. The cache location is supplied by the host rather than chosen by retrieval core.",
+      "contentHash": "9b47aae173faa899",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "relevance.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"relevance.md\\\"]\",\"565e1cc6d5e30fa2\",0]",
+      "sourceId": "handbook",
+      "documentId": "relevance.md",
+      "uri": "memory://handbook/relevance.md",
+      "path": "relevance.md",
+      "heading": "Answerability limits",
+      "language": "markdown",
+      "text": "# Answerability limits\n\nA retriever can return the nearest passage even when no passage answers the question. Topic similarity differs from factual support. Evaluate unsupported questions and closely related near misses before proposing a rejection cutoff. A universal cosine threshold may fail across domains or embedding models. Downstream applications should retain provenance and verify the specific requested claim.",
+      "contentHash": "565e1cc6d5e30fa2",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "tokenization.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"tokenization.md\\\"]\",\"9b2c3cbecf43eb0f\",0]",
+      "sourceId": "handbook",
+      "documentId": "tokenization.md",
+      "uri": "memory://handbook/tokenization.md",
+      "path": "tokenization.md",
+      "heading": "Token length limits",
+      "language": "markdown",
+      "text": "# Token length limits\n\nCharacter count does not equal tokenizer length. Unusual identifiers and non-Latin text can consume different token counts than ordinary English prose. A model may truncate input beyond its context window, losing evidence near the end of a long passage. Chunking by source lines preserves provenance but a single enormous line can still exceed the model window.",
+      "contentHash": "9b2c3cbecf43eb0f",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "workers.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"workers.md\\\"]\",\"3376e503756108ce\",0]",
+      "sourceId": "handbook",
+      "documentId": "workers.md",
+      "uri": "memory://handbook/workers.md",
+      "path": "workers.md",
+      "heading": "Browser inference worker",
+      "language": "markdown",
+      "text": "# Browser inference worker\n\nThe host creates a Web Worker to run expensive inference away from interactive rendering. Messages transfer input text and serializable search evidence across the boundary. The engine itself does not spawn workers or choose a thread topology. Model assets and backend files must be available to that worker. A worker isolates execution but does not automatically provide durable storage.",
+      "contentHash": "3376e503756108ce",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "roadmap.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"roadmap.md\\\"]\",\"90f4f25a5aee3c99\",0]",
+      "sourceId": "handbook",
+      "documentId": "roadmap.md",
+      "uri": "memory://handbook/roadmap.md",
+      "path": "roadmap.md",
+      "heading": "Release planning",
+      "language": "markdown",
+      "text": "# Release planning\n\nThe next library milestone focuses on reproducible examples, failure behavior and portability evidence. The team will not declare production readiness from a small benchmark. An alpha release permits contract changes while external developers experiment. Release notes should distinguish implemented behavior from proposed work and identify the exact commit used for evaluation.",
+      "contentHash": "90f4f25a5aee3c99",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "meetings.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"meetings.md\\\"]\",\"fd9ab02325bd87a0\",0]",
+      "sourceId": "handbook",
+      "documentId": "meetings.md",
+      "uri": "memory://handbook/meetings.md",
+      "path": "meetings.md",
+      "heading": "Decision records",
+      "language": "markdown",
+      "text": "# Decision records\n\nA decision record captures context, alternatives, chosen behavior and consequences. Keep the explanation near maintained architecture documentation so a later contributor can understand why a boundary exists. Superseding a decision should preserve its history and link the new choice. Meeting notes can motivate a decision but are not automatically binding implementation requirements.",
+      "contentHash": "fd9ab02325bd87a0",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "onboarding.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"onboarding.md\\\"]\",\"a7a32376b40adafe\",0]",
+      "sourceId": "handbook",
+      "documentId": "onboarding.md",
+      "uri": "memory://handbook/onboarding.md",
+      "path": "onboarding.md",
+      "heading": "Developer onboarding",
+      "language": "markdown",
+      "text": "# Developer onboarding\n\nA new contributor installs the toolchain, builds the package and runs offline tests before changing code. The smallest example uses an in-memory source and no embedding runtime. Model tests are explicit opt-in commands with documented asset requirements. A clean tarball consumer verifies exports independently of repository-relative imports and local dependency aliases.",
+      "contentHash": "a7a32376b40adafe",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "pagination.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"pagination.md\\\"]\",\"6a0e7d2f3b05c6dc\",0]",
+      "sourceId": "handbook",
+      "documentId": "pagination.md",
+      "uri": "memory://handbook/pagination.md",
+      "path": "pagination.md",
+      "heading": "Cursor pagination",
+      "language": "markdown",
+      "text": "# Cursor pagination\n\nList responses include an opaque cursor derived from the final item sort key. The next request resumes after that key rather than skipping a numeric row offset. Stable tie breakers prevent duplicate items when timestamps match. Concurrent deletion can still change what exists between pages. Cursors identify position, not authority to read another tenant data set.",
+      "contentHash": "6a0e7d2f3b05c6dc",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "uploads.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"uploads.md\\\"]\",\"3f7b38d8a442512d\",0]",
+      "sourceId": "handbook",
+      "documentId": "uploads.md",
+      "uri": "memory://handbook/uploads.md",
+      "path": "uploads.md",
+      "heading": "Resumable uploads",
+      "language": "markdown",
+      "text": "# Resumable uploads\n\nA client uploads numbered parts and records their digests. Finalization verifies every expected part before making the object visible. Retrying an already accepted identical part is safe; conflicting bytes for that part number fail. Abandoned uploads are cleaned after a retention window. Completion metadata is committed only after the assembled object is durable.\n",
+      "contentHash": "3f7b38d8a442512d",
+      "startLine": 1,
+      "endLine": 4
+    }
+  },
+  {
+    "key": "uploads.md:5",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"uploads.md\\\"]\",\"ed59fa01a82a230e\",0]",
+      "sourceId": "handbook",
+      "documentId": "uploads.md",
+      "uri": "memory://handbook/uploads.md",
+      "path": "uploads.md",
+      "heading": "Upload cleanup",
+      "language": "markdown",
+      "text": "## Upload cleanup\n\nA cleanup job removes abandoned partial objects after the completion deadline. It checks finalization state immediately before deleting parts. Completed objects follow the ordinary object retention policy rather than the temporary-upload deadline.",
+      "contentHash": "ed59fa01a82a230e",
+      "startLine": 5,
+      "endLine": 7
+    }
+  },
+  {
+    "key": "webhooks.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"webhooks.md\\\"]\",\"bb3355a745f09c10\",0]",
+      "sourceId": "handbook",
+      "documentId": "webhooks.md",
+      "uri": "memory://handbook/webhooks.md",
+      "path": "webhooks.md",
+      "heading": "Webhook delivery",
+      "language": "markdown",
+      "text": "# Webhook delivery\n\nOutgoing webhooks include an event ID and a signature over the exact body bytes. Receivers verify the signature and remember event IDs to handle duplicate deliveries. Temporary failures retry with increasing delays. A successful HTTP status acknowledges transport; it does not prove every downstream workflow completed. Rotating signing secrets permits a bounded overlap.",
+      "contentHash": "bb3355a745f09c10",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "http-cache.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"http-cache.md\\\"]\",\"0930f3f1dd5b42be\",0]",
+      "sourceId": "handbook",
+      "documentId": "http-cache.md",
+      "uri": "memory://handbook/http-cache.md",
+      "path": "http-cache.md",
+      "heading": "HTTP response caching",
+      "language": "markdown",
+      "text": "# HTTP response caching\n\nResponses can include an ETag representing a resource version. A conditional GET with the matching validator avoids transferring an unchanged body. Shared caches must vary on the correct request dimensions and must not leak authenticated content. Response freshness is distinct from database transaction durability. Invalidating a cache cannot recover a deleted resource.",
+      "contentHash": "0930f3f1dd5b42be",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "search-cache.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"search-cache.md\\\"]\",\"368f7b14db2a8fe7\",0]",
+      "sourceId": "handbook",
+      "documentId": "search-cache.md",
+      "uri": "memory://handbook/search-cache.md",
+      "path": "search-cache.md",
+      "heading": "Search run cache",
+      "language": "markdown",
+      "text": "# Search run cache\n\nA run cache reuses equivalent completed searches within one task. Keys include mode, deterministic restrictions and result limit. An index revision change invalidates prior entries. Returning defensive copies prevents a caller from modifying later cached results. Failed or cancelled operations must not be stored as successful hits. This cache does not decide which evidence is relevant.",
+      "contentHash": "368f7b14db2a8fe7",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "filesystem.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"filesystem.md\\\"]\",\"01a4d97fc785409f\",0]",
+      "sourceId": "handbook",
+      "documentId": "filesystem.md",
+      "uri": "memory://handbook/filesystem.md",
+      "path": "filesystem.md",
+      "heading": "Filesystem source boundary",
+      "language": "markdown",
+      "text": "# Filesystem source boundary\n\nOnly explicitly configured roots may supply local documents. Normalize relative identities and reject traversal or symlink escapes during direct reads as well as discovery. Refuse unsupported binary formats instead of interpreting arbitrary bytes as text. A concurrent rename can invalidate a scan; retry without broadening the root. These checks are not an operating-system sandbox.",
+      "contentHash": "01a4d97fc785409f",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "atomic-save.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"atomic-save.md\\\"]\",\"07b56d9439d52381\",0]",
+      "sourceId": "handbook",
+      "documentId": "atomic-save.md",
+      "uri": "memory://handbook/atomic-save.md",
+      "path": "atomic-save.md",
+      "heading": "Atomic snapshot publication",
+      "language": "markdown",
+      "text": "# Atomic snapshot publication\n\nWrite the complete candidate snapshot to a temporary sibling file, flush it, close it, and rename it over the canonical file. A failed replacement leaves the previous complete snapshot readable. Publish matching live state only after storage confirms success. Directory durability and multi-process writer coordination remain separate host responsibilities.",
+      "contentHash": "07b56d9439d52381",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "snapshot.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"snapshot.md\\\"]\",\"63cc7ec220b84a8b\",0]",
+      "sourceId": "handbook",
+      "documentId": "snapshot.md",
+      "uri": "memory://handbook/snapshot.md",
+      "path": "snapshot.md",
+      "heading": "Snapshot compatibility",
+      "language": "markdown",
+      "text": "# Snapshot compatibility\n\nPersist schema, parser, chunker and embedding-input versions with model identity and dimensions. Reject reuse when any vector-affecting configuration differs. Compatible but malformed records surface corruption rather than mixing partial old data with new content. A restored snapshot is only a reuse candidate until registered sources have been reconciled with live contents.",
+      "contentHash": "63cc7ec220b84a8b",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "rename.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"rename.md\\\"]\",\"ddbeed346772a79c\",0]",
+      "sourceId": "handbook",
+      "documentId": "rename.md",
+      "uri": "memory://handbook/rename.md",
+      "path": "rename.md",
+      "heading": "Rename without inference",
+      "language": "markdown",
+      "text": "# Rename without inference\n\nA document rename changes provenance-sensitive chunk identifiers but need not change the text sent to an embedder. Reuse vectors by exact content and structural context, never by a weak hash alone. Remove the old path from the canonical index after successful refresh. If a heading changes meaningfully, the embedding input changes even when body text is identical.",
+      "contentHash": "ddbeed346772a79c",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "unicode.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"unicode.md\\\"]\",\"c427b9ecd7716751\",0]",
+      "sourceId": "handbook",
+      "documentId": "unicode.md",
+      "uri": "memory://handbook/unicode.md",
+      "path": "unicode.md",
+      "heading": "Unicode normalization notes",
+      "language": "markdown",
+      "text": "# Unicode normalization notes\n\nThe parser preserves Unicode text and normalizes line endings. It does not fold canonically equivalent composed and decomposed characters. Search clients should understand that café and cafe followed by a combining accent may not match lexically in the same way. Emoji remain source content, although lexical tokenization may derive no alphanumeric terms from an emoji-only query.",
+      "contentHash": "c427b9ecd7716751",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "shutdown-model.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"shutdown-model.md\\\"]\",\"646bac250b947fc4\",0]",
+      "sourceId": "handbook",
+      "documentId": "shutdown-model.md",
+      "uri": "memory://handbook/shutdown-model.md",
+      "path": "shutdown-model.md",
+      "heading": "Model resource disposal",
+      "language": "markdown",
+      "text": "# Model resource disposal\n\nA concrete model adapter exposes terminal asynchronous disposal. The host waits until every engine sharing that adapter has finished using it before releasing model resources. Disposing during work causes subsequent stages to reject. The generic engine does not own the lifetime of an injected shared model. Lexical reads can still use the existing index afterward.",
+      "contentHash": "646bac250b947fc4",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "budget.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"budget.md\\\"]\",\"ee293d676b8cc315\",0]",
+      "sourceId": "handbook",
+      "documentId": "budget.md",
+      "uri": "memory://handbook/budget.md",
+      "path": "budget.md",
+      "heading": "Project budget notes",
+      "language": "markdown",
+      "text": "# Project budget notes\n\nThe fictional project budgets engineering time for documentation, browser tests and representative evaluation. Model downloads and benchmark output are not checked into Git. Scope changes require recording why they are needed. This planning note contains no salary table, commercial pricing plan or customer billing policy. It tracks work categories rather than monetary commitments.",
+      "contentHash": "ee293d676b8cc315",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "network.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"network.md\\\"]\",\"0fbf86de0d8794d9\",0]",
+      "sourceId": "handbook",
+      "documentId": "network.md",
+      "uri": "memory://handbook/network.md",
+      "path": "network.md",
+      "heading": "Network troubleshooting",
+      "language": "markdown",
+      "text": "# Network troubleshooting\n\nSeparate name resolution, connection establishment, TLS negotiation and application response failures. A populated application cache does not guarantee requests will avoid remote metadata. Record the failing stage and endpoint without logging secrets. Repeated retries cannot repair a missing offline asset. Local deployments should verify their intended network boundary with explicit acceptance checks.",
+      "contentHash": "0fbf86de0d8794d9",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "queue-config.yaml:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"queue-config.yaml\\\"]\",\"be30a912924545d6\",0]",
+      "sourceId": "handbook",
+      "documentId": "queue-config.yaml",
+      "uri": "memory://handbook/queue-config.yaml",
+      "path": "queue-config.yaml",
+      "language": "yaml",
+      "text": "worker:\n  queue: notifications\n  attempts: 5\n  backoff: exponential\n  jitter: true\n  visibility_timeout_seconds: 90\n  dead_letter_queue: failed-notifications",
+      "contentHash": "be30a912924545d6",
+      "startLine": 1,
+      "endLine": 7
+    }
+  },
+  {
+    "key": "deployment.yaml:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"deployment.yaml\\\"]\",\"6511432d16d1c438\",0]",
+      "sourceId": "handbook",
+      "documentId": "deployment.yaml",
+      "uri": "memory://handbook/deployment.yaml",
+      "path": "deployment.yaml",
+      "language": "yaml",
+      "text": "service: document-api\nreplicas: 3\nreadiness_path: /ready\nliveness_path: /live\ndrain_seconds: 20\nresources:\n  memory_mb: 512",
+      "contentHash": "6511432d16d1c438",
+      "startLine": 1,
+      "endLine": 7
+    }
+  },
+  {
+    "key": "pool.toml:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"pool.toml\\\"]\",\"59f1adc6bc9895d3\",0]",
+      "sourceId": "handbook",
+      "documentId": "pool.toml",
+      "uri": "memory://handbook/pool.toml",
+      "path": "pool.toml",
+      "language": "toml",
+      "text": "[database.pool]\nminimum = 2\nmaximum = 12\nacquire_timeout_ms = 3000\nidle_timeout_ms = 60000\n# Keep the pool below the database connection budget.",
+      "contentHash": "59f1adc6bc9895d3",
+      "startLine": 1,
+      "endLine": 6
+    }
+  },
+  {
+    "key": "users-api.md:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"users-api.md\\\"]\",\"1490569508eb0bc7\",0]",
+      "sourceId": "handbook",
+      "documentId": "users-api.md",
+      "uri": "memory://handbook/users-api.md",
+      "path": "users-api.md",
+      "heading": "POST /api/users",
+      "language": "markdown",
+      "text": "# POST /api/users\n\nPOST /api/users creates a user after validating an email address and display name. The caller needs the users:create scope. A successful response is 201 with a Location header for the new resource. Duplicate email returns a conflict. The endpoint does not grant project membership or expose password hashes. Request bodies are limited to the documented fields.",
+      "contentHash": "1490569508eb0bc7",
+      "startLine": 1,
+      "endLine": 3
+    }
+  },
+  {
+    "key": "normalize.ts:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"normalize.ts\\\"]\",\"e13aaab76eb4bc3e\",0]",
+      "sourceId": "handbook",
+      "documentId": "normalize.ts",
+      "uri": "memory://handbook/normalize.ts",
+      "path": "normalize.ts",
+      "language": "typescript",
+      "text": "export function normalizeAppend(existing: string, addition: string): string {\n  // Preserve the existing content and insert exactly one separating newline.\n  return existing.replace(/\\n*$/, \"\") + \"\\n\" + addition.replace(/^\\n*/, \"\");\n}\n// This helper handles text joining, not path containment or authorization.",
+      "contentHash": "e13aaab76eb4bc3e",
+      "startLine": 1,
+      "endLine": 5
+    }
+  },
+  {
+    "key": "lease.sql:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"lease.sql\\\"]\",\"7cd5e0522f961471\",0]",
+      "sourceId": "handbook",
+      "documentId": "lease.sql",
+      "uri": "memory://handbook/lease.sql",
+      "path": "lease.sql",
+      "language": "sql",
+      "text": "UPDATE task_leases\nSET owner = :worker, fence = fence + 1, expires_at = :deadline\nWHERE task_id = :task AND expires_at < CURRENT_TIMESTAMP\nRETURNING fence;\n-- Downstream writers must compare the returned fence; this update alone is not sufficient.",
+      "contentHash": "7cd5e0522f961471",
+      "startLine": 1,
+      "endLine": 5
+    }
+  },
+  {
+    "key": "callback.ts:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"callback.ts\\\"]\",\"71f52be09d9c5c8c\",0]",
+      "sourceId": "handbook",
+      "documentId": "callback.ts",
+      "uri": "memory://handbook/callback.ts",
+      "path": "callback.ts",
+      "language": "typescript",
+      "text": "export async function OAuthCallback(request, nonces, provider) {\n  const expected = await nonces.consume(request.cookie);\n  if (!expected || expected !== request.state) throw new Error(\"Invalid state\");\n  return provider.exchangeCode(request.code);\n}\n// Consumption is atomic so the same nonce cannot establish two login grants.",
+      "contentHash": "71f52be09d9c5c8c",
+      "startLine": 1,
+      "endLine": 6
+    }
+  },
+  {
+    "key": "payments.json:1",
+    "chunk": {
+      "id": "[\"[\\\"handbook\\\",\\\"payments.json\\\"]\",\"2bb59e053fc3e931\",0]",
+      "sourceId": "handbook",
+      "documentId": "payments.json",
+      "uri": "memory://handbook/payments.json",
+      "path": "payments.json",
+      "language": "json",
+      "text": "{\n  \"method\": \"POST\",\n  \"path\": \"/api/payments\",\n  \"headers\": { \"Idempotency-Key\": \"example-retry-key\" },\n  \"body\": { \"amount\": 1200, \"currency\": \"USD\", \"recipient\": \"example-account\" }\n}",
+      "contentHash": "2bb59e053fc3e931",
+      "startLine": 1,
+      "endLine": 6
+    }
+  }
+]

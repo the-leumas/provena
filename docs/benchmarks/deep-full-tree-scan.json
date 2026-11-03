@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-11T04:49:59.731Z",
+  "node": "v24.21.0",
+  "kind": "Deliberate full-tree read-only metadata pressure test",
+  "budgetMs": 30000,
+  "completed": false,
+  "failure": {
+    "name": "AbortError",
+    "message": "This operation was aborted"
+  },
+  "categories": null,
+  "fileTypes": null,
+  "wallMs": 30013.718053999997,
+  "cpu": {
+    "user": 14461460,
+    "system": 9026064
+  },
+  "cpuUtilizationPercent": 78.25596268260328,
+  "sampledPeakRssBytes": 111370240,
+  "processPeakRssBytes": 626896896,
+  "maxEventLoopLagMs": 25.638559000002715,
+  "counts": {
+    "entries": 8503
+  },
+  "calls": {
+    "fs.realpath": 12557,
+    "fs.lstat": 61790,
+    "fs.opendir": 1826
+  },
+  "stages": {
+    "fs.realpath": 4919.054218999972,
+    "fs.lstat": 18892.09341999907,
+    "fs.opendir": 1058.3223159999652
+  },
+  "filesRead": 0,
+  "documentsParsed": 0,
+  "embeddingInputs": 0,
+  "nativeInferenceCalls": 0,
+  "note": "Uses the public filesystem adapter with diagnostic fs-call instrumentation; no snapshot load, document contents, query, private paths, or inference. This is scan cost, not indexing latency. The admission/category totals are unavailable because enumeration was cancelled; zero category counts would be misleading. This run predates the reusable probe\u2019s precise abort-response timestamp.",
+  "admittedDocuments": null
+}

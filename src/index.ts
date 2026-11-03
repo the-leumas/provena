@@ -1,0 +1,11 @@
+export type * from './contracts.js';
+export { documentKey } from './contracts.js';
+export type { FileTypeDefinition } from './file-types/types.js';
+export { FileTypeRegistry, defaultFileTypes, FILE_TYPES, getFileTypeDefinition, getSupportedExtensions, isSupportedFile } from './file-types/registry.js';
+export { ParserRegistry, MarkdownParser, PlainTextParser, CodeParser, StructuredTextParser, PARSER_VERSION } from './parsers/index.js';
+export { chunkDocument, contentHash, CHUNKER_VERSION } from './chunking.js';
+export type { ChunkOptions } from './chunking.js';
+export { catalogEntry, matchesFilters } from './catalog.js';
+export { SemanticSearchEngine, createSearchSession } from './engine.js';
+export type { EngineOptions, RefreshReport } from './engine.js';
+export { embeddingTextForChunk, EMBEDDING_INPUT_VERSION } from './embedding-input.js';

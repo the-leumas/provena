@@ -1,0 +1,505 @@
+{
+  "schema": 1,
+  "results": [
+    {
+      "schema": 1,
+      "date": "2026-09-13T23:12:53.241Z",
+      "environment": {
+        "node": "v26.4.0",
+        "cpu": "Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz",
+        "platform": "linux",
+        "arch": "x64",
+        "totalMemoryBytes": 8168374272
+      },
+      "candidateCount": 1000,
+      "dimensions": 384,
+      "indexingMs": 155.737001,
+      "modes": {
+        "lexical": {
+          "totalMs": {
+            "count": 5,
+            "min": 2.811710000000005,
+            "p25": 4.214583000000005,
+            "median": 4.346294999999998,
+            "p75": 4.621700999999973,
+            "max": 4.686756000000003
+          },
+          "lexicalComponentMs": {
+            "count": 5,
+            "min": 2.819463999999982,
+            "p25": 3.2412069999999744,
+            "median": 3.799896999999987,
+            "p75": 3.9335590000000025,
+            "max": 5.500698999999997
+          },
+          "cosineComponentMs": {
+            "count": 5,
+            "min": 0,
+            "p25": 0,
+            "median": 0,
+            "p75": 0,
+            "max": 0
+          },
+          "fusionComponentMs": {
+            "count": 5,
+            "min": 0,
+            "p25": 0,
+            "median": 0,
+            "p75": 0,
+            "max": 0
+          }
+        },
+        "semantic": {
+          "totalMs": {
+            "count": 5,
+            "min": 8.650531999999998,
+            "p25": 9.02244200000007,
+            "median": 9.301152000000002,
+            "p75": 9.562185999999997,
+            "max": 11.880808000000002
+          },
+          "lexicalComponentMs": {
+            "count": 5,
+            "min": 0,
+            "p25": 0,
+            "median": 0,
+            "p75": 0,
+            "max": 0
+          },
+          "cosineComponentMs": {
+            "count": 5,
+            "min": 7.192318999999998,
+            "p25": 7.609917999999993,
+            "median": 8.27698799999996,
+            "p75": 14.33173899999997,
+            "max": 17.853275000000053
+          },
+          "fusionComponentMs": {
+            "count": 5,
+            "min": 0,
+            "p25": 0,
+            "median": 0,
+            "p75": 0,
+            "max": 0
+          }
+        },
+        "hybrid": {
+          "totalMs": {
+            "count": 5,
+            "min": 14.29224499999998,
+            "p25": 14.405703000000017,
+            "median": 16.579234999999926,
+            "p75": 16.58338200000003,
+            "max": 18.514542000000006
+          },
+          "lexicalComponentMs": {
+            "count": 5,
+            "min": 1.8358479999999417,
+            "p25": 1.8389089999999442,
+            "median": 2.29215099999999,
+            "p75": 4.206587000000013,
+            "max": 6.405257000000006
+          },
+          "cosineComponentMs": {
+            "count": 5,
+            "min": 7.340215999999941,
+            "p25": 9.342973999999913,
+            "median": 9.572697999999946,
+            "p75": 11.146308999999974,
+            "max": 13.534840999999915
+          },
+          "fusionComponentMs": {
+            "count": 5,
+            "min": 1.5835449999999582,
+            "p25": 1.8448610000000372,
+            "median": 1.9381969999999455,
+            "p75": 2.073319000000083,
+            "max": 2.488067000000001
+          }
+        }
+      },
+      "memory": {
+        "rssGrowthBytes": 15761408,
+        "heapGrowthBytes": 2465848,
+        "arrayBufferGrowthBytes": 3072000,
+        "processPeakRssBytes": 101453824
+      },
+      "note": "Isolated process per size; 2 warmups plus 5 measured runs. Public engine total includes filtering/ranking/result construction; components are independent reruns. Memory includes engine plus component fixture and two vector copies, not core-only allocation or a memory guarantee. Synthetic vectors, no model inference."
+    },
+    {
+      "schema": 1,
+      "date": "2026-09-13T23:13:00.306Z",
+      "environment": {
+        "node": "v26.4.0",
+        "cpu": "Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz",
+        "platform": "linux",
+        "arch": "x64",
+        "totalMemoryBytes": 8168374272
+      },
+      "candidateCount": 10000,
+      "dimensions": 384,
+      "indexingMs": 1773.6490000000001,
+      "modes": {
+        "lexical": {
+          "totalMs": {
+            "count": 5,
+            "min": 18.70057399999996,
+            "p25": 19.244916999999987,
+            "median": 24.811315999999806,
+            "p75": 35.09877400000005,
+            "max": 51.952048000000104
+          },
+          "lexicalComponentMs": {
+            "count": 5,
+            "min": 16.911649000000125,
+            "p25": 17.18304799999987,
+            "median": 17.321744999999737,
+            "p75": 18.44636300000002,
+            "max": 49.51536499999975
+          },
+          "cosineComponentMs": {
+            "count": 5,
+            "min": 0,
+            "p25": 0,
+            "median": 0,
+            "p75": 0,
+            "max": 0
+          },
+          "fusionComponentMs": {
+            "count": 5,
+            "min": 0,
+            "p25": 0,
+            "median": 0,
+            "p75": 0,
+            "max": 0
+          }
+        },
+        "semantic": {
+          "totalMs": {
+            "count": 5,
+            "min": 75.91881199999989,
+            "p25": 82.8475070000004,
+            "median": 113.55660699999999,
+            "p75": 142.65748299999996,
+            "max": 165.77690299999995
+          },
+          "lexicalComponentMs": {
+            "count": 5,
+            "min": 0,
+            "p25": 0,
+            "median": 0,
+            "p75": 0,
+            "max": 0
+          },
+          "cosineComponentMs": {
+            "count": 5,
+            "min": 67.12619499999983,
+            "p25": 68.99108800000067,
+            "median": 85.36868099999992,
+            "p75": 116.08090099999981,
+            "max": 123.21733099999983
+          },
+          "fusionComponentMs": {
+            "count": 5,
+            "min": 0,
+            "p25": 0,
+            "median": 0,
+            "p75": 0,
+            "max": 0
+          }
+        },
+        "hybrid": {
+          "totalMs": {
+            "count": 5,
+            "min": 131.47877900000003,
+            "p25": 146.47976300000028,
+            "median": 201.9505769999996,
+            "p75": 231.83820800000012,
+            "max": 237.24501599999985
+          },
+          "lexicalComponentMs": {
+            "count": 5,
+            "min": 20.97852899999998,
+            "p25": 31.00147399999969,
+            "median": 32.70611199999985,
+            "p75": 33.82901700000002,
+            "max": 35.353589000000284
+          },
+          "cosineComponentMs": {
+            "count": 5,
+            "min": 99.34325099999933,
+            "p25": 117.16130599999997,
+            "median": 136.89912000000004,
+            "p75": 137.11795600000005,
+            "max": 138.87858400000005
+          },
+          "fusionComponentMs": {
+            "count": 5,
+            "min": 24.358476999999766,
+            "p25": 29.01022699999976,
+            "median": 37.76256300000023,
+            "p75": 41.43127199999981,
+            "max": 58.234661999999844
+          }
+        }
+      },
+      "memory": {
+        "rssGrowthBytes": 104775680,
+        "heapGrowthBytes": 22522464,
+        "arrayBufferGrowthBytes": 30826765,
+        "processPeakRssBytes": 245878784
+      },
+      "note": "Isolated process per size; 2 warmups plus 5 measured runs. Public engine total includes filtering/ranking/result construction; components are independent reruns. Memory includes engine plus component fixture and two vector copies, not core-only allocation or a memory guarantee. Synthetic vectors, no model inference."
+    },
+    {
+      "schema": 1,
+      "date": "2026-09-13T23:13:24.541Z",
+      "environment": {
+        "node": "v26.4.0",
+        "cpu": "Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz",
+        "platform": "linux",
+        "arch": "x64",
+        "totalMemoryBytes": 8168374272
+      },
+      "candidateCount": 50000,
+      "dimensions": 384,
+      "indexingMs": 4354.926814,
+      "modes": {
+        "lexical": {
+          "totalMs": {
+            "count": 5,
+            "min": 106.544801,
+            "p25": 127.8394989999997,
+            "median": 131.86806999999953,
+            "p75": 139.23430799999915,
+            "max": 139.70994000000064
+          },
+          "lexicalComponentMs": {
+            "count": 5,
+            "min": 87.86790399999973,
+            "p25": 91.06941099999949,
+            "median": 92.82392999999956,
+            "p75": 100.55554500000017,
+            "max": 110.10640299999977
+          },
+          "cosineComponentMs": {
+            "count": 5,
+            "min": 0,
+            "p25": 0,
+            "median": 0,
+            "p75": 0,
+            "max": 0
+          },
+          "fusionComponentMs": {
+            "count": 5,
+            "min": 0,
+            "p25": 0,
+            "median": 0,
+            "p75": 0,
+            "max": 0
+          }
+        },
+        "semantic": {
+          "totalMs": {
+            "count": 5,
+            "min": 353.86614999999983,
+            "p25": 425.2690110000003,
+            "median": 427.2876720000004,
+            "p75": 442.91518200000064,
+            "max": 618.5662579999989
+          },
+          "lexicalComponentMs": {
+            "count": 5,
+            "min": 0,
+            "p25": 0,
+            "median": 0,
+            "p75": 0,
+            "max": 0
+          },
+          "cosineComponentMs": {
+            "count": 5,
+            "min": 333.7367940000004,
+            "p25": 335.2436719999987,
+            "median": 350.6941019999995,
+            "p75": 357.6771200000003,
+            "max": 382.26878600000055
+          },
+          "fusionComponentMs": {
+            "count": 5,
+            "min": 0,
+            "p25": 0,
+            "median": 0,
+            "p75": 0,
+            "max": 0
+          }
+        },
+        "hybrid": {
+          "totalMs": {
+            "count": 5,
+            "min": 596.9470839999994,
+            "p25": 667.2839060000006,
+            "median": 743.4347189999971,
+            "p75": 802.0201549999983,
+            "max": 1009.9845029999997
+          },
+          "lexicalComponentMs": {
+            "count": 5,
+            "min": 139.65639600000213,
+            "p25": 149.36467300000004,
+            "median": 154.72509300000092,
+            "p75": 157.38190799999938,
+            "max": 165.46254100000078
+          },
+          "cosineComponentMs": {
+            "count": 5,
+            "min": 317.7583830000003,
+            "p25": 329.48904499999844,
+            "median": 336.0269440000011,
+            "p75": 417.5215759999992,
+            "max": 487.93706400000156
+          },
+          "fusionComponentMs": {
+            "count": 5,
+            "min": 151.31639599999835,
+            "p25": 159.4193610000002,
+            "median": 175.67134200000146,
+            "p75": 177.695719000003,
+            "max": 274.87666399999944
+          }
+        }
+      },
+      "memory": {
+        "rssGrowthBytes": 370180096,
+        "heapGrowthBytes": 110768400,
+        "arrayBufferGrowthBytes": 153600000,
+        "processPeakRssBytes": 732790784
+      },
+      "note": "Isolated process per size; 2 warmups plus 5 measured runs. Public engine total includes filtering/ranking/result construction; components are independent reruns. Memory includes engine plus component fixture and two vector copies, not core-only allocation or a memory guarantee. Synthetic vectors, no model inference."
+    },
+    {
+      "schema": 1,
+      "date": "2026-09-13T23:14:13.061Z",
+      "environment": {
+        "node": "v26.4.0",
+        "cpu": "Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz",
+        "platform": "linux",
+        "arch": "x64",
+        "totalMemoryBytes": 8168374272
+      },
+      "candidateCount": 100000,
+      "dimensions": 384,
+      "indexingMs": 8969.449589,
+      "modes": {
+        "lexical": {
+          "totalMs": {
+            "count": 5,
+            "min": 225.77841699999954,
+            "p25": 240.6506449999997,
+            "median": 245.81745600000067,
+            "p75": 256.55785600000127,
+            "max": 261.69590699999935
+          },
+          "lexicalComponentMs": {
+            "count": 5,
+            "min": 158.24039099999936,
+            "p25": 182.50078399999984,
+            "median": 182.9674989999985,
+            "p75": 198.27829799999927,
+            "max": 225.11905999999908
+          },
+          "cosineComponentMs": {
+            "count": 5,
+            "min": 0,
+            "p25": 0,
+            "median": 0,
+            "p75": 0,
+            "max": 0
+          },
+          "fusionComponentMs": {
+            "count": 5,
+            "min": 0,
+            "p25": 0,
+            "median": 0,
+            "p75": 0,
+            "max": 0
+          }
+        },
+        "semantic": {
+          "totalMs": {
+            "count": 5,
+            "min": 726.2763709999999,
+            "p25": 773.295642000001,
+            "median": 791.7944959999986,
+            "p75": 809.4793430000027,
+            "max": 843.1225799999993
+          },
+          "lexicalComponentMs": {
+            "count": 5,
+            "min": 0,
+            "p25": 0,
+            "median": 0,
+            "p75": 0,
+            "max": 0
+          },
+          "cosineComponentMs": {
+            "count": 5,
+            "min": 676.7367789999989,
+            "p25": 693.6121420000018,
+            "median": 726.5871970000007,
+            "p75": 848.1021650000002,
+            "max": 890.4556310000007
+          },
+          "fusionComponentMs": {
+            "count": 5,
+            "min": 0,
+            "p25": 0,
+            "median": 0,
+            "p75": 0,
+            "max": 0
+          }
+        },
+        "hybrid": {
+          "totalMs": {
+            "count": 5,
+            "min": 1256.5452829999995,
+            "p25": 1398.840188999995,
+            "median": 1437.5687849999995,
+            "p75": 1747.1342360000053,
+            "max": 2807.198341999996
+          },
+          "lexicalComponentMs": {
+            "count": 5,
+            "min": 283.85334400000283,
+            "p25": 290.5143309999985,
+            "median": 302.8060069999992,
+            "p75": 311.93091199999617,
+            "max": 348.64568000000145
+          },
+          "cosineComponentMs": {
+            "count": 5,
+            "min": 706.7446070000005,
+            "p25": 732.3587869999974,
+            "median": 805.635368999996,
+            "p75": 880.5046349999975,
+            "max": 913.9445379999961
+          },
+          "fusionComponentMs": {
+            "count": 5,
+            "min": 385.8653370000029,
+            "p25": 412.8261429999984,
+            "median": 443.9601649999968,
+            "p75": 453.7176980000004,
+            "max": 499.13272100000177
+          }
+        }
+      },
+      "memory": {
+        "rssGrowthBytes": 667934720,
+        "heapGrowthBytes": 220553256,
+        "arrayBufferGrowthBytes": 307200000,
+        "processPeakRssBytes": 1464147968
+      },
+      "note": "Isolated process per size; 2 warmups plus 5 measured runs. Public engine total includes filtering/ranking/result construction; components are independent reruns. Memory includes engine plus component fixture and two vector copies, not core-only allocation or a memory guarantee. Synthetic vectors, no model inference."
+    }
+  ]
+}

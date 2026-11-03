@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-11T04:04:11.366Z",
+  "method": "V8 sampled CPU profile of lexical guard confirmation, including corpus setup and complete rank equality assertions; combined legacy and guarded paths, not a native inference profile.",
+  "samples": 20480,
+  "topSelfSamples": [
+    {
+      "functionName": "extractLexicalTokens",
+      "selfSamples": 13131
+    },
+    {
+      "functionName": "(garbage collector)",
+      "selfSamples": 1800
+    },
+    {
+      "functionName": "rankLexical",
+      "selfSamples": 1755
+    },
+    {
+      "functionName": "RegExp: [\\p{L}\\p{N}_]+",
+      "selfSamples": 912
+    },
+    {
+      "functionName": "RegExp: [a-z\\d][A-Z]|[A-Z][A-Z][a-z]",
+      "selfSamples": 467
+    },
+    {
+      "functionName": "RegExp: ([a-z\\d])([A-Z])",
+      "selfSamples": 409
+    },
+    {
+      "functionName": "RegExp: ([A-Z]+)([A-Z][a-z])",
+      "selfSamples": 370
+    },
+    {
+      "functionName": "(program)",
+      "selfSamples": 356
+    },
+    {
+      "functionName": "RegExp: \\s+",
+      "selfSamples": 327
+    },
+    {
+      "functionName": "hasTerm",
+      "selfSamples": 319
+    },
+    {
+      "functionName": "(anonymous)",
+      "selfSamples": 203
+    },
+    {
+      "functionName": "contentHash",
+      "selfSamples": 171
+    },
+    {
+      "functionName": "RegExp: [\\p{sc=Han}\\p{sc=Hira}\\p{sc=Kana}\\p{sc=Hang}]",
+      "selfSamples": 144
+    },
+    {
+      "functionName": "isCjk",
+      "selfSamples": 98
+    },
+    {
+      "functionName": "parse",
+      "selfSamples": 49
+    },
+    {
+      "functionName": "chunkDocument",
+      "selfSamples": 41
+    },
+    {
+      "functionName": "byIdentity",
+      "selfSamples": 40
+    },
+    {
+      "functionName": "extensionOf",
+      "selfSamples": 14
+    },
+    {
+      "functionName": "base",
+      "selfSamples": 9
+    },
+    {
+      "functionName": "catalogEntry",
+      "selfSamples": 9
+    }
+  ]
+}

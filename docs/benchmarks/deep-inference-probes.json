@@ -1,0 +1,1223 @@
+{
+  "date": "2026-10-11T03:58:46.426Z",
+  "modelDir": ".cache/minilm/Xenova/all-MiniLM-L6-v2/751bff37182d3f1213fa05d7196b954e230abad9",
+  "configuration": {
+    "revision": "751bff37182d3f1213fa05d7196b954e230abad9",
+    "dtype": "fp32",
+    "device": "cpu",
+    "batchSize": 4,
+    "inputCount": 24,
+    "totalInputCharacters": 19134
+  },
+  "note": "Same input/batch order; dynamic assignment preserves output mapping. Separate offline worker isolates and model sessions. This is a tuning experiment, not a public adapter change. Default baseline repeated to expose noise. Worker tokenization/native/pooling times overlap and must not be summed as wall time.",
+  "results": [
+    {
+      "workers": 1,
+      "threads": 0,
+      "initializationMs": 530.257772,
+      "modelLoadMs": [
+        342.90130200000004
+      ],
+      "setupAndRunsCpu": {
+        "user": 10734329,
+        "system": 188314
+      },
+      "peakRssBytes": 300756992,
+      "runs": [
+        {
+          "repeat": 0,
+          "wallMs": 784.832597,
+          "cpu": {
+            "user": 3160428,
+            "system": 13489
+          },
+          "inputsPerSecond": 30.579769611684466,
+          "maxEventLoopLagMs": 0.67531699999995,
+          "memory": {
+            "rss": 298528768,
+            "heapTotal": 8167424,
+            "heapUsed": 5608736,
+            "external": 2292397,
+            "arrayBuffers": 137523
+          },
+          "stages": [
+            {
+              "id": "0-0-0",
+              "tokenizationMs": 1.7539179999999988,
+              "inferenceMs": 120.13872500000002,
+              "poolingMs": 10.991299000000026,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-0-1",
+              "tokenizationMs": 1.5550929999999425,
+              "inferenceMs": 114.37592399999994,
+              "poolingMs": 8.890372999999954,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-0-2",
+              "tokenizationMs": 1.6962609999999358,
+              "inferenceMs": 116.04449599999998,
+              "poolingMs": 14.814660000000003,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-0-3",
+              "tokenizationMs": 2.236351999999897,
+              "inferenceMs": 123.02743099999998,
+              "poolingMs": 8.1661959999999,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-0-4",
+              "tokenizationMs": 1.2838059999999132,
+              "inferenceMs": 116.72584099999995,
+              "poolingMs": 8.215418,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-0-5",
+              "tokenizationMs": 2.3888710000001083,
+              "inferenceMs": 120.72396800000001,
+              "poolingMs": 8.496039999999994,
+              "tokensPadded": 197
+            }
+          ],
+          "maxVectorDifference": 0
+        },
+        {
+          "repeat": 1,
+          "wallMs": 776.918132,
+          "cpu": {
+            "user": 3130291,
+            "system": 2828
+          },
+          "inputsPerSecond": 30.891285724298168,
+          "maxEventLoopLagMs": 0.939055000000053,
+          "memory": {
+            "rss": 299577344,
+            "heapTotal": 8167424,
+            "heapUsed": 5774712,
+            "external": 2292437,
+            "arrayBuffers": 137523
+          },
+          "stages": [
+            {
+              "id": "1-0-0",
+              "tokenizationMs": 2.0207540000001245,
+              "inferenceMs": 115.37897300000009,
+              "poolingMs": 8.694732000000158,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-0-1",
+              "tokenizationMs": 1.416304000000082,
+              "inferenceMs": 122.5450350000001,
+              "poolingMs": 9.167359000000033,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-0-2",
+              "tokenizationMs": 1.3817729999998392,
+              "inferenceMs": 125.07897100000014,
+              "poolingMs": 8.929984999999988,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-0-3",
+              "tokenizationMs": 1.0373110000000452,
+              "inferenceMs": 119.01300899999978,
+              "poolingMs": 8.361128000000008,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-0-4",
+              "tokenizationMs": 1.2902850000000399,
+              "inferenceMs": 112.75271999999995,
+              "poolingMs": 8.13309799999979,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-0-5",
+              "tokenizationMs": 1.775351000000228,
+              "inferenceMs": 118.81328800000028,
+              "poolingMs": 8.554622999999992,
+              "tokensPadded": 197
+            }
+          ],
+          "maxVectorDifference": 0
+        },
+        {
+          "repeat": 2,
+          "wallMs": 794.6512939999998,
+          "cpu": {
+            "user": 3190883,
+            "system": 5936
+          },
+          "inputsPerSecond": 30.20192653206704,
+          "maxEventLoopLagMs": 0.43171499999971275,
+          "memory": {
+            "rss": 300756992,
+            "heapTotal": 8167424,
+            "heapUsed": 6060736,
+            "external": 2292437,
+            "arrayBuffers": 137523
+          },
+          "stages": [
+            {
+              "id": "2-0-0",
+              "tokenizationMs": 1.4491769999999633,
+              "inferenceMs": 161.93391299999985,
+              "poolingMs": 12.05950299999995,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-0-1",
+              "tokenizationMs": 1.2704149999999572,
+              "inferenceMs": 111.82629399999996,
+              "poolingMs": 8.40190500000017,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-0-2",
+              "tokenizationMs": 1.5484599999999773,
+              "inferenceMs": 113.85278500000004,
+              "poolingMs": 8.490908000000218,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-0-3",
+              "tokenizationMs": 1.0583310000001802,
+              "inferenceMs": 111.59132100000033,
+              "poolingMs": 8.022155999999995,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-0-4",
+              "tokenizationMs": 1.1581099999998514,
+              "inferenceMs": 113.50517300000001,
+              "poolingMs": 7.82285899999988,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-0-5",
+              "tokenizationMs": 2.044456000000082,
+              "inferenceMs": 118.23559799999975,
+              "poolingMs": 8.10561800000005,
+              "tokensPadded": 197
+            }
+          ],
+          "maxVectorDifference": 0
+        }
+      ]
+    },
+    {
+      "workers": 2,
+      "threads": 0,
+      "initializationMs": 560.272606,
+      "modelLoadMs": [
+        378.004741,
+        378.89785900000004
+      ],
+      "setupAndRunsCpu": {
+        "user": 21562652,
+        "system": 491479
+      },
+      "peakRssBytes": 534810624,
+      "runs": [
+        {
+          "repeat": 0,
+          "wallMs": 764.771648,
+          "cpu": {
+            "user": 5968808,
+            "system": 46177
+          },
+          "inputsPerSecond": 31.381916501172384,
+          "maxEventLoopLagMs": 2.3461110000000645,
+          "memory": {
+            "rss": 507416576,
+            "heapTotal": 8167424,
+            "heapUsed": 5696760,
+            "external": 2292397,
+            "arrayBuffers": 137523
+          },
+          "stages": [
+            {
+              "id": "0-0-0",
+              "tokenizationMs": 3.328394000000003,
+              "inferenceMs": 222.95657699999992,
+              "poolingMs": 20.444878000000017,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-1-1",
+              "tokenizationMs": 5.507026999999994,
+              "inferenceMs": 232.9642819999999,
+              "poolingMs": 22.1450319999999,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-0-2",
+              "tokenizationMs": 3.3114680000001044,
+              "inferenceMs": 211.34502499999985,
+              "poolingMs": 22.17316299999993,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-1-3",
+              "tokenizationMs": 5.8447020000000975,
+              "inferenceMs": 212.72185799999988,
+              "poolingMs": 20.83695499999999,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-0-4",
+              "tokenizationMs": 5.559432000000015,
+              "inferenceMs": 222.27212299999997,
+              "poolingMs": 20.21771200000012,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-1-5",
+              "tokenizationMs": 8.175183000000061,
+              "inferenceMs": 234.30700100000013,
+              "poolingMs": 18.35871599999996,
+              "tokensPadded": 197
+            }
+          ],
+          "maxVectorDifference": 0
+        },
+        {
+          "repeat": 1,
+          "wallMs": 757.922075,
+          "cpu": {
+            "user": 6012718,
+            "system": 4459
+          },
+          "inputsPerSecond": 31.665524453816708,
+          "maxEventLoopLagMs": 1.796592000000146,
+          "memory": {
+            "rss": 510431232,
+            "heapTotal": 8167424,
+            "heapUsed": 5801616,
+            "external": 2292437,
+            "arrayBuffers": 137523
+          },
+          "stages": [
+            {
+              "id": "1-0-0",
+              "tokenizationMs": 2.4127189999999246,
+              "inferenceMs": 231.75277800000003,
+              "poolingMs": 18.174774999999954,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-1-1",
+              "tokenizationMs": 2.4945889999999054,
+              "inferenceMs": 230.6359269999998,
+              "poolingMs": 16.260030000000143,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-1-2",
+              "tokenizationMs": 4.054339000000027,
+              "inferenceMs": 238.2294330000002,
+              "poolingMs": 15.831887999999708,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-0-3",
+              "tokenizationMs": 2.7169099999998707,
+              "inferenceMs": 236.18581600000016,
+              "poolingMs": 15.997164000000339,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-1-4",
+              "tokenizationMs": 6.303331999999955,
+              "inferenceMs": 226.66803600000003,
+              "poolingMs": 15.259875000000193,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-0-5",
+              "tokenizationMs": 6.070369000000028,
+              "inferenceMs": 224.7737549999997,
+              "poolingMs": 15.951602000000094,
+              "tokensPadded": 197
+            }
+          ],
+          "maxVectorDifference": 0
+        },
+        {
+          "repeat": 2,
+          "wallMs": 784.1585080000004,
+          "cpu": {
+            "user": 6153233,
+            "system": 37939
+          },
+          "inputsPerSecond": 30.60605700907601,
+          "maxEventLoopLagMs": 6.269734999999855,
+          "memory": {
+            "rss": 534810624,
+            "heapTotal": 8167424,
+            "heapUsed": 6078936,
+            "external": 2292437,
+            "arrayBuffers": 137523
+          },
+          "stages": [
+            {
+              "id": "2-0-0",
+              "tokenizationMs": 2.0861140000001797,
+              "inferenceMs": 238.25511599999982,
+              "poolingMs": 16.027946000000156,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-1-1",
+              "tokenizationMs": 2.46622699999989,
+              "inferenceMs": 237.20315800000026,
+              "poolingMs": 15.957593000000088,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-1-2",
+              "tokenizationMs": 6.922972999999729,
+              "inferenceMs": 267.67288400000007,
+              "poolingMs": 19.61506099999997,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-0-3",
+              "tokenizationMs": 5.994220000000041,
+              "inferenceMs": 214.52104000000008,
+              "poolingMs": 25.300345000000107,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-0-4",
+              "tokenizationMs": 2.234237000000121,
+              "inferenceMs": 208.30486999999994,
+              "poolingMs": 18.77452200000016,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-1-5",
+              "tokenizationMs": 2.554650000000038,
+              "inferenceMs": 200.88248099999964,
+              "poolingMs": 28.996607999999924,
+              "tokensPadded": 197
+            }
+          ],
+          "maxVectorDifference": 0
+        }
+      ]
+    },
+    {
+      "workers": 1,
+      "threads": 1,
+      "initializationMs": 482.68454399999996,
+      "modelLoadMs": [
+        320.6185949999999
+      ],
+      "setupAndRunsCpu": {
+        "user": 5909779,
+        "system": 140230
+      },
+      "peakRssBytes": 303562752,
+      "runs": [
+        {
+          "repeat": 0,
+          "wallMs": 1736.2820069999998,
+          "cpu": {
+            "user": 1748755,
+            "system": 10752
+          },
+          "inputsPerSecond": 13.822639354230205,
+          "maxEventLoopLagMs": 0.5848810000002231,
+          "memory": {
+            "rss": 300679168,
+            "heapTotal": 8429568,
+            "heapUsed": 5668264,
+            "external": 2292397,
+            "arrayBuffers": 137523
+          },
+          "stages": [
+            {
+              "id": "0-0-0",
+              "tokenizationMs": 4.71563900000001,
+              "inferenceMs": 279.90109699999994,
+              "poolingMs": 9.829503999999815,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-0-1",
+              "tokenizationMs": 1.422315000000026,
+              "inferenceMs": 274.63751100000013,
+              "poolingMs": 7.318639999999959,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-0-2",
+              "tokenizationMs": 1.5018090000000939,
+              "inferenceMs": 279.1074000000001,
+              "poolingMs": 6.826313000000027,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-0-3",
+              "tokenizationMs": 1.0431109999999535,
+              "inferenceMs": 271.165579,
+              "poolingMs": 6.581838000000062,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-0-4",
+              "tokenizationMs": 1.133681999999908,
+              "inferenceMs": 265.0678479999999,
+              "poolingMs": 6.643570999999611,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-0-5",
+              "tokenizationMs": 2.008212999999614,
+              "inferenceMs": 306.16438700000026,
+              "poolingMs": 8.473991999999726,
+              "tokensPadded": 197
+            }
+          ],
+          "maxVectorDifference": 0
+        },
+        {
+          "repeat": 1,
+          "wallMs": 1685.3641870000001,
+          "cpu": {
+            "user": 1709985,
+            "system": 1610
+          },
+          "inputsPerSecond": 14.240245630661427,
+          "maxEventLoopLagMs": 0.35587200000009034,
+          "memory": {
+            "rss": 301596672,
+            "heapTotal": 8429568,
+            "heapUsed": 5829184,
+            "external": 2292437,
+            "arrayBuffers": 137523
+          },
+          "stages": [
+            {
+              "id": "1-0-0",
+              "tokenizationMs": 1.0424070000003667,
+              "inferenceMs": 263.2456209999996,
+              "poolingMs": 6.549855000000207,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-0-1",
+              "tokenizationMs": 1.370687000000089,
+              "inferenceMs": 268.98021500000004,
+              "poolingMs": 7.045374999999694,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-0-2",
+              "tokenizationMs": 1.1302810000001955,
+              "inferenceMs": 278.15223700000024,
+              "poolingMs": 7.357348000000002,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-0-3",
+              "tokenizationMs": 0.9252390000001469,
+              "inferenceMs": 272.9404599999998,
+              "poolingMs": 6.529259000000366,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-0-4",
+              "tokenizationMs": 0.9997490000000653,
+              "inferenceMs": 280.6726560000002,
+              "poolingMs": 7.316406999999799,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-0-5",
+              "tokenizationMs": 1.2530179999998836,
+              "inferenceMs": 270.7556199999999,
+              "poolingMs": 6.598469999999907,
+              "tokensPadded": 197
+            }
+          ],
+          "maxVectorDifference": 0
+        },
+        {
+          "repeat": 2,
+          "wallMs": 1670.5462660000003,
+          "cpu": {
+            "user": 1688960,
+            "system": 3855
+          },
+          "inputsPerSecond": 14.366558106448753,
+          "maxEventLoopLagMs": 1.0031330000001617,
+          "memory": {
+            "rss": 303562752,
+            "heapTotal": 7643136,
+            "heapUsed": 6031016,
+            "external": 2292437,
+            "arrayBuffers": 137523
+          },
+          "stages": [
+            {
+              "id": "2-0-0",
+              "tokenizationMs": 0.9215489999996862,
+              "inferenceMs": 282.39901200000077,
+              "poolingMs": 7.507174999999734,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-0-1",
+              "tokenizationMs": 1.1333309999999983,
+              "inferenceMs": 286.97540500000014,
+              "poolingMs": 6.746613999999681,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-0-2",
+              "tokenizationMs": 2.1240889999999126,
+              "inferenceMs": 263.0000739999996,
+              "poolingMs": 6.801178000000618,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-0-3",
+              "tokenizationMs": 0.9103230000000622,
+              "inferenceMs": 264.88653800000066,
+              "poolingMs": 7.463531999999759,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-0-4",
+              "tokenizationMs": 0.9882139999999708,
+              "inferenceMs": 264.4412919999995,
+              "poolingMs": 6.4160439999996015,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-0-5",
+              "tokenizationMs": 1.1316289999995206,
+              "inferenceMs": 257.7304979999999,
+              "poolingMs": 6.830880999999863,
+              "tokensPadded": 197
+            }
+          ],
+          "maxVectorDifference": 0
+        }
+      ]
+    },
+    {
+      "workers": 1,
+      "threads": 2,
+      "initializationMs": 470.95763,
+      "modelLoadMs": [
+        318.647506
+      ],
+      "setupAndRunsCpu": {
+        "user": 7226231,
+        "system": 163907
+      },
+      "peakRssBytes": 305213440,
+      "runs": [
+        {
+          "repeat": 0,
+          "wallMs": 1092.043742,
+          "cpu": {
+            "user": 2197698,
+            "system": 14789
+          },
+          "inputsPerSecond": 21.977141644569762,
+          "maxEventLoopLagMs": 0.6365829999999733,
+          "memory": {
+            "rss": 304164864,
+            "heapTotal": 8429568,
+            "heapUsed": 5617608,
+            "external": 2292397,
+            "arrayBuffers": 137523
+          },
+          "stages": [
+            {
+              "id": "0-0-0",
+              "tokenizationMs": 1.80475899999999,
+              "inferenceMs": 179.98539599999992,
+              "poolingMs": 10.525748000000021,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-0-1",
+              "tokenizationMs": 1.5297970000000305,
+              "inferenceMs": 182.32360600000004,
+              "poolingMs": 10.595890999999938,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-0-2",
+              "tokenizationMs": 1.6792480000001433,
+              "inferenceMs": 172.56238899999994,
+              "poolingMs": 7.329898999999841,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-0-3",
+              "tokenizationMs": 1.1198520000000372,
+              "inferenceMs": 163.47936200000004,
+              "poolingMs": 7.660480000000007,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-0-4",
+              "tokenizationMs": 1.2057710000001407,
+              "inferenceMs": 165.988695,
+              "poolingMs": 8.42962700000021,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-0-5",
+              "tokenizationMs": 1.502367999999933,
+              "inferenceMs": 163.96845699999994,
+              "poolingMs": 7.513994000000139,
+              "tokensPadded": 197
+            }
+          ],
+          "maxVectorDifference": 0
+        },
+        {
+          "repeat": 1,
+          "wallMs": 1028.9808520000001,
+          "cpu": {
+            "user": 2078811,
+            "system": 3251
+          },
+          "inputsPerSecond": 23.32404918259839,
+          "maxEventLoopLagMs": 0.9074359999999615,
+          "memory": {
+            "rss": 305082368,
+            "heapTotal": 8429568,
+            "heapUsed": 5790552,
+            "external": 2292437,
+            "arrayBuffers": 137523
+          },
+          "stages": [
+            {
+              "id": "1-0-0",
+              "tokenizationMs": 1.0577789999999823,
+              "inferenceMs": 167.36459000000013,
+              "poolingMs": 7.583063000000038,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-0-1",
+              "tokenizationMs": 1.271778999999924,
+              "inferenceMs": 163.13856499999974,
+              "poolingMs": 7.413119999999708,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-0-2",
+              "tokenizationMs": 1.2994010000002163,
+              "inferenceMs": 163.53000800000018,
+              "poolingMs": 8.472893999999997,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-0-3",
+              "tokenizationMs": 0.9734770000000026,
+              "inferenceMs": 162.73237300000028,
+              "poolingMs": 7.205425999999989,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-0-4",
+              "tokenizationMs": 1.0965230000001611,
+              "inferenceMs": 157.17019500000015,
+              "poolingMs": 7.22175500000003,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-0-5",
+              "tokenizationMs": 1.2592779999999948,
+              "inferenceMs": 159.52485400000023,
+              "poolingMs": 8.148135999999795,
+              "tokensPadded": 197
+            }
+          ],
+          "maxVectorDifference": 0
+        },
+        {
+          "repeat": 2,
+          "wallMs": 1034.5647950000002,
+          "cpu": {
+            "user": 2083585,
+            "system": 1168
+          },
+          "inputsPerSecond": 23.198160343354807,
+          "maxEventLoopLagMs": 0.4054740000001402,
+          "memory": {
+            "rss": 305213440,
+            "heapTotal": 8429568,
+            "heapUsed": 6091560,
+            "external": 2292437,
+            "arrayBuffers": 137523
+          },
+          "stages": [
+            {
+              "id": "2-0-0",
+              "tokenizationMs": 1.7927060000001802,
+              "inferenceMs": 159.57626100000016,
+              "poolingMs": 7.3563279999998485,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-0-1",
+              "tokenizationMs": 1.0794200000000274,
+              "inferenceMs": 156.17172999999957,
+              "poolingMs": 7.283030999999937,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-0-2",
+              "tokenizationMs": 1.256872999999814,
+              "inferenceMs": 156.75336599999991,
+              "poolingMs": 8.783044999999674,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-0-3",
+              "tokenizationMs": 0.9595250000002125,
+              "inferenceMs": 164.90179400000034,
+              "poolingMs": 8.223950000000059,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-0-4",
+              "tokenizationMs": 1.0746890000000349,
+              "inferenceMs": 178.7607579999999,
+              "poolingMs": 7.488887999999861,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-0-5",
+              "tokenizationMs": 1.249221999999918,
+              "inferenceMs": 162.28176600000006,
+              "poolingMs": 7.436889000000065,
+              "tokensPadded": 197
+            }
+          ],
+          "maxVectorDifference": 0
+        }
+      ]
+    },
+    {
+      "workers": 2,
+      "threads": 2,
+      "initializationMs": 558.3133750000001,
+      "modelLoadMs": [
+        384.70075299999996,
+        374.20048099999997
+      ],
+      "setupAndRunsCpu": {
+        "user": 11917430,
+        "system": 447213
+      },
+      "peakRssBytes": 570273792,
+      "runs": [
+        {
+          "repeat": 0,
+          "wallMs": 806.2040289999999,
+          "cpu": {
+            "user": 3238361,
+            "system": 40767
+          },
+          "inputsPerSecond": 29.769139246015854,
+          "maxEventLoopLagMs": 0.5884510000000773,
+          "memory": {
+            "rss": 513912832,
+            "heapTotal": 8429568,
+            "heapUsed": 5697560,
+            "external": 2292397,
+            "arrayBuffers": 137523
+          },
+          "stages": [
+            {
+              "id": "0-0-0",
+              "tokenizationMs": 2.7700849999999946,
+              "inferenceMs": 244.19838900000013,
+              "poolingMs": 12.536512999999786,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-1-1",
+              "tokenizationMs": 2.8795729999999367,
+              "inferenceMs": 245.82548200000008,
+              "poolingMs": 13.054305999999997,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-0-2",
+              "tokenizationMs": 2.877576999999974,
+              "inferenceMs": 273.11426099999994,
+              "poolingMs": 10.779768999999987,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-1-3",
+              "tokenizationMs": 1.9696010000000115,
+              "inferenceMs": 251.918449,
+              "poolingMs": 9.917322000000013,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-1-4",
+              "tokenizationMs": 2.1614059999999427,
+              "inferenceMs": 244.9257419999999,
+              "poolingMs": 11.674549999999954,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-0-5",
+              "tokenizationMs": 3.382419000000027,
+              "inferenceMs": 240.19649400000003,
+              "poolingMs": 14.172318000000132,
+              "tokensPadded": 197
+            }
+          ],
+          "maxVectorDifference": 0
+        },
+        {
+          "repeat": 1,
+          "wallMs": 785.6508200000001,
+          "cpu": {
+            "user": 3169298,
+            "system": 13213
+          },
+          "inputsPerSecond": 30.5479220399719,
+          "maxEventLoopLagMs": 0.902225000000044,
+          "memory": {
+            "rss": 527151104,
+            "heapTotal": 7380992,
+            "heapUsed": 5800528,
+            "external": 2292437,
+            "arrayBuffers": 137523
+          },
+          "stages": [
+            {
+              "id": "1-0-0",
+              "tokenizationMs": 2.219980000000078,
+              "inferenceMs": 268.371934,
+              "poolingMs": 8.874503999999888,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-1-1",
+              "tokenizationMs": 2.468074999999999,
+              "inferenceMs": 264.025621,
+              "poolingMs": 9.428045999999995,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-1-2",
+              "tokenizationMs": 1.6452600000000075,
+              "inferenceMs": 237.98918099999992,
+              "poolingMs": 9.68947799999978,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-0-3",
+              "tokenizationMs": 1.331623000000036,
+              "inferenceMs": 246.5008580000001,
+              "poolingMs": 8.995614999999816,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-1-4",
+              "tokenizationMs": 2.560617000000093,
+              "inferenceMs": 231.37073099999998,
+              "poolingMs": 10.059759000000213,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-0-5",
+              "tokenizationMs": 3.1221120000000155,
+              "inferenceMs": 231.83129000000008,
+              "poolingMs": 12.545631999999841,
+              "tokensPadded": 197
+            }
+          ],
+          "maxVectorDifference": 0
+        },
+        {
+          "repeat": 2,
+          "wallMs": 818.2206999999999,
+          "cpu": {
+            "user": 3281550,
+            "system": 50138
+          },
+          "inputsPerSecond": 29.33193941439028,
+          "maxEventLoopLagMs": 0.9056209999998828,
+          "memory": {
+            "rss": 570142720,
+            "heapTotal": 7380992,
+            "heapUsed": 6079304,
+            "external": 2292437,
+            "arrayBuffers": 137523
+          },
+          "stages": [
+            {
+              "id": "2-0-0",
+              "tokenizationMs": 1.9302330000000438,
+              "inferenceMs": 229,
+              "poolingMs": 10.274553000000196,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-1-1",
+              "tokenizationMs": 1.687144999999873,
+              "inferenceMs": 288.6749709999999,
+              "poolingMs": 10.402783999999883,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-0-2",
+              "tokenizationMs": 1.7917590000001837,
+              "inferenceMs": 247.68107999999984,
+              "poolingMs": 10.739823999999771,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-1-3",
+              "tokenizationMs": 1.4402439999998933,
+              "inferenceMs": 247.16956600000003,
+              "poolingMs": 11.758628000000044,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-0-4",
+              "tokenizationMs": 1.3908589999996366,
+              "inferenceMs": 242.44665300000042,
+              "poolingMs": 9.879770000000008,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-1-5",
+              "tokenizationMs": 3.00310300000001,
+              "inferenceMs": 233.67979600000035,
+              "poolingMs": 18.29323599999998,
+              "tokensPadded": 197
+            }
+          ],
+          "maxVectorDifference": 0
+        }
+      ]
+    },
+    {
+      "workers": 1,
+      "threads": 0,
+      "initializationMs": 519.969323,
+      "modelLoadMs": [
+        337.78903700000006
+      ],
+      "setupAndRunsCpu": {
+        "user": 10659926,
+        "system": 187871
+      },
+      "peakRssBytes": 302473216,
+      "runs": [
+        {
+          "repeat": 0,
+          "wallMs": 787.92814,
+          "cpu": {
+            "user": 3165210,
+            "system": 18277
+          },
+          "inputsPerSecond": 30.459630493714823,
+          "maxEventLoopLagMs": 1.0941000000000258,
+          "memory": {
+            "rss": 299720704,
+            "heapTotal": 8429568,
+            "heapUsed": 5622640,
+            "external": 2292397,
+            "arrayBuffers": 137523
+          },
+          "stages": [
+            {
+              "id": "0-0-0",
+              "tokenizationMs": 2.237171999999987,
+              "inferenceMs": 117.64876299999992,
+              "poolingMs": 13.153457000000003,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-0-1",
+              "tokenizationMs": 1.9788499999999658,
+              "inferenceMs": 118.99791799999991,
+              "poolingMs": 8.63468899999998,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-0-2",
+              "tokenizationMs": 2.478809999999953,
+              "inferenceMs": 119.6762359999999,
+              "poolingMs": 8.511355000000094,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-0-3",
+              "tokenizationMs": 1.3085489999998572,
+              "inferenceMs": 121.82614399999989,
+              "poolingMs": 8.969485000000077,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-0-4",
+              "tokenizationMs": 1.5038059999999405,
+              "inferenceMs": 119.63009299999999,
+              "poolingMs": 8.783607999999958,
+              "tokensPadded": 197
+            },
+            {
+              "id": "0-0-5",
+              "tokenizationMs": 1.665371999999934,
+              "inferenceMs": 118.21832600000016,
+              "poolingMs": 9.104555000000119,
+              "tokensPadded": 197
+            }
+          ],
+          "maxVectorDifference": 0
+        },
+        {
+          "repeat": 1,
+          "wallMs": 777.6557799999998,
+          "cpu": {
+            "user": 3135676,
+            "system": 4975
+          },
+          "inputsPerSecond": 30.861983691550527,
+          "maxEventLoopLagMs": 0.9019200000000183,
+          "memory": {
+            "rss": 301948928,
+            "heapTotal": 8429568,
+            "heapUsed": 5800064,
+            "external": 2292437,
+            "arrayBuffers": 137523
+          },
+          "stages": [
+            {
+              "id": "1-0-0",
+              "tokenizationMs": 1.3077619999999115,
+              "inferenceMs": 121.67040900000006,
+              "poolingMs": 10.295560000000023,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-0-1",
+              "tokenizationMs": 2.3345970000000307,
+              "inferenceMs": 121.83341500000006,
+              "poolingMs": 8.60555700000009,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-0-2",
+              "tokenizationMs": 1.77427200000011,
+              "inferenceMs": 113.832222,
+              "poolingMs": 9.12760100000014,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-0-3",
+              "tokenizationMs": 1.1345479999999952,
+              "inferenceMs": 116.48332200000004,
+              "poolingMs": 8.29978200000005,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-0-4",
+              "tokenizationMs": 1.1967420000000857,
+              "inferenceMs": 123.48862200000008,
+              "poolingMs": 8.342732000000069,
+              "tokensPadded": 197
+            },
+            {
+              "id": "1-0-5",
+              "tokenizationMs": 1.4688360000000102,
+              "inferenceMs": 115.23652800000036,
+              "poolingMs": 8.680794000000333,
+              "tokensPadded": 197
+            }
+          ],
+          "maxVectorDifference": 0
+        },
+        {
+          "repeat": 2,
+          "wallMs": 769.28962,
+          "cpu": {
+            "user": 3094076,
+            "system": 6028
+          },
+          "inputsPerSecond": 31.197613195404873,
+          "maxEventLoopLagMs": 0.3939070000001266,
+          "memory": {
+            "rss": 302473216,
+            "heapTotal": 8429568,
+            "heapUsed": 6083672,
+            "external": 2292437,
+            "arrayBuffers": 137523
+          },
+          "stages": [
+            {
+              "id": "2-0-0",
+              "tokenizationMs": 1.1382360000002336,
+              "inferenceMs": 114.48141299999997,
+              "poolingMs": 8.153749000000062,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-0-1",
+              "tokenizationMs": 1.2467639999999847,
+              "inferenceMs": 117.46645199999966,
+              "poolingMs": 8.375912999999855,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-0-2",
+              "tokenizationMs": 1.4337399999999434,
+              "inferenceMs": 115.09452800000008,
+              "poolingMs": 8.523667999999816,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-0-3",
+              "tokenizationMs": 1.2343910000004144,
+              "inferenceMs": 114.57511900000009,
+              "poolingMs": 8.24567100000013,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-0-4",
+              "tokenizationMs": 1.1382579999999507,
+              "inferenceMs": 123.95373999999993,
+              "poolingMs": 8.731346999999914,
+              "tokensPadded": 197
+            },
+            {
+              "id": "2-0-5",
+              "tokenizationMs": 1.3778990000000704,
+              "inferenceMs": 122.48202400000037,
+              "poolingMs": 9.483960999999908,
+              "tokensPadded": 197
+            }
+          ],
+          "maxVectorDifference": 0
+        }
+      ]
+    }
+  ]
+}
