@@ -159,7 +159,7 @@ provena --fixture --query retryJob                          # bundled sample doc
 
 ![Terminal demo: lexical search ranks queue.ts first, semantic search ranks retry.ts first, and hybrid search shows both channel ranks](https://raw.githubusercontent.com/the-leumas/provena/main/docs/assets/demo.gif)
 
-The clip runs the bundled fixture. Its first semantic run downloads MiniLM once; that segment is compressed. [MP4 version](https://github.com/the-leumas/provena/blob/main/docs/assets/demo.mp4).
+The clip runs the bundled fixture with the runtime already installed. On a fresh machine, the first semantic run installs the managed runtime and downloads MiniLM once; that segment is compressed. [MP4 version](https://github.com/the-leumas/provena/blob/main/docs/assets/demo.mp4).
 
 `semantic`, `hybrid` and `--compare` use the optional `@huggingface/transformers@4.2.0`
 runtime. The library keeps it as an optional peer; the CLI installs the pinned version once
