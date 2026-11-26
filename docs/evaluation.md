@@ -1,6 +1,49 @@
 # Retrieval evaluation
 
-> **Historical measurement record.** The Alpha.5 and Alpha.6 figures below were collected before the 0.1.0-beta.1 candidate-scoped IDF weighting in lexical retrieval. They are useful baselines, **not current 0.1.0-beta.1 metrics**. Re-run evaluations on the release revision before quoting updated ranking results; see [CHANGELOG](../CHANGELOG.md).
+> **Current and historical records.** The `0.1.0-beta.3` section below records current measurements with candidate-scoped IDF lexical weighting and `@huggingface/transformers@4.3.2`. The Alpha.3–Alpha.6 sections that follow are preserved untouched as historical baselines collected prior to `0.1.0-beta.1`; see [CHANGELOG](../CHANGELOG.md).
+
+## 0.1.0-beta.3: refreshed evaluation and scale
+
+Measured on 2026-11-26 UTC on Linux x64, Node `v22.23.5`, Intel Xeon @ 2.30 GHz (2 logical CPUs, 7.77 GiB RAM). Real-model runs used pinned `Xenova/all-MiniLM-L6-v2` revision `751bff37182d3f1213fa05d7196b954e230abad9` (CPU/fp32, 384 dimensions, mean pooling, normalization) on `@huggingface/transformers@4.3.2` via online/cached Hub loading. Commands: `npm run evaluate:minilm`, `npm run evaluate:evidence:minilm`, and `npm run benchmark:scale`. Timings are single-host observations, not performance guarantees.
+
+### Representative document quality (64 documents, 72 chunks, 40 answerable queries)
+
+| Mode | P@5 | P@10 | R@5 | R@10 | MRR | nDCG@5 | nDCG@10 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| lexical | 0.2900 | 0.1725 | 0.7729 | 0.8875 | 0.8499 | 0.7514 | 0.7856 |
+| semantic | 0.3300 | 0.1825 | 0.8688 | 0.9479 | 0.8725 | 0.8137 | 0.8413 |
+| hybrid | 0.3350 | 0.1825 | 0.8729 | 0.9417 | 0.9028 | 0.8359 | 0.8630 |
+
+Semantic document metrics match the archived Alpha.5 record with zero drift (`maxRecordedMetricDelta = 0`) under `@huggingface/transformers@4.3.2`. Candidate-scoped IDF weighting in lexical retrieval raises lexical Recall@5 from `0.6417` to `0.7729` (+0.1312) and MRR from `0.7386` to `0.8499` (+0.1113), lifting hybrid MRR from `0.8600` to `0.9028` (+0.0428) and nDCG@10 from `0.8296` to `0.8630` (+0.0334). Hybrid now leads aggregate P@5, R@5, MRR, nDCG@5, and nDCG@10. All three modes still return nonempty candidates on all ten unsupported queries (100% nonempty rate; top-cosine distributions unchanged).
+
+### Chunk relevance and evidence sufficiency (35 supported tasks)
+
+| Mode | Chunk relevance P@5 / @10 | Chunk relevance R@5 / @10 | Sufficient-set hit@5 / @10 | Set reciprocal rank |
+| --- | --- | --- | --- | ---: |
+| Lexical | .3257 / .1971 | .6681 / .7924 | .7714 / .8571 | .6641 |
+| Semantic | .3829 / .2314 | .7705 / .9010 | .8857 / .9714 | .6817 |
+| Hybrid | .3943 / .2171 | .7976 / .8529 | .8571 / .9714 | .7318 |
+
+### Warm query latency (median across 150 timed queries per mode)
+
+Indexing 72 chunks after model warmup took **1,186.80 ms**; 3 measured repeats of 50 queries ran with 0 / 151 / 151 query embedding calls (including warmup).
+
+| Mode | Warm total ms | Query embedding ms | Cosine component ms | RRF component ms | Ranking after embedding ms |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| lexical | 1.793 | 0.000 | — | — | — |
+| semantic | 5.515 | 4.920 | 0.342 | — | 0.342 |
+| hybrid | 7.695 | 5.252 | 0.331 | 0.040 | 2.156 |
+
+### Exact-search scale (384-dimensional synthetic vectors)
+
+Isolated processes per candidate count; 2 warmups and 5 measured runs per mode.
+
+| Candidates (384 dimensions) | Lexical total ms | Semantic total ms | Cosine component ms | Hybrid total ms | RRF component ms | RSS growth MiB | Peak RSS MiB |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 1,000 | 5.40 | 4.51 | 4.20 | 10.39 | 0.68 | 15.56 | 73.04 |
+| 10,000 | 70.49 | 42.47 | 39.90 | 129.16 | 13.78 | 92.61 | 257.78 |
+| 50,000 | 455.66 | 228.99 | 210.60 | 646.93 | 87.56 | 315.18 | 934.42 |
+| 100,000 | 1198.86 | 533.64 | 481.87 | 1567.31 | 247.24 | 591.97 | 1594.21 |
 
 ## Alpha.6A+B: chunk relevance and evidence sufficiency
 
