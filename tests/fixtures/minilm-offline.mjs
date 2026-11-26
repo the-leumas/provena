@@ -15,7 +15,7 @@ async function fixture() {
     if (state.infer) await state.infer(output); return output;
   }, { async dispose() { state.releases++; } });
   const runtime = new SyntheticModule(['env', 'AutoTokenizer', 'AutoModel', 'FeatureExtractionPipeline'], function() {
-    this.setExport('env', { version: '4.2.0' });
+    this.setExport('env', { version: '4.3.2' });
     this.setExport('AutoTokenizer', { async from_pretrained(model, options) {
       assert.ok(options.revision);
       return state.tokenizer ?? { tokenize(text) { return Array.from({ length: text.length }, () => 'tok'); } };

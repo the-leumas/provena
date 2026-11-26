@@ -30,6 +30,31 @@ The root must be explicitly approved/configured by the host. Do not register arb
 
 Implement `SearchSource` for any explicitly configured document collection. IDs are unique within a source and every listed document must carry that source's ID. Add a `DocumentParser` to a `ParserRegistry`; for extra text formats, pass an extended `FileTypeRegistry` to both the parser registry and the filesystem adapter. Default built-in parsers use the configured registry, including its language metadata. When supplying a built-in parser instance explicitly, construct it with the same registry (for example `new CodeParser(fileTypes)`). Use `new SemanticSearchEngine({ parsers })`. The shared registry provides parser selection and admission policy rather than competing extension arrays. Unknown files are rejected unless explicitly registered.
 
+```ts
+import { FILE_TYPES, FileTypeRegistry, ParserRegistry, SemanticSearchEngine } from '@theleumas/provena';
+import { FileSystemFolderSource } from '@theleumas/provena/filesystem';
+
+const fileTypes = new FileTypeRegistry([
+  ...FILE_TYPES,
+  {
+    extensions: ['.mdx'],
+    kind: 'document',
+    language: 'mdx',
+    parserId: 'markdown',
+    indexable: true,
+    structureAware: true,
+    textFallback: true,
+    mimeTypes: ['text/mdx'],
+    maxBytes: 2 * 1024 * 1024,
+  },
+]);
+
+const parsers = new ParserRegistry(undefined, fileTypes, 'mdx-markdown-v1');
+const engine = new SemanticSearchEngine({ parsers });
+engine.addSource(new FileSystemFolderSource({ id: 'docs', root: configuredAbsoluteRoot, fileTypes }));
+await engine.initialize();
+```
+
 ## Optional storage and embedding
 
 ```ts
@@ -93,9 +118,9 @@ The version describes all custom parser behavior. Increment it when that behavio
 
 ## Optional MiniLM: online or cached Hub loading
 
-Install `@huggingface/transformers@4.2.0` alongside the package only when using `/minilm`. Built tarball installs for core-only usage omit the optional peer. Git/source builds install development dependencies for compilation, including Transformers.js.
+Install `@huggingface/transformers@4.3.2` alongside the package only when using `/minilm`. Built tarball installs for core-only usage omit the optional peer. Git/source builds install development dependencies for compilation, including Transformers.js.
 
-The CLI is the exception: when the runtime is missing from its resolution scope (for example `npx` or a global install), it installs the pinned version into `~/.cache/provena/runtime` and passes the loaded namespace to `MiniLMEmbedder` through the `runtime` option. Library hosts still own installation, placement and disposal of the runtime.
+The CLI is the exception: when the pinned runtime is missing from its resolution scope (for example `npx` or a global install), it installs that version into `~/.cache/provena/runtime` and passes the loaded namespace to `MiniLMEmbedder` through the `runtime` option. Library hosts still own installation, placement and disposal of the runtime.
 
 ```ts
 import { MiniLMEmbedder } from '@theleumas/provena/minilm';
@@ -115,7 +140,7 @@ No runtime/model load occurs on import or construction. The first nonempty call 
 
 The default model is `Xenova/all-MiniLM-L6-v2` at `751bff37182d3f1213fa05d7196b954e230abad9`, using 384-dimensional normalized mean-pooled embeddings. Custom model IDs/paths require an explicit revision and compatible 384-dimensional output. Model/revision, dtype/device, runtime/adapter behavior, pooling/normalization and tokenizer policy participate in identity. Batch size, cache location and `localFilesOnly` do not. Mutable revisions such as `main` weaken reproducibility. The default tokenizer truncates beyond 512 tokens.
 
-`cacheDir` is a cache location, not an offline promise. `localFilesOnly` forwards `local_files_only`; Transformers.js 4.2.0 tokenizer metadata discovery does not forward that option, revision or cache location on every request. Thus a Hub ID may still trigger remote metadata discovery even with populated cached files and `localFilesOnly: true`. Do not use that flag alone to promise zero network access.
+`cacheDir` is a cache location, not an offline promise. `localFilesOnly` forwards `local_files_only`; Transformers.js 4.3.2 tokenizer metadata discovery still does not forward that option, revision or cache location on every request. Thus a Hub ID may still trigger remote metadata discovery even with populated cached files and `localFilesOnly: true`. Do not use that flag alone to promise zero network access.
 
 ## Strict offline: host-staged assets
 
@@ -130,7 +155,7 @@ The host provisions model assets before entering offline mode and ensures their 
     └── onnx/model.onnx
 ```
 
-Other dtype choices require their corresponding ONNX assets. The host may copy the verified pinned cache assets into this deployment layout as a provisioning step; the adapter never copies or downloads staged files itself. A populated revision-specific Hub cache has a different role and is not sufficient by itself for strict offline Hub-ID resolution in 4.2.0.
+Other dtype choices require their corresponding ONNX assets. The host may copy the verified pinned cache assets into this deployment layout as a provisioning step; the adapter never copies or downloads staged files itself. A populated revision-specific Hub cache has a different role and is not sufficient by itself for strict offline Hub-ID resolution in 4.3.2.
 
 ```ts
 // HOST bootstrap, before constructing/using any models in this runtime realm.
@@ -168,7 +193,7 @@ Start with [maintained examples](../examples/README.md): `core.mjs` exercises le
 
 The installed-package browser harness bundles the installed core example into a Chrome page and module worker, with no Node globals or Transformers peer. Its storage is memory-backed to prove the contract; it is not a durable IndexedDB implementation. The separate MiniLM worker test uses `device: 'wasm'`, fp32, `env.backends.onnx.wasm.numThreads = 1`, host-served backend assets and local model URLs, with remote models disabled and external requests blocked. It validates embeddings, semantic retrieval and disposal. All these settings are host test bootstrap, never adapter/core side effects. No WebGPU or cross-browser certification is claimed.
 
-The browser test serves assets over loopback HTTP. Zero external requests differs from zero browser fetches: local URLs still need a server or host-managed offline cache. Node staged-local acceptance retains its stronger zero-fetch observation. Hub cache-only offline remains unsupported under Transformers.js 4.2.0; `localFilesOnly` is not a guarantee.
+The browser test serves assets over loopback HTTP. Zero external requests differs from zero browser fetches: local URLs still need a server or host-managed offline cache. Node staged-local acceptance retains its stronger zero-fetch observation. Hub cache-only offline remains unsupported under Transformers.js 4.3.2; `localFilesOnly` is not a guarantee.
 
 Before broader deployment, choose a retrieval mode for the workload and treat candidates as unverified evidence. Historical retrieval evaluations found high-similarity near misses and noisy lexical interference; unchanged hybrid defaults are a compromise. Exact wide-scope search becomes expensive at tens of thousands of candidates on the measured laptop. Filters and host-controlled workers help scope cost; no threshold, ANN, mode router or new host adapter is included.
 

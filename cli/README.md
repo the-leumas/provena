@@ -26,15 +26,15 @@ Pick `lexical` (the default, with no model needed) for exact terms, names and id
 from the text.
 
 Semantic, hybrid and `--compare` use `Xenova/all-MiniLM-L6-v2` through the optional
-`@huggingface/transformers@4.2.0` runtime. If that package is not already resolvable, the CLI
-installs the pinned version once into `~/.cache/provena/runtime` (override with `--runtime-dir`
+`@huggingface/transformers@4.3.2` runtime. If that package is not already resolvable at the pinned
+version, the CLI installs it once into `~/.cache/provena/runtime` (override with `--runtime-dir`
 or `$PROVENA_RUNTIME_DIR`) and reuses it. This is what makes the bare
 `npx @theleumas/provena@beta --mode semantic` command work without installing the peer into the
 npx temporary directory. The runtime download includes Transformers.js and its native backends
 (several hundred megabytes on a typical install) and is separate from the model cache.
 `--no-install` or `$PROVENA_NO_INSTALL=1` disables automatic installation; install it yourself
-with `npm i @huggingface/transformers@4.2.0` in a project, or
-`npm i -g @huggingface/transformers@4.2.0` for a global CLI.
+with `npm i @huggingface/transformers@4.3.2` in a project, or
+`npm i -g @huggingface/transformers@4.3.2` for a global CLI.
 
 On first semantic use the model is **downloaded and cached**; later runs verify the pinned
 bytes and reuse the cache.

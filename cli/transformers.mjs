@@ -9,7 +9,7 @@ import { homedir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
-export const TRANSFORMERS_VERSION = '4.2.0';
+export const TRANSFORMERS_VERSION = '4.3.2';
 const PACKAGE = '@huggingface/transformers';
 
 export function defaultRuntimeDir(env = process.env) {
@@ -38,6 +38,10 @@ function packageEntry(manifest) {
 export async function importTransformers(runtimeDir) {
   const packageDir = join(runtimeDir, 'node_modules', PACKAGE);
   const manifest = JSON.parse(await readFile(join(packageDir, 'package.json'), 'utf8'));
+  if (manifest.version !== TRANSFORMERS_VERSION) {
+    throw Object.assign(new Error(`Expected managed ${PACKAGE}@${TRANSFORMERS_VERSION}, found ${manifest.version ?? 'unknown'}`),
+      { code: 'ERR_PROVENA_RUNTIME_VERSION' });
+  }
   const entry = packageEntry(manifest);
   if (!entry) throw new Error(`The managed ${PACKAGE} package has no import entry`);
   return import(pathToFileURL(join(packageDir, entry)).href);
@@ -101,6 +105,10 @@ function notFound(error) {
   return error?.code === 'ERR_MODULE_NOT_FOUND' || error?.code === 'ENOENT';
 }
 
+function replaceable(error) {
+  return notFound(error) || error?.code === 'ERR_PROVENA_RUNTIME_VERSION';
+}
+
 export async function loadTransformers({
   runtimeDir = defaultRuntimeDir(),
   install = true,
@@ -108,11 +116,15 @@ export async function loadTransformers({
   resolvePackage = () => import(PACKAGE),
   installer = installTransformers,
 } = {}) {
-  try { return { runtime: await resolvePackage(), source: 'resolved', runtimeDir: null }; }
-  catch (error) { if (!notFound(error)) throw error; }
+  try {
+    const runtime = await resolvePackage();
+    if (!runtime?.env?.version || runtime.env.version === TRANSFORMERS_VERSION) {
+      return { runtime, source: 'resolved', runtimeDir: null };
+    }
+  } catch (error) { if (!notFound(error)) throw error; }
 
   try { return { runtime: await importTransformers(runtimeDir), source: 'managed', runtimeDir }; }
-  catch (error) { if (!notFound(error)) throw error; }
+  catch (error) { if (!replaceable(error)) throw error; }
 
   if (!install) throw new Error(manualInstallMessage(runtimeDir, { install: false }));
   notify();

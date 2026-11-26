@@ -30,3 +30,7 @@ Hosts may share a model between engines and must dispose it explicitly. Mutable 
 ## Documentation policy
 
 Every implementation change and accepted behavioral/architectural decision must update the relevant repository docs and README in the same work. Use ADRs for durable choices and general docs for current behavior. Local planning files are supplementary, ignored, and never the sole record of decisions or guarantees.
+
+## Runtime pin amendment: Transformers.js 4.3.2 (2026-11-26)
+
+The pinned optional peer, development dependency and CLI managed runtime advance from `@huggingface/transformers@4.2.0` to `4.3.2` to resolve transitive `sharp` and `onnxruntime-node` advisories. `MiniLMEmbedder.id` records `runtime: "4.3.2"`, so persisted snapshots reconcile and rebuild vectors under the existing compatibility check while preserving reusable passages. Upstream `get_tokenizer_files` remains unoptioned in `4.3.2`, so the host-staged strict offline contract and Hub-cache-only limitation remain unchanged.

@@ -70,7 +70,7 @@ test('demo: non-interactive progress announces a one-time runtime install once',
   const progress = createProgress({ width: 88, color: false, showcase: false }, stream);
   progress.update({ phase: 'runtime-install' });
   progress.update({ phase: 'runtime-install' });
-  assert.match(text, /Installing @huggingface\/transformers@4\.2\.0 \(one-time\)/);
+  assert.match(text, /Installing @huggingface\/transformers@4\.3\.2 \(one-time\)/);
   assert.equal((text.match(/Installing/g) ?? []).length, 1);
 });
 
