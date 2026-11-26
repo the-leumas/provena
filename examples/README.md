@@ -4,10 +4,12 @@ These files use public package exports. They are included in the tarball as read
 
 ```sh
 node --input-type=module -e "import { exerciseCore } from './examples/core.mjs'; console.log(await exerciseCore());"
+node --input-type=module -e "import { verifyProvenanceWorkflow } from './examples/provenance.mjs'; console.log(await verifyProvenanceWorkflow());"
 ```
 
 - `evidence.mjs`: `retrieveUnassessedEvidence(engine, request)` preserves candidate evidence and reports `retrieved`/`no-results`, always with `answerability: 'not-assessed'`. Errors/abort reject; `indexChangedDuringSearch` reports only observed index revision overlap, never source freshness. This envelope is an example-local choice, not a public package contract.
 - `core.mjs`: lexical-only indexing; custom SearchSource, memory-only IndexStorage, toy injected Embedder; semantic/hybrid retrieval, cache and restart checks. The two-topic vectors demonstrate plumbing and are not a production semantic model.
+- `provenance.mjs`: `verifyProvenanceWorkflow()` and `readCitedLines(source, result)` register an extra file extension on `FileTypeRegistry` + `ParserRegistry`, filter by source tags and extensions, reopen the cited document to verify 1-based line ranges against the indexed snippet, and exercise revision-based incremental refresh.
 - `filesystem.mjs`: `searchFolder(approvedRoot, indexFilename, query)` uses explicit host paths and atomic Node storage. Create the index parent first; keep it outside indexed roots.
 - `minilm.mjs`: `searchWithMiniLM(source, storage, query, options)` manages one concrete model lifetime. First inference may download files. Strict local deployments configure Transformers.js globals in host bootstrap before using this function; see integration docs.
 

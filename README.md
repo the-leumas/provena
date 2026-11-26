@@ -193,33 +193,57 @@ See the [CLI guide](cli/README.md).
 ## Sources, filters, and sessions
 
 ```js
+import { createSearchSession } from '@theleumas/provena';
+
 // Source-scoped search
 await engine.search({ query: 'error', sources: ['code', 'docs'] });
 
-// Tag/metadata filters (catalog tags come from frontmatter or source metadata)
-await engine.search({ query: 'config', tags: ['production'], extensions: ['.yaml', '.yml'] });
+// Tag and extension filters (catalog tags come from frontmatter or source metadata)
+await engine.search({
+  query: 'config',
+  filters: { tags: ['production'], extensions: ['.yaml', '.yml'] },
+});
 
-// Cached search session (bounded, auto-invalidates on index change)
-const session = createSearchSession(engine, { maxEntries: 64 });
+// Cached search session (bounded FIFO capacity, auto-invalidates on index revision change)
+const session = createSearchSession(engine, 64);
 const hits = await session.search({ query: 'retry logic', mode: 'hybrid' });
 ```
 
 ## File types and parser registry
 
-The `FileTypeRegistry` maps extensions/languages to parsers. Built-in:
-- Markdown (`.md`, `.mdx`, `.markdown`) — headings, sections, wiki/Markdown links
-- Plain text (`.txt`, `.text`) — line-preserving
-- Code (`.ts`, `.js`, `.py`, `.rs`, `.go`, `.java`, …) — language detection via extension
+`FileTypeRegistry` maps file extensions to built-in or custom parsers:
+- Markdown (`.md`) — ATX/setext headings, sections, frontmatter, wiki and Markdown links
+- Plain text (`.txt`) — line-preserving text
+- Code (`.ts`, `.tsx`, `.js`, `.jsx`, `.mjs`, `.cjs`, `.py`, `.rs`, `.go`, `.java`, `.c`, `.cpp`, `.sh`, `.sql`, …) — language detection via extension
+- Structured configuration (`.json`, `.yaml`, `.yml`, `.toml`) — line-preserving text without requiring strict syntax validity
 
-Extend or override at engine construction:
+Extend `FILE_TYPES` and supply a versioned `ParserRegistry` at engine construction:
 
 ```js
-import { FileTypeRegistry, defaultFileTypes, isSupportedFile } from '@theleumas/provena';
+import {
+  FILE_TYPES,
+  FileTypeRegistry,
+  ParserRegistry,
+  SemanticSearchEngine,
+} from '@theleumas/provena';
 
-const customRegistry = new FileTypeRegistry({
-  ...defaultFileTypes,
-  '.myfmt': { parserId: 'custom', language: 'myfmt' },
-});
+const fileTypes = new FileTypeRegistry([
+  ...FILE_TYPES,
+  {
+    extensions: ['.mdx'],
+    kind: 'document',
+    language: 'mdx',
+    parserId: 'markdown',
+    indexable: true,
+    structureAware: true,
+    textFallback: true,
+    mimeTypes: ['text/mdx'],
+    maxBytes: 2 * 1024 * 1024,
+  },
+]);
+
+const parsers = new ParserRegistry(undefined, fileTypes, 'mdx-markdown-v1');
+const engine = new SemanticSearchEngine({ parsers });
 ```
 
 ## Persistence and embedding reuse

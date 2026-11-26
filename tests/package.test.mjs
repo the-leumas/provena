@@ -61,18 +61,28 @@ const minilm = new MiniLMEmbedder();
 await minilm.embedQuery('missing optional peer').then(() => { throw new Error('Peer unexpectedly available'); }, error => { if (!error.message.includes('Install @huggingface/transformers@4.3.2')) throw error; });
 await minilm.dispose();`;
   execFileSync(process.execPath, ['--input-type=module', '-e', script], { cwd: temp });
-  await writeFile(join(temp, 'consumer.mts'), `import { SemanticSearchEngine, type SearchSource, type Embedder, type IndexStorage, type SearchMode } from '@theleumas/provena';
+  await writeFile(join(temp, 'consumer.mts'), `import {
+  SemanticSearchEngine, createSearchSession, FILE_TYPES, FileTypeRegistry, ParserRegistry,
+  type SearchSource, type Embedder, type IndexStorage, type SearchMode,
+} from '@theleumas/provena';
 import { FileSystemFolderSource, FileIndexStorage } from '@theleumas/provena/filesystem';
 import { MiniLMEmbedder } from '@theleumas/provena/minilm';
 const optional: Embedder = new MiniLMEmbedder({ device: 'wasm', batchSize: 2 });
-const source: SearchSource = new FileSystemFolderSource({ id: 'x', root: '/explicit' });
+const fileTypes = new FileTypeRegistry([
+  ...FILE_TYPES,
+  { extensions: ['.mdx'], kind: 'document', language: 'mdx', parserId: 'markdown', indexable: true, structureAware: true, textFallback: true, mimeTypes: ['text/mdx'], maxBytes: 2 * 1024 * 1024 },
+]);
+const parsers = new ParserRegistry(undefined, fileTypes, 'mdx-markdown-v1');
+const source: SearchSource = new FileSystemFolderSource({ id: 'x', root: '/explicit', fileTypes });
 const storage: IndexStorage = new FileIndexStorage('/explicit/index.json');
 const embedder: Embedder = { id: 'test-config', dimensions: 2,
   async embedDocuments(texts) { return texts.map(() => new Float32Array(2)); },
   async embedQuery() { return new Float32Array(2); } };
-const engine = new SemanticSearchEngine({ storage, embedder }); engine.addSource(source);
+const engine = new SemanticSearchEngine({ parsers, storage, embedder }); engine.addSource(source);
 const mode: SearchMode = 'hybrid';
-const results = await engine.search({ query: 'symbol', mode }); results[0]?.chunkId;
+const session = createSearchSession(engine, 64);
+const results = await session.search({ query: 'symbol', mode, sources: ['x'], filters: { tags: ['production'], extensions: ['.mdx'] } });
+results[0]?.chunkId;
 `);
   execFileSync(process.execPath, [join(root, 'node_modules/typescript/bin/tsc'), '--strict', '--skipLibCheck', '--noEmit', '--target', 'ES2022', '--module', 'NodeNext', join(temp, 'consumer.mts')], { cwd: temp, stdio: 'pipe' });
   const manifest = JSON.parse(await readFile(join(temp, 'node_modules/@theleumas/provena/package.json'), 'utf8'));
@@ -84,6 +94,9 @@ const results = await engine.search({ query: 'symbol', mode }); results[0]?.chun
     const { searchWithMiniLM } = await import('./node_modules/@theleumas/provena/examples/minilm.mjs');
     const hits = await searchWithMiniLM({ id: 'empty', type: 'test', async list() { return []; }, async read() { throw new Error('No documents'); } }, undefined, 'test');
     if (hits.length) throw new Error('Empty MiniLM example failed');
+    const { verifyProvenanceWorkflow } = await import('./node_modules/@theleumas/provena/examples/provenance.mjs');
+    const workflow = await verifyProvenanceWorkflow();
+    if (workflow.verifiedUri !== 'handbook://runbooks/failover.mdx' || workflow.reusedOnRefresh !== 1) throw new Error('Provenance example failed');
   `], { cwd: temp, stdio: 'pipe' });
   assert.equal(manifest.peerDependencies['@huggingface/transformers'], '4.3.2');
   assert.equal(manifest.peerDependenciesMeta['@huggingface/transformers'].optional, true);

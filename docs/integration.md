@@ -30,6 +30,31 @@ The root must be explicitly approved/configured by the host. Do not register arb
 
 Implement `SearchSource` for any explicitly configured document collection. IDs are unique within a source and every listed document must carry that source's ID. Add a `DocumentParser` to a `ParserRegistry`; for extra text formats, pass an extended `FileTypeRegistry` to both the parser registry and the filesystem adapter. Default built-in parsers use the configured registry, including its language metadata. When supplying a built-in parser instance explicitly, construct it with the same registry (for example `new CodeParser(fileTypes)`). Use `new SemanticSearchEngine({ parsers })`. The shared registry provides parser selection and admission policy rather than competing extension arrays. Unknown files are rejected unless explicitly registered.
 
+```ts
+import { FILE_TYPES, FileTypeRegistry, ParserRegistry, SemanticSearchEngine } from '@theleumas/provena';
+import { FileSystemFolderSource } from '@theleumas/provena/filesystem';
+
+const fileTypes = new FileTypeRegistry([
+  ...FILE_TYPES,
+  {
+    extensions: ['.mdx'],
+    kind: 'document',
+    language: 'mdx',
+    parserId: 'markdown',
+    indexable: true,
+    structureAware: true,
+    textFallback: true,
+    mimeTypes: ['text/mdx'],
+    maxBytes: 2 * 1024 * 1024,
+  },
+]);
+
+const parsers = new ParserRegistry(undefined, fileTypes, 'mdx-markdown-v1');
+const engine = new SemanticSearchEngine({ parsers });
+engine.addSource(new FileSystemFolderSource({ id: 'docs', root: configuredAbsoluteRoot, fileTypes }));
+await engine.initialize();
+```
+
 ## Optional storage and embedding
 
 ```ts
