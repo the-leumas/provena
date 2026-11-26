@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.1.0-beta.3 (2026-11-26)
+
+- Upgraded the pinned `@huggingface/transformers` optional peer, dev dependency, and managed
+  CLI runtime from `4.2.0` to `4.3.2`.
+- Managed CLI runtimes cached under `~/.cache/provena/runtime` now automatically upgrade when
+  an older pinned version is detected.
+- Cleaned up `allowScripts` in `package.json` to deny `onnxruntime-node@1.30.0` lifecycle
+  scripts under the updated runtime dependency graph.
+- Fixed `SearchRequest.filters`, `createSearchSession`, and `FileTypeRegistry` /
+  `ParserRegistry` usage examples in `README.md` and `docs/integration.md`, added a runnable
+  end-to-end provenance example (`examples/provenance.mjs`) and custom-parser integration
+  examples, and extended tarball packaging tests to typecheck and execute them.
+- Refreshed real-MiniLM retrieval, evidence-sufficiency, and exact-search scale baselines in
+  `docs/evaluation.md` for candidate-scoped IDF lexical weighting and
+  `@huggingface/transformers@4.3.2`.
+
 ## 0.1.0-beta.2 (2026-11-03)
 
 - Semantic and hybrid CLI modes now work from `npx`, global and project installs without
