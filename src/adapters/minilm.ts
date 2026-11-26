@@ -3,7 +3,7 @@ import type { Embedder, OperationOptions } from '../contracts.js';
 
 export const MINILM_DEFAULT_MODEL = 'Xenova/all-MiniLM-L6-v2';
 export const MINILM_DEFAULT_REVISION = '751bff37182d3f1213fa05d7196b954e230abad9';
-const RUNTIME_VERSION = '4.2.0';
+const RUNTIME_VERSION = '4.3.2';
 export interface MiniLMEmbedderOptions {
   /** Custom/local model must produce 384-dimensional sentence embeddings; supply its revision explicitly. */
   model?: string;
@@ -15,7 +15,7 @@ export interface MiniLMEmbedderOptions {
   /** Node default is cpu. Browser/worker hosts select wasm or supported webgpu explicitly. */
   device?: 'cpu' | 'wasm' | 'webgpu';
   dtype?: 'fp32' | 'fp16' | 'q8';
-  /** Forwarded to Transformers.js; Hub-ID metadata probes in 4.2.0 may still access the network.
+  /** Forwarded to Transformers.js; Hub-ID metadata probes in 4.3.2 may still access the network.
    * Strict offline operation requires host-staged assets and host env.allowRemoteModels=false.
    */
   localFilesOnly?: boolean;
@@ -75,7 +75,7 @@ export class MiniLMEmbedder implements Embedder {
             ...('total' in event ? { total: event.total } : {}),
           }) } : {}),
         };
-        // Avoid factory preflight; the 4.2.0 tokenizer still probes unversioned metadata.
+        // Avoid factory preflight; the 4.3.2 tokenizer still probes unversioned metadata.
         // Strict offline hosts stage local assets and configure the runtime globally (see integration docs).
         const tokenizer = await runtime.AutoTokenizer.from_pretrained(this.model, loading);
         this.check(options);

@@ -38,7 +38,7 @@ if (mode === 'hub-cache-only') {
   const model = new MiniLMEmbedder(options); let failure;
   try { await model.embedQuery('known limitation probe'); } catch (error) { failure = error; }
   finally { await model.dispose(); await rm(temporary, { recursive: true, force: true }); }
-  assert.ok(failure, 'The documented 4.2.0 cache-only limitation changed; review the loading matrix');
+  assert.ok(failure, 'The documented 4.3.2 cache-only limitation changed; review the loading matrix');
   assert.match(failure.cause?.message ?? '', /tokenizer_class/, 'Unexpected failure must not be classified as the known cache-only limitation');
   assert.equal(networkAttempts, 0);
   console.log(JSON.stringify({ mode, status: 'known-unsupported', reproduced: true, networkAttempts,

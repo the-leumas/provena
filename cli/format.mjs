@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import { stat, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { defaultFileTypes } from '@theleumas/provena';
+import { TRANSFORMERS_VERSION } from './transformers.mjs';
 
 const segmenter = new Intl.Segmenter('en', { granularity: 'grapheme' });
 const controls = /[\u0000-\u001f\u007f-\u009f\u202a-\u202e\u2066-\u2069]/g;
@@ -183,7 +184,7 @@ export function createProgress(options, stream = process.stderr) {
       update(event) {
         if (event.phase === 'runtime-install' && !announced) {
           announced = true;
-          stream.write('Installing @huggingface/transformers@4.2.0 (one-time) ...\n');
+          stream.write(`Installing @huggingface/transformers@${TRANSFORMERS_VERSION} (one-time) ...\n`);
         }
       },
       stop() {},

@@ -58,7 +58,7 @@ import { FileSystemFolderSource, FileIndexStorage } from '@theleumas/provena/fil
 import { MiniLMEmbedder } from '@theleumas/provena/minilm';
 if (!isSupportedFile('x.ts') || !new SemanticSearchEngine() || typeof FileSystemFolderSource !== 'function' || typeof FileIndexStorage !== 'function') throw new Error('bad exports');
 const minilm = new MiniLMEmbedder();
-await minilm.embedQuery('missing optional peer').then(() => { throw new Error('Peer unexpectedly available'); }, error => { if (!error.message.includes('Install @huggingface/transformers@4.2.0')) throw error; });
+await minilm.embedQuery('missing optional peer').then(() => { throw new Error('Peer unexpectedly available'); }, error => { if (!error.message.includes('Install @huggingface/transformers@4.3.2')) throw error; });
 await minilm.dispose();`;
   execFileSync(process.execPath, ['--input-type=module', '-e', script], { cwd: temp });
   await writeFile(join(temp, 'consumer.mts'), `import { SemanticSearchEngine, type SearchSource, type Embedder, type IndexStorage, type SearchMode } from '@theleumas/provena';
@@ -85,13 +85,13 @@ const results = await engine.search({ query: 'symbol', mode }); results[0]?.chun
     const hits = await searchWithMiniLM({ id: 'empty', type: 'test', async list() { return []; }, async read() { throw new Error('No documents'); } }, undefined, 'test');
     if (hits.length) throw new Error('Empty MiniLM example failed');
   `], { cwd: temp, stdio: 'pipe' });
-  assert.equal(manifest.peerDependencies['@huggingface/transformers'], '4.2.0');
+  assert.equal(manifest.peerDependencies['@huggingface/transformers'], '4.3.2');
   assert.equal(manifest.peerDependenciesMeta['@huggingface/transformers'].optional, true);
   await mkdir(join(temp, 'node_modules/@huggingface'), { recursive: true });
   await symlink(join(root, 'node_modules/@huggingface/transformers'), join(temp, 'node_modules/@huggingface/transformers'), 'dir');
   execFileSync(process.execPath, ['--input-type=module', '-e', `
     import { MiniLMEmbedder } from '@theleumas/provena/minilm';
     import { env } from '@huggingface/transformers';
-    if (env.version !== '4.2.0' || new MiniLMEmbedder().dimensions !== 384) throw new Error('Optional runtime export failed');
+    if (env.version !== '4.3.2' || new MiniLMEmbedder().dimensions !== 384) throw new Error('Optional runtime export failed');
   `], { cwd: temp, stdio: 'pipe' });
 });
