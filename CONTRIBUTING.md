@@ -27,7 +27,7 @@ Current contracts are in [API](docs/api.md); the [roadmap](ROADMAP.md) describes
 
 ## Releases
 
-Releases are published to npm from GitHub Actions via [`.github/workflows/release.yml`](.github/workflows/release.yml) using npm Trusted Publishing (OIDC provenance, no long-lived `NPM_TOKEN` secret):
+Releases are published to npm from GitHub Actions via `.github/workflows/release.yml` using npm Trusted Publishing (OIDC provenance, no long-lived `NPM_TOKEN` secret):
 
 1. Update `package.json`, `package-lock.json`, and `CHANGELOG.md` in a pull request against `main`, and verify CI is green before merging.
 2. Create and push an annotated or lightweight version tag matching `package.json`'s `version` (for example, `git tag v0.1.0-beta.3 && git push origin v0.1.0-beta.3`).
